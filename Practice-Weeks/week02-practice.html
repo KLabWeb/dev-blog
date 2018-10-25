@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta author="cryptolain">
+    <meta title="Test Page">
+    <meta description="Test page for testing various html workings.">
+    <link rel="shortcut icon" href="../Favicons/html5-original.svg" type="image/x-icon">
+</head>
+
+<body>
+  <header><img srcset="../Images/header-414w.jpg 414w, ../Images/header-800w.jpg 800w, ../Images/header-1362w.jpg 1362, ../Images/header-1916w.jpg 1916w"
+               sizes="(max-width: 414px) 410px,  (max-width: 800px) 770px, (max-width: 1362px) 1332px,, 1886px"
+               src="../Images/header-1916w.jpg" alt="Site header image">
+  </header>
+  
+    <section>
+        <h2>Captioned Image Inside Figure</h2>
+        <figure>
+            <img src=../Images/figure.jpg height="400" width="554">
+            <figcaption>"<em>They trust me — dumb fucks</em>," Mark Zuckerberg</figcaption>
+        </figure>
+    </section>
+
+    <section>
+        <h2>Video with Autoplay &#40;muted&#41; & Buffer</h2>
+        <video controls muted autoplay preload="auto">
+            <source src="../Videos/pure-moods.webm" type="video/webm">
+            <source src="../Videos/pure-moods.mp4" type="video/mp4">
+            <p>Your browser does not support HTML5 video. Video links:<a href="../Videos/pure-moods.webm" title="download webm">pure-moods.webm</a>, <a href="../Videos/pure-moods.mp4" title="download mp4">pure-moods.mp4</a></p>
+        </video>
+    </section>
+
+    <section>
+        <h2>Video with splash screen</h2>
+        <video controls poster="../Images/conform.jpg">
+            <source src="../Videos/glasses.webm" type="video/webm">
+            <source src="../Videos/glasses.mp4" type="video/mp4">
+            <p>Your browser does not support HTML5 video. Video links:<a href="../Videos/glasses.webm" title="download webm">glasses.webm</a>, <a href="../Videos/glasses.mp4" title="download mp4">glasses.mp4</a></p>
+        </video>
+    </section>
+
+    <section>
+        <h2>Audio - <em>Ständchen</em> by Franz Schubert (Listz), played by Horowitz</h2>
+        <audio id="standAudio" controls src="../Audio/Standchen.mp3">
+            <p>Your browser does not support HTML audio. Audio link: <a href="../Audio/Standchen.mp3" title="download mp3">Standchen.mp3</a></p>
+        </audio>
+    </section>
+
+    <section>
+      <h2>Embedded video</h2>
+      <iframe
+        width="560" height="315"
+        src="https://www.youtube.com/embed/4Z3csK9fPso"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen>
+      </iframe>
+    </section>
+
+    <section>
+      <h2>Embedded map - more tracking for my site...replace this and youtube later</h2>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d190256.09899053493!2d-87.87204678837578!3d41.83364784998598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e2c3cd0f4cbed%3A0xafe0a6ad09c0c000!2sChicago%2C+IL!5e0!3m2!1sen!2sus!4v1540350084000"
+        width="600" height="450"
+        frameborder="0"
+        style="border:0"
+        allowfullscreen>
+      </iframe>
+    </section>
+
+    <section>
+      <h2>Vector Graphic by &lt;img&gt; Ref</h2>
+        <img src="../Images/banana.svg" width="560" height="315" alt="banana vector graphic">  <!--Creative commons image from https://www.freevector.com/banana-leaf-outline-background-29624#-->
+    </section>
+
+    <section>
+      <h2>Vector Graphic via inline SVG</h2>
+      <svg width="560" height="315">
+          <rect width="100%" height="100%" fill="red" />
+          <rect width="50%" height="100%" fill="black" />
+      </svg>
+    </section>
+</body>
+
+</html>

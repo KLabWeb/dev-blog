@@ -6,7 +6,7 @@
     <meta author="cryptolain">
     <meta title="Test Page">
     <meta description="Test page for testing various html workings.">
-    <link rel="shortcut icon" href="blog.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../Favicons/html5-original.svg" type="image/x-icon">
 </head>
 
 <body>
@@ -28,7 +28,7 @@
 
     <h2>Local Image Using Relative URL</h2>
     <a href="https://boards.4chan.org/c/" target="_blank" title="Local image linked to /c/">
-        <img src="moe.jpg" alt="Local image liked to /c/" width="255" height="388">
+        <img src="../Images/moe.jpg" alt="Local image liked to /c/" width="255" height="388">
     </a>
 
     <h2>Description List</h2>
@@ -36,21 +36,21 @@
         <dt><b>absolute url</b></dt>
         <dd>Always points to same location. Ex. https://example.com/files/pdfs/pdf-read.pdf</dd>
         <dt><b>relative url</b></dt>
-        <dd>Don’t need to include the full url/filepath, depending on where file linking to is located in relation to file linking from.</dd> 
-	      <dd> Example: pdf-list.html is in folder /example/files/pdfs. Relative link calling pdf-read.pdf in 	same folder would be: href=pdf-read.pdf, not href=example/files/pdfs/pdf-read.pdf</dd>
+        <dd>Don’t need to include the full url/filepath, depending on where file linking to is located in relation to file linking from.</dd>
+        <dd> Example: pdf-list.html is in folder /example/files/pdfs. Relative link calling pdf-read.pdf in same folder would be: href=pdf-read.pdf, not href=example/files/pdfs/pdf-read.pdf</dd>
     </dl>
 
     <h2>Citations</h2>
-    <blockquote cite=https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Advanced_text_formatting>
-        <p> Citations can be done with blockqoutes. This paragraph is cited to MDN Docs. Note that it is tabbed.</p>
+    <blockquote cite=https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Advanced_text_formatting> <p> Citations can be done with blockqoutes. This paragraph is cited to MDN Docs. Note that it is tabbed.</p>
     </blockquote>
-    <p>They can also be cited inline. <q cite="https://www.w3.org/TR/2017/REC-html52-20171214/grouping-content.html#the-blockquote-element">This scentence is cited to the W3C manual.</q> Note the quotation marks. Of course, unless you view the page source, mod your css, or write a script, you won't see the ciations.</p>
+    <p>They can also be cited inline. <q cite="https://www.w3.org/TR/2017/REC-html52-20171214/grouping-content.html#the-blockquote-element">This scentence is cited to the W3C manual.</q> Note the quotation marks. Of course, unless you view the page
+        source, mod your css, or write a script, you won't see the ciations.</p>
 
     <h2>Abbreviation</h2>
     <p>Here is an abbriviation: <abbr title="tfw 32 year old boomer">tfw</abbr>. Hover your mouse over it to read expand it.</p>
 
     <h2>Subscript & Superscript</h2>
-    <p>Subscript: C<sub>8</sub>H<sub>10</sub>N<sub>4</sub>O<sub>2</sub><br>Superscript: November 24<sup>th</sup></p>   
+    <p>Subscript: C<sub>8</sub>H<sub>10</sub>N<sub>4</sub>O<sub>2</sub><br>Superscript: November 24<sup>th</sup></p>
 
     <h2>Marking Code</h2>
     <pre><code>
@@ -68,4 +68,5 @@
     <p>Lots of ways to mark dates and times. This is marked <time datetime="2018-10-20"><i>2018-10-20</i></time>.This is marked <time datetime="21:00:05.12"><i>21:00:05.12</i></time>. View page src to verify.</p>
 
 </body>
+
 </html>
