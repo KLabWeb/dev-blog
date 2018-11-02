@@ -1,0 +1,11 @@
+#nav-links, a {
+    color: #cccccc
+}
+
+body { background-color: #1e1e1e; }
+
+h1 { color: #f602ff;}
+
+ul, ol, p { color: #999999; }
+
+h2, h3, b, .study-topic { color: #32DD72;}

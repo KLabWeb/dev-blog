@@ -1,0 +1,8 @@
+#video-dubs {
+    position: fixed;
+    min-width: 63%;
+    min-height: 63%;
+    right: 18.5%;
+    left: 18.5%
+    bottom: 0;
+}

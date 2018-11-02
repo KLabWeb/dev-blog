@@ -1,0 +1,311 @@
+body {background-color: #1E1E1E;}
+
+a { color: #CCCCCC}
+
+#nav-links {
+    color: #999999;
+}
+
+h2 {
+     color: #32DD72;
+}
+
+#attr-selector-p {
+    color: #999999;
+}
+
+/*simple selector & group of selectors styling*/
+body {
+    color: #999999;
+}
+
+/*conditional at-rule styling*/
+@media(min-width: 100px){
+    #at-first {
+        color: red;
+    }
+}
+@media(min-width: 5000px){
+    #at-second {
+        color: red;
+    }
+}
+
+/*class selector & id stylings*/
+.heavy {
+    font-weight: bold;
+}
+.shocking {
+    color: red;
+}
+#y-paragraph {
+    color: yellow;
+}
+
+/*book list styled via presence, value, & substring value selectors*/
+[book-type="fiction"]{
+    color: red;
+}
+[book-type="non-fiction"]{
+    color: yellow;
+}
+[book-type="textbook"]{
+    color: #7fdd57;
+}
+[cover-color|="hard"]{
+    background-color: black;
+}
+[cover-color*="soft"]{
+    background-color: purple;
+}
+[cover-color$="brown"]{
+    font-weight: bold;
+}
+[title-start~="The"]{
+    text-decoration: underline;
+}
+[title-start~="the"]{
+    text-decoration: underline;
+}
+[media="book"] {
+    font-style: italic;
+}
+.colA {
+    background-color: black;
+}
+.colB {
+    background-color: #0b2727;
+}
+
+/*pseudo class selector styling*/
+#spooky {
+    color: black;
+    background-color: orange;
+}
+#spooky:hover {
+    color: orange;
+    background-color: black;
+}
+#beatz:visited {
+    color:red;
+}
+
+/*pseudo element selector styling*/
+#pseudo {
+    color: #999999;
+}
+#pseudo::first-line {
+    color: red;
+    background-color: black;
+}
+#pseudo::first-letter {
+    font-size: 150%;
+    background-color: black;
+}
+#pseudo::after{
+    content: " ( ・ω・)";
+    color: #7fdd57;
+}
+
+/*Descendant combinator*/
+#book-table tr td {
+    color: #999999;
+}
+/*Child combinator*/
+#book-table tr > th {
+    color: #7fdd57;
+}
+/*Adjacent sibling combinator*/
+#book-table th + td {
+    color: red;
+}
+/*General sibling combinator*/
+#book-table th ~ td {
+    font-size: 115%;
+}
+
+/*Size video based on viewport size*/
+.spill-video {
+    display: block;
+    margin: 0 auto;
+}
+#spill {
+    width: 50vw;
+}
+#spill2 {
+    width: 35vw;
+}
+#spill3 {
+    width: 24.5vw;
+}
+#spill4 {
+    width: 17.15vw;
+}
+
+/*Font size set based on relative em & rem values*/
+html {
+    font-size: 16px;
+}
+#fig-em {
+    font-size: 19px;
+}
+#img-em {
+    height: 25em;
+    width: 18em;
+}
+#img-rem {
+    height: 25rem;
+    width: 18rem;
+}
+
+/*Percent based resizing of an image and font*/
+#img-fixed{
+    height: 400px;
+    width: 424px;
+}
+#img-percent{
+    height: 23.58%;
+    width: 25%;
+}
+#resizing-text{
+    font-size: 20px;
+}
+#p-fixed-font{
+    font-size: 20px;
+}
+#p-percent-font{
+    font-size: 120%;
+}
+
+/*color definition via various specifications*/
+#color-keyword{
+    color: red;
+}
+#color-hex{
+    color: #ff0000;
+}
+#color-rgb{
+    color: rgb(255, 0, 0);
+}
+#color-hsl{
+    color: hsl(0, 100%, 50%);
+}
+#color-rgba{
+    color: rgb(255, 0, 0, .4);
+}
+#color-hsla{
+    color: hsl(0, 100%, 50%, .4);
+}
+#color-opacity{
+    color: red;
+    opacity: .4;
+}
+
+/*setting inheritance on properties*/
+#inherit-list{
+    color: #f602ff;
+}
+#li-inherit{
+    color: inherit;
+}
+#li-initial{
+    color: initial;
+
+}
+#li-unset{
+    color: unset;
+}
+#li-revert{
+    color: revert;
+}
+
+/*The box model*/
+.side-box {
+    style: float;
+    height: 40vh;
+    width: 20vw;
+    border-style: solid;
+    border-color: black;
+}
+#box-image-l{             /*use vwh and vh on images so boxes size proportionally to viewport dimensions*/
+    padding: .5vw;
+    border-width: 5vw;
+    border-height: 5vw;
+    margin: 1vw;
+}
+#box-image-center{
+    height: 40vh;
+    width: 15vw;
+    style: float;
+    padding: 1vw;
+    border: 2vw solid #7fdd57;
+    border-radius: .5vw;
+    margin: 3.5vw 1vw 3.5vw 1vw;
+}
+#box-image-r{
+    padding: 4vw;
+    border-width: 1.5vw;
+    border-height: 1.5vw;
+    margin: 1vw;
+}
+#box-paragraph{             /*use em so box sizes proportionally to font size of paragraph*/
+    padding: 1em;
+    border: 1em solid #f602ff;
+    margin: 2em;
+}
+
+/*boxes handling overflowing content*/
+.overflow-p {
+    width: 900px;
+    height: 40px;
+    border: 20px solid black;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+#overflow-visible{
+    margin-bottom: 50px;
+    overflow: visible;
+}
+#overflow-auto{
+    overflow: auto;
+}
+#overflow-hidden{
+    overflow: hidden;
+}
+/**/
+.bg-img {
+    display: inline-block;
+    width: 15vw;
+    height: 15vw;
+    padding: 2vw;
+    border: 2vw solid rgba(127, 221, 87, .5);
+    margin: 1vw 3vw 1vw 3vw;
+    background-image: url("../Images/backgroundclip.png");
+    background-size: 24vw;
+    background-position: center;
+}
+#bg-border {
+    background-clip: border-box;
+}
+#bg-padding {
+    background-clip: padding-box;
+}
+#bg-content {
+    background-clip: content-box;
+}
+
+.block-display{
+    display: block;
+    border: .25em solid red;
+}
+.inline-display{
+    display: inline;
+    border: .25em solid black;
+    margin: 2em;
+}
+.inline-block-display{
+    display: inline-block;
+    border: .25em solid #f602ff;
+    padding: .75em;
+    margin-top: .5em;
+}
