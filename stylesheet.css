@@ -1,11 +1,76 @@
-#nav-links, a {
-    color: #cccccc
+html{
+    font-family: helvetica, arial, sans-serif;
+    font-size: 10px;
 }
 
-body { background-color: #1e1e1e; }
+body {
+    background-color: #1e1e1e;
+    color: #999999;
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
 
-h1 { color: #f602ff;}
+hr{
+    color: #999999;
+}
 
-ul, ol, p { color: #999999; }
+h1 {
+    color: #f602ff;
+}
 
-h2, h3, b, .study-topic { color: #32DD72;}
+h2, h3, b,  {
+    color: #32DD72;
+}
+
+a {
+    color: #CCCCCC;
+}
+a:visited {
+    color: #bb18c1;
+}
+a:hover, a:focus {
+    color: #32DD72;
+}
+
+header img {
+    display: block;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*index.html specific styling*/
+#intent, #roadmap-sections{
+    list-style-type: upper-roman;
+}
+#index-body h2{
+    color: #32DD72
+}
+
+/*study-weeks specific styling*/
+.study-day{
+    color: #32DD72;
+}
+
+/*roadmap specific styling*/
+#roadmap h4{
+    color: #32DD72;
+}
+#roadmap h2 {
+    color: #f602ff;
+}
+
+/*study-week/* specific styling*/
+#week-head{
+    display: block-inline;
+    height: 40px;
+    width: 40%;
+    margin: 0 auto;
+    background-color: black;
+    border-top: .25rem solid #f602ff;
+    border-bottom: .25rem solid #32DD72;
+    padding: 1.5rem;
+
+    color: #f602ff;
+    text-align: center;
+}

@@ -1,0 +1,32 @@
+.link-container {
+    color: #999999;
+    padding-bottom: 1rem;
+    list-style-type: none;
+}
+
+.link-container li {
+    display: inline;
+    margin-right: 5rem;
+    background-width: 1.5rem;
+}
+
+.link-container li a {
+    width: 16rem;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid #f602ff;
+    text-decoration: none;
+    background-color: #0a031d
+}
+
+a {
+    color: #CCCCCC;
+}
+
+a:visited {
+    color: #bb18c1;
+}
+
+a:hover, a:focus {
+    color: #32DD72;
+}

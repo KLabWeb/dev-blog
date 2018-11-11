@@ -1,20 +1,4 @@
-body {background-color: #1E1E1E;}
-
-a { color: #CCCCCC}
-
-#nav-links {
-    color: #999999;
-}
-
-h2 {
-     color: #32DD72;
-}
-
-#attr-selector-p {
-    color: #999999;
-}
-
-/*simple selector & group of selectors styling*/
+/*simple selector styling*/
 body {
     color: #999999;
 }
@@ -296,6 +280,7 @@ html {
 
 .block-display{
     display: block;
+
     border: .25em solid red;
 }
 .inline-display{
@@ -308,4 +293,17 @@ html {
     border: .25em solid #f602ff;
     padding: .75em;
     margin-top: .5em;
+}
+
+/*Text styling*/
+#fontA{
+    font-family: helvetica;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+#fontB{
+    font-family: serif;
+    font-size: 1.1rem;
+    text-decoration: underline overline;
+    color: rgba(127, 221, 87, .9);
 }
