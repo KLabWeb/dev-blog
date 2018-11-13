@@ -1,3 +1,8 @@
+/*global styling*/
+html, body{
+    margin: 0%;
+    height: 100%;
+}
 html{
     font-family: helvetica, arial, sans-serif;
     font-size: 10px;
@@ -18,7 +23,7 @@ h1 {
     color: #f602ff;
 }
 
-h2, h3, b,  {
+h2, h3, b  {
     color: #32DD72;
 }
 
@@ -32,19 +37,9 @@ a:hover, a:focus {
     color: #32DD72;
 }
 
-header img {
-    display: block;
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 /*index.html specific styling*/
 #intent, #roadmap-sections{
     list-style-type: upper-roman;
-}
-#index-body h2{
-    color: #32DD72
 }
 
 /*study-weeks specific styling*/
@@ -58,19 +53,4 @@ header img {
 }
 #roadmap h2 {
     color: #f602ff;
-}
-
-/*study-week/* specific styling*/
-#week-head{
-    display: block-inline;
-    height: 40px;
-    width: 40%;
-    margin: 0 auto;
-    background-color: black;
-    border-top: .25rem solid #f602ff;
-    border-bottom: .25rem solid #32DD72;
-    padding: 1.5rem;
-
-    color: #f602ff;
-    text-align: center;
 }

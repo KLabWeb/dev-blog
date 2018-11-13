@@ -1,37 +1,37 @@
 <!DOCTYPE html>
-<html lang="eng-US">
+<html lang="en-US">
 
 <head>
-    <meta chartset="utf-8">
-    <meta description="Lain's site for logging study work and testing various features.">
-    <meta author="cryptolain">
+    <meta charset="utf-8">
+    <meta name="author" content="cryptolain">
+    <meta name="description" content="Lain's site for logging study work and testing various features">
     <link rel="shortcut icon" href="Favicons/lain.ico" type="image/x-icon">
     <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="nav-buttons.css">
     <title>Lain's Study Site</title>
 </head>
 
 <body id="index-body">
 
-    <header>
+    <header id="head-main">
         <img srcset="../Images/header-414w.jpg 414w,
         Images/header-800w.jpg 800w,
-        Images/header-1362w.jpg 1362,
+        Images/header-1362w.jpg 1362w,
         Images/header-1916w.jpg 1916w" sizes="(max-width: 420px) 410px, (max-width: 800px) 770px, (max-width: 1362px) 1332px, 1886px"
-        src="Images/header-1916w.jpg" align="center" alt="Site header image">
+        src="Images/header-1916w.jpg" alt="Site header image">
     </header>
 
-    <nav>
-        <ul class="link-container">
+    <nav class="nav-v2">
+        <ul>
             <li><a href="index.html" title="Home">Home</a></li>
-            <li><a href="Study-Weeks/week04.html" title="Current Log">Current Log</a></li>
-            <li><a href="Practice-Weeks/week04-practice.html" title="Current Practice">Current Practice</a></li>
+            <li><a href="Study-Weeks/week05.html" title="Current Log">Current Log</a></li>
+            <li><a href="Practice-Weeks/week05-practice.html" title="Current Practice">Current Practice</a></li>
             <li><a href="roadmap.html#CSS-I" title="Current Topic">Current Topic</a></li>
 
             <li><a href="https://lainchan.org/" title="Lainchan" target="_blank">Lainchan</a></li>
             <li><a href="https://gondola.stravers.net/random" title="Gondolas" target="_blank">Gondolas</a>
         </ul>
-        <hr>
     </nav>
 
     <main>
@@ -43,6 +43,7 @@
         <hr>
         <h2>Study Log</h2>
         <ul>
+            <li><a href="Study-Weeks/week05.html" title="Week 04">Week 05 - 11-12-18 - CSS</a></li>
             <li><a href="Study-Weeks/week04.html" title="Week 04">Week 04 - 11-05-18 - CSS</a></li>
             <li><a href="Study-Weeks/week03.html" title="Week 03">Week 03 - 10-29-18 - CSS</a></li>
             <li><a href="Study-Weeks/week02.html" title="Week 02">Week 02 - 10-22-18 - HTML</a></li>
@@ -53,6 +54,7 @@
         <h2>Practice Work</h2>
         <p>The newer the week, the more complex and diverse the content, functionality, & styling</p>
         <ul>
+            <li><a href="Practice-Weeks/week05-practice.html" title="week 05 Practice Work">Week 05 - General practice</a></li>
             <li><a href="Practice-Weeks/tiles.html" title="Vanishing Tiles">Week 04 - Vanishing Puzzle Pieces Scene &#40;In Progress, started 11-10-18&#41;</a></li>
             <li><a href="Practice-Weeks/week04-practice.html" title="week 04 Practice Work">Week 04 - General practice</a></li>
             <li><a href="Practice-Weeks/week03-practice.html" title="week 03 Practice Work">Week 03 - General practice</a></li>
@@ -63,10 +65,12 @@
         <h2>Learning & Project Roadmap</h2>
         <ul>
             <li><a href="roadmap.html" title="Roadmap">Roadmap</a></li>
-            <ol id="roadmap-sections" reversed>
-                <li><a href="roadmap.html#CSS-I" title="CSS I">CSS I</a></li>
-                <li><a href="roadmap.html#HTML-I" title="HTML I">HTML I</a></li>
-            </ol>
+            <li>
+              <ol id="roadmap-sections" reversed>
+                  <li><a href="roadmap.html#CSS-I" title="CSS I">CSS I</a></li>
+                  <li><a href="roadmap.html#HTML-I" title="HTML I">HTML I</a></li>
+                </ol>
+            </li>
         </ul>
 
 
