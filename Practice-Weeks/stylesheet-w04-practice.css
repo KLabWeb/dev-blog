@@ -54,12 +54,6 @@ h2{
     letter-spacing: .05rem;
     word-spacing: .21rem;
 }
-#song-road{
-    display: float;
-    type: inline-block;
-    max-width: 50vw;
-    left: 0;
-}
 
 /*Styled Lists*/
 #frameworks-list {

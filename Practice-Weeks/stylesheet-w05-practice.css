@@ -1,0 +1,128 @@
+
+/*Bio flex styling*/
+#flex-one, #flex-two{
+    display: flex;
+    margin: 2.5% 5% 2.5% 5%;
+    font-weight: bold;
+    color: black;
+}
+#flex-one div, #flex-two div{
+    margin-left: 2rem;
+    margin-right: 2rem;
+    flex-flow: row wrap;
+    padding: 40px 50px;
+}
+#flexa{
+    background-color: #431c5d;
+    flex: 4;
+}
+#flexb{
+    background-color: #e6e9f0;
+    text-align: left;
+    flex: 6;
+}
+#flexc, #flexc, #flexe{
+    flex: 2;
+}
+#flexc{
+    background-color: #cdd422;
+}
+#flexd{
+    background-color: #e05915;
+}
+#flexe{
+    background-color: #c2dde6;
+}
+#flexa:hover{
+    background-color: #cdd422;
+    flex: 4;
+}
+#flexc:hover{
+    background-color: #c2dde6;
+}
+#flexd:hover{
+    background-color: #431c5d;
+}
+#flexe:hover{
+    background-color: #e05915;
+}
+#flexf{
+    background-color: #cdd422;
+    flex: 1;
+}
+#flexg{
+    background-color: #e6e9f0;
+    text-align: right;
+    flex: 1;
+}
+#flexh{
+    background-color: #c2dde6;
+    flex: 1;
+}
+#flexi{
+    background-color: #431c5d;
+    flex: 1;
+}
+#flexj{
+    background-color: #e05915;
+    flex: 10;
+}
+#flexf:hover{
+    background-color: #431c5d;
+}
+#flexh:hover{
+    background-color: #cdd422;
+}
+#flexi:hover{
+    background-color: #e05915;
+}
+#flexj:hover{
+    background-color: #c2dde6;
+}
+
+/*styled table in a two flex item flexbox*/
+#table-metro{
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+#table-metro thead{
+    text-align: center;
+}
+#table-metro thead, tfoot{
+    background-color: black;
+}
+#table-metro caption{
+    caption-side: bottom;
+    text-align: right;
+    font-style: italic;
+}
+#table-metro tbody tr:nth-child(odd){
+    background-color: #3a354a;
+}
+#table-metro tbody tr:nth-child(even){
+    background-color: #221c33;
+}
+#table-metro thead th:nth-child(1), #table-metro thead th:nth-child(2), thead th:nth-child(3){
+    width: 10%;
+}
+#table-metro , #table-metro thead th:nth-child(4), #table-metro thead th:nth-child(5){
+    width: 35%%;
+}
+#table-metro th, td{
+    padding: 3px;
+}
+#table-metro tfoot{
+    text-align: right;
+}
+
+/*video for two flex item flexbox*/
+#flex-two-slab{
+    margin-left: 6%;
+    margin-right: 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#flex-two-slab video:active, #flex-two-slab video:focus {
+   outline: none;
+}
