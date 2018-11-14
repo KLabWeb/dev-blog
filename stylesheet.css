@@ -70,13 +70,13 @@ footer{
 }
 .index body{
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(12, 1fr);
     grid-template-areas:
-        "header header header header header header"
-        "nav nav nav nav nav nav"
-        "sec love study study practice practice"
-        "sec love roadmap roadmap notes notes"
-        "foot foot foot foot foot foot";
+        "header header header header header header header header header header header header"
+        "nav nav nav nav nav nav nav nav nav nav nav nav"
+        "sec sec love love study study study study practice practice practice practice"
+        "sec sec love love roadmap roadmap roadmap roadmap notes notes notes notes"
+        "foot foot foot foot foot foot foot foot foot foot foot foot";
     grid-column-gap: 40px;
     text-align: center;
 }
@@ -94,11 +94,15 @@ footer{
     grid-area: sec;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
     margin-left: 40px;
 }
 #love{
     grid-area: love;
+}
+#love img{
+    max-width: 100%;
+    height: auto;
 }
 #study-log{
     grid-area: study;
@@ -115,15 +119,36 @@ footer{
 #practice-work, #notes{
     margin-right: 40px;
 }
+#eyes{
+    display: none;
+}
 .index footer{
     grid-area: foot;
 }
 
+
 @media (max-width: 900px) {
     .index body{
+        grid-template-areas:
+            "header header header header header header header header header header header header"
+            "nav nav nav nav nav nav nav nav nav nav nav nav"
+            "sec sec sec sec study study study study practice practice practice practice"
+            "eyes eyes eyes eyes roadmap roadmap roadmap roadmap notes notes notes notes"
+            "foot foot foot foot foot foot foot foot foot foot foot foot";
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: space-between;
+    }
+    #eyes{
+        display: block;
+    }
+    #eyes img{
+        max-height: 300px;
+        width: auto;
+    }
+    #love{
+        display: none;
     }
     .index body header{
         flex: 3;
@@ -131,11 +156,36 @@ footer{
     .index body nav{
         flex: 1;
     }
-    #intent-sec, #love, #study-log, #practice-work, #roadmap-sec, #notes, #practice-work{
+    #intent-sec, #eyes, #study-log, #practice-work, #roadmap-sec, #notes, #practice-work{
         flex: 1;
-        margin: 40px 0 0 0;
+        margin: 40px 10vw 0 10vw;
+
     }
     .index footer{
         flex: 1;
     }
+}
+@media (max-width: 1744px) {
+    .index body{
+        grid-template-areas:
+            "header header header header header header header header header header header header"
+            "nav nav nav nav nav nav nav nav nav nav nav nav"
+            "sec sec sec sec study study study study practice practice practice practice"
+            "roadmap roadmap roadmap roadmap eyes eyes eyes eyes notes notes notes notes"
+            "foot foot foot foot foot foot foot foot foot foot foot foot";
+        }
+        #love{
+            display: none;
+        }
+        #eyes{
+            display: block;
+            grid-area: eyes;
+        }
+        #eyes img{
+            max-width: 100%;
+            max-height: 200px;
+        }
+        #roadmap-sec{
+            margin-left: 40px;
+        }
 }

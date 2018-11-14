@@ -211,7 +211,8 @@ h2{
     margin-bottom:.3rem;
 }
 
-@media (max-width: 710px) {
+/*Leaving unresponsize, as one intent is to show progress over weeks*/
+/*@media (max-width: 710px) {
     body{
         display: flex;
         flex-direction: column;
@@ -248,4 +249,4 @@ h2{
         height: 60vw;
         width: 60vw;
     }
-}
+}*/
