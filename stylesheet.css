@@ -1,7 +1,6 @@
 /*global styling*/
 html, body{
     margin: 0%;
-    height: 100%;
 }
 html{
     font-family: helvetica, arial, sans-serif;
@@ -13,14 +12,16 @@ body{
     font-size: 1.6rem;
     line-height: 1.5;
 }
-h1, h2, h3{
+h1, h2, h3, a:hover, a:focus{
     color: #32DD72;
 }
 a{
     color: #CCCCCC;
 }
-a:hover, a:focus{
-    color: #32DD72;
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /*index.html specific styling*/
@@ -35,23 +36,31 @@ a:hover, a:focus{
 #head-flex h1{
     font-family: "exo_2bold";
     font-size: 4rem;
-    line-height: 3.7rem;
 }
 /*study-weeks specific styling*/
 .study-day{
     color: #32DD72;
 }
-
-
 /*roadmap specific styling*/
 #roadmap h4{
     color: #32DD72;
 }
 #roadmap h2 {
-    color: #f602ff;
+    color: #e05915;
 }
-
-
+#roadmap main ul {
+    padding-left: 2rem;
+    list-style-type: none;
+}
+#roadmap main ul li{
+    padding-left: 1.3rem;
+}
+#roadmap main ul li:not(.embedded-list){
+    background-image: url(Favicons/lainbear.png);
+    background-size: 1.2rem 1.2rem;
+    background-repeat: no-repeat;
+    background-position: left top;
+}
 
 /*index-2*/
 .index ul, .index ol{
@@ -79,8 +88,6 @@ a:hover, a:focus{
 }
 .index section{
     margin-bottom: 40px;
-}
-.index section:not(#love){
     background-color: black;
 }
 #intent-sec{
@@ -98,15 +105,37 @@ a:hover, a:focus{
 }
 #practice-work{
     grid-area: practice;
-    margin-right: 40px;
 }
 #roadmap-sec{
     grid-area: roadmap;
 }
 #notes{
     grid-area: notes;
-    margin-right:40px;
+}
+#practice-work, #notes{
+    margin-right: 40px;
 }
 .index footer{
     grid-area: foot;
+}
+
+@media (max-width: 900px) {
+    .index body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .index body header{
+        flex: 3;
+    }
+    .index body nav{
+        flex: 1;
+    }
+    #intent-sec, #love, #study-log, #practice-work, #roadmap-sec, #notes, #practice-work{
+        flex: 1;
+        margin: 40px 0 0 0;
+    }
+    .index footer{
+        flex: 1;
+    }
 }

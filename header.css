@@ -1,4 +1,26 @@
-/*v1 global header - now just landing site*/
+/*site header v2*/
+.header-v2{
+    text-align: center;
+    background: url("Images/header-alt.gif");
+    background-size: 100%;
+    padding: 8px;
+}
+.header-v2 h1{
+    color: white;
+}
+
+/*landing specific mods*/
+#head-flex{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    background: url("Images/header-alt.gif");
+    background-size: 100%;
+}
+
+
+/*v1 global header - Depricated on week 05*/
 #head-main img {
     display: block;
     height:  108px;
@@ -10,7 +32,7 @@
     border-right : 2px;
 }
 
-/*study-week specific styling - deprecated after week 04*/
+/*study-week specific styling - deprecated on week 05*/
 #week-head{
     height: 40px;
     width: 40%;
@@ -22,24 +44,4 @@
 
     color: #f602ff;
     text-align: center;
-}
-
-/*header sans landing v2*/
-.header-v2{
-    text-align: center;
-    color: white;
-    background: url("Images/header-alt.gif");
-    background-size: 100%;
-    padding: 8px;
-}
-.header-v2 h1{
-    color: white;
-}
-/*landing specific mods*/
-#head-flex{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    background: url("Images/header-alt.gif");
-    background-size: 100%;
 }

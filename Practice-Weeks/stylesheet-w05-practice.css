@@ -78,7 +78,7 @@
 #flexj:hover{
     background-color: #c2dde6;
 }
-
+#flex-one, #flex-two, #table-metro
 /*styled table in a two flex item flexbox*/
 #table-metro{
     table-layout: fixed;
@@ -119,17 +119,31 @@
     margin-left: 6%;
     margin-right: 6%;
     display: flex;
-    flex-flow: row wrap;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }
-#flex-two-slab video{
-    width: 100%
+#flex-two-slab #flex-clownvideo video{
+    width: 100%;
+    flex: 1;
+}
+#flex-two-slab #styled-table table{
+    flex 1;
 }
 #flex-two-slab video:active, #flex-two-slab video:focus {
    outline: none;
 }
+@media (max-width: 1090px) {
+    #flex-two-slab{
+        flex-direction: column;
+        align-items: center;
+    }
+    #flex-one, #flex-two, #styled-table #flex-clownvideo{
+        margin-top: 40px 0 0 0;
+    }
+}
 
+}
 /*Flex John Titor box*/
 #flex-report{
     display: flex;
