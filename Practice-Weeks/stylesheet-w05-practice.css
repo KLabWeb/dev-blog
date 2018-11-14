@@ -129,3 +129,97 @@
 #flex-two-slab video:active, #flex-two-slab video:focus {
    outline: none;
 }
+
+/*Flex John Titor box*/
+#flex-report{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+#flex-report div{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    align-self: center;
+    align-items: center;
+    flex: 2;
+}
+#flex-report p{
+    color: #e6e9f0;
+    text-align: center;
+    font-style: italic;
+    margin-left: 6%;
+    margin-right: 6%;
+}
+#flex-report p:first-child{
+    align-self: flex-start;
+    margin-top: 0;
+}
+#flex-report p:last-child{
+    align-self: flex-end;
+    margin-bottom: 0;
+}
+#flex-report img{
+    height: 200px;
+    width: 400px;
+    margin: 0;
+}
+#flex-report p, flex-report img{
+    flex: 1;
+}
+
+/*Basic Grid Styling*/
+#auto-grid-section{
+    margin: 2.5% 12% 2.5% 12%;
+    background-image: url(../Images/bluescreen.gif);
+    background-size: 100%;
+}
+#auto-grid{
+    display: grid;
+    grid-template-columns: repeat(8, minmax(30px, 1fr));
+}
+#auto-grid div, span{
+    background: center/100%;
+}
+#auto-grid div:nth-child(1){
+    grid-row: 1;
+    grid-column: 1 / 5;
+    background-image: url(../Images/grid-glitch-a.gif);
+}
+#auto-grid div:nth-child(5){
+    grid-row: 1;
+    grid-column: 8;
+    background-image: url(../Images/grid-glitch-e.gif);
+}
+
+#auto-grid div:nth-child(3){
+    grid-row: 2;
+    grid-column: 5 / 8;
+    background-image: url(../Images/grid-glitch-c.gif);
+
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+#auto-grid #inner-div span{
+    flex: 1;
+}
+#auto-grid div:nth-child(2){
+    grid-row: 3;
+    grid-column: 1 / 5;
+    background-image: url(../Images/grid-glitch-b.gif);
+}
+#auto-grid div:nth-child(4){
+    grid-row: 3;
+    grid-column: 6 / 9;
+    background-image: url(../Images/grid-glitch-d.gif);
+}
+#auto-grid img{
+    width: 100%;
+    height: 100%;
+    filter: opacity(0%);
+}
+#auto-grid img:hover, #auto-grid span img{
+    filter: opacity(100%);
+}

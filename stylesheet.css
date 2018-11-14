@@ -7,45 +7,41 @@ html{
     font-family: helvetica, arial, sans-serif;
     font-size: 10px;
 }
-
-body {
+body{
     background-color: #1e1e1e;
     color: #999999;
     font-size: 1.6rem;
     line-height: 1.5;
 }
-
-hr{
-    color: #999999;
-}
-
-h1 {
-    color: #f602ff;
-}
-
-h2, h3, b  {
+h1, h2, h3{
     color: #32DD72;
 }
-
-a {
+a{
     color: #CCCCCC;
 }
-a:visited {
-    color: #bb18c1;
-}
-a:hover, a:focus {
+a:hover, a:focus{
     color: #32DD72;
 }
 
 /*index.html specific styling*/
-#intent, #roadmap-sections{
-    list-style-type: upper-roman;
+@font-face {
+    font-family: 'exo_2bold';
+    src: url('./Fonts/exo2-bold-webfont.woff2') format('woff2'),
+         url('./Fonts/exo2-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
+#head-flex h1{
+    font-family: "exo_2bold";
+    font-size: 4rem;
+    line-height: 3.7rem;
+}
 /*study-weeks specific styling*/
 .study-day{
     color: #32DD72;
 }
+
 
 /*roadmap specific styling*/
 #roadmap h4{
@@ -53,4 +49,64 @@ a:hover, a:focus {
 }
 #roadmap h2 {
     color: #f602ff;
+}
+
+
+
+/*index-2*/
+.index ul, .index ol{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.index body{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas:
+        "header header header header header header"
+        "nav nav nav nav nav nav"
+        "sec love study study practice practice"
+        "sec love roadmap roadmap notes notes"
+        "foot foot foot foot foot foot";
+    grid-column-gap: 40px;
+    text-align: center;
+}
+.index header{
+    grid-area: header;
+}
+.index nav{
+    grid-area: nav;
+}
+.index section{
+    margin-bottom: 40px;
+}
+.index section:not(#love){
+    background-color: black;
+}
+#intent-sec{
+    grid-area: sec;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 40px;
+}
+#love{
+    grid-area: love;
+}
+#study-log{
+    grid-area: study;
+}
+#practice-work{
+    grid-area: practice;
+    margin-right: 40px;
+}
+#roadmap-sec{
+    grid-area: roadmap;
+}
+#notes{
+    grid-area: notes;
+    margin-right:40px;
+}
+.index footer{
+    grid-area: foot;
 }

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-US" class="index">
 
 <head>
     <meta charset="utf-8">
     <meta name="author" content="cryptolain">
     <meta name="description" content="Lain's site for logging study work and testing various features">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="Favicons/lain.ico" type="image/x-icon">
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="stylesheet" href="header.css">
@@ -14,12 +15,21 @@
 
 <body id="index-body">
 
-    <header id="head-main">
+    <!--original header-->
+    <!--<header id="head-main">
         <img srcset="../Images/header-414w.jpg 414w,
         Images/header-800w.jpg 800w,
         Images/header-1362w.jpg 1362w,
         Images/header-1916w.jpg 1916w" sizes="(max-width: 420px) 410px, (max-width: 800px) 770px, (max-width: 1362px) 1332px, 1886px"
         src="Images/header-1916w.jpg" alt="Site header image">
+    </header>-->
+
+    <header class="header-v2">
+        <div id="head-flex">
+            <h1>LAIN IS LOVE</h1>
+            <h1>LET'S ALL LOVE LAIN</h1>
+            <h1>LAIN IS LOVE</h1>
+        </div>
     </header>
 
     <nav class="nav-v2">
@@ -34,13 +44,17 @@
         </ul>
     </nav>
 
-    <main>
-        <h1>Lain's Study Site Intent</h1>
-        <ol id="intent">
-            <li>To log my studies for personal time tracking and study roadmap organization.</li>
-            <li>To host sample and practice work. The further I get, the more diverse, styled, responsive, interactive, and funtional the site will become. Practice work is to be ordered chronologically, to show progression easier. Projects will also be hosted on this site &#40;and <a href="https://github.com/cryptolain?tab=repositories" title="Lain's Github" target="_blank">my Github</a>&#41;</li>
-        </ol>
-        <hr>
+    <section id="intent-sec">
+        <h1 id="intent-head">Lain's Study Site Intent</h1>
+        <p>To log my studies for personal time tracking and study roadmap organization.</p>
+        <p>To host sample and practice work. The further I get, the more diverse, styled, responsive, interactive, and funtional the site will become. Practice work is to be ordered chronologically, to show progression easier. Projects will also be hosted on this site &#40;and <a href="https://github.com/cryptolain?tab=repositories" title="Lain's Github" target="_blank">my Github</a>&#41;</p>
+    </section>
+
+    <section id="love">
+      <img src="Images/loveLain.gif" alt="lets all love lain"></img>
+    </section>
+
+    <section id="study-log">
         <h2>Study Log</h2>
         <ul>
             <li><a href="Study-Weeks/week05.html" title="Week 04">Week 05 - 11-12-18 - CSS</a></li>
@@ -50,30 +64,34 @@
             <li><a href="Study-Weeks/week01.html" title="Week 01">Week 01 - 10-15-18 - OS Setup, i3wm, Study Roadmap, Text Editors, Git, HTML</a></li>
             <!--<li><a href="Study-Weeks/week0.html" title="Week 00">Week 00 - 10-11-18 - Linux OS Setup</a></li>-->
         </ul>
+    </section>
 
+    <section id="practice-work">
         <h2>Practice Work</h2>
         <p>The newer the week, the more complex and diverse the content, functionality, & styling</p>
         <ul>
             <li><a href="Practice-Weeks/week05-practice.html" title="week 05 Practice Work">Week 05 - General practice</a></li>
-            <li><a href="Practice-Weeks/tiles.html" title="Vanishing Tiles">Week 04 - Vanishing Puzzle Pieces Scene &#40;In Progress, started 11-10-18&#41;</a></li>
             <li><a href="Practice-Weeks/week04-practice.html" title="week 04 Practice Work">Week 04 - General practice</a></li>
             <li><a href="Practice-Weeks/week03-practice.html" title="week 03 Practice Work">Week 03 - General practice</a></li>
             <li><a href="Practice-Weeks/week02-practice.html" title="Week 02 Practice Work>">Week 02 - General Practice</a></li>
             <li><a href="Practice-Weeks/week01-practice.html" title="Week 01 Practice Work">Week 01 - General Practice</a></li>
         </ul>
+    </section>
 
+    <section id="roadmap-sec">
         <h2>Learning & Project Roadmap</h2>
         <ul>
             <li><a href="roadmap.html" title="Roadmap">Roadmap</a></li>
             <li>
-              <ol id="roadmap-sections" reversed>
-                  <li><a href="roadmap.html#CSS-I" title="CSS I">CSS I</a></li>
-                  <li><a href="roadmap.html#HTML-I" title="HTML I">HTML I</a></li>
+                <ol id="roadmap-sections" reversed>
+                    <li><a href="roadmap.html#CSS-I" title="CSS I">CSS I</a></li>
+                    <li><a href="roadmap.html#HTML-I" title="HTML I">HTML I</a></li>
                 </ol>
             </li>
         </ul>
+    </section>
 
-
+    <section id="notes">
         <h2>Notes &#40;in PDF&#41;</h2>
         <ul>
             <li><a href="Notes/CSS3-I.pdf" title="CSS3 I Notes in PDF">CSS3 I</a></li>
@@ -81,8 +99,7 @@
         </ul>
         <p><i>Note: these notes are simply my personal notes as a novice to web dev. Please excuse spelling &amp; grammar mistakes or an occasional minor inaccuracy.</i></p>
         <br>
-        <hr>
-    </main>
+    </section>
 
     <footer>
         <h3>Contact Me</h3>

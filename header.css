@@ -30,8 +30,16 @@
     color: white;
     background: url("Images/header-alt.gif");
     background-size: 100%;
-    padding: 30px;
-    border-left : 2px;
-    border-right : 2px;
-    margin: 0;
+    padding: 8px;
+}
+.header-v2 h1{
+    color: white;
+}
+/*landing specific mods*/
+#head-flex{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    background: url("Images/header-alt.gif");
+    background-size: 100%;
 }
