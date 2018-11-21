@@ -1,9 +1,9 @@
 /*Nav styling*/
 .nav-v2{
     margin-bottom: 38px;
+    width: 100vw;
 }
 .nav-v2 ul{
-    width: 100vw;
     display: flex;
     flex-flow: row wrap;
     align-items: stretch;
@@ -16,7 +16,7 @@
     flex: 1;
     text-align: center;
     background-color: #32DD72;
-    margin-bottom: 2px;
+    border-bottom: 2px solid #1e1e1e;
 }
 .nav-v2 ul li:not(:first-child), #nav-v2 ul li:not(:last-child){
     border-left: 1px solid #1e1e1e;
@@ -42,7 +42,11 @@
 .nav-v2 ul li a:hover, a:focus{
     text-decoration: underline;
 }
-
+/*Sticky Nav*/
+.nav-v2{
+    position: sticky;
+    top: 0;
+}
 
 
 /*Depricated .link-container Styling*/

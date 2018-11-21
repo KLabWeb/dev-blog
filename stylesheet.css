@@ -41,6 +41,10 @@ footer{
 .study-day{
     color: #32DD72;
 }
+.study-week ul{
+    margin-right: 5%;
+}
+
 /*roadmap specific styling*/
 #roadmap h4{
     color: #32DD72;
@@ -70,13 +74,20 @@ footer{
 }
 .index body{
     display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "main"
+        "foot";
+}
+.index main{
+    display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-areas:
-        "header header header header header header header header header header header header"
-        "nav nav nav nav nav nav nav nav nav nav nav nav"
         "sec sec love love study study study study practice practice practice practice"
-        "sec sec love love roadmap roadmap roadmap roadmap notes notes notes notes"
-        "foot foot foot foot foot foot foot foot foot foot foot foot";
+        "sec sec love love roadmap roadmap roadmap roadmap notes notes notes notes";
     grid-column-gap: 40px;
     text-align: center;
 }
@@ -85,6 +96,12 @@ footer{
 }
 .index nav{
     grid-area: nav;
+}
+.index main{
+    grid-area: main;
+}
+.index footer{
+    grid-area: foot;
 }
 .index section{
     margin-bottom: 40px;
@@ -122,19 +139,28 @@ footer{
 #eyes{
     display: none;
 }
-.index footer{
-    grid-area: foot;
+@media (max-width: 1744px){
+.index main{
+    grid-template-areas:
+        "sec sec sec sec study study study study practice practice practice practice"
+        "roadmap roadmap roadmap roadmap eyes eyes eyes eyes notes notes notes notes"
 }
-
-
+#love{
+    display: none;
+}
+#eyes{
+    display: block;
+    grid-area: eyes;
+}
+#eyes img{
+    max-width: 100%;
+    max-height: 200px;
+}
+#roadmap-sec{
+    margin-left: 40px;
+}
 @media (max-width: 900px) {
-    .index body{
-        grid-template-areas:
-            "header header header header header header header header header header header header"
-            "nav nav nav nav nav nav nav nav nav nav nav nav"
-            "sec sec sec sec study study study study practice practice practice practice"
-            "eyes eyes eyes eyes roadmap roadmap roadmap roadmap notes notes notes notes"
-            "foot foot foot foot foot foot foot foot foot foot foot foot";
+    .index body, .index main{
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -153,39 +179,10 @@ footer{
     .index body header{
         flex: 3;
     }
-    .index body nav{
+    .index body nav, .index footer, .index main > section{
         flex: 1;
     }
-    #intent-sec, #eyes, #study-log, #practice-work, #roadmap-sec, #notes, #practice-work{
-        flex: 1;
+    .index main > section{
         margin: 40px 10vw 0 10vw;
-
     }
-    .index footer{
-        flex: 1;
-    }
-}
-@media (max-width: 1744px) {
-    .index body{
-        grid-template-areas:
-            "header header header header header header header header header header header header"
-            "nav nav nav nav nav nav nav nav nav nav nav nav"
-            "sec sec sec sec study study study study practice practice practice practice"
-            "roadmap roadmap roadmap roadmap eyes eyes eyes eyes notes notes notes notes"
-            "foot foot foot foot foot foot foot foot foot foot foot foot";
-        }
-        #love{
-            display: none;
-        }
-        #eyes{
-            display: block;
-            grid-area: eyes;
-        }
-        #eyes img{
-            max-width: 100%;
-            max-height: 200px;
-        }
-        #roadmap-sec{
-            margin-left: 40px;
-        }
 }

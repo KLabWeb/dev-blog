@@ -16,143 +16,193 @@
 </head>
 
 <body>
+    <div id="sticky-header-nav">
+      <header class="header-v2">
+          <h1>Week 05 General Practice</h1>
+      </header>
 
-    <header class="header-v2">
-        <h1>Week 05 General Practice</h1>
-    </header>
-
-    <nav class="nav-v2">
-        <ul>
-            <li><a href="../index.html" title="Home">Home</a></li>
-            <li><a href="../Study-Weeks/week05.html" title="Current Log">Current Log</a></li>
-            <li><a href="../Practice-Weeks/week04-practice.html" title="Current Practice">Previous Practice</a></li>
-            <li><a href="../roadmap.html#CSS-I" title="Current Topic">Current Topic</a></li>
-            <li><a href="../Notes/HTML-I.pdf" title="HTML I Notes">HTML I Notes</a></li>
-            <li><a href="../Notes/CSS3-I.pdf" title="CSS I Notes">CSS I Notes</a></li>
-            <li><a href="https://lainchan.org/" title="Lainchan" target="_blank">Lainchan</a></li>
-            <li><a href="https://gondola.stravers.net/random" title="Gondolas" target="_blank">Gondolas</a>
-        </ul>
-    </nav>
+      <nav class="nav-v2">
+          <ul>
+              <li><a href="../index.html" title="Home">Home</a></li>
+              <li><a href="../Study-Weeks/week05.html" title="Current Log">Current Log</a></li>
+              <li><a href="../Practice-Weeks/week04-practice.html" title="Current Practice">Previous Practice</a></li>
+              <li><a href="../roadmap.html#CSS-I" title="Current Topic">Current Topic</a></li>
+              <li><a href="../Notes/HTML-I.pdf" title="HTML I Notes">HTML I Notes</a></li>
+              <li><a href="../Notes/CSS3-I.pdf" title="CSS I Notes">CSS I Notes</a></li>
+              <li><a href="https://lainchan.org/" title="Lainchan" target="_blank">Lainchan</a></li>
+              <li><a href="https://gondola.stravers.net/random" title="Gondolas" target="_blank">Gondolas</a>
+          </ul>
+      </nav>
+    </div>
 
     <main>
 
-    <section id="flex-one">
-      <div id="flexa"></div>
-      <div id="flexb"><span>FLEXBOX</span></div>
-      <div id="flexc"></div>
-      <div id="flexd"></div>
-      <div id="flexe"></div>
-    </section>
+      <section id="flex-one">
+        <div id="flexa"></div>
+        <div id="flexb"><span>FLEXBOX</span></div>
+        <div id="flexc"></div>
+        <div id="flexd"></div>
+        <div id="flexe"></div>
+      </section>
 
-    <div id="flex-two-slab">
-        <section id="styled-table">
-            <table id="table-metro">
-                <thead>
+      <div id="flex-two-slab">
+          <section id="styled-table">
+              <table id="table-metro">
+                  <thead>
+                      <tr>
+                          <th scope="col">Date</th>
+                          <th scope="col">Day</th>
+                          <th scope="col">Clowns Involved</th>
+                          <th scope="col">Number Killed</th>
+                          <th scope="col">Notes</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <th scope="row">11/07/18</th>
+                          <td>Weds</td>
+                          <td>3</td>
+                          <td>Family of 5 in corn maze</td>
+                          <td></td>
+                      </tr>
+                      <tr>
+                          <th scope="row">11/10/18</th>
+                          <td>Sat</td>
+                          <td>6</td>
+                          <td>Two groups of teenagers</td>
+                          <td>Also one mime involved</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">11/14/18</th>
+                          <td>Weds</td>
+                          <td>3</td>
+                          <td>Elderly couple for walk in park</td>
+                          <td></td>
+                      </tr>
+                      <tr>
+                          <th scope="row">11/15/18</th>
+                          <td>Thurs</td>
+                          <td>8</td>
+                          <td>Aprox 73 adults, in haunted house over month</td>
+                          <td>Largest mass clown killing since Sept 2014</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">11/16/18</th>
+                          <td>Fri</td>
+                          <td>4</td>
+                          <td>No comment</td>
+                          <td></td>
+                      </tr>
+                  </tbody>
+                  <tfoot>
                     <tr>
-                        <th scope="col">Date</th>
-                        <th scope="col">Day</th>
-                        <th scope="col">Clowns Involved</th>
-                        <th scope="col">Number Killed</th>
-                        <th scope="col">Notes</th>
+                      <th scope="row" colspan="5"><i>*Data updated biweekly</i></th>
                     </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">11/07/18</th>
-                        <td>Weds</td>
-                        <td>3</td>
-                        <td>Family of 5 in corn maze</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">11/10/18</th>
-                        <td>Sat</td>
-                        <td>6</td>
-                        <td>Two groups of teenagers</td>
-                        <td>Also one mime involved</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">11/14/18</th>
-                        <td>Weds</td>
-                        <td>3</td>
-                        <td>Elderly couple for walk in park</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">11/15/18</th>
-                        <td>Thurs</td>
-                        <td>8</td>
-                        <td>Aprox 73 adults, in haunted house over month</td>
-                        <td>Largest mass clown killing since Sept 2014</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">11/16/18</th>
-                        <td>Fri</td>
-                        <td>4</td>
-                        <td>No comment</td>
-                        <td></td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                  <tr>
-                    <th scope="row" colspan="5"><i>*Data updated biweekly</i></th>
-                  </tr>
-                </tfoot>
-            </table>
-        </section>
+                  </tfoot>
+              </table>
+          </section>
 
-        <section id="flex-clownvideo">
-            <video autoplay loop>
-              <source src="../Videos/clowntown.webm" type="video/webm">
-              <source src="../Videos/clowntown.mp4" type="video/mp4">
-            </video>
-        </section>
-    </div>
-
-    <section id="flex-two">
-      <div id="flexf"></div>
-      <div id="flexg"><span>ROWS</span></div>
-      <div id="flexh"></div>
-      <div id="flexi"></div>
-      <div id="flexj"></div>
-    </section>
-
-
-    <section id="flex-report">
-      <p>Greetings. I am a time traveler from the year 2036. I am on my way home after getting an IBM 5100 computer system from the year 1975.<br><br>My “time” machine is a stationary mass, temporal displacement unit manufactured by General Electric. The unit is powered by two, top-spin, dual-positive singularities that produce a standard, off-set Tipler sinusoid.<br><br>I will be happy to post pictures of the unit.</p>
-      <div>
-        <img src="../Images/john.gif" alt="flex-titor-face">
-        <img src="../Images/timemachine.jpg" alt="flex-titor-time-machine">
+          <section id="flex-clownvideo">
+              <video autoplay loop>
+                <source src="../Videos/clowntown.webm" type="video/webm">
+                <source src="../Videos/clowntown.mp4" type="video/mp4">
+              </video>
+          </section>
       </div>
-      <p>Within limits, I’m confident my anonymity is secure. The various email and web accounts I have do not have a big sign that says “Time Machine This Way!”. In order to be at risk I would have to be believed. In my experience, evil may be powerful, but they aren’t very bright.</p>
-    </section>
 
-    <section id="auto-grid-section">
-      <div id="auto-grid">
-        <div></div>
-        <div></div>
-        <div id="inner-div">
-          <span><img src="../Images/grid-glitch-c.gif" alt="cover tile"></span>
-          <span><img src="../Images/grid-glitch-c.gif" alt="cover tile"></span>
-          <span><img src="../Images/grid-glitch-c.gif" alt="cover tile"></span>
+      <section id="flex-two">
+        <div id="flexf"></div>
+        <div id="flexg"><span>ROWS</span></div>
+        <div id="flexh"></div>
+        <div id="flexi"></div>
+        <div id="flexj"></div>
+      </section>
+
+
+      <section id="flex-report">
+        <p>Greetings. I am a time traveler from the year 2036. I am on my way home after getting an IBM 5100 computer system from the year 1975.<br><br>My “time” machine is a stationary mass, temporal displacement unit manufactured by General Electric. The unit is powered by two, top-spin, dual-positive singularities that produce a standard, off-set Tipler sinusoid.<br><br>I will be happy to post pictures of the unit.</p>
+        <div>
+          <img src="../Images/john.gif" alt="flex-titor-face">
+          <img src="../Images/timemachine.jpg" alt="flex-titor-time-machine">
         </div>
+        <p>Within limits, I’m confident my anonymity is secure. The various email and web accounts I have do not have a big sign that says “Time Machine This Way!”. In order to be at risk I would have to be believed. In my experience, evil may be powerful, but they aren’t very bright.</p>
+      </section>
+
+      <section id="def-grid-section">
+        <div id="def-grid">
+          <div></div>
+          <div></div>
+          <div id="inner-div">
+            <span><img src="../Images/grid-glitch-c.gif" alt="cover tile"></span>
+            <span><img src="../Images/grid-glitch-c.gif" alt="cover tile"></span>
+            <span><img src="../Images/grid-glitch-c.gif" alt="cover tile"></span>
+          </div>
+          <div></div>
+          <div></div>
+          <div><img src="../Images/lainface.gif" alt="cover tile"></div>
+          <div><img src="../Images/lainface.gif" alt="cover tile"></div>
+          <div><img src="../Images/lainface.gif" alt="cover tile"></div>
+          <div><img src="../Images/L.png" alt="cover tile"></div>
+          <div><img src="../Images/A.png" alt="cover tile"></div>
+          <div><img src="../Images/I.png" alt="cover tile"></div>
+          <div><img src="../Images/N.png" alt="cover tile"></div>
+          <div><img src="../Images/lainface.gif" alt="cover tile"></div>
+          <div><img src="../Images/lainface.gif" alt="cover tile"></div>
+        </div>
+      </section>
+
+      <section id="float-stallman">
+          <img id="stall-left" src="../Images/stallman.png" alt="stallman face">
+          <img id="stall-right" src="../Images/stallman.png" alt="stallman face">
+          <p>Stallman launched the GNU Project in September 1983 to create a Unix-like computer operating system composed entirely of free software. With this, he also launched the free software movement. He has been the GNU project's lead architect and organizer, and developed a number of pieces of widely used GNU software including, among others, the GNU Compiler Collection, the GNU Debugger and the GNU Emacs text editor. In October 1985 he founded the Free Software Foundation.</p>
+          <p>For a period of time, Stallman used a notebook from the One Laptop per Child program. Stallman's computer is a refurbished ThinkPad T400s with Libreboot, a free BIOS replacement, and the GNU/Linux distribution Trisquel. Before the ThinkPad T400s, Stallman used a Thinkpad X60 with Libreboot and Trisquel GNU/Linux.</p>
+      </section>
+
+      <section id="relative">
         <div></div>
         <div></div>
-        <div><img src="../Images/lainface.gif" alt="cover tile"></div>
-        <div><img src="../Images/lainface.gif" alt="cover tile"></div>
-        <div><img src="../Images/lainface.gif" alt="cover tile"></div>
-        <div><img src="../Images/L.png" alt="cover tile"></div>
-        <div><img src="../Images/A.png" alt="cover tile"></div>
-        <div><img src="../Images/I.png" alt="cover tile"></div>
-        <div><img src="../Images/N.png" alt="cover tile"></div>
-        <div><img src="../Images/lainface.gif" alt="cover tile"></div>
-        <div><img src="../Images/lainface.gif" alt="cover tile"></div>
+        <div><h1>THREE RELATIVE BOXES</h1></div>
+      </section>
 
 
-      </div>
-    </section>
+      <section id="absolute">
+        <div></div>
+        <div><h1>Z-INDEX</h1></div>
+        <div><h1>ABSOLUTE</h1></div>
+        <div></div>
+      </section>
 
-  </main>
+      <section class="center-flex">
+        <section id="sticky-grid">
+          <img id="row1" src="../Images/puzzle/CryptoLain_01.gif">
+          <img id="row2" src="../Images/puzzle/CryptoLain_02.gif">
+          <img id="row3" src="../Images/puzzle/CryptoLain_03.gif">
+          <img id="row4" src="../Images/puzzle/CryptoLain_04.gif">
+          <img id="row5" src="../Images/puzzle/CryptoLain_05.gif">
+        </section>
+      </section>
+
+      <section id="multicol">
+        <div>
+          <h3>Unix Intro</h3>
+          <p>UNIX is an operating system which was first developed in the 1960s, and has been under constant development ever since. By operating system, we mean the suite of programs which make the computer work. It is a stable, multi-user, multi-tasking system for servers, desktops and laptops.
+          <br>
+          UNIX systems also have a graphical user interface (GUI) similar to Microsoft Windows which provides an easy to use environment. However, knowledge of UNIX is required for operations which aren't covered by a graphical program, or for when there is no windows interface available, for example, in a telnet session.</p>
+        </div>
+
+        <div>
+          <h3>The Kernel</h3>
+          <p>The kernel of UNIX is the hub of the operating system: it allocates time and memory to programs and handles the filestore and communications in response to system calls.
+          <br>
+          As an illustration of the way that the shell and the kernel work together, suppose a user types rm myfile (which has the effect of removing the file myfile). The shell searches the filestore for the file containing the program rm, and then requests the kernel, through system calls, to execute the program rm on myfile. When the process rm myfile has finished running, the shell then returns the UNIX prompt % to the user, indicating that it is waiting for further commands. </p>
+        </div>
+
+        <div>
+          <h3>The Shell</h3>
+          <p>The shell acts as an interface between the user and the kernel. When a user logs in, the login program checks the username and password, and then starts another program called the shell. The shell is a command line interpreter (CLI). It interprets the commands the user types in and arranges for them to be carried out. The commands are themselves programs: when they terminate, the shell gives the user another prompt (% on our systems).</p>
+        </div>
+      </section>
+    </main>
 
 </body>
 
