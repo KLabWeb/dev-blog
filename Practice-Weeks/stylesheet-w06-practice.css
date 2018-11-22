@@ -1,0 +1,31 @@
+/*User registration form stying*/
+#first-form{
+    width: 40%;
+    margin: auto 2%;
+}
+#first-form legend{
+    color: #e05915;
+}
+#first-form div{
+    margin-top: 10px;
+}
+#first-form input, #first-form textarea{
+    color: #999999;
+    background: linear-gradient(to bottom, #101010, #64646a);
+    border-radius: 10px;
+}
+#first-form input:focus, #first-form textarea:focus{
+    border: 2px solid #431c5d
+}
+#first-form label span{
+    color: #c2dde6;
+}
+#first-form div:last-of-type{
+    margin-top: 20px;
+}
+@media (max-width: 500px){
+    #first-form{
+        width: 90%;
+        margin: auto;
+    }
+}
