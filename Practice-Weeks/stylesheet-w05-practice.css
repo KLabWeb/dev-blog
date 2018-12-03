@@ -14,7 +14,7 @@
 #flexf, #flexg, #flexh, #flexi{
     flex: 1;
 }
-#flexc, #flexe{}
+#flexc, #flexe{
     flex: 2;
 }
 #flexa{
@@ -72,9 +72,6 @@
 #table-metro thead th:nth-child(1), #table-metro thead th:nth-child(2), thead th:nth-child(3){
     width: 10%;
 }
-#table-metro , #table-metro thead th:nth-child(4), #table-metro thead th:nth-child(5){
-    width: 35%%;
-}
 #table-metro th, td{
     padding: 3px;
 }
@@ -95,13 +92,13 @@
     width: 100%;
     outline: none;
 }
-@media (max-width: 1090px) {
+@media (max-width: 1090px){
     #flex-two-slab{
         flex-direction: column;
         align-items: center;
     }
-    #flex-one, #flex-two, #styled-table #flex-clownvideo, {
-        margin-top: 40px 0 0 0;
+    #flex-one, #flex-two, #styled-table, #flex-clownvideo{
+        margin-top: 40px;
     }
 }
 
@@ -188,10 +185,10 @@
 #def-grid img{
     width: 100%;
     height: 100%;
-    filter: opacity(0%);
+    opacity: 0;
 }
-#def-grid img:hover, #def-grid span img{
-    filter: opacity(100%);
+#def-grid img:hover, #def-grid span img:hover{
+    opacity: 100;
 }
 
 /*Float styling*/
@@ -217,6 +214,10 @@
 /*Relative positioned*/
 #relative{
     margin: 5% 6% 5% 6%;
+}
+#relative h2{
+  color: black;
+  font-size: 2.75rem;
 }
 #relative div:first-child{
     position: relative;
@@ -250,6 +251,10 @@
     justify-content: space-around;
     align-items: center;
     background-color: black;
+}
+#absolute h2{
+  color: black;
+  font-size: 2.75rem;
 }
 #absolute div{
     height: 200px;
@@ -308,7 +313,6 @@ main{
 /*Grid with sticky position flow*/
 #sticky-grid{
     display: grid;
-    grid-template-columns: repeat(minmax(30px, 1fr));
     grid-auto-rows: 195px;
     height: auto;
     grid-row-gap: 100px;
@@ -321,7 +325,6 @@ main{
     height: auto;
 }
 #sticky-grid img{
-    display: static;
     position: sticky;
 }
 #row1{
@@ -338,11 +341,6 @@ main{
 }
 #row5{
     top: 730px;
-}
-@media (max-width: 400px), @media (max-height: 700px) {
-    #sticky-grid{
-        display: none;
-    }
 }
 
 /*Multi Column*/

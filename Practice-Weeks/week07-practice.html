@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="cryptolain">
+  <meta name="description" content="Week 07 General Practice">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../Favicons/css3-original.svg" type="image/x-icon">
+  <link rel="stylesheet" href="practice-stylesheet.css">
+  <link rel="stylesheet" href="../header.css">
+  <link rel="stylesheet" href="../nav-buttons.css">
+  <link rel="stylesheet" href="stylesheet-w07-practice.css">
+  <title>Week 07 Practice</title>
+</head>
+
+<body>
+  <div>
+    <header class="header-v2">
+      <h1>Week 07 General Practice</h1>
+    </header>
+
+    <nav class="nav-v2">
+      <ul>
+        <li><a href="../index.html" title="Home">Home</a></li>
+        <li><a href="../Study-Weeks/week07.html" title="Week Log">Week Log</a></li>
+        <li><a href="../Practice-Weeks/week06-practice.html" title="Previous Practice">Previous Practice</a></li>
+        <li><a href="../roadmap.html#JS-I" title="Week Topic">Week Topic</a></li>
+        <li><a href="../Notes/HTML-I.pdf" title="HTML I Notes">HTML I Notes</a></li>
+        <li><a href="../Notes/CSS3-I.pdf" title="CSS I Notes">CSS I Notes</a></li>
+        <li><a href="https://lainchan.org/" title="Lainchan" target="_blank">Lainchan</a></li>
+        <li><a href="https://gondola.stravers.net/random" title="Gondolas" target="_blank">Gondolas</a>
+      </ul>
+    </nav>
+  </div>
+
+  <main>
+
+    <section class="form" id="second-form">
+      <h2>Please Enter Your Shipping Details:</h2>
+      <form >
+        <fieldset>
+
+          <label for="name">Full Name:</label>
+          <input type="text" id="name" name="shippingname">
+
+          <label for="addr1">Address Line1:</label>
+          <input type="text" id="addr1" name="shippingaddr1">
+
+          <label for="addr2">Address Line2:</label>
+          <input type="text" id="addr2" name="shippingaddr2">
+
+          <label for="city">City:</label>
+          <input type="text" id="city" name="shippingcity">
+
+          <label for="state">State/Province/Region:</label>
+          <input type="text" id="state" name="shippingstate">
+
+          <label for="zip">Zip:</label>
+          <input type="text" id="zip" name="shippingzip">
+
+          <label for="country">Country:</label>
+          <select id="country" name="shippingcountry">
+            <optgroup label="North America">
+              <option>Canada</option>
+              <option>United States</option>
+            </optgroup>
+            <optgroup label="Europe">
+              <option>England</option>
+              <option>Poland</option>
+              <option>Ukraine</option>
+            </optgroup>
+          </select>
+
+          <label for="phone">Phone:</label>
+          <input type="tel" id="phone" name="shippingphone">
+
+        </fieldset>
+
+        <fieldset>
+          <legend>Shipping Options</legend>
+
+          <label for="accounttype">
+            <span>Account Type:</span>
+            <input type="text" id="accounttype" name="shippingaccounttype" list="accountlist">
+          </label>
+            <datalist id="accountlist">
+              <option>Value</option>
+              <option>Basic</option>
+              <option>Premium</option>
+            </datalist>
+
+            <div>
+              <label for="expressship">
+                <span>Express Shipping:</span>
+                <input type="checkbox" id="expressship" name="shippingexpress" value="express">
+              </label>
+            </div>
+            <div class="radiolist">
+              <label>Packaging:</label>
+              <label for="plainwrap">
+                <input type="radio" id="plainwrap" name="option" value="plainwrap">
+                <span>Standard</span>
+              </label>
+              <label for="discretewrap">
+                <input type="radio" id="discretewrap" name="option" value="discretewrap">
+                <span>Discrete</span>
+              </label>
+              <label for="giftwrap">
+                <input type="radio" id="giftwrap" name="option" value="giftwrap">
+                <span>Gift Wrap</span>
+              </label>
+            </div>
+        </fieldset>
+        <fieldset>
+          <div>
+            <button type="submit" id="submit">Submit</button>
+            <button type="reset" id="reset">Reset Form</button>
+          </div>
+          <div class="numbers">
+            <label for="numbers">
+              <span>Give this form a rating &#40;1-10&#41;:</span>
+                  <input type="number" id="numbers" name="formrating" min="1" max="10" step=".5">
+            </label>
+          </div>
+          <div class="numbers">
+            <label for="slider">
+              <span>Give this font a slide rating:</span>
+                  <input type="range" id="slider" name="fontrating" min="1" max="20" step="1">
+            </label>
+          </div>
+        </fieldset>
+      </form>
+    </section>
+
+    <section class="form" id="times">
+      <form>
+        <fieldset>
+          <h2>Pick the date and time of your death</h2>
+          <input type="date" id="deathclock" name="deathdate" min="2018-11-26" max="2100-01-01">
+        </fieldset>
+        <fieldset>
+          <div id="filediv">
+            <h2>Choose a file for pleasure:</h2>
+            <label for="files">
+              <input type="file" id="files" name="file"  multiple>
+            </label>
+            <button type="reset">No Pleasure? Choose Again</button>
+          </div>
+          <!--This is hidden content. If you are seeing it, you are reading my code-->
+          <input type="hidden" id="secretCode" name="hiddenValue" value="01001100 01100001 01101001 01101110 00100000 01101001 01110011 00100000 01001100 01101111 01110110 01100101">
+        </fieldset>
+      </form>
+    </section>
+  </main>
+
+  <section id="js">
+    <h2>Javascript Practice</h2>
+      <p>Download this JS file, paste the code in any JS console, including your browser console &#40;[F12] in Firefox&#41;, and run to see output.
+      JS file: <a href="./week07-practice.js" title="Week 07 JS Practice">Week 07 JS Practice</a></p>
+
+      <p>The code can be viewed below, but "Result" will not execute as embed Codepens cannot display console output</p>
+      <p data-height="500" data-theme-id="0" data-slug-hash="QJodyv" data-default-tab="js" data-user="SadPepe" data-pen-title="Week 07 Practice JS" class="codepen">See the Pen <a href="https://codepen.io/SadPepe/pen/QJodyv/">Week 07 Practice JS</a> by Sad Pepe (<a href="https://codepen.io/SadPepe">@SadPepe</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+      <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+  </section>
+</body>
+
+</html>

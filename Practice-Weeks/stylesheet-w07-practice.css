@@ -1,0 +1,66 @@
+/*Shipping form sizing & layout*/
+.form{
+  width: 520px;
+  margin-left: 3%;
+}
+.form fieldset{
+  border: 0;
+}
+.form legend{
+  font-weight: bold;
+}
+.form #submit{
+  margin-bottom: 20px;
+}
+.radiolist span{
+  margin-right: 25px;
+}
+#second-form fieldset:first-of-type{
+  width: 467px;
+  display: grid;
+  grid-template-columns: 167px 300px;
+  text-align: right;
+  margin-bottom: 4px;
+}
+#second-form label{
+  margin-right: 3px;
+}
+
+/*Shipping form media queries*/
+@media (max-width: 500px){
+  .form, #second-form fieldset:first-of-type, #times{
+    width: 100%;
+  }
+  #second-form fieldset:first-of-type{
+      text-align: left;
+      grid-template-columns: 90%;
+  }
+  .radiolist label{
+    display: flex;
+  }
+}
+
+
+.form legend{
+    color: #e05915;
+    padding: 0;
+}
+.form input, select{
+    color: rgb(205, 212, 34);
+    background: black;
+    margin-bottom: 5px;
+}
+.form label{
+    color: #c2dde6;
+}
+#second-form fieldset:not(:last-of-type) input, #deathclock, #country{
+      border: 1px solid #c2dde6;
+      border-radius: 5px;
+}
+#second-form fieldset:not(:last-of-type) input:focus, #deathclock:focus, #country:focus{
+    border: 2px solid #32DD72;
+}
+
+#js{
+  margin-left: 4%;
+}

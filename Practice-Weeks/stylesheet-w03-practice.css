@@ -175,10 +175,10 @@ html {
     color: hsl(0, 100%, 50%);
 }
 #color-rgba{
-    color: rgb(255, 0, 0, .4);
+    color: rgba(255, 0, 0, .4);
 }
 #color-hsla{
-    color: hsl(0, 100%, 50%, .4);
+    color: hsla(0, 100%, 50%, .4);
 }
 #color-opacity{
     color: red;
@@ -194,18 +194,14 @@ html {
 }
 #li-initial{
     color: initial;
-
+    background-color: white;
 }
 #li-unset{
     color: unset;
 }
-#li-revert{
-    color: revert;
-}
 
 /*The box model*/
 .side-box {
-    style: float;
     height: 40vh;
     width: 20vw;
     border-style: solid;
@@ -214,13 +210,11 @@ html {
 #box-image-l{             /*use vwh and vh on images so boxes size proportionally to viewport dimensions*/
     padding: .5vw;
     border-width: 5vw;
-    border-height: 5vw;
     margin: 1vw;
 }
 #box-image-center{
     height: 40vh;
     width: 15vw;
-    style: float;
     padding: 1vw;
     border: 2vw solid #7fdd57;
     border-radius: .5vw;
@@ -229,7 +223,6 @@ html {
 #box-image-r{
     padding: 4vw;
     border-width: 1.5vw;
-    border-height: 1.5vw;
     margin: 1vw;
 }
 #box-paragraph{             /*use em so box sizes proportionally to font size of paragraph*/

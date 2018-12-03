@@ -15,7 +15,7 @@
     border-radius: 10px;
 }
 #first-form input:focus, #first-form textarea:focus{
-    border: 2px solid #431c5d
+    border: 2px solid #431c5d;
 }
 #first-form label span{
     color: #c2dde6;
