@@ -21,3 +21,7 @@ h2 {
 a {
     color: #CCCCCC
 }
+pre{
+  width: 80%;
+  margin: auto;
+}
