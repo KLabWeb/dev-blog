@@ -12,6 +12,9 @@
   <link rel="stylesheet" href="../header.css">
   <link rel="stylesheet" href="../nav-buttons.css">
   <link rel="stylesheet" href="stylesheet-w07-practice.css">
+  <link rel="stylesheet" href="../Higlightjs/styles/tomorrow-night-bright.css">
+  <script src="../Higlightjs/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
   <title>Week 07 Practice</title>
 </head>
 
@@ -160,13 +163,736 @@
 
   <section id="js">
     <h2>Javascript Practice</h2>
-      <p>Download this JS file, paste the code in any JS console, including your browser console &#40;[F12] in Firefox&#41;, and run to see output.
-      JS file: <a href="./week07-practice.js" title="Week 07 JS Practice">Week 07 JS Practice</a></p>
+      <p>The following JavaScript file contains the code detailed below. Paste the code in any JS console, including your browser console &#40;[F12] in Firefox&#41;, and run to see output. JS file: <a href="./week07-practice.js" title="Week 07 JS Practice">Week 07 JS Practice</a></p>
 
-      <p>The code can be viewed below, but "Result" will not execute as embed Codepens cannot display console output</p>
-      <p data-height="500" data-theme-id="0" data-slug-hash="QJodyv" data-default-tab="js" data-user="SadPepe" data-pen-title="Week 07 Practice JS" class="codepen">See the Pen <a href="https://codepen.io/SadPepe/pen/QJodyv/">Week 07 Practice JS</a> by Sad Pepe (<a href="https://codepen.io/SadPepe">@SadPepe</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-      <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
   </section>
+
+  <section id="ternary">
+    <h2>The Ternary Operator</h2>
+
+    <article class="description" id="desc-ternary">
+        <p>The ternary operator provides a more concise way to write a basic if else function in form: <i>if-condition-true : do-this ? if-not,-do-this-instead. Here I use it to replicate the functionlity of the Math.min&#40;&#41; function, which checks which number of two parameters is smaller.</i></p>
+    </article>
+
+    <pre class="js" id="code-ternary">
+      <code>
+        function mathmin(x, y) {
+          x < y ? console.log(x + " is less than " + y) : console.log(y + " is less than " + x)
+        }
+        mathmin(10, 20);
+        mathmin(80, 100);
+      </code>
+    </pre>
+
+    <article class="description" id="desc-ternary-output">
+        <p>Output: </p>
+    </article>
+
+    <pre class="js" id="code-ternary-output">
+      <code>
+        10 is less than 20
+        80 is less than 100
+      </code>
+    </pre>
+
+  </section>
+
+  <section id="loops">
+    <h2>Loops</h2>
+
+    <article class="description" id="desc-loops">
+        <p>The <i>for</i> loop in JavaScript has identical syntax to Java. It takes up to three arguments and states, "given intial condition w, for condition x == true, do y, then update via z". Here a <i>for</i> loop iterates through an integer <i>i</i> starting a value 0, on each iteration printing a String of #, where the number of # per iteration is equal to the size of <i>i</i>. At the end of the interation, it increases <i>i</i> by 1, and stops when <i>i</i> grows to greater than 6. The result is a triangle of #.</p>
+        <p>JavaScript also includes standard <i>While</i> and <i>Do while</i> loops, stating "while x condition is true, do y statement&#40;s&#41;" and "do y statement&#40;s&#41;, while x condition is true", respecitively. The difference is that in the <i>Do while</i> loop, the enclosed statement&#40;s&#41; will be executed at least once, prior to the while condition being checked for the first iteration</p>
+    </article>
+
+    <pre class="js" id="code-loops">
+      <code>
+        console.log("//A triangle of #");
+        let hash = "";
+        for (let i = 0; i < 7; i++) {
+          hash += "#";
+          console.log(hash);
+        }
+      </code>
+    </pre>
+
+    <article class="description" id="desc-loops-output">
+        <p>Output: </p>
+    </article>
+
+    <pre class="js" id="code-loops-output">
+      <code>
+        #
+        ##
+        ###
+        ####
+        #####
+        ######
+        #######
+      </code>
+    </pre>
+
+  </section>
+
+  <section id="if-else">
+    <h2>if-else Staments</h2>
+
+    <article class="description" id="desc-if-else">
+        <p>Like loops, the <i>if-else</i> statment is another rudimentary piece of programming logic. It states, "if condition y, do x, else, do z." It can also be composed using the "else if" checks, in which case the logic is, "if condition y, do x, else if condition w, do z, &#40;optional&#41; else, do p." Here I use <i>if-else</i> inside a loop to perform the classic FIZZBUZZ exercise, up to integer 50:</p>
+    </article>
+
+    <pre class="js" id="code-if-else">
+      <code>
+        for (let i = 1; i <= 25; i++) {
+          if ((i % 3 == 0) && (i % 5 != 0))
+            console.log(i + ": " + "FIZZ");
+          else if ((i % 3 != 0) && (i % 5 == 0))
+            console.log(i + ": " + "BUZZ");
+          else if ((i % 3 == 0) && (i % 5 == 0))
+            console.log(i + ": " + "FIZZBUZZ");
+        }
+      </code>
+    </pre>
+
+    <article class="description" id="desc-if-else-output">
+        <p>Output:</p>
+    </article>
+
+    <pre class="js" id="code-if-else-output">
+      <code>
+        3: FIZZ
+        5: BUZZ
+        6: FIZZ
+        9: FIZZ
+        10: BUZZ
+        12: FIZZ
+        15: FIZZBUZZ
+        18: FIZZ
+        20: BUZZ
+        21: FIZZ
+        24: FIZZ
+        25: BUZZ
+        27: FIZZ
+        30: FIZZBUZZ
+        33: FIZZ
+        35: BUZZ
+        36: FIZZ
+        39: FIZZ
+        40: BUZZ
+        42: FIZZ
+        45: FIZZBUZZ
+        48: FIZZ
+        50: BUZZ
+      </code>
+    </pre>
+  </section>
+
+  <section id="nesting">
+    <h2>Nesting Loops</h2>
+
+    <article class="description" id="desc-nesting">
+        <p>When logic is nested, the program is declaring a scope within a scope, logic within logic. You can nest classes within classes, functions within functions, loops within loops within loops within loops, and so forth. Here I print checkboards of #, first with nested <i>for</i> loops, then a slightly smaller checkboard with nested <i>while</i> loops. For each iteration of the outer loops, the inner loops will iterate until stopped when their exit condition is met, then return for a new set of iterations on the next iteration of the outer loops, reseting the checkerboard row String at the end of each iteration of the outer loops.</p>
+    </article>
+
+    <pre class="js" id="code-nesting">
+      <code>
+        let endHeightF = 8,
+          endWidthF = 10,
+          row = "";
+
+        for (let height = 0; height < endHeightF; height++) {
+          for (let width = 0; width < endWidthF; width++) {
+            if ((height + width) % 2 == 0)
+              row += " ";
+            else
+              row += "#";
+          }
+          console.log(row);
+          row = "";
+        }
+      </code>
+    </pre>
+
+    <article class="description" id="desc-nesting-output">
+        <p>Output:</p>
+    </article>
+
+    <pre class="js" id="code-nesting-output">
+      <code>
+        # # # # #
+       # # # # #
+        # # # # #
+       # # # # #
+        # # # # #
+       # # # # #
+        # # # # #
+       # # # # #
+      </code>
+    </pre>
+
+    <pre class="js" id="code-nesting-output-2">
+      <code>
+        let currentWidth = 0,
+          currentHeight = 0,
+          gridRow = "";
+
+        while (currentHeight < 8) {
+          while (currentWidth < 8) {
+            currentWidth++;
+            if ((currentHeight + currentWidth) % 2 == 0)
+              gridRow += "#";
+            else
+              gridRow += " ";
+          }
+          console.log(gridRow);
+          currentHeight++;
+          currentWidth = 0;
+          gridRow = "";
+        }
+      </code>
+    </pre>
+
+    <article class="description" id="desc-nesting-output-2">
+        <p>Output:</p>
+    </article>
+
+    <pre class="js" id="code-nesting-output-3">
+      <code>
+        # # # #
+       # # # #
+        # # # #
+       # # # #
+        # # # #
+       # # # #
+        # # # #
+       # # # #
+      </code>
+    </pre>
+
+  </section>
+
+  <section id="recursive">
+    <h2>Recursive Calls</h2>
+
+    <article class="description" id="desc-recursive">
+        <p>In a recurive call, a function calls itself. In such cases, a condition is tested where until met the function will condition to call itself, executing whatever logic it encloses along the way. When the exit condition is met, the recursion stops, and a final value &#40;if one exits&#41; is passed back through the return flow of the recursive calls.</p>
+        <p>While recursion provides an elegant way to perform complex logic and can be much less wordy than writing functions with traditional loops, <i>if</i> statments, etc., it should also be noted that using recursion often comes with a significant impact on execution speed. Choosing when and when not to use recursion should thus be carefully decided, such as using it when traversing through branched data structures, but not in a less complex situation, such as simply travelling through array indexes and running a basic expression on the index values.<p>
+
+        <p>Here I use declare an evenOdd&#40;&#41; function to determine if a passed whole number is even or odd, without using the mod operator. The number passed to this function travels through a chain of recursive calls, subtracing 2 from its value on each call, until it either equals 0 &#40;even&#41; or 1 &#40;odd&#41;. If a negative or decimal number is passed, the function returns a -1, indicating an input error. I also built a simple print function, to print the results in a user readable format.</p>
+    </article>
+
+    <pre class="js" id="code-recursive">
+      <code>
+        function evenOdd(num) {
+          if (num == 1)
+            return 1;
+          else if (num == 0)
+            return 0;
+          else if (num < 0)
+            return -1;
+          else
+            return evenOdd(num - 2);
+        }
+
+        function printEvenOdd(num) {
+          if (evenOdd(num) == 0)
+            console.log(num + " is even.");
+          else if (evenOdd(num) == 1)
+            console.log(num + " is odd.");
+          else
+            console.log(num + ": Please no negative or decimal numbers.");
+        }
+
+        printEvenOdd(10, 10);
+        printEvenOdd(23, 23);
+        printEvenOdd(-5, -5);
+      </code>
+    </pre>
+
+    <article class="description" id="desc-recursive-output">
+        <p>Output:</p>
+    </article>
+
+    <pre class="js" id="code-recursive-output">
+      <code>
+        10 is even.
+        23 is odd.
+        -5: Please no negative or decimal numbers.
+      </code>
+    </pre>
+
+  </section>
+
+  <section id="charcount">
+    <h2>String Counting Chars</h2>
+
+    <article class="description" id="desc-string">
+        <p>In JavaScript Strings implement the <i>iterable</i> interface and thus can be accessed and manipulated similiar to how array interaction can be done. Here a simple function checks for how many times a specified char occurs in a passed String. Longer substrings can quickly be detected and copied out via functions <i>String.indexOf&#40;&#41;</i> and <i>String.slice&#40;&#41;</i></p>
+    </article>
+
+    <pre class="js" id="code-string">
+      <code>
+        function countChar(cString, char) {
+          let cCount = 0;
+          for (let i = 0; i < cString.length; i++) {
+            if (cString[i] === char)
+              cCount++;
+          }
+          console.log("\"" + cString + "\" has " + cCount + char + "'s.");
+        }
+      </code>
+    </pre>
+
+    <article class="description" id="desc-string-output">
+        <p>Output:</p>
+    </article>
+
+    <pre class="js" id="code-string-output">
+      <code>
+        "Bobby Bradsworth lives in Bolivia." has 3B's.
+      </code>
+    </pre>
+
+  </section>
+
+  <section id="obj-foreach">
+    <h2>Experiment with Objects &amp; foreach()</h2>
+
+    <article class="description" id="obj-foreach-desc">
+        <p>Here I experiment with objects, defining anonymous objects as elements of an array, then accessing the objects' properties using the ES6 addition <i>for...of</i>&#40;&#41; function, which allows shorthand for the traditional <i>for</i> statment via logic "for each index in this array,{ /*execute these statements*/}</p>
+    </article>
+
+    <pre class="js" id="code-foreach">
+      <code>
+        let customerQueue = [{
+            name: "Charles",
+            mostExpensive: 29.99,
+            leastExpensive: 9.49,
+            numberItems: 12
+          },
+          {
+            name: "Diana",
+            mostExpensive: 97.23,
+            leastExpensive: 14.73,
+            numberItems: 21
+          },
+          {
+            name: "Junto",
+            mostExpensive: 37.23,
+            leastExpensive: 24.73,
+            numberItems: 16
+          },
+          {
+            name: "Sergio",
+            mostExpensive: 17.23,
+            leastExpensive: 5.73,
+            numberItems: 17
+          }
+        ];
+
+        function printCustomers(custQueue) {
+          for (let customer of custQueue)
+            console.log(customer.name);
+        }
+
+        console.log("You have three customers in line: ");
+        printCustomers(customerQueue, "name");
+        newLine();
+
+      </code>
+    </pre>
+
+    <article class="description" id="desc-foreach-test">
+        <p></p>
+    </article>
+
+    <article class="description" id="desc-foreach-output">
+        <p>Output: </p>
+    </article>
+
+    <pre class="js" id="code-foreach-output">
+      <code>
+        You have three customers in line:
+        Charles
+        Diana
+        Junto
+        Sergio
+        Number of items in all carts: 66
+      </code>
+    </pre>
+
+  </section>
+
+  <section id="range">
+    <h2>A Range of Numbers</h2>
+
+    <article class="description" id="desc-range">
+        <p>A function to generate a range of numbers, with an optional <i>step</i> value that increases numbers in <i>step</i> intervals, made with an array. Also a function to sum the range items. Added error messages to display when invalid input entered. Utilizes Array.push&#40;&#41;</p>
+    </article>
+
+    <pre class="js" id="code-range">
+      <code>
+        function range(start, end, step) {
+
+          if (!(wholeNumber(start) || !(wholeNumber(end)))
+            return;
+
+          let rangeArray = [];
+
+          if (step == undefined) {
+            while(start <= end) {
+              rangeArray.push(start);
+              start++;
+            }
+            console.log("Created range: " + rangeArray);
+          } else {
+            if (!(wholeNumber(step)))
+              return;
+
+            if (step > (end - start)) {
+              console.log("Step too large for range. Please enter smaller step or increase range.")
+              return;
+            }
+            while (start <= end) {
+              rangeArray.push(start);
+              start += step;
+            }
+            console.log("Created step range: " + rangeArray);
+          }
+          return rangeArray;
+        }
+
+        //6 - sums array of numbers
+        function sumArray(numArray) {
+          let sum = 0;
+
+          for (num of numArray)
+            sum += num;
+
+          return sum;
+      </code>
+    </pre>
+
+    <article class="description" id="desc-range-output">
+        <p>Output:</p>
+    </article>
+
+    <pre class="js" id="code-output">
+      <code>
+        Created range: 1,2,3,4,5,6,7,8,9,10
+        Sum of range: 55
+
+
+        Created range: -10,-9,-8,-7,-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6,7,8,9,10
+
+
+        Creating range: fish to 20.
+        Please only whole numbers. "fish" is not acceptable.
+
+
+        Creating range: 20 to 100.2384.
+        Please only whole numbers. "100.2384" is not acceptable.
+
+
+        Created step range: 1,6,11,16,21,26,31,36,41,46,51,56,61,66,71,76,81,86,91,96
+        Sum of range: 970
+
+
+        Creating range: 10 to 20 with 30 step.
+        Step too large for range. Please enter smaller step or increase range.
+      </code>
+    </pre>
+
+  </section>
+
+  <section id="reverseArray">
+    <h2>Reverse Array</h2>
+
+    <article class="description" id="desc-reverseArray">
+        <p>The JavaScript Array protype has some useful methods for adding and removing objects. push&#40;&#41; and push&#40;&#41; add and remove from the end of the array&#40;note the function names as commonly also used by stacks&#41;. shift&#40;&#41; and unshift&#40;&#41; allow addition and deletion from the start of an array, and allow the array to be used as a queue.</p>
+        <p>In the first reversal function, I return a reversed version of the passed array by traversin through it running through the array and pulling off items from the start via unshift&#40;&#41;, then add them to a new array, which I return.</P>
+        <p>In the second function, I reverse the array in-place, reversing the orginal array without creating a new array. I do this without utilizing and Array.prototype functions. The <i>% 2</i> ternary check here exists to determine if the array holds an even or odd number of elements, to use when telling how many iterations to swap for.</p>
+    </article>
+
+    <pre class="js" id="code-reverseArray">
+      <code>
+        //reverses array by creating new reversed array
+        function reverseArray(original) {
+          let reversed = [];
+          for (index of original)
+            reversed.unshift(index);
+          return reversed;
+        }
+
+        function reverseArrayInPlace(original) {
+          let temp,
+            iterations;
+
+          (original.length % 2) == 0 ? iterations = original.length / 2 : iterations = ((original.length / 2) - 1);
+
+          for (let i = 0; i < iterations; i++) {
+            temp = original[i];
+            original[i] = original[original.length - 1 - i];
+            original[original.length - 1 - i] = temp;
+          }
+          return original;
+        }
+
+        let originalArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        console.log("Original array: " + originalArray);
+        console.log("New reversed array: " + reverseArray(originalArray));
+        console.log("Original array reversed in place: " + reverseArrayInPlace(originalArray));
+
+        newLine();
+      </code>
+    </pre>
+
+    <pre class="js" id="code-reverseArray-output">
+      <code>
+        Original array: 1,2,3,4,5,6,7,8,9,10
+        New reversed array: 10,9,8,7,6,5,4,3,2,1
+        Original array reversed in place: 10,9,8,7,6,5,4,3,2,1
+      </code>
+    </pre>
+
+  </section>
+
+  <section id="array-list">
+    <h2>Create a List from an Array</h2>
+
+    <article class="description" id="desc-array-list">
+        <p>In a traditional list data structure, a list is a collection of nodes, where each node is linked to the next node &#40;with both to and from pointers in a doubley linkedlist&#41;. Here I provide a method to turn an array into a list. I then add a method to revert the list back to an array.  The prepend&#40;&#41; function adds an element to the start of the list. nthNode&#40;&#41; returns a specified node using a loop, while nthNodeRecursive &#40;can you guess?&#41;, does the same, but through recursion.</p>
+    </article>
+
+    <pre class="js" id="code-array-list">
+      <code>
+        //Turns array into list
+        function arrayToList(theArray) {
+          let list = null;
+
+          for (let i = theArray.length - 1; i >= 0; i--)
+            list = {
+              value: theArray[i],
+              link: list
+            };
+          return list;
+        }
+
+        //Turns list into array
+        function listToArray(theList) {
+          let array = [];
+
+          for (node = theList; node != undefined; node = theList) {
+            array.push(theList.value);
+            theList = theList.link;
+          }
+          return array;
+        }
+
+        //adds element to front of list
+        function prepend(element, list) {
+          return {
+            value: element,
+            link: list
+          };
+        }
+
+        //returns value of nth list node
+        function nthNode(theList, index) {
+          let count = 0;
+
+          while (count < index - 1 && theList.link != null) {
+            theList = theList.link;
+            count++;
+          }
+          return theList.value;
+        }
+
+        //returns value of nth list node using recursion
+        function nthNodeRecursive(theList, index, count = 0) {
+          if (count < index - 1 && listCopy.link != null) {
+            return nthNodeRecursive(theList.link, index, count++);
+          } else
+            return theList.value;
+        }
+
+        //prints list values as a string
+        function printList(theList) {
+          let valueString = ""
+
+          //while loop is a bit wordier than the listToArray() for loop, but the print format is nicer
+          while (theList.link != null) {
+            valueString += theList.value.toString() + ",";
+            theList = theList.link;
+          }
+          valueString += theList.value.toString() + "";
+          console.log("List: " + valueString);
+        }
+      </code>
+    </pre>
+
+    <article class="description" id="desc-array-list-test">
+        <p>Input:</p>
+    </article>
+
+    <pre class="js" id="code-array-list-test">
+      <code>
+        let listArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        console.log("Array created: " + listArray);
+        let list = arrayToList(listArray);
+        console.log("Converting array to list...");
+        printList(list);
+        console.log();
+
+        console.log("Adding to list...");
+        list = prepend(0, list);
+        printList(list);
+        console.log();
+
+        console.log("Value for node #7: " + nthNode(list, 7));
+        console.log("Value for node #4, traversed via recursion: " + nthNode(list, 4));
+        console.log();
+
+        console.log("Converted back to array: " + listToArray(list));
+
+        newLine();
+      </code>
+    </pre>
+
+    <article class="description" id="desc-array-list-output">
+        <p>Output:</p>
+    </article>
+
+    <pre class="js" id="code-array-list-output">
+      <code>
+        Original array: 1,2,3,4,5,6,7,8,9,10
+        New reversed array: 10,9,8,7,6,5,4,3,2,1
+        Original array reversed in place: 10,9,8,7,6,5,4,3,2,1
+
+
+        Array created: 1,2,3,4,5,6,7,8,9,10
+        Converting array to list...
+        List: 1,2,3,4,5,6,7,8,9,10
+
+        Adding to list...
+        List: 0,1,2,3,4,5,6,7,8,9,10
+
+        Value for node #7: 6
+        Value for node #4, traversed via recursion: 3
+
+        Converted back to array: 0,1,2,3,4,5,6,7,8,9,10
+      </code>
+    </pre>
+
+  </section>
+
+  <section id="deepcompare">
+    <h2>A Deep Compare</h2>
+
+    <article class="" id="desc-">
+        <p>Some prototypes, such as primitives and Strings can have their values compared using the == operator. When you use == on objects, it only checks to see if the compared objects share the same identity. Here I create a method to compare objects on a deeper level, where objects are determined as equal only if they share all the same property names and values.</p>
+        <p>To do this, I first check that both items passed are objects. I then check to make sure the objects passed are not of <i>null</i> value. Fo pulling data, I utilize the Object.keys&#40;&#41; function, which returns an array of all property names in the object, making a second call to Object.keys&#40;&#41; for each index to account for properties as objects that contain more properties, etc.. To compare these values, I make a recursive call to deepEqual&#40;&#41;, which repeats the typeOf check, and then compares the values and keys in the two innermost <i>if</i> statements. If the loop containing these steps at any time encounters a key or value comparision that returns !=, the function halts and returns false. If it is able to make it through all values and keys as showing ==, it returns true.</p>
+    </article>
+
+    <pre class="js" id="code-deepEqual">
+      <code>
+        function deepEqual(itemA, itemB) {
+          if (typeof itemA == typeof itemB) {
+            //executes if initial items passed are objects
+            if (typeof itemA == "object" && itemA != null) {
+              if (Object.keys(itemA).length == Object.keys(itemB).length) {
+                for (let i = 0; i < Object.keys(itemA).length; i++) {
+                  let keyA = Object.keys(itemA)[i],
+                    keyB = Object.keys(itemB)[i];
+                  if (deepEqual(keyA, keyB) == false)
+                    return false;
+                  if (keyA != "object") {
+                    if (itemA[keyA] != itemB[keyB]) {
+                      return false;
+                    }
+                  }
+                }
+                return true;
+              }
+            }
+            //if initial items passed are not objects, this executes
+            else {
+              if (itemA == itemB)
+                return true;
+              else
+                return false;
+            }
+          }
+        }
+      </code>
+    </pre>
+
+    <article class="description" id="desc-deepEqual-test">
+        <p>Input:</p>
+    </article>
+
+    <pre class="js" id="code-deepEqual-test">
+      <code>
+        console.log("Values 12 and 10 are equal? " + deepEqual(12, 10));
+        console.log("Values Dog and Dog are equal? " + deepEqual("Dog", "Dog"));
+
+        console.log("Objects {animal: \"Dog\"} and {animal: \"Dog\"} are equal ? " + deepEqual({
+          animal: "Dog"
+        }, {
+          animal: "Dog"
+        }));
+
+        console.log("Objects {animal: \"Dog\", age: 10, living: true} and {animal: \"Dog\", age: 10, living: true} are equal? " + deepEqual({
+          animal: "Dog",
+          age: 10,
+          living: true
+        }, {
+          animal: "Dog",
+          age: 10,
+          living: true
+        }));
+
+        console.log("Objects {animal: \"Dog\", age: 10, living: true} and {animal: \"Dog\", age: 15, living: true} are equal? " + deepEqual({
+          animal: "Dog",
+          age: 10,
+          living: true
+        }, {
+          animal: "Dog",
+          age: 15,
+          living: true
+        }));
+
+        console.log("Objects {animal: \"Dog\", age: 10, living: true} and {SPACESHIP: \"Dog\", age: 10, living: true} are equal? " + deepEqual({
+          animal: "Dog",
+          age: 10,
+          living: true
+        }, {
+          SPACESHIP: "Dog",
+          age: 10,
+          living: true
+        }));
+
+      </code>
+    </pre>
+
+    <article class="description" id="desc-deepEqual-output">
+        <p>Output:</p>
+    </article>
+
+    <pre class="js" id="code-deepEqual-output">
+      <code>
+        Values 12 and 10 are equal? false
+        Values Dog and Dog are equal? true
+        Objects {animal: "Dog"} and {animal: "Dog"} are equal ? true
+        Objects {animal: "Dog", age: 10, living: true} and {animal: "Dog", age: 10, living: true} are equal? true
+        Objects {animal: "Dog", age: 10, living: true} and {animal: "Dog", age: 15, living: true} are equal? false
+        Objects {animal: "Dog", age: 10, living: true} and {REEEEE: "Dog", age: 10, living: true} are equal? false
+
+      </code>
+    </pre>
+
+  </section>
+
 </body>
 
 </html>

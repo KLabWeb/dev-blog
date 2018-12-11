@@ -61,6 +61,6 @@
     border: 2px solid #32DD72;
 }
 
-#js{
-  margin-left: 4%;
+section, article{
+  margin: 0 4% 0 4%;
 }

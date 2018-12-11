@@ -44,6 +44,9 @@ footer{
 .study-week ul{
     margin-right: 5%;
 }
+.checkup{
+  margin-left: 2%;
+}
 
 /*roadmap specific styling*/
 #roadmap h4{

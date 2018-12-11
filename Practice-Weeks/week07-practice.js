@@ -130,7 +130,7 @@ countB("Bobby Bradsworth lives in Bolivia.");
 newLine();
 
 
-//Creates customer queue with various check out arrangements
+//Creates customer queue, prints customer names, and prints and returns total num items in all carts
 let customerQueue = [{name: "Charles",
                       mostExpensive: 29.99,
                       leastExpensive: 9.49,
@@ -149,8 +149,13 @@ let customerQueue = [{name: "Charles",
                        numberItems: 17}];
 
 function printCustomers(custQueue){
-  for(let customer of custQueue)
+  this.totalItems = 0;
+  for(let customer of custQueue){
     console.log(customer.name);
+    this.totalItems+=customer.numberItems;
+  }
+  console.log(`Number of items in all carts: ${totalItems}` );
+  return totalItems;
 }
 
 console.log("You have three customers in line: ");
@@ -407,4 +412,4 @@ console.log("Obects {animal: \"Dog\", age: 10, living: true} and {animal: \"Dog\
 
 console.log("Obects {animal: \"Dog\", age: 10, living: true} and {animal: \"Dog\", age: 15, living: true} are equal? " + deepEqual({animal: "Dog", age: 10, living: true}, {animal: "Dog", age: 15, living: true}));
 
-console.log("Obects {animal: \"Dog\", age: 10, living: true} and {REEEEE: \"Dog\", age: 10, living: true} are equal? " + deepEqual({animal: "Dog", age: 10, living: true}, {REEEEE: "Dog", age: 10, living: true}));
+console.log("Obects {animal: \"Dog\", age: 10, living: true} and {SPACESHIP: \"Dog\", age: 10, living: true} are equal? " + deepEqual({animal: "Dog", age: 10, living: true}, {SPACESHIP: "Dog", age: 10, living: true}));
