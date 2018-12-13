@@ -167,7 +167,7 @@ footer{
         max-height: 30vh;
     }
     .index body header{
-        flex: 3;
+        width: 100%;
     }
     .index body nav, .index footer, .index main > section{
         flex: 1;
