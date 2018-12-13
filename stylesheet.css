@@ -37,9 +37,17 @@ footer{
     font-family: "exo_2bold";
     font-size: 4rem;
 }
+#intent-sec p {
+  font-size: 1.9rem;
+  text-align: left;
+  margin: 0 1rem 1.5rem 1rem;
+}
 /*study-weeks specific styling*/
 .study-day{
     color: #32DD72;
+}
+.study-week{
+  margin-left: 1%;
 }
 .study-week ul{
     margin-right: 5%;
@@ -63,7 +71,7 @@ footer{
     padding-left: 1.3rem;
 }
 #roadmap main ul li:not(.embedded-list){
-    background-image: url(Favicons/lainbear.png);
+    background-image: url(./Images/eclipse.png);
     background-size: 1.2rem 1.2rem;
     background-repeat: no-repeat;
     background-position: left top;
@@ -121,8 +129,8 @@ footer{
     grid-area: love;
 }
 #love img{
-    max-width: 100%;
-    height: auto;
+    width: 100%;
+    height: 100%;
 }
 #study-log{
     grid-area: study;
@@ -139,25 +147,11 @@ footer{
 #practice-work, #notes{
     margin-right: 40px;
 }
-#eyes{
-    display: none;
-}
 @media (max-width: 1744px){
 .index main{
     grid-template-areas:
         "sec sec sec sec study study study study practice practice practice practice"
-        "roadmap roadmap roadmap roadmap eyes eyes eyes eyes notes notes notes notes"
-}
-#love{
-    display: none;
-}
-#eyes{
-    display: block;
-    grid-area: eyes;
-}
-#eyes img{
-    max-width: 100%;
-    max-height: 200px;
+        "roadmap roadmap roadmap roadmap love love love love notes notes notes notes"
 }
 #roadmap-sec{
     margin-left: 40px;
@@ -169,15 +163,8 @@ footer{
         align-items: center;
         justify-content: space-between;
     }
-    #eyes{
-        display: block;
-    }
-    #eyes img{
-        max-height: 300px;
-        width: auto;
-    }
     #love{
-        display: none;
+        max-height: 30vh;
     }
     .index body header{
         flex: 3;

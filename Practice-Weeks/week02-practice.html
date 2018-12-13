@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="author" content="cryptolain">
+    <meta name="author" content="klabweb">
     <meta name="description" content="Week 02 test page for testing various html workings.">
     <link rel="shortcut icon" href="../Favicons/html5-original.svg" type="image/x-icon">
     <title>Week 02 Practice</title>
@@ -17,6 +17,8 @@
     <nav>
         <ul>
             <li><a href="../index.html">Home</a></li>
+            <li><a href="../Practice-Weeks/week01-practice.html" title="Previous Practice">Previous Practice</a></li>
+            <li><a href="../Practice-Weeks/week03-practice.html" title="Next Practice">Next Practice</a></li>
         </ul>
     </nav>
     <hr>
@@ -24,8 +26,8 @@
     <section id="captions">
         <h2>Captioned Image Inside Figure</h2>
         <figure>
-            <img src=../Images/figure.jpg height="400" width="554" alt="Social media is not trustworthy">
-            <figcaption>"<em>They trust me — dumb fucks</em>," Mark Zuckerberg</figcaption>
+            <img src=../Images/figure.jpg height="400" width="554" alt="Server with overflowing wires">
+            <figcaption><em>"Cyberspace. A consensual hallucination experienced daily by billions of legitimate operators." </figcaption>
         </figure>
     </section>
 
@@ -56,12 +58,11 @@
 
     <section id="embedded-video">
         <h2>Embedded video</h2>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/4Z3csK9fPso" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
-        </iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/y0GgZJidfUE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </section>
 
     <section id="embedded-map">
-        <h2>Embedded map - more tracking for my site...replace this and youtube later</h2>
+        <h2>Embedded map</h2>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d190256.09899053493!2d-87.87204678837578!3d41.83364784998598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e2c3cd0f4cbed%3A0xafe0a6ad09c0c000!2sChicago%2C+IL!5e0!3m2!1sen!2sus!4v1540350084000"
             width="600" height="450" frameborder="0" style="border:0" allowfullscreen>
         </iframe>
@@ -76,7 +77,7 @@
     <section id="vector-inline">
         <h2>Vector Graphic via inline SVG</h2>
         <svg width="560" height="315">
-            <rect width="100%" height="100%" fill="red" />
+            <rect width="100%" height="100%" fill="green" />
             <rect width="50%" height="100%" fill="black" />
         </svg>
     </section>
@@ -93,7 +94,7 @@
     <section id="html-table">
         <h2>Structured HTML Table</h2>
         <table>
-            <caption>City Affordability & Diversity Studies</caption>
+            <caption>City Wage & Rent Study</caption>
             <colgroup>
                 <col style="background-color: yellow">
                 <col style="background-color: pink">
@@ -109,7 +110,6 @@
                     <th scope="col">Avg Salary</th>
                     <th scope="col">Avg Rent</th>
                     <th scope="col">Median Age</th>
-                    <th scope="col">% White</th>
                 </tr>
             </thead>
             <tbody>
@@ -119,14 +119,12 @@
                     <td>$62,820</td>
                     <td>$987</td>
                     <td>34.4</td>
-                    <td>48.7%</td>
                 <tr>
                     <td>Portland</td>
                     <td>647,805</td>
                     <td>$55,573</td>
                     <td>$1,025</td>
                     <td>36.7</td>
-                    <td>77.7%</td>
                 </tr>
                 <tr>
                     <td>San Francisco</td>
@@ -134,7 +132,6 @@
                     <td>$85,631</td>
                     <td>$1,632</td>
                     <td>38</td>
-                    <td>48.1%</td>
                 </tr>
             </tbody>
             <tfoot>
@@ -144,7 +141,6 @@
                     <td>$85,631</td>
                     <td>$1,632</td>
                     <td>38</td>
-                    <td>77.7</td>
                 </tr>
             </tfoot>
         </table>

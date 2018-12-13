@@ -26,7 +26,9 @@
     <nav>
         <ul id="nav-links">
             <li><a href="../index.html">Home</a></li>
+            <li><a href="../Practice-Weeks/week02-practice.html" title="Previous Practice">Previous Practice</a></li>
             <li><a href="../Study-Weeks/week03.html">Week 03 Study Log</a></li>
+            <li><a href="../Practice-Weeks/week04-practice.html" title="Next Practice">Next Practice</a></li>
         </ul>
         <hr>
     </nav>
@@ -78,12 +80,12 @@
         <section id="pseudo-classes">
             <h2>Pseudo-classes</h2>
             <a id="spooky" href="https://www.youtube.com/watch?v=n_qbGJuxCYY" title="Too Spooky for Me" target="_blank">Hover over this link to get <b>SPOOKED</b>!!</a><br>
-            <a id="beatz" href="https://www.youtube.com/watch?v=tL7wiLPRBcw" title="Dem Breaks" target="_blank">This link turns red after being clicked &#40;unless you have history disabled, in which case, good opsec on you&#41;</a>
+            <a id="beatz" href="https://www.youtube.com/watch?v=tL7wiLPRBcw" title="Dem Breaks" target="_blank">This link turns red after being clicked &#40;unless you have history disabled&#41;</a>
         </section>
 
         <section id="pseudo-elements">
             <h2>Pseudo Elements</h2>
-            <p id="pseudo">Note that this paragraph has some fancy styling.<br><br>This is thanks to pseudo elements. I can even use <i>::after</i> to add this clonepa after this paragraph, Nyoro~n.</p>
+            <p id="pseudo">Note that this paragraph has some fancy styling.<br><br>This is thanks to pseudo elements. I can even use <i>::after</i> to add this clonepa after this paragraph: </p>
         </section>
     </main>
 
@@ -148,20 +150,20 @@
     <section id="viewport-video">
         <h2>Video sized relative to viewport size</h2>
         <video id="spill" class="spill-video" controls loop>
-            <source src="../Videos/spill.webm" type="video/webm">
-            <source src="../Videos/spill.mp4" type="video/mp4">
+            <source src="../Videos/blackroom.webm" type="video/webm">
+            <source src="../Videos/blackroom.mp4" type="video/mp4">
         </video>
         <video id="spill2" class="spill-video" controls loop>
-            <source src="../Videos/spill.webm" type="video/webm">
-            <source src="../Videos/spill.mp4" type="video/mp4">
+            <source src="../Videos/blackroom.webm" type="video/webm">
+            <source src="../Videos/blackroom.mp4" type="video/mp4">
         </video>
         <video id="spill3" class="spill-video" controls loop>
-            <source src="../Videos/spill.webm" type="video/webm">
-            <source src="../Videos/spill.mp4" type="video/mp4">
+            <source src="../Videos/blackroom.webm" type="video/webm">
+            <source src="../Videos/blackroom.mp4" type="video/mp4">
         </video>
         <video id="spill4" class="spill-video" controls loop>
-            <source src="../Videos/spill.webm" type="video/webm">
-            <source src="../Videos/spill.mp4" type="video/mp4">
+            <source src="../Videos/blackroom.webm" type="video/webm">
+            <source src="../Videos/blackroom.mp4" type="video/mp4">
         </video>
     </section>
 
@@ -217,13 +219,10 @@
 
     <section id="box-model">
       <h2>The Box Model</h2>
-      <marquee behavior="alternate" direction="left" scrollamount="20" style="color: #7fdd57">Check em</marquee>
 
-      <img id="box-image-l" class="side-box" src="../Images/boxL.jpg" alt="box example image">
-      <a href="dubs.html" title="check em"><img id="box-image-center" src="../Images/boxcenter.jpg" alt="box example image"></a>
-      <img id="box-image-r" class="side-box" src="../Images/boxR.jpg" alt="box example image">
-
-      <marquee behavior="alternate" direction="left" scrollamount="25" style="color: #7fdd57">Check em</marquee>
+      <img id="box-image-l" class="side-box" src="../Images/boxL.gif" alt="box example image">
+      <a href="dubs.html"><img id="box-image-center" src="../Images/center.gif" alt="box example image"></a>
+      <img id="box-image-r" class="side-box" src="../Images/boxR.gif" alt="box example image">
 
       <p id="box-paragraph">The foundation of web layout revolves around the box model, where each element can be seen as a box, with an inner content layer, then a layer of padding, then a border, and then a margin which provides open space between elements. Think of a picture in a frame, where the picture is smaller than the frame, and has white space in between it and then frame. Then hang this frame on the wall near other frames in a planned layout. That's essentially the box model.<p>
     </section>

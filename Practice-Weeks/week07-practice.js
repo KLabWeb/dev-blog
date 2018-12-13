@@ -408,8 +408,8 @@ console.log("Values Dog and Dog are equal? " + deepEqual("Dog", "Dog"));
 
 console.log("Objects {animal: \"Dog\"} and {animal: \"Dog\"} are equal ? " + deepEqual({animal: "Dog"}, {animal: "Dog"}));
 
-console.log("Obects {animal: \"Dog\", age: 10, living: true} and {animal: \"Dog\", age: 10, living: true} are equal? " + deepEqual({animal: "Dog", age: 10, living: true}, {animal: "Dog", age: 10, living: true}));
+console.log("Objects {animal: \"Dog\", age: 10, living: true} and {animal: \"Dog\", age: 10, living: true} are equal? " + deepEqual({animal: "Dog", age: 10, living: true}, {animal: "Dog", age: 10, living: true}));
 
-console.log("Obects {animal: \"Dog\", age: 10, living: true} and {animal: \"Dog\", age: 15, living: true} are equal? " + deepEqual({animal: "Dog", age: 10, living: true}, {animal: "Dog", age: 15, living: true}));
+console.log("Objects {animal: \"Dog\", age: 10, living: true} and {animal: \"Dog\", age: 15, living: true} are equal? " + deepEqual({animal: "Dog", age: 10, living: true}, {animal: "Dog", age: 15, living: true}));
 
-console.log("Obects {animal: \"Dog\", age: 10, living: true} and {SPACESHIP: \"Dog\", age: 10, living: true} are equal? " + deepEqual({animal: "Dog", age: 10, living: true}, {SPACESHIP: "Dog", age: 10, living: true}));
+console.log("Objects {animal: \"Dog\", age: 10, living: true} and {SPACESHIP: \"Dog\", age: 10, living: true} are equal? " + deepEqual({animal: "Dog", age: 10, living: true}, {SPACESHIP: "Dog", age: 10, living: true}));

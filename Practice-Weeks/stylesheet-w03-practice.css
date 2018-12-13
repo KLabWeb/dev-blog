@@ -208,21 +208,23 @@ html {
     border-color: black;
 }
 #box-image-l{             /*use vwh and vh on images so boxes size proportionally to viewport dimensions*/
-    padding: .5vw;
-    border-width: 5vw;
+    padding: 2vw;
+    border: 3.5vw solid #7fdd57;
     margin: 1vw;
+    background-color: black;
 }
 #box-image-center{
     height: 40vh;
-    width: 15vw;
+    width: 20vw;
     padding: 1vw;
     border: 2vw solid #7fdd57;
     border-radius: .5vw;
     margin: 3.5vw 1vw 3.5vw 1vw;
 }
 #box-image-r{
-    padding: 4vw;
-    border-width: 1.5vw;
+    background-color: black;
+    padding: 3.8vw;
+    border: 1.5vw solid #7fdd57;
     margin: 1vw;
 }
 #box-paragraph{             /*use em so box sizes proportionally to font size of paragraph*/
@@ -257,7 +259,7 @@ html {
     padding: 2vw;
     border: 2vw solid rgba(127, 221, 87, .5);
     margin: 1vw 3vw 1vw 3vw;
-    background-image: url("../Images/backgroundclip.png");
+    background-image: url("../Images/backgroundclip.jpg");
     background-size: 24vw;
     background-position: center;
 }

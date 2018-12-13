@@ -53,11 +53,11 @@
 .form label{
     color: #c2dde6;
 }
-#second-form fieldset:not(:last-of-type) input, #deathclock, #country{
+#second-form fieldset:not(:last-of-type) input, #dateclock, #country{
       border: 1px solid #c2dde6;
       border-radius: 5px;
 }
-#second-form fieldset:not(:last-of-type) input:focus, #deathclock:focus, #country:focus{
+#second-form fieldset:not(:last-of-type) input:focus, #dateclock:focus, #country:focus{
     border: 2px solid #32DD72;
 }
 
