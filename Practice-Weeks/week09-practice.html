@@ -45,7 +45,8 @@
   <main>
     <section id="dom-head">
       <h1>JS &amp; the DOM</h1>
-      <p>The below layout &#40;up until the raw code blocks&#41; is largely pulled from <a href="week05-practice.html" title="compare the differences">Week 05 practice work</a>. The form elements are pulled from  <a href="week05-practice.html" title="form code">week 07</a>. Some visual components are pulled from week 03 and week 04.</p>
+      <p>The below layout &#40;up until the raw code blocks&#41; is largely pulled from <a href="week05-practice.html" title="compare the differences">Week 05 practice work</a>. The form elements are pulled from <a href="week05-practice.html" title="form code">week
+          07</a>. Some visual components are pulled from week 03 and week 04.</p>
       <p>This area will serve as a sandbox for testing different forms of DOM interaction, setting the forms up to actually submit somewhere, adding event driven features to, etc..</p>
     </section>
 
@@ -56,6 +57,8 @@
       <div id="flexd"></div>
       <div id="flexe"></div>
     </section>
+
+    <button id="warp">CLICK FOR ALTERATION</button>
 
     <div id="flex-two-slab">
       <section id="styled-table">
@@ -116,7 +119,7 @@
       </section>
 
       <section id="flex-clownvideo">
-        <video autoplay loop>
+        <video id="clownvideo" autoplay loop>
           <source src="../Videos/clowntown.webm" type="video/webm">
           <source src="../Videos/clowntown.mp4" type="video/mp4">
         </video>
@@ -346,6 +349,7 @@
       <div id="bg-border" class="bg-img"></div>
     </section>
 
+    <h2>Dom Navigation with Recursion</h2>
     <pre class="js">
     <code>
       //navigate through DOM with recursion.
@@ -361,6 +365,8 @@
       }
     </code>
   </pre>
+
+    <h2>Print All Descendants of Specified Tag</h2>
     <pre class="js">
     <code>
       //takes in a DOM node, prints all descendants that are specified tag.
@@ -381,6 +387,37 @@
       }
     </code>
   </pre>
+    <pre>OUTPUT</pre>
+    <pre class="js">
+  <code>
+    16
+    file:///home/artimus/Workspace/cryptolain.github.io/Images/john.gif
+    file:///home/artimus/Workspace/cryptolain.github.io/Images/timemachine.jpg
+    file:///home/artimus/Workspace/cryptolain.github.io/Images/lainfaceB.gif
+    file:///home/artimus/Workspace/cryptolain.github.io/Images/lainface.gif
+    file:///home/artimus/Workspace/cryptolain.github.io/Images/L.png
+    file:///home/artimus/Workspace/cryptolain.github.io/Images/A.png
+    file:///home/artimus/Workspace/cryptolain.github.io/Images/I.png
+    file:///home/artimus/Workspace/cryptolain.github.io/Images/N.png
+    file:///home/artimus/Workspace/cryptolain.github.io/Images/lainface.gif
+    file:///home/artimus/Workspace/cryptolain.github.io/Images/stallman.png
+
+    12
+    file:///home/artimus/Workspace/cryptolain.github.io/index.html
+    file:///home/artimus/Workspace/cryptolain.github.io/Practice-Weeks/week08-practice.html
+    file:///home/artimus/Workspace/cryptolain.github.io/Study-Weeks/week09.html
+    file:///home/artimus/Workspace/cryptolain.github.io/roadmap.html
+    file:///home/artimus/Workspace/cryptolain.github.io/Notes/HTML-I.pdf
+    file:///home/artimus/Workspace/cryptolain.github.io/Notes/CSS3-I.pdf
+    file:///home/artimus/Workspace/cryptolain.github.io/Notes/JS-I.pdf
+    "https://developer.mozilla.org/en-US/docs/Learn"
+    "https://eloquentjavascript.net/"
+    file:///home/artimus/Workspace/cryptolain.github.io/Notes/Py-Crsh-Crse-(2016,-1st-ed).pdf
+    file:///home/artimus/Workspace/cryptolain.github.io/Practice-Weeks/week05-practice.html
+  </code>
+</pre>
+
+    <h2>Replace Video</h2>
     <pre class="js">
     <code>
       //Checks if a specified video type exists for unique id video.
@@ -398,6 +435,7 @@
     </code>
   </pre>
 
+    <h2>Insert Row Into Table</h2>
     <pre class="js">
     <code>
       //Inserts row into table and add values, including table header
@@ -426,8 +464,35 @@
     </code>
   </pre>
 
+    <h2>DIY <code>getElementsByTagName</code> Method</h2>
+    <pre class="js">
+  <code>
+    //Provides same functionality as core method document.getElementsByTagName
+    function findTag(element, tag) {
+      let tags = [];
+      tag = tag.toUpperCase();
+
+      function getElementsByTagNameDIY(element) {
+        for (let i = 0; i < element.childNodes.length; i++) {
+          let childNode = element.childNodes[i];
+          if (childNode.nodeType == Node.ELEMENT_NODE) {
+            if(childNode.nodeName == tag)
+              tags.push(childNode);
+            getElementsByTagNameDIY(childNode);
+            }
+        }
+      }
+      getElementsByTagNameDIY(element, tag);
+      return tags;
+    }
+
+    console.log(findTag(document.body, "section"));    //prints all section elements in DOM body
+  </code>
+</pre>
+
   </main>
   <script src="./week09-dom.js"></script>
+  <script src="./week09-events.js"></script>
 </body>
 
 </html>

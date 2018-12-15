@@ -372,6 +372,9 @@
 
 
 /*Code below here new code from week 09*/
+main > h2{
+  margin-left: 6%;
+}
 #dom-head{
   margin-left:6%;
   margin-right: 6%;
@@ -385,18 +388,15 @@
   color: white;
   font-size: 2.2rem;
 }
-
-
-
-
-
-
-
-
-
-
-
-
+#warp{
+  height: 80px;
+  width: 150px;
+  font-size: 1.2em;
+  background-color: #e05915;
+  border: 0;
+  margin-left: 20%;
+  border: 3px solid #c2dde6;
+}
 
 
 
