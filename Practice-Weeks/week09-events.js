@@ -31,12 +31,12 @@ function domWarp() {
   //change
   let body = document.getElementsByTagName("body");
   body[0].style.position = "relative";
-  body[0].style.backgroundImage = "url(../Images/original.gif)";
+  body[0].style.backgroundImage = "url(../Images/back.gif)";
   body[0].style.backgroundSize = "100%";
   body[0].style.backgroundRepeat = "repeat";
   body[0].style.backgroundAttachment = "fixed";
   body[0].style.overflow = "scroll";
-
+  
  document.getElementById("warp").style.display = "none";
 
 }
