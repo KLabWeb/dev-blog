@@ -20,5 +20,3 @@ function primitiveMultiplyWrap(x, y){
     }
   }
 }
-
-function seeNodes()
