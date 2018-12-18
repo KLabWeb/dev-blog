@@ -37,7 +37,7 @@ function drawcelestial(event) {
 
   celestial.style.position = "absolute";
   //responsive sizing for varying viewport sizes
-  window.innerWidth > 700 ? celestial.style.height = (Math.random() * 6) + "vw": celestial.style.height = (Math.random() * 20) + "vw";
+  window.innerWidth > 700 ? celestial.style.height = (Math.random() * 6) + "vw": celestial.style.height = (Math.random() * 15) + "vw";
   celestial.style.width = celestial.style.height;
   //sets to place coordinates clicked
   celestial.style.left = event.pageX + "px";
