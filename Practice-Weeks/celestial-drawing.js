@@ -20,6 +20,8 @@ function firstClick(event) {
 
 //Places celestial bodies on an empty universe.
 // 75% of time body to place on universe is chosen randomly from an array
+
+
 function drawcelestial(event) {
 
   let celestial = document.createElement("div");
@@ -28,8 +30,8 @@ function drawcelestial(event) {
   let spaceImages = ["comet", "comet-1", "europa", "jupiter", "mars", "mercury", "milky-way", "meteorite", "saturn", "uranus", "neptune"];
 
   if (randomNum <= .75)
-    //Math.round on a decimal * 10 returns 0-10, perfect for an array.length of 11
-    celestial.style.backgroundImage = `url(../Images/space/${spaceImages[Math.round(randomNum * 10)]}.svg)`;
+  //sets to random index number between 0 an 10
+  celestial.style.backgroundImage = `url(../Images/space/${spaceImages[Math.floor(Math.random()*spaceImages.length)]}.svg)`;
   else if (randomNum > .75 && randomNum < .98)
     celestial.style.backgroundImage = "url(../Images/space/sun.svg)";
   else
@@ -37,7 +39,7 @@ function drawcelestial(event) {
 
   celestial.style.position = "absolute";
   //responsive sizing for varying viewport sizes
-  window.innerWidth > 700 ? celestial.style.height = (Math.random() * 6) + "vw": celestial.style.height = (Math.random() * 15) + "vw";
+  window.innerWidth > 700 ? celestial.style.height = (Math.random() * 6) + "vw": celestial.style.height = (Math.random() * 10) + "vw";
   celestial.style.width = celestial.style.height;
   //sets to place coordinates clicked
   celestial.style.left = event.pageX + "px";
