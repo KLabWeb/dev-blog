@@ -28,14 +28,10 @@ function domWarp() {
   addRow("styled-table-body", ["12/14/18", "Fri", "3", "Why is central not responding still?", "This row created by JS"]);
   addRow("styled-table-body", ["12/29/18", "Sat", "js", "We have taken control of the ship", "Do you think he noticed?"]);
 
-  //change
+  //change background
   let body = document.getElementsByTagName("body");
-  body[0].style.position = "relative";
   body[0].style.backgroundImage = "url(../Images/back.gif)";
   body[0].style.backgroundSize = "100%";
-  body[0].style.backgroundRepeat = "repeat";
-  body[0].style.backgroundAttachment = "fixed";
-  body[0].style.overflow = "scroll";
 
  document.getElementById("warp").style.display = "none";
 

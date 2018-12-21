@@ -1,7 +1,6 @@
 document.body.addEventListener("click", firstClick);
 document.body.addEventListener("click", drawcelestial);
 
-
 function firstClick(event) {
   //create and start audio
   let song = new Audio("../Audio/funeral-canticle.mp3");
@@ -30,8 +29,8 @@ function drawcelestial(event) {
   let spaceImages = ["comet", "comet-1", "europa", "jupiter", "mars", "mercury", "milky-way", "meteorite", "saturn", "uranus", "neptune"];
 
   if (randomNum <= .75)
-  //sets to random index number between 0 an 10
-  celestial.style.backgroundImage = `url(../Images/space/${spaceImages[Math.floor(Math.random()*spaceImages.length)]}.svg)`;
+    //sets to random index number between 0 an 10
+    celestial.style.backgroundImage = `url(../Images/space/${spaceImages[Math.floor(Math.random()*spaceImages.length)]}.svg)`;
   else if (randomNum > .75 && randomNum < .98)
     celestial.style.backgroundImage = "url(../Images/space/sun.svg)";
   else
@@ -39,10 +38,10 @@ function drawcelestial(event) {
 
   celestial.style.position = "absolute";
   //responsive sizing for varying viewport sizes
-  window.innerWidth > 700 ? celestial.style.height = (Math.random() * 6) + "vw": celestial.style.height = (Math.random() * 10) + "vw";
+  window.innerWidth > 700 ? celestial.style.height = `${Math.random() * 6}vw`: celestial.style.height = `${Math.random() * 12.5}vw`;
   celestial.style.width = celestial.style.height;
   //sets to place coordinates clicked
-  celestial.style.left = event.pageX + "px";
-  celestial.style.top = event.pageY + "px";
+  celestial.style.left = `${event.pageX}px`;
+  celestial.style.top = `${event.pageY}px`;
   document.body.appendChild(celestial);
 }

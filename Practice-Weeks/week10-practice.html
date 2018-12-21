@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="../Favicons/css3-original.svg" type="image/x-icon">
   <link rel="stylesheet" href="practice-stylesheet.css">
-  <link rel="stylesheet" href="stylesheet-w09-practice-sandbox.css">
+  <link rel="stylesheet" href="stylesheet-w10-practice.css">
   <link rel="stylesheet" href="../header.css">
   <link rel="stylesheet" href="../nav-buttons.css">
   <!--code formatting-->
@@ -83,16 +83,75 @@
 
           celestial.style.position = "absolute";
           //responsive sizing for varying viewport sizes
-          window.innerWidth > 700 ? celestial.style.height = (Math.random() * 6) + "vw": celestial.style.height = (Math.random() * 15) + "vw";
-          celestial.style.width = celestial.style.height;
+          window.innerWidth > 700 ? celestial.style.height = `${Math.random() * 6}vw`: celestial.style.height = `${Math.random() * 12.5}vw`;
           //sets to place coordinates clicked
-          celestial.style.left = event.pageX + "px";
-          celestial.style.top = event.pageY + "px";
+          celestial.style.left = `${event.pageX}px`;
+          celestial.style.top = `${event.pageY}px`;
           document.body.appendChild(celestial);
         }
       </code>
     </pre>
+
+    <section id="textEdit">
+      <h2>Basic text editor with [Shift], [Space], [Backspace], [Enter], [Tab], &amp; [CapsLock] Functionalities</h2>
+      <div class="workbox" id="keyClick" tabindex="0"><p>Click this box, then enter text<p></div>
+    </section>
+
+    <article>
+      <h2>JS Source Code</h2>
+      <pre class="js">
+        <code>
+          //worspacebox for text insertion area
+          let keyDiv = document.querySelector("#keyClick");
+
+          //add text to text area
+          keyDiv.addEventListener("keydown", event => {
+            let divChild = keyDiv.lastChild;
+
+            //for different handlings for special action keys and standard keys
+            switch(event.key){
+              case "Enter":
+                keyDiv.appendChild(document.createElement("p"));
+                break;
+              case "Tab":
+                event.preventDefault();
+                divChild.textContent += "\xa0\xa0\xa0\xa0";
+                break;
+              case " ":
+                //to prevent default window action of move page down when space pressed
+                event.preventDefault();
+                divChild.textContent += "\xa0"
+                break;
+              case "Backspace":
+                //removes one char from each P or last P if P is empty
+                if(divChild.textContent.length > 0)
+                  divChild.textContent = divChild.textContent.slice(0, divChild.textContent.length-1);
+                else if(divChild.previousSibling != null)
+                  divChild.remove();
+                break;
+              case "CapsLock":
+                break;
+              case "Shift":
+                break;
+              default:
+                divChild.textContent += event.key;
+            }
+            //checks if overflowing from DIV and if so, scrolls DIV up
+            if(keyDiv.scrollHeight > keyDiv.clientHeight)
+              keyDiv.scrollTop = keyDiv.scrollHeight;
+          });
+
+          //remove display instructions after first key press
+          keyDiv.addEventListener("keydown", firstPress);
+          function firstPress(event){
+            keyDiv.firstChild.textContent = event.textContent;
+            keyDiv.removeEventListener("keydown", firstPress);
+          }
+        </code>
+      </pre>
+
   </main>
+  <script src="keybox.js"></script>
 </body>
 
 </html>
