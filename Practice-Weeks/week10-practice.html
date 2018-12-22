@@ -70,20 +70,20 @@
 
           let celestial = document.createElement("div");
           let randomNum = Math.random();
-          //potential image array for it randomNum < .75
+          //potential image array for it randomNum &#60; .75
           let spaceImages = ["comet", "comet-1", "europa", "jupiter", "mars", "mercury", "milky-way", "meteorite", "saturn", "uranus", "neptune"];
 
-          if (randomNum <= .75)
+          if (randomNum &#60;= .75)
             //sets image title from array index of random index number between 0 an 10
             celestial.style.backgroundImage = `url(../Images/space/${spaceImages[Math.floor(Math.random()*spaceImages.length)]}.svg)`;
-          else if (randomNum > .75 && randomNum < .98)
+          else if (randomNum &#62; .75 && randomNum &#60; .98)
             celestial.style.backgroundImage = "url(../Images/space/sun.svg)";
           else
             celestial.style.backgroundImage = "url(../Images/space/planet-earth-1.svg)";
 
           celestial.style.position = "absolute";
           //responsive sizing for varying viewport sizes
-          window.innerWidth > 700 ? celestial.style.height = `${Math.random() * 6}vw`: celestial.style.height = `${Math.random() * 12.5}vw`;
+          window.innerWidth &#62; 700 ? celestial.style.height = `${Math.random() * 6}vw`: celestial.style.height = `${Math.random() * 12.5}vw`;
           //sets to place coordinates clicked
           celestial.style.left = `${event.pageX}px`;
           celestial.style.top = `${event.pageY}px`;
@@ -149,7 +149,222 @@
           }
         </code>
       </pre>
+    </article>
 
+      <section>
+        <h2><a href="https://lain-react.herokuapp.com/" title="Hello React">Basic REACT</a></h2>
+        <h3>The HTML DOM Skeleton</h3>
+        <pre class="html">
+          <code>
+            //index.html//
+
+            &#60;!DOCTYPE html&#62;
+            &#60;html lang="en"&#62;
+              &#60;head&#62;
+                &#60;meta charset="utf-8"&#62;
+                &#60;meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"&#62;
+                &#60;title&#62;React App&#60;/title&#62;
+              &#60;/head&#62;
+              &#60;body&#62;
+                &#60;noscript&#62;
+                  You need to enable JavaScript to run this app.
+                &#60;/noscript&#62;
+                &#60;main&#62;
+                  &#60;div id="helloDiv"&#62;&#60;/div&#62;
+                &#60;/main&#62;
+              &#60;/body&#62;
+            &#60;/html&#62;
+          </code>
+        </pre>
+
+        <pre class="html">
+          <code>
+            //index.css//
+
+            main{
+              display: flex;
+              align-items: center;
+              justify-content: space-around;
+              background-color: #1e1e1e;
+              color: #999999;
+            }
+          </code>
+        </pre>
+
+        <h3>The <i>App</i> Component, to Display Different Texts and in Some Cases an Image, based On Properties Set During Instantiation</h3>
+        <pre class="jsx">
+          <code>
+            //App.js//
+
+            import React, { Component } from 'react';
+            import './App.css';
+
+            class App extends Component {
+              render() {
+                return this.selectType();
+              }
+
+              selectType(){
+                let Elm = &#60;h1 style={{color:'green', border: '3px solid black', backgroundColor: 'black', textAlgin: 'center'}}&#62;
+                                    Hello world&#60;/h1&#62;;
+                let Feel = &#60;h1&#62;I FEEL IT&#60;/h1&#62;;
+                let Belm = &#60;h1&#62;REEEEE&#60;/h1&#62;;
+                let Relm = &#60;img src={this.props.url} height="200px" width="200px"&#62;&#60;/img&#62;
+
+                //tests theType property passed in by creating object, then uses that to decide what type of App to return
+                switch(this.props.theType){
+                  case "Elm":
+                    return(
+                      &#60;div&#62;
+                        &#60;h3&#62;{this.props.theType.toString()}&#60;/h3&#62;
+                        {Elm}
+                        {new Date().toLocaleString()}
+                      &#60;/div&#62;
+                    );
+                  case "Feelit":
+                    return (
+                      &#60;div&#62;
+                        {Elm}
+                        {Relm}
+                        {Elm}
+
+                      &#60;/div&#62;
+                    );
+                  default:
+                    return (
+                      &#60;div&#62;
+                        {Belm}
+                        {Relm}
+                        {Feel}
+                        {Belm}
+                      &#60;/div&#62;
+                    );
+                  }
+              }
+            }
+
+            export default App;
+          </code>
+        </pre>
+
+        <h3>The <i>index.js</i> Script, to Render Onto the DOM</h3>
+        <pre class="jsx">
+          <code>
+            //index.js//
+
+            import React from 'react';
+            import ReactDOM from 'react-dom';
+            import './index.css';
+            import AppGroup from './AppGroup';
+
+            //HelloWorld
+            ReactDOM.render(
+              &#60;div style={{display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-around"}}&#62;
+                &#60;AppGroup/&#62;
+                &#60;AppGroup/&#62;
+                &#60;AppGroup/&#62;
+              &#60;/div&#62;, document.getElementById('helloDiv'));
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2><a href="https://lain-react.herokuapp.com/" title="Hello React">React Trading Component</a></h2>
+        <h3>PicArray.js</h3>
+        <pre class="js">
+          <code>
+            import React, { Component } from 'react';
+
+            //Creates a component with an array of images, then cyles through images, one image per 3 seconds
+            class PicArray extends Component {
+              //Constructor creates time value and starts update method
+              constructor(props){
+                super(props);
+                this.state = {urlList: ['/images/stocks/1.jpg',
+                                    '/images/stocks/2.png',
+                                    '/images/stocks/3.jpg',
+                                    '/images/stocks/4.jpg',
+                                    '/images/stocks/5.png',
+                                    '/images/stocks/6.jpg',
+                                    '/images/stocks/7.jpg',
+                                    '/images/stocks/8.png',
+                                    '/images/stocks/9.jpg',
+                                    '/images/stocks/10.png'
+                                    ],
+                               currentUrl: '',
+                               currentIndex: 0,
+                               alt: "wojack"
+                              };
+                this.switchImage();   //starts time when class created
+              }
+
+              //incriments this.CurrentIndex by +1 until == length of array, then resets to 0
+              //also updates currentUrl for image each iteration
+              nextImage(){
+                if(this.state.currentIndex &#62;= this.state.urlList.length)
+                  this.setState({currentIndex: 0});
+
+                this.setState({currentUrl: this.state.urlList[this.state.currentIndex]});
+                this.setState({currentIndex: this.state.currentIndex+1});
+              }
+
+              //updates image every second
+              switchImage(){
+                    setInterval(()=&#62; this.nextImage(), 3000);
+              }
+
+              //Time component with time value that updates every second is rendered
+              render() {
+                    let pic = &#60;div style={{margin: "auto"}}&#62;
+                              &#60;img src={this.state.currentUrl} alt="wojack"
+                                style={{width:"100%", height: "100%"}}&#62;
+                              &#60;/img&#62;
+                            &#60;/div&#62;;
+                    //different image sizes for larger and smaller viewports
+                    if(document.documentElement.clientWidth &#62; 900){
+                      pic.props.style.width="30vw";
+                      pic.props.style.height="30vw";
+                    }
+                    else{
+                      pic.props.style.width="90vw";
+                      pic.props.style.height="90vw";
+                    }
+                    return pic;
+              }
+            }
+
+            export default PicArray;
+          </code>
+        </pre>
+
+        <h3>index.js, for rendering</h3>
+        <pre class="js">
+          <code>
+            //index.html//
+
+            import React from 'react';
+            import ReactDOM from 'react-dom';
+            import './index.css';
+            import AppGroup from './AppGroup';
+            import PicArray from './PicArray';
+
+            //HelloWorld
+            ReactDOM.render(
+              &#60;div style={{display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-around"}}&#62;
+                &#60;AppGroup/&#62;
+                &#60;AppGroup/&#62;
+                &#60;AppGroup/&#62;
+              &#60;/div&#62;, document.getElementById('helloDiv'));
+
+            //Trading
+            ReactDOM.render(&#60;PicArray/&#62;, document.getElementById('pic-array'));
+          </code>
+        </pre>
+      </section>
   </main>
   <script src="keybox.js"></script>
 </body>
