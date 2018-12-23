@@ -256,16 +256,24 @@
             import ReactDOM from 'react-dom';
             import './index.css';
             import AppGroup from './AppGroup';
+            //import * as serviceWorker from './serviceWorker';
 
-            //HelloWorld
-            ReactDOM.render(
-              &#60;div style={{display: "flex",
-                          alignItems: "center",
-                          justifyContent: "space-around"}}&#62;
-                &#60;AppGroup/&#62;
-                &#60;AppGroup/&#62;
-                &#60;AppGroup/&#62;
-              &#60;/div&#62;, document.getElementById('helloDiv'));
+
+            //set HelloWorld with 1, 2, or 3 &#60;AppGroup/&#62; components based on viewport size
+            function HelloWorld(){
+              if(document.documentElement.clientWidth &#60;= 400)
+                return &#60;div style={{display: "flex", alignItems: "center", justifyContent: "space-around"}}&#62;
+                  &#60;AppGroup/&#62;&#60;/div&#62;;
+
+              else if(document.documentElement.clientWidth &#60;= 615)
+                return &#60;div style={{display: "flex", alignItems: "center", justifyContent: "space-around"}}&#62;
+                  &#60;AppGroup/&#62;&#60;AppGroup/&#62;&#60;/div&#62;;
+
+              else
+                return &#60;div style={{display: "flex", alignItems: "center", justifyContent: "space-around"}}&#62;
+                  &#60;AppGroup/&#62;&#60;AppGroup/&#62;&#60;AppGroup/&#62;&#60;/div&#62;;
+            }
+            ReactDOM.render(HelloWorld(), document.getElementById('helloDiv'));
           </code>
         </pre>
       </section>
@@ -350,15 +358,7 @@
             import AppGroup from './AppGroup';
             import PicArray from './PicArray';
 
-            //HelloWorld
-            ReactDOM.render(
-              &#60;div style={{display: "flex",
-                          alignItems: "center",
-                          justifyContent: "space-around"}}&#62;
-                &#60;AppGroup/&#62;
-                &#60;AppGroup/&#62;
-                &#60;AppGroup/&#62;
-              &#60;/div&#62;, document.getElementById('helloDiv'));
+            //function HelloWorld() code &amp; rendering omitted...see last example for code
 
             //Trading
             ReactDOM.render(&#60;PicArray/&#62;, document.getElementById('pic-array'));
