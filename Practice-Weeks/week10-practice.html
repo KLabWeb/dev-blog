@@ -191,12 +191,42 @@
           </code>
         </pre>
 
+        <h3>The <i>Time</i> Component, to create a dynamically updating clock, that updates once per second</h3>
+        <pre class="jsx">
+          <code>
+            //Time.js//
+            import React, { Component } from 'react';
+
+            class Time extends Component {
+              //Constructor creates time value and starts update method
+              constructor(props){
+                super(props);
+                this.state = {time: (new Date()).toLocaleString()};
+                this.startTime();   //starts time when class created
+              }
+
+              //updates time every second
+              startTime(){
+                setInterval(() => {this.setState({time: (new Date()).toLocaleString()})}, 1000);
+              }
+
+              //Time component with time value that updates every second is rendered
+              render() {
+                return &#60;div&#62;{this.state.time}&#60;/div&#62;;
+              }
+            }
+
+            export default Time;
+          </code>
+        </pre>
+
         <h3>The <i>App</i> Component, to Display Different Texts and in Some Cases an Image, based On Properties Set During Instantiation</h3>
         <pre class="jsx">
           <code>
             //App.js//
 
             import React, { Component } from 'react';
+            import Time from './Time';
             import './App.css';
 
             class App extends Component {
@@ -218,7 +248,7 @@
                       &#60;div&#62;
                         &#60;h3&#62;{this.props.theType.toString()}&#60;/h3&#62;
                         {Elm}
-                        {new Date().toLocaleString()}
+                        &#60;Time /&#62
                       &#60;/div&#62;
                     );
                   case "Feelit":
