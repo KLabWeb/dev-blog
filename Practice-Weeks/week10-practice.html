@@ -337,8 +337,7 @@
                 this.switchImage();   //starts time when class created
               }
 
-              //incriments this.CurrentIndex by +1 until == length of array, then resets to 0
-              //also updates currentUrl for image each iteration
+              //incriments this.CurrentIndex by +1 until going to breach array range, then resets to 0
               nextImage(){
                 if(this.state.currentIndex &#62;= this.state.urlList.length-1)
                   this.setState({currentIndex: 0});
