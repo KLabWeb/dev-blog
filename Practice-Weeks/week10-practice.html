@@ -30,7 +30,7 @@
         <li><a href="../index.html" title="Home">Home</a></li>
         <li><a href="../Practice-Weeks/week09-practice.html" title="Previous Practice">Previous Practice</a></li>
         <li><a href="../Study-Weeks/week10.html" title="Week Log">Week Log</a></li>
-        <!--<li><a href="../Practice-Weeks/week11-practice.html" title="Next Practice">Next Practice</a></li>-->
+        <li><a href="../Practice-Weeks/week11-practice.html" title="Next Practice">Next Practice</a></li>
         <li><a href="../roadmap.html" title="Roadmap">Roadmap</a></li>
         <li><a href="../Notes/HTML-I.pdf" title="HTML I Notes">HTML I Notes</a></li>
         <li><a href="../Notes/CSS3-I.pdf" title="CSS I Notes">CSS I Notes</a></li>
@@ -295,15 +295,14 @@
       </section>
 
       <section>
-        <h2><a href="https://lain-react.herokuapp.com/" title="Hello React">React Trading Component</a></h2>
-        <h3>PicArray.js</h3>
+        <h2><a href="https://wojack-stock.herokuapp.com/" title="Hello React">React Trading Component</a></h2>
+        <h3>Box.js, for building an image with a dynamically shifting picture from an array of images</h3>
         <pre class="js">
           <code>
-            import React, { Component } from 'react';
+            import React, {Component} from 'react';
+            import './App.css';
 
-            //Creates a component with an array of images, then cyles through images, one image per 3 seconds
-            class PicArray extends Component {
-              //Constructor creates time value and starts update method
+            class App extends Component {
               constructor(props){
                 super(props);
                 this.state = {urlList: ['/images/stocks/1.jpg',
@@ -317,64 +316,80 @@
                                     '/images/stocks/9.jpg',
                                     '/images/stocks/10.png'
                                     ],
-                               currentIndex: 0,
+                               currentIndex: this.props.index,
                                alt: "wojack"
                               };
-                this.switchImage();   //starts image switching when class created
+                this.switchImage();   //starts time when class created
               }
 
               //incriments this.CurrentIndex by +1 until going to breach array range, then resets to 0
               nextImage(){
-                if(this.state.currentIndex &#62;= this.state.urlList.length-1)
-                  this.setState({currentIndex: 0});
-                else
-                  this.setState({currentIndex: this.state.currentIndex+1});
+                this.state.currentIndex &#62;= this.state.urlList.length-1 ?
+                  (this.setState({currentIndex: 0})) : this.setState({currentIndex: this.state.currentIndex+1});
               }
 
               //updates image every second
               switchImage(){
-                    setInterval(()=&#62; this.nextImage(), 1000);
+                setInterval(()=&#62; this.nextImage(), 3000);
               }
 
-              //Time component with time value that updates every second is rendered
+              //returns image with different size based on viewport size
               render() {
-                    let pic = &#60;div style={{margin: "auto"}}&#62;
-                              &#60;img src={this.state.urlList[this.state.currentIndex]} alt="wojack"
-                                style={{width:"100%", height: "100%"}}&#62;
-                              &#60;/img&#62;
-                            &#60;/div&#62;;
-                    //different image sizes for larger and smaller viewports
-                    if(document.documentElement.clientWidth &#62; 900){
-                      pic.props.style.width="30vw";
-                      pic.props.style.height="30vw";
-                    }
-                    else{
-                      pic.props.style.width="90vw";
-                      pic.props.style.height="90vw";
-                    }
-                    return pic;
+                return document.documentElement.clientWidth &#62; 900 ? (
+                    &#60;img src={this.state.urlList[this.state.currentIndex]} alt="wojack"
+                      style={{margin: "30px", width:"20vw", height: "20vw"}}&#62;&#60;/img&#62;
+                    ) : (
+                    &#60;img src={this.state.urlList[this.state.currentIndex]} alt="wojack"
+                      style={{margin: "30px", width:"90vw", height: "90vw"}}&#62;&#60;/img&#62;
+                    );
               }
             }
 
-            export default PicArray;
+            export default App;
           </code>
         </pre>
+
+      <h3>BoxGroup.js, for building a group of images</h3>
+        <pre class="js">
+          <code>
+            import React, {Component} from 'react';
+            import Box from './Box';
+
+            class AppGroup extends Component {
+
+              getImageGroup(){
+                let images = [];
+                 //note using 10 is bad form and too static, but only way without using JSON, etc.
+                for(let i = 0; i &#60; 10; i++){
+                  images[i] = &#60;Box index={i}/&#62;
+                }
+                return images;
+              }
+
+              render() {
+                return (
+                  &#60;div id="container" style={{display: "flex", flexWrap: "wrap"}}&#62;
+                     {this.getImageGroup().map(oneImage =&#62; &#60;div style={{margin: "auto"}}&#62;{oneImage}&#60;/div&#62;)}
+                  &#60;/div&#62;
+                );
+              }
+            }
+
+            export default AppGroup;
+          </code>
+        </pre>
+
 
         <h3>index.js, for rendering</h3>
         <pre class="js">
           <code>
-            //index.html//
-
             import React from 'react';
             import ReactDOM from 'react-dom';
             import './index.css';
-            import AppGroup from './AppGroup';
-            import PicArray from './PicArray';
+            import BoxGroup from './BoxGroup';
 
-            //function HelloWorld() code &amp; rendering omitted...see last example for code
+            ReactDOM.render(&#60;BoxGroup /&#62;, document.getElementById('root'));
 
-            //Trading
-            ReactDOM.render(&#60;PicArray/&#62;, document.getElementById('pic-array'));
           </code>
         </pre>
       </section>

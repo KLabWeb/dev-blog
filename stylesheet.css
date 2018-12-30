@@ -146,6 +146,10 @@ footer{
 }
 #practice-work, #notes{
     margin-right: 40px;
+    padding: 0 10% 0 10%;
+}
+li{
+  margin: 2px;
 }
 @media (max-width: 1744px){
 .index main{

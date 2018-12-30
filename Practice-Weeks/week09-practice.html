@@ -30,7 +30,7 @@
         <li><a href="../index.html" title="Home">Home</a></li>
         <li><a href="../Practice-Weeks/week08-practice.html" title="Previous Practice">Previous Practice</a></li>
         <li><a href="../Study-Weeks/week10.html" title="Week Log">Week Log</a></li>
-        <!--<li><a href="../Practice-Weeks/week10-practice.html" title="Next Practice">Next Practice</a></li>-->
+        <li><a href="../Practice-Weeks/week10-practice.html" title="Next Practice">Next Practice</a></li>
         <li><a href="../roadmap.html" title="Roadmap">Roadmap</a></li>
         <li><a href="../Notes/HTML-I.pdf" title="HTML I Notes">HTML I Notes</a></li>
         <li><a href="../Notes/CSS3-I.pdf" title="CSS I Notes">CSS I Notes</a></li>
@@ -227,7 +227,7 @@
 
     <section class="form" id="second-form">
       <h2>Please Enter Your Information for Processing:</h2>
-      <form id="shipping-grid">
+      <form id="shipping-grid" method="POST" action="./submit-file" enctype=”text/plain”>
 
         <fieldset id="shipping-main">
           <label for="name">Full Name:</label>
@@ -491,7 +491,6 @@
 </pre>
 
   </main>
-  <script src="./week09-console.js"></script>
   <script src="./week09-alteration-button-handler.js"></script>
 </body>
 

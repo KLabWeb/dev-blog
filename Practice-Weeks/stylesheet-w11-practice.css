@@ -1,0 +1,14 @@
+main{
+  margin: 0 3vw 0 3vw;
+}
+
+label{
+    color: #c2dde6;
+}
+
+input{
+  margin-bottom: 10px;
+  background-color: black;
+  padding: 5px;
+  border: 1px solid #c2dde6;
+}

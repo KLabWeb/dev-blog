@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="klabweb">
+  <meta name="description" content="Week 11 General Practice">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../Favicons/css3-original.svg" type="image/x-icon">
+  <link rel="stylesheet" href="practice-stylesheet.css">
+  <link rel="stylesheet" href="stylesheet-w11-practice.css">
+  <link rel="stylesheet" href="../header.css">
+  <link rel="stylesheet" href="../nav-buttons.css">
+  <!--code formatting-->
+  <link rel="stylesheet" href="../Higlightjs/styles/tomorrow-night-bright.css">
+  <script src="../Higlightjs/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <title>Week 11 Sandbox</title>
+</head>
+
+<body>
+  <div>
+    <header class="header-v2">
+      <h1>Week 11 Sandbox</h1>
+    </header>
+
+    <nav class="nav-v2">
+      <ul>
+        <li><a href="../index.html" title="Home">Home</a></li>
+        <li><a href="../Practice-Weeks/week10-practice.html" title="Previous Practice">Previous Practice</a></li>
+        <li><a href="../Study-Weeks/week11.html" title="Week Log">Week Log</a></li>
+        <!--<li><a href="../Practice-Weeks/week12-practice.html" title="Next Practice">Next Practice</a></li>-->
+        <li><a href="../roadmap.html" title="Roadmap">Roadmap</a></li>
+        <li><a href="../Notes/HTML-I.pdf" title="HTML Notes">HTML Notes</a></li>
+        <li><a href="../Notes/CSS3-I.pdf" title="CSS Notes">CSS Notes</a></li>
+        <li><a href="../Notes/JS-I.pdf" title="JS Notes">JS Notes</a></li>
+        <li><a href="../Notes/React-I.pdf" title="React Notes">React Notes</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Learn" title="MDN Dev Guide" target="_blank">MDN Web Dev Guide</a>
+        <li><a href="https://eloquentjavascript.net/" title="Eloquent JavaScript" target="_blank">Eloquent JavaScript</a></li>
+        <li><a href="../Notes/React-Quickly-2017.pdf" title="React Quickly pdf" target="_blank">React Quickly</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main>
+    <section id="modules">
+      <h2>Modules</h2>
+
+      <article class="description" id="desc-module">
+        <p>Modules allow one to export part of a script to be used by other parts of a program, or by other users, distributed typically through a package manager. The <i>export</i> keyword specifies what to export, and can export function and object definitions or bindings. The <i>import</i> keyword imports what has been opened to use via <i>export</i>. Importing inside { } allows one to import just parts of a module &#40;ex. a couple methods&#41; where importing without { } imports whatever was exported using the <i>default</i> keyword.</p>
+        <p>Using modules allows a program to better split code into different parts, to avoid the "big ball of mud" issue often seen with poorly structured programs. Modules allow better defined encapsulation and provide specific interfaces via exports. Use of modules in functional programming allows encapsulation and use that would be hard to achieve otherwise.</p>
+      </article>
+
+      <pre class="js" id="code-module1">
+        <code>
+          //AdditionModule.js
+
+          function add(n, m){
+            return n + m;
+          }
+
+          const style = {
+            width: 100px;
+            color: black;
+          }
+
+          //exports specificied function binding and const
+          export {add, style};
+          //defines and exports function
+          export function subtract(n, m){return n - m };
+          //exports default as array of strings
+          export default ["one", "two", "three"];
+        </code>
+      </pre>
+
+      <pre class="js" id="code-module2">
+        <code>
+          //week11-practice.js
+
+          import {add, subtract, style} from "./AdditionModule.js";
+          import theDefault from "./AdditionModule.js";
+
+          console.log(add(3,4));
+          console.log(subtract(3,4));
+          console.log(theDefault);
+          console.log(style.color);
+        </code>
+      </pre>
+
+      <pre>OUTPUT</pre>
+      <pre class="js" id="code-output">
+        <code>
+        7
+        -1
+        Array(3) [ "one", "two", "three" ]
+        black
+        </code>
+      </pre>
+    </section>
+
+
+    <section class="form" id="color-section">
+      <h2>Change Box Color</h2>
+      <form id="color-form">
+        <label for="colorinput">Enter color & hit Enter:</label>
+        <input type="text" id="color-input" name="colorinput">
+      </form>
+      <div id="color-div" style="background-color:black; height:20vw; width: 20vw"></div>
+    </section>
+
+    <pre class="js" id="code-color">
+      <code>
+        //change color of div based on form input
+        document.getElementById('color-form').addEventListener("submit", event => {
+          event.preventDefault();
+          document.getElementById('color-div').style.backgroundColor = document.getElementById('color-input').value;
+        });
+      </code>
+    </pre>
+
+    <section class="form" id="book-section">
+      <h2>Read Book Descriptions via REST API</h2>
+      <form id="book-form">
+        <label for="bookinput">Enter a Book Title & Hit Enter:</label>
+        <input type="text" id="book-input" name="bookinput">
+      </form>
+    </section>
+
+    <pre class="js" id="code-color">
+      <code>
+        //global variable to tell if book exists or not
+        let bookExists = false;
+
+        document.getElementById('book-form').addEventListener("submit", event => {
+            //prevents page from re-loading
+            event.preventDefault();
+            let section = document.getElementById('book-section');
+
+            //if book details already exist, remove
+            if(bookExists)
+              section.removeChild(document.getElementById("the-book"));
+
+            //fetch book from google api based on input from form "book-section"
+            fetch(`https://www.googleapis.com/books/v1/volumes?q=${document.getElementById('book-input').value}`,
+                  {headers: {"Access-Control-Allow-Origin": '*'}})
+            .then(resp => resp.json())
+            .then(json => {
+              //create book with unique id to allow removal for next book
+              let book = document.createElement("div");
+              book.setAttribute("id", "the-book");
+
+              //add title and author
+              book.appendChild(document.createElement("strong"))
+                  .appendChild(document.createTextNode(json.items[0].volumeInfo.title + " by " + json.items[0].volumeInfo.authors));
+              //double break via paragraph
+              book.appendChild(document.createElement("p"));
+              //add description
+              book.appendChild(document.createTextNode(json.items[0].volumeInfo.description));
+
+              //append book to section and set that book exists
+              section.appendChild(book);
+              bookExists = true;
+            })
+        });
+      </code>
+    </pre>
+
+  </main>
+    <script src="week11-practice.js" type="module"></script>
+</body>
+
+</html>
