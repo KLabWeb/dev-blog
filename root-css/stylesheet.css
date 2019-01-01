@@ -1,0 +1,193 @@
+/*global styling*/
+html, body{
+    margin: 0%;
+}
+html{
+    font-family: helvetica, arial, sans-serif;
+    font-size: 10px;
+}
+body{
+    background-color: #1e1e1e;
+    color: #999999;
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+h1, h2, h3, a:hover, a:focus{
+    color: #32DD72;
+}
+a{
+    color: #CCCCCC;
+}
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*index.html specific styling*/
+@font-face {
+    font-family: 'exo_2bold';
+    src: url('../root-assets/fonts/exo2-bold-webfont.woff2') format('woff2'),
+         url('../root-assets/fonts/exo2-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#head-flex h1{
+    font-family: "exo_2bold";
+    font-size: 4rem;
+}
+#intent-sec p {
+  font-size: 1.9rem;
+  text-align: left;
+  margin: 0 1rem 1.5rem 1rem;
+}
+/*study-weeks specific styling*/
+.study-day{
+    color: #32DD72;
+}
+.study-week{
+  margin-left: 1%;
+}
+.study-week ul{
+    margin-right: 5%;
+}
+.checkup{
+  margin-left: 2%;
+}
+
+/*roadmap specific styling*/
+#roadmap-main h2, #roadmap-main ul {
+  margin-left: .5%;
+}
+#roadmap-main hr{
+  margin-bottom: 10px;
+}
+#roadmap h4{
+    color: #32DD72;
+    margin-left: 1.75%;
+}
+#roadmap h2 {
+    color: #e05915;
+}
+#roadmap-main p{
+  margin-left: 2%;
+}
+#roadmap main ul {
+    padding-left: 2rem;
+    list-style-type: none;
+}
+#roadmap main ul li{
+    padding-left: 1.3rem;
+}
+#roadmap main ul li:not(.embedded-list){
+    background-image: url(../root-assets/images/eclipse.png);
+    background-size: 1.2rem 1.2rem;
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+
+/*index-2*/
+.index ul, .index ol{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.index body{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "main"
+        "foot";
+}
+.index main{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-areas:
+        "sec sec love love study study study study practice practice practice practice"
+        "sec sec love love roadmap roadmap roadmap roadmap notes notes notes notes";
+    grid-column-gap: 40px;
+    text-align: center;
+}
+.index header{
+    grid-area: header;
+}
+.index nav{
+    grid-area: nav;
+}
+.index main{
+    grid-area: main;
+}
+.index footer{
+    grid-area: foot;
+}
+.index section{
+    margin-bottom: 40px;
+    background-color: black;
+}
+#intent-sec{
+    grid-area: sec;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 40px;
+}
+#love{
+    grid-area: love;
+}
+#love img{
+    width: 100%;
+    height: 100%;
+}
+#study-log{
+    grid-area: study;
+}
+#practice-work{
+    grid-area: practice;
+}
+#roadmap-sec{
+    grid-area: roadmap;
+}
+#notes{
+    grid-area: notes;
+}
+#practice-work, #notes{
+    margin-right: 40px;
+    padding: 0 10% 0 10%;
+}
+li{
+  margin: 2px;
+}
+@media (max-width: 1744px){
+.index main{
+    grid-template-areas:
+        "sec sec sec sec study study study study practice practice practice practice"
+        "roadmap roadmap roadmap roadmap love love love love notes notes notes notes"
+}
+#roadmap-sec{
+    margin-left: 40px;
+}
+@media (max-width: 900px) {
+    .index body, .index main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+    #love{
+        max-height: 30vh;
+    }
+    .index body header{
+        width: 100%;
+    }
+    .index body nav, .index footer, .index main > section{
+        flex: 1;
+    }
+    .index main > section{
+        margin: 40px 10vw 0 10vw;
+    }
+}

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="KMiskell">
+  <meta name="description" content="Week 08 General Practice">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../root-assets/favicon/javascript-original.svg" type="image/x-icon">
+  <link rel="stylesheet" href="css/practice-stylesheet.css">
+  <link rel="stylesheet" href="css/stylesheet-w08-practice.css">
+  <link rel="stylesheet" href="../root-css/header.css">
+  <link rel="stylesheet" href="../root-css/nav-buttons.css">
+  <link rel="stylesheet" href="../Higlightjs/styles/tomorrow-night-bright.css">
+  <script src="../Higlightjs/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <title>Week 08 Practice</title>
+</head>
+
+<body>
+  <div>
+    <header class="header-v2">
+      <h1>Week 08 General Practice</h1>
+    </header>
+
+    <nav class="nav-v2">
+      <ul>
+        <li><a href="../index.html" title="Home">Home</a></li>
+        <li><a href="../practice-weeks/week07-practice.html" title="Previous Practice">Previous Practice</a></li>
+        <li><a href="../study-weeks/week08.html" title="Week Log">Week Log</a></li>
+        <li><a href="../practice-weeks/week09-practice.html" title="Next Practice">Next Practice</a></li>
+        <li><a href="../roadmap.html#JS-I" title="Week Topic">Week Topic</a></li>
+        <li><a href="../notes/HTML-I.pdf" title="HTML I Notes">HTML I Notes</a></li>
+        <li><a href="../notes/CSS3-I.pdf" title="CSS I Notes">CSS I Notes</a></li>
+        <li><a href="../notes/JS-I.pdf" title="JS I Notes">JS I Notes</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Learn" title="MDN Dev Guide" target="_blank">MDN Web Dev Guide</a>
+        <li><a href="https://eloquentjavascript.net/" title="Eloquent JavaScript" target="_blank">Eloquent JavaScript</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main>
+    <section id="code">
+        <p>Source code for the following work displayed and described below can be downloaded via the following JS file. Paste the code in any JS console, including your browser console &#40;[F12] in Firefox&#41;, and run to see output. JS file: <a href="js/week08-practice.js" title="Week 08 JS Practice">Week 08 JS Practice</a></p><br>
+    </section>
+
+    <section id="Group">
+      <h2>A Group Data Structure</h2>
+
+      <article class="description" id="desc-group">
+          <p>JavaScript comes with a variety of nifty built-in data structure objects, with the array protoype being the most well know. In addition to indexed collections, there are also multiple key collection objects, such Map and Set. While Map holds key value pairs, set lacks keys and instead only allows uniquely valued objects &#40;no duplicate values&#41;.</p>
+
+          <p>Here is a basic re-creation of Set I made &#40;named Group&#41; with functions add&#40;&#41;, delete&#40;&#41;, and has&#40;&#41; &#40;to check if a value is present&#41;. I also implemented a from&#40;&#41; method, to allow the creation of a Group by passing in an existing iterable object. Lastly, I implemented the Symbol.itertor interface, to make the data structure iterable, and allow methods such as for...of to be called on it.</p>
+      </article>
+
+      <pre class="js" id="code-group">
+        <code>
+          class Group {
+            constructor() {
+              this.values = [];
+            }
+
+            add(element) {
+              if (this.values.includes(element))
+                console.log("Value(s) already added to Group. Values must be unique.")
+              else
+                this.values.push(element);
+            }
+
+            has(element) {
+              return this.values.includes(element);
+            }
+
+            delete(element) {
+              if (this.has(element)) {
+                this.values = this.values.filter(index => index != element);
+              }
+            }
+
+            //To allow creation of Group from existing iterable object
+            static from(iterable) {
+              let group = new Group();
+              for (let item of iterable)
+                group.add(item);
+              return group;
+            }
+
+            //iterator iterface implementation and customization
+            [Symbol.iterator]() {
+              let index = 0;
+              return {
+                next: () => {
+                  let value = this.values[index];
+                  let done = index >= this.values.length;
+                  index++;
+                  return {
+                    value,
+                    done
+                  };
+                }
+              };
+            }
+          }
+        </code>
+      </pre>
+
+      <article class="description" id="desc-group-test">
+          <p>Below are some sample calls showing the use of this data structure. Calls to console.log() that do nothing but print plaintext have been omitted to avoid unnecessary redundancy.</p>
+      </article>
+
+      <pre class="js" id="code-group-test">
+        <code>
+          let theGroup = new Group();
+          theGroup.add("cat");
+          theGroup.add("dog");
+
+          theGroup.add("cat");
+          theGroup.delete("cat");
+          console.log(theGroup);
+
+          theGroup.add("cat");
+          theGroup.add("mouse");
+          console.log(theGroup);
+
+          let arrayGroup = Group.from([10, 20, 30, 40]);
+          console.log(arrayGroup);
+        </code>
+      </pre>
+
+      <article class="description" id="desc-group-output">
+          <p>And here is the console output:</p>
+      </article>
+
+      <pre class="js" id="code-group-output">
+        <code>
+          Creating "Group" data structure. Group holds values, but only if value does not already exist in Group.
+          Adding "cat" and "dog" to group...
+          Group { values: [ 'cat', 'dog' ] }
+
+          Adding "cat" to group...
+          Value(s) already added to Group. Values must be unique.
+
+          Deleting "cat" from group
+          Group { values: [ 'dog' ] }
+
+          Adding "cat" and "mouse" to group...
+          Group { values: [ 'dog', 'cat', 'mouse' ] }
+
+          Creating new group by passing it array: [10, 20, 30, 40]
+          Group { values: [ 10, 20, 30, 40 ] }
+        </code>
+      </pre>
+
+
+    </section>
+
+    <section id="symbol">
+      <h2>Symbols</h2>
+
+      <article class="description" id="desc-symbol">
+          <p>Symbols provide a way to create a truly unique value. This allows properties, as well as functions, to be given unique names, that unlike identifiers created Strings, do return as being equal when checked with a comparison operator. </p>
+
+           <p>Here is an example demonstrating this. First, two strings are declared, both with the value \"first\". Then, two Symbols are declared. Like the Strings, for their optional description argument, they both take \"first\".</p>
+      </article>
+
+      <pre class="js" id="code-symbol">
+        <code>
+          let firstString = "first",
+            secondString = "first";
+
+          let firstSymbol = Symbol("first"),
+            secondSymbol = Symbol("first");
+
+          console.log(`Two let variables created as Strings, both with \"first\" for string.
+            Are the values equal? ${firstString == secondString}`);
+
+          console.log(`Two let variables given Symbol values, both given \"first\" as
+            the optional identifier for the symbol on printout.
+            Are variables equal? ${firstSymbol == secondSymbol}`);
+        </code>
+      </pre>
+
+      <article class="" id="desc-symbol-output">
+          <p>From the output we can see that even though the optional description arguments for the Symbols are the same, their values are different. The same cannot be said for the Strings. With these Symbols, unique properties could created, but referencing the symbols property names from inside [] brackets.</p>
+      </article>
+
+      <pre class="js" id="code-symbol-output">
+        <code>
+          Two let variables created as Strings, both with "first" for string. Are variables equal? true
+
+          Two let variables given Symbol values, both given "first" as the optional identifier for the
+          symbol on printout. Are variables equal? false
+        </code>
+      </pre>
+
+    </section>
+
+    <section id="flatten">
+      <h2>Flatten a Multi-Dimensional Array</h2>
+
+      <article class="" id="desc-flatten">
+          <p>Core JavaScript provides a series of helpful methods for collections to help manage them. Even the Object object has some very useful methods, such as Object.keys&#40;&#41;, which returns an array of all the property names for an Object, and Object.values&#40;&#41;, which returns all values of properties for an object.</p>
+
+          <p>It should thus be no suprise that iterable objects such as Map, Array, and even String would also include a variety of such helpful methods. Here I take a multi-dimensional array and flatten it using Array.prototype.reduce() and Array.prototype.concat() to concatenate a multi-dimensional array into a 1D array. The reduce() method takes in a function and an initial value, then runs the function on each array element, computing and returning a single output, which is computed on top of the passed initial value.
+
+          <p>For each index of multiArry, the 1D array, flatArray, and the inner array for the current index are passed in to a function. This function returns flatArray, but with the current index concatenated to it. The inital value passed in for flat array is an empty array.</p>
+      </article>
+
+      <pre class="js" id="code-flatten">
+        <code>
+          function flatten(multiArray) {
+            return multiArray.reduce((flatArray, innerArray) => {
+              return flatArray.concat(innerArray)
+            }, []);
+          }
+        </code>
+      </pre>
+
+      <article class="description" id="desc-flatten-test">
+          <p>Here I pass in a multi-dimensional array composed of integers.</p>
+      </article>
+
+      <pre class="js" id="code-flatten-test">
+        <code>
+          let multiArray = [
+            [0, 20, 30],
+            [48, 12, 5],
+            [19, 37, 405, 102, 48]
+          ];
+
+          console.log("Created multi-dimensional array: ");
+          multiArray.forEach((innerArray, index) => {
+            console.log(innerArray)
+          });
+          console.log(`Flattened array: ${flatten(multiArray)}`);
+        </code>
+      </pre>
+
+      <article class="description" id="desc-flatten-output">
+          <p>While the initial array can indeed be seen to be multi-dimensional, this quick use of two handy functions from the Array prototype enable a fast conversion to a one dimensional array:</p>
+      </article>
+
+      <pre class="js" id="code-flatten-output">
+        <code>
+          Created multi-dimensional array:
+          [ 0, 20, 30 ]
+          [ 48, 12, 5 ]
+          [ 19, 37, 405, 102, 48 ]
+          Flattened array: 0,20,30,48,12,5,19,37,405,102,48
+        </code>
+      </pre>
+
+    </section>
+
+    <section id="high-order">
+      <h2>High-Order Functions</h2>
+
+      <article class="high-order" id="desc-high-order">
+          <p>Functions that operate on other functions, either by taking them as parameters or returning them, are called high-order functions. By using high order functions, one is able to take a complex problem, and solve it in a more elegant and less wordy manner. This is done by breaking it down into smaller parts, whose duties can be delegated to individual functions, which can then be called on by the high order function&#40;s&#41;. This not only creates more concise code, but promotes proper encapsulation, more flexible and re-usable code, and can help create functions of higher purity with less side effects.</p>
+
+          <p>Here I build a high-oder function, which takes a value, then for each call, runs a test function, displays the current status via a body function, then updates via an update function. By encapsulating the test, display, and update steps into seperate functions, I am able to create a main high-order function that is widely diverse in use, based on the varying conditionals, updates, etc. the parameter functions may compute.<p>
+      </article>
+
+      <pre class="js" id="code-high-order">
+        <code>
+          function testLoop(currentValue, testFunction, bodyFunction, updateFunction) {
+            if (testFunction(currentValue)) {
+              console.log(currentValue);
+              return true;
+            }
+            bodyFunction(currentValue);
+            return testLoop(updateFunction(currentValue), testFunction, bodyFunction, updateFunction);
+          }
+        </code>
+      </pre>
+
+      <article class="description" id="desc-high-order-test">
+          <p>I then make a couple calls to my testLoop function. Note that even though the conditions, updates, and displays for the two tests are very different, the flow of operations is the same, due to the cross-delegation of tasks by the main testLoop function.</p>
+      </article>
+
+      <pre class="js" id="code-high-order-test">
+        <code>
+          console.log("Multiply starting value 2 x 5 until > 10,000, then return true:");
+          console.log(testLoop(2, x => x > 10000, x => console.log(x), x => x * 5));
+          console.log("Generate random decimals until number > .9, then return true:");
+          console.log(testLoop(Math.random(), x => x > .9, x => console.log(x), x => x = Math.random()));
+        </code>
+      </pre>
+
+      <article class="description" id="desc-high-order-output">
+          <p>Output:</p>
+      </article>
+
+      <pre class="js" id="code-high-order-output">
+        <code>
+          Multiply starting value 2 x 5 until > 10,000, then return true:
+            2
+            10
+            50
+            250
+            1250
+            6250
+            31250
+            true
+          Generate random decimals until number > .9, then return true:
+            0.44766516634542564
+            0.1494016027026186
+            0.2630321627459966
+            0.1465606667790349
+            0.5784496165260222
+            0.31893827090406335
+            0.9452682617690129
+            true
+        </code>
+      </pre>
+
+    </section>
+
+      <section id="every">
+        <h2>Building the Array.prototype.every() Method</h2>
+
+        <article class="" id="desc-every">
+            <p>Continuing with this weeks theme of iterable objects, I look at another method for Array, the every() method. This method takes in function and returns true only if all elements in array pass the function's conditions. If even one element in the array fails, it returns false instead.</p>
+        </article>
+
+        <pre class="js" id="code-every">
+          <code>
+            function every(array, predicateFunction) {
+              for (let index of array)
+                if (!predicateFunction(index))
+                  return false;
+              return true;
+            }
+          </code>
+        </pre>
+
+        <pre class="js" id="code-every-test">
+          <code>
+            let numArray = [9, 15, 27, 30, 51, 144];
+            console.log(`Are all numbers: ${numArray} divisible by 3? ${every(numArray, x => (x % 3) == 0)}`);
+            console.log(`Adding number to array: ${numArray.push(7)}`);
+            console.log(`Still all divisible by 3? ${every(numArray, x => (x % 3) == 0)}`);
+          </code>
+        </pre>
+
+        <article class="description" id="desc-every-output">
+            <p>For the first run, the function returns true, as all numbers are indeed divisible by 3. One 7 is added, however, the conditions fail and false is returned.</p>
+        </article>
+
+        <pre class="js" id="code-every-output">
+          <code>
+            Are all numbers: 9,15,27,30,51,144 divisible by 3? true
+            Adding number to array: 7
+            Still all divisible by 3? false
+          </code>
+        </pre>
+
+      </section>
+
+      <section id="this-prototype">
+        <h2>Prototypes &amp; this</h2>
+
+        <article class="" id="desc-this-prototype">
+            <p>Classes are a new addition to JavaScript as of ES6. Already they have come to quick use, in frameworks and libraries, such as REACT. The original methodoly for JavaScript's implemetation of object oriented programming comes from protoypes. In the prototyping methodoly, all objects have prototypes, where the prototype is the root version of the object. Some of the main prototypes include Object.prototype, Function.prototype, and Array.prototype.</p>
+
+            <p>While the new java class functionality allows <i>extends</i> functionality similiar to the traditional structured approach of languages like Java or C#, prototyping works a bit differently. Insted of instances, each object created as an offshoot from a prototype is actually a clone of that protoype. As expected, these clones gain the methods and properties of their prototype object. The clones can then override or add functionality without affecting the protoype. If the protoype changes, however, the clones will also reflect the changes. If a request for a property is made on a clone and it does not have it, the protoype will also be checked and it's value returned instead, if present.</p>
+
+            <p><i>this</i> is often a source of confusion. What exactly does <i>this</i> reference? In short, what <i>this</i> references changes based on invocation location. If made within a method call, <i>this</i> references the object that is executing the current function. If made within a global function call, <i>this</i> references the global object (ex. browser window). When declaring a property within a class that one wishes to be referenced easily from outside of a class, that property could be declared via <i>this</i>.propertyName.</p>
+
+            <p>Here is a quick example showing a taste of these concepts:<p>
+        </article>
+
+        <pre class="js" id="code-this-prototype">
+          <code>
+            /*Example 1: Using <i>this</i> to reference a property contained
+            within a constant from a method also in that constant*/
+            const book = {
+              title: "Where There Is No Doctor",
+              showTitle() {
+                console.log(`This title of this book can be referenced via \'this\': ${this.title}`);
+              }
+            }
+            book.showTitle();
+
+            /*Example 2: Creating a usedCar prototype from a Car function, then checking the parameters
+            of the clone as pulled from the prototype*/
+            function Car(type, model) {
+              this.type = type;
+              this.model = model;
+            }
+            let usedCar = new Car("sedan", "civic");
+
+            console.log("Prototype of Car function, then of usedCar, which is derived from Car: ")
+            console.log(Object.getPrototypeOf(Car));
+            console.log(Object.getPrototypeOf(usedCar));
+            console.log(usedCar.type + "," + usedCar.model);
+          </code>
+        </pre>
+
+        <article class="description" id="desc-this-prototype-output">
+            <p>Output:</p>
+        </article>
+
+        <pre class="js" id="code-this-prototype-output">
+          <code>
+            This title of this book can be referenced via 'this': Where There Is No Doctor
+
+            Prototype of Car function, then of usedCar, which is derived from Car. Properties of car:
+              [Function]
+              Car {}
+              sedan,civic
+          </code>
+        </pre>
+
+      </section>
+
+  </main>
+</body>
+
+</html>

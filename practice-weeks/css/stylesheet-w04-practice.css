@@ -1,0 +1,252 @@
+/*web fonts use*/
+@font-face {
+    font-family: 'amaticbold';
+    src: url('../fonts/amatic-bold-webfont.woff2') format('woff2'),
+         url('../fonts/amatic-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+h2{
+    font-family: "amaticbold";
+    font-size: 3.2rem;
+    line-height: .7rem;
+}
+
+/*text with shadow*/
+#shadowed {
+    text-shadow: -.2em 0px .5em red;
+    color: #7fdd57;
+    font-size: 1.15em;
+}
+
+
+
+/*text with various alignment*/
+#head-left{
+    text-align: left;
+}
+#head-center{
+    text-align: center;
+}
+#head-right{
+    text-align: right;
+}
+
+/*paragraphs of various line height*/
+#line-height-style{
+    max-width: 50vw;
+    right: 0;
+}
+#height-small{
+    line-height: 1;
+    letter-spacing: .11rem;
+    word-spacing: .1rem;
+}
+#height-med{
+    line-height: 1.5;
+    letter-spacing: .07rem;
+    word-spacing: .18rem;
+}
+#height-lg{
+    line-height: 2;
+    letter-spacing: .05rem;
+    word-spacing: .21rem;
+}
+
+/*Styled Lists*/
+#frameworks-list {
+    padding-left: 1rem;
+    list-style-type: none;
+}
+#frameworks-list li{
+    padding-left: 1.3rem;
+    background-image: url(../assets/images/lainbear.png);
+    background-position: 0 0;
+    background-size: 1rem 1rem;
+    background-repeat: no-repeat;
+}
+#search-list li{
+    list-style-type: upper-roman;
+}
+
+/*Basic BG styling*/
+.bg-box{
+    width: 50rem;
+    padding: 5rem;
+    margin: 1rem 1rem 1rem 5.2rem;
+    background-size: 8.8rem;
+    background-color: black;
+}
+#repeat-lain{
+    background-image: url(../assets/images/lainlines.gif);
+    background-size: 3.15rem;
+    background-repeat: repeat;
+    background-position: center center;
+}
+#repeat-vert{
+    height: 20rem;
+    background-image: url(../assets/images/lainlines.gif), url(../assets/images/lainlines.gif), url(../assets/images/lainlines.gif);
+    background-repeat: repeat-y;
+    background-position: center center, left center, right center;
+}
+#no-repeat{
+    background-image: url(../assets/images/lainlines.gif);
+    background-size: 20rem;
+    background-repeat: no-repeat;
+    line-height: 0;
+    background-position: center center;
+}
+#gradient-bg{
+    background: url(../assets/images/lainlines.gif) no-repeat 0% center, url(../assets/images/lainlines.gif) no-repeat 100% center, linear-gradient(to bottom, black, #7fdd57 50%, black);
+    background-size: 8rem;
+}
+
+/*Boxes with rounded corners*/
+#rounded-box{
+    border-radius: 20px;
+    background-image: url(../assets/images/glitch-lines.gif);
+    background-size: 55rem 10rem;
+}
+#elliptical-box{
+    border: solid #7fdd57;
+    border-radius: 10px 30px / 20px 40px;
+    background-image: url(../assets/images/bluescreen.gif);
+    background-size: 55rem 10rem;
+}
+
+/*Border made of images*/
+#lain-box{
+    background-image: url(../assets/images/rain.gif);
+    background-size: 55rem 20rem;
+    background-clip: padding-box;
+
+    border: 5.2rem solid black;
+    border-image: url(../assets/images/lain-border.png) 54 round;
+    margin: 0rem;
+}
+
+/*styled table*/
+#table-metro{
+    table-layout: fixed;
+    border-collapse: collapse;
+    border: 2px solid #bb18c1;
+}
+#table-metro thead, tfoot{
+    background-color: black;
+}
+#table-metro caption{
+    caption-side: bottom;
+    text-align: right;
+    font-style: italic;
+}
+#table-metro tbody tr:nth-child(odd){
+    background-color: #3a354a;
+}
+#table-metro tbody tr:nth-child(even){
+    background-color: #221c33;
+}
+#table-metro thead th:nth-child(1){
+    width: 10%;
+}
+#table-metro thead th:nth-child(2){
+    width: 10%;
+}
+#table-metro thead th:nth-child(3){
+    width:30%;
+}
+#table-metro thead th:nth-child(4){
+    width: 30%;
+}
+#table-metro thead th:nth-child(5){
+    width: 30%;
+}
+#table-metro th, td{
+    padding: 3px;
+}
+#table-metro tfoot{
+    text-align: right;
+}
+
+/*Advanced Box styling*/
+#inner-outer{
+    width: 50rem;
+    padding: 3rem;
+    margin: 1rem 1rem 1rem 5.2rem;
+    background-color: black;
+
+    text-align: center;
+    font-size: 2rem;
+
+    box-shadow: 2px 2px 2px #7fdd57,
+                4px 4px 2px black,
+                6px 6px 2px #7fdd57,
+                8px 8px 2px black,
+                -2px -2px 2px #bb18c1,
+                -4px -4px 2px black,
+                -6px -6px 2px #bb18c1,
+                -8px -8px 2px black;
+}
+
+/*filtered image*/
+#filter-img img{
+    height: 20vw;
+    width: 20vw;
+    filter: blur(2px) saturate(30%);
+    -webkit-filter: blur(2px) saturate(30%);
+}
+
+/*Flexbox*/
+#flex-images{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+#flex-images img{
+    margin: 2rem;
+}
+#flex-images h3{
+    margin-top: 4rem;
+    margin-bottom:.3rem;
+}
+
+/*Leaving unresponsize, as one intent is to show progress over weeks*/
+/*@media (max-width: 710px) {
+    body{
+        display: flex;
+        flex-direction: column;
+        jusify-content: center;
+    }
+    section{
+        flex: 1;
+    }
+    body main{
+        display: flex;
+        flex-flow: column;
+        jusify-content: center;
+        align-items: center;
+        min-width: 0;
+        min-height: 0;
+    }
+    nav ul{
+        display: block;
+    }
+    #table-metro, .bg-box{
+        margin: 0;
+        padding: 0;
+        max-width: 100vw;
+        min-height: 15vh;
+    }
+    body main section h2{
+        text-align: center;
+    }
+    #flex-images{
+        flex-direction: column;
+            border: 5px 0 0 0;
+    }
+    #filter-img img{
+        height: 60vw;
+        width: 60vw;
+    }
+}*/

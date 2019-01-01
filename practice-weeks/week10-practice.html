@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="KMiskell">
+  <meta name="description" content="Week 10 General Practice">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../root-assets/favicon/react-original.svg" type="image/x-icon">
+  <link rel="stylesheet" href="css/practice-stylesheet.css">
+  <link rel="stylesheet" href="css/stylesheet-w10-practice.css">
+  <link rel="stylesheet" href="../root-css/header.css">
+  <link rel="stylesheet" href="../root-css/nav-buttons.css">
+  <!--code formatting-->
+  <link rel="stylesheet" href="../Higlightjs/styles/tomorrow-night-bright.css">
+  <script src="../Higlightjs/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <title>Week 10 Sandbox</title>
+</head>
+
+<body>
+  <div>
+    <header class="header-v2">
+      <h1>Week 10 Sandbox</h1>
+    </header>
+
+    <nav class="nav-v2">
+      <ul>
+        <li><a href="../index.html" title="Home">Home</a></li>
+        <li><a href="../practice-weeks/week09-practice.html" title="Previous Practice">Previous Practice</a></li>
+        <li><a href="../study-weeks/week10.html" title="Week Log">Week Log</a></li>
+        <li><a href="../practice-weeks/week11-practice.html" title="Next Practice">Next Practice</a></li>
+        <li><a href="../roadmap.html" title="Roadmap">Roadmap</a></li>
+        <li><a href="../notes/HTML-I.pdf" title="HTML I Notes">HTML I Notes</a></li>
+        <li><a href="../notes/CSS3-I.pdf" title="CSS I Notes">CSS I Notes</a></li>
+        <li><a href="../notes/JS-I.pdf" title="JS I Notes">JS I Notes</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Learn" title="MDN Dev Guide" target="_blank">MDN Web Dev Guide</a>
+        <li><a href="https://eloquentjavascript.net/" title="Eloquent JavaScript" target="_blank">Eloquent JavaScript</a></li>
+        <li><a href="../notes/React-Quickly-2017.pdf" title="React Quickly pdf" target="_blank">React Quickly</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main>
+
+    <h2><a href="../spa/celestial-drawings/celestial-drawing.html" title="Celestial Drawings">Celestial Drawings</a></h2>
+    <pre class="js">
+      <code>
+        document.body.addEventListener("click", firstClick);
+        document.body.addEventListener("click", drawcelestial);
+
+
+        function firstClick(event) {
+          //create and start audio
+          let song = new Audio("../Audio/funeral-canticle.mp3");
+          song.loop = true;
+          song.play();
+
+          //hide header
+          document.getElementsByTagName("h1")[0].style.display = "none";
+
+          event.stopPropagation();
+          document.body.removeEventListener("click", firstClick);
+        }
+
+        //Places celestial bodies on an empty universe.
+        // 75% of time body to place on universe is chosen randomly from an array
+        function drawcelestial(event) {
+
+          let celestial = document.createElement("div");
+          let randomNum = Math.random();
+          //potential image array for it randomNum &#60; .75
+          let spaceImages = ["comet", "comet-1", "europa", "jupiter", "mars", "mercury", "milky-way", "meteorite", "saturn", "uranus", "neptune"];
+
+          if (randomNum &#60;= .75)
+            //sets image title from array index of random index number between 0 an 10
+            celestial.style.backgroundImage = `url(assets/images/space/${spaceImages[Math.floor(Math.random()*spaceImages.length)]}.svg)`;
+          else if (randomNum &#62; .75 && randomNum &#60; .98)
+            celestial.style.backgroundImage = "url(assets/images/space/sun.svg)";
+          else
+            celestial.style.backgroundImage = "url(assets/images/space/planet-earth-1.svg)";
+
+          celestial.style.position = "absolute";
+          //responsive sizing for varying viewport sizes
+          window.innerWidth &#62; 700 ? celestial.style.height = `${Math.random() * 6}vw`: celestial.style.height = `${Math.random() * 12.5}vw`;
+          //sets to place coordinates clicked
+          celestial.style.left = `${event.pageX}px`;
+          celestial.style.top = `${event.pageY}px`;
+          document.body.appendChild(celestial);
+        }
+      </code>
+    </pre>
+
+    <section id="textEdit">
+      <h2>Basic text editor with [Shift], [Space], [Backspace], [Enter], [Tab], &amp; [CapsLock] Functionalities</h2>
+      <div class="workbox" id="keyClick" tabindex="0"><p>Click this box, then enter text<p></div>
+    </section>
+
+    <article>
+      <h2>JS Source Code</h2>
+      <pre class="js">
+        <code>
+          //worspacebox for text insertion area
+          let keyDiv = document.querySelector("#keyClick");
+
+          //add text to text area
+          keyDiv.addEventListener("keydown", event => {
+            let divChild = keyDiv.lastChild;
+
+            //for different handlings for special action keys and standard keys
+            switch(event.key){
+              case "Enter":
+                keyDiv.appendChild(document.createElement("p"));
+                break;
+              case "Tab":
+                event.preventDefault();
+                divChild.textContent += "\xa0\xa0\xa0\xa0";
+                break;
+              case " ":
+                //to prevent default window action of move page down when space pressed
+                event.preventDefault();
+                divChild.textContent += "\xa0"
+                break;
+              case "Backspace":
+                //removes one char from each P or last P if P is empty
+                if(divChild.textContent.length > 0)
+                  divChild.textContent = divChild.textContent.slice(0, divChild.textContent.length-1);
+                else if(divChild.previousSibling != null)
+                  divChild.remove();
+                break;
+              case "CapsLock":
+                break;
+              case "Shift":
+                break;
+              default:
+                divChild.textContent += event.key;
+            }
+            //checks if overflowing from DIV and if so, scrolls DIV up
+            if(keyDiv.scrollHeight > keyDiv.clientHeight)
+              keyDiv.scrollTop = keyDiv.scrollHeight;
+          });
+
+          //remove display instructions after first key press
+          keyDiv.addEventListener("keydown", firstPress);
+          function firstPress(event){
+            keyDiv.firstChild.textContent = event.textContent;
+            keyDiv.removeEventListener("keydown", firstPress);
+          }
+        </code>
+      </pre>
+    </article>
+
+      <section>
+        <h2><a href="https://lain-react.herokuapp.com/" title="Hello React">Basic REACT</a></h2>
+        <h3>The HTML DOM Skeleton</h3>
+        <pre class="html">
+          <code>
+            //index.html//
+
+            &#60;!DOCTYPE html&#62;
+            &#60;html lang="en"&#62;
+              &#60;head&#62;
+                &#60;meta charset="utf-8"&#62;
+                &#60;meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"&#62;
+                &#60;title&#62;React App&#60;/title&#62;
+              &#60;/head&#62;
+              &#60;body&#62;
+                &#60;noscript&#62;
+                  You need to enable JavaScript to run this app.
+                &#60;/noscript&#62;
+                &#60;main&#62;
+                  &#60;div id="helloDiv"&#62;&#60;/div&#62;
+                &#60;/main&#62;
+              &#60;/body&#62;
+            &#60;/html&#62;
+          </code>
+        </pre>
+
+        <h3>The <i>Time</i> Component, to create a dynamically updating clock, that updates once per second</h3>
+        <pre class="jsx">
+          <code>
+            //Time.js//
+            import React, { Component } from 'react';
+
+            class Time extends Component {
+              //Constructor creates time value and starts update method
+              constructor(props){
+                super(props);
+                this.state = {time: (new Date()).toLocaleString()};
+                this.startTime();   //starts time when class created
+              }
+
+              //updates time every second
+              startTime(){
+                setInterval(() => {this.setState({time: (new Date()).toLocaleString()})}, 1000);
+              }
+
+              //Time component with time value that updates every second is rendered
+              render() {
+                return &#60;div&#62;{this.state.time}&#60;/div&#62;;
+              }
+            }
+
+            export default Time;
+          </code>
+        </pre>
+
+        <h3>The <i>App</i> Component, to Display Different Texts and in Some Cases an Image, based On Properties Set During Instantiation</h3>
+        <pre class="jsx">
+          <code>
+            //App.js//
+
+            import React, { Component } from 'react';
+            import Time from './Time';
+            import './App.css';
+
+            class App extends Component {
+              render() {
+                return this.selectType();
+              }
+
+              selectType(){
+                let Elm = &#60;h1 style={{color:'green', border: '3px solid black', backgroundColor: 'black', textAlgin: 'center'}}&#62;
+                                    Hello world&#60;/h1&#62;;
+                let Feel = &#60;h1&#62;I FEEL IT&#60;/h1&#62;;
+                let Belm = &#60;h1&#62;REEEEE&#60;/h1&#62;;
+                let Relm = &#60;img src={this.props.url} height="200px" width="200px"&#62;&#60;/img&#62;
+
+                //tests theType property passed in by creating object, then uses that to decide what type of App to return
+                switch(this.props.theType){
+                  case "Elm":
+                    return(
+                      &#60;div&#62;
+                        &#60;h3&#62;{this.props.theType.toString()}&#60;/h3&#62;
+                        {Elm}
+                        &#60;Time /&#62
+                      &#60;/div&#62;
+                    );
+                  case "Feelit":
+                    return (
+                      &#60;div&#62;
+                        {Elm}
+                        {Relm}
+                        {Elm}
+
+                      &#60;/div&#62;
+                    );
+                  default:
+                    return (
+                      &#60;div&#62;
+                        {Belm}
+                        {Relm}
+                        {Feel}
+                        {Belm}
+                      &#60;/div&#62;
+                    );
+                  }
+              }
+            }
+
+            export default App;
+          </code>
+        </pre>
+
+        <h3>The <i>index.js</i> Script, to Render Onto the DOM</h3>
+        <pre class="jsx">
+          <code>
+            //index.js//
+
+            import React from 'react';
+            import ReactDOM from 'react-dom';
+            import './index.css';
+            import AppGroup from './AppGroup';
+            //import * as serviceWorker from './serviceWorker';
+
+
+            //set HelloWorld with 1, 2, or 3 &#60;AppGroup/&#62; components based on viewport size
+            function HelloWorld(){
+              if(document.documentElement.clientWidth &#60;= 400)
+                return &#60;div style={{display: "flex", alignItems: "center", justifyContent: "space-around"}}&#62;
+                  &#60;AppGroup/&#62;&#60;/div&#62;;
+
+              else if(document.documentElement.clientWidth &#60;= 615)
+                return &#60;div style={{display: "flex", alignItems: "center", justifyContent: "space-around"}}&#62;
+                  &#60;AppGroup/&#62;&#60;AppGroup/&#62;&#60;/div&#62;;
+
+              else
+                return &#60;div style={{display: "flex", alignItems: "center", justifyContent: "space-around"}}&#62;
+                  &#60;AppGroup/&#62;&#60;AppGroup/&#62;&#60;AppGroup/&#62;&#60;/div&#62;;
+            }
+            ReactDOM.render(HelloWorld(), document.getElementById('helloDiv'));
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2><a href="https://wojack-stock.herokuapp.com/" title="Hello React">React Trading Component</a></h2>
+        <h3>Box.js, for building an image with a dynamically shifting picture from an array of images</h3>
+        <pre class="js">
+          <code>
+            import React, {Component} from 'react';
+            import './App.css';
+
+            class App extends Component {
+              constructor(props){
+                super(props);
+                this.state = {urlList: ['/images/stocks/1.jpg',
+                                    '/images/stocks/2.png',
+                                    '/images/stocks/3.jpg',
+                                    '/images/stocks/4.jpg',
+                                    '/images/stocks/5.png',
+                                    '/images/stocks/6.jpg',
+                                    '/images/stocks/7.jpg',
+                                    '/images/stocks/8.png',
+                                    '/images/stocks/9.jpg',
+                                    '/images/stocks/10.png'
+                                    ],
+                               currentIndex: this.props.index,
+                               alt: "wojack"
+                              };
+                this.switchImage();   //starts time when class created
+              }
+
+              //incriments this.CurrentIndex by +1 until going to breach array range, then resets to 0
+              nextImage(){
+                this.state.currentIndex &#62;= this.state.urlList.length-1 ?
+                  (this.setState({currentIndex: 0})) : this.setState({currentIndex: this.state.currentIndex+1});
+              }
+
+              //updates image every second
+              switchImage(){
+                setInterval(()=&#62; this.nextImage(), 3000);
+              }
+
+              //returns image with different size based on viewport size
+              render() {
+                return document.documentElement.clientWidth &#62; 900 ? (
+                    &#60;img src={this.state.urlList[this.state.currentIndex]} alt="wojack"
+                      style={{margin: "30px", width:"20vw", height: "20vw"}}&#62;&#60;/img&#62;
+                    ) : (
+                    &#60;img src={this.state.urlList[this.state.currentIndex]} alt="wojack"
+                      style={{margin: "30px", width:"90vw", height: "90vw"}}&#62;&#60;/img&#62;
+                    );
+              }
+            }
+
+            export default App;
+          </code>
+        </pre>
+
+      <h3>BoxGroup.js, for building a group of images</h3>
+        <pre class="js">
+          <code>
+            import React, {Component} from 'react';
+            import Box from './Box';
+
+            class AppGroup extends Component {
+
+              getImageGroup(){
+                let images = [];
+                 //note using 10 is bad form and too static, but only way without using JSON, etc.
+                for(let i = 0; i &#60; 10; i++){
+                  images[i] = &#60;Box index={i}/&#62;
+                }
+                return images;
+              }
+
+              render() {
+                return (
+                  &#60;div id="container" style={{display: "flex", flexWrap: "wrap"}}&#62;
+                     {this.getImageGroup().map(oneImage =&#62; &#60;div style={{margin: "auto"}}&#62;{oneImage}&#60;/div&#62;)}
+                  &#60;/div&#62;
+                );
+              }
+            }
+
+            export default AppGroup;
+          </code>
+        </pre>
+
+
+        <h3>index.js, for rendering</h3>
+        <pre class="js">
+          <code>
+            import React from 'react';
+            import ReactDOM from 'react-dom';
+            import './index.css';
+            import BoxGroup from './BoxGroup';
+
+            ReactDOM.render(&#60;BoxGroup /&#62;, document.getElementById('root'));
+
+          </code>
+        </pre>
+      </section>
+  </main>
+  <script src="js/keybox.js"></script>
+</body>
+
+</html>

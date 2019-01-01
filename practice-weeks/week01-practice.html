@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="KMiskell">
+    <meta name="description" content="Test page for testing various html workings.">
+    <link rel="shortcut icon" href="../root-assets/favicon/html5-original.svg" type="image/x-icon">
+    <title>Week 01 Practice</title>
+</head>
+
+<body>
+    <h1>Test Page</h1>
+    <p>Here is a paragraph.</p>
+    <h2>Lists</h2>
+    <ol>
+        <li>Make stuff</li>
+        <li>Learn stuff</li>
+        <li>Make cooler stuff</li>
+    </ol>
+    <ul>
+        <li><em>emphasized</em> item</li>
+        <li><strong>strong</strong> item</li>
+        <li><u>Smith</u>'s' item</li>
+        <li><b>Coca Cola</b> item</li>
+        <li><i>Espanol</i> item</li>
+    </ul>
+
+    <h2>Local Image Using Relative URL</h2>
+    <a href="https://news.ycombinator.com/" target="_blank" title="Local image linked to Hacker News">
+        <img src="assets/images/moe.jpg" alt="Local image liked to Hacker News" width="255" height="388">
+    </a>
+
+    <h2>Description List</h2>
+    <dl>
+        <dt><b>absolute url</b></dt>
+        <dd>Always points to same location. Ex. https://example.com/files/pdfs/pdf-read.pdf</dd>
+        <dt><b>relative url</b></dt>
+        <dd>Don’t need to include the full url/filepath, depending on where file linking to is located in relation to file linking from.</dd>
+        <dd> Example: pdf-list.html is in folder /example/files/pdfs. Relative link calling pdf-read.pdf in same folder would be: href=pdf-read.pdf, not href=example/files/pdfs/pdf-read.pdf</dd>
+    </dl>
+
+    <h2>Citations</h2>
+    <blockquote cite=https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Advanced_text_formatting> <p> Citations can be done with blockqoutes. This paragraph is cited to MDN Docs. Note that it is tabbed.</p>
+    </blockquote>
+    <p>They can also be cited inline. <q cite="https://www.w3.org/TR/2017/REC-html52-20171214/grouping-content.html#the-blockquote-element">This scentence is cited to the W3C manual.</q> Note the quotation marks. Of course, unless you view the page
+        source, mod your css, or write a script, you won't see the ciations.</p>
+
+    <h2>Abbreviation</h2>
+    <p>Here is an abbriviation: <abbr title="tfw 32 year old boomer">tfw</abbr>. Hover your mouse over it to read expand it.</p>
+
+    <h2>Subscript & Superscript</h2>
+    <p>Subscript: C<sub>8</sub>H<sub>10</sub>N<sub>4</sub>O<sub>2</sub><br>Superscript: November 24<sup>th</sup></p>
+
+    <h2>Marking Code</h2>
+    <pre><code>
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("enter an integer");
+        int myint = keyboard.nextInt();
+    </code></pre>
+    <p>//User keyboard input for <var>myInt</var> variable: </p><kbd>3</kbd>
+    <pre><code>
+        System.out.println&#40;"This is the number you entered: " + myInt&#41;&#59;
+    </code></pre>
+    <samp>This is the number you entered: 3</samp>
+
+    <h2>Date & Time</h2>
+    <p>Lots of ways to mark dates and times. This is marked <time datetime="2018-10-20"><i>2018-10-20</i></time>.This is marked <time datetime="21:00:05.12"><i>21:00:05.12</i></time>. View page src to verify.</p>
+
+</body>
+
+</html>

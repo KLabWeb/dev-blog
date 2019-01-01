@@ -1,0 +1,41 @@
+/*site header v2*/
+.header-v2{
+    text-align: center;
+    background: url("../root-assets/images/header-alt.gif");
+    background-size: 100%;
+    padding: 8px;
+}
+.header-v2 h1{
+    color: white;
+}
+
+/*landing specific mods*/
+#head-flex{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    background: url("root-assets/images/header-alt.gif");
+    background-size: 100%;
+}
+
+
+/*v1 global header - Depricated on week 05*/
+#head-main img {
+    display: block;
+    width: 100%;
+}
+
+/*week 04 header*/
+#week-head{
+    height: 40px;
+    width: 40%;
+    margin: 0 auto;
+    background-color: black;
+    border-top: .25rem solid #f602ff;
+    border-bottom: .25rem solid #32DD72;
+    padding: 1.5rem;
+
+    color: #f602ff;
+    text-align: center;
+}
