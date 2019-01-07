@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="KMiskell">
+  <meta name="description" content="Week 12 General Practice">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../root-assets/favicon/javascript-original.svg" type="image/x-icon">
+  <link rel="stylesheet" href="css/practice-stylesheet.css">
+  <link rel="stylesheet" href="css/stylesheet-w12-practice.css">
+  <link rel="stylesheet" href="../root-css/header.css">
+  <link rel="stylesheet" href="../root-css/nav-buttons.css">
+  <!--code formatting-->
+  <link rel="stylesheet" href="../Higlightjs/styles/tomorrow-night-bright.css">
+  <script src="../Higlightjs/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <title>Week 12 Sandbox</title>
+</head>
+
+<body>
+  <div>
+    <header class="header-v2">
+      <h1>Week 12 Sandbox</h1>
+    </header>
+
+    <nav class="nav-v2">
+      <ul>
+        <li><a href="../index.html" title="Home">Home</a></li>
+        <li><a href="../practice-weeks/week11-practice.html" title="Previous Work">Previous Work</a></li>
+        <li><a href="../study-weeks/week12.html" title="Week Log">Week Log</a></li>
+        <!--<li><a href="../practice-weeks/week13-practice.html" title="Next Work">Next Work</a></li>-->
+        <li><a href="../roadmap.html" title="Roadmap">Roadmap</a></li>
+        <li><a href="../notes/HTML-I.pdf" title="HTML Notes">HTML Notes</a></li>
+        <li><a href="../notes/CSS3-I.pdf" title="CSS Notes">CSS Notes</a></li>
+        <li><a href="../notes/JS-I.pdf" title="JS Notes">JS Notes</a></li>
+        <li><a href="../notes/React-I.pdf" title="React Notes">React Notes</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Learn" title="MDN Docs" target="_blank">MDN Docs</a>
+        <li><a href="https://eloquentjavascript.net/" title="Eloquent JavaScript" target="_blank">Eloquent JavaScript</a></li>
+        <li><a href="../notes/React-Quickly-2017.pdf" title="React Quickly pdf" target="_blank">React Quickly</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main>
+    <section id="review">
+      <h2>General Brush-Up Prior to Starting Functional JavaScript Book</h2>
+      <pre class="js" id="review-code">
+        <code>
+          //Rest parameter review
+          //A rest &#40;spread&#41; parameter allows you to pass in X num of arguments, which are contained in an array
+          function restReview(x, y, ...z){
+            let total = 0;
+            for(num of z){
+              total += num;
+            }
+            return x + y + total;
+          }
+          console.log(restReview(1, 2, 3, 4, 5, 6));
+
+          //Deconstruction review
+          //Deconstruction allows you to uniquely reference elements of arrays and objects from outside via bindings
+          const numOb = {a:1, b:2, c:3};
+          const {c} = numOb;
+          const{a, b} =numOb;
+          console.log(`a=${a}, b=${b}, c=${c}`);
+          const numArray = [4, 5, 6, 7];
+          const [d] = numArray;
+          const [,,f, g] = numArray;  //skips 4 & 5 due to extra ,
+          console.log(`d=${d}, f=${f}, g=${g}`);
+
+          //combining deconstructing with default parameters and named parameters/args
+          //Allows you to pass in some, none, or all of the arguments specified by the deconstruction bindings
+          function foo({a, c} = {}){
+            console.log(`c=${c}`);
+          }
+          foo({a:1, b:2, c:3, d:4, e:5});
+
+          function arrayFoo([a, b, ...rest] = []){
+            console.log(`a=${a}, rest=${rest}`);
+          }
+          arrayFoo([1, 2, 3, 4, 5, 6]);
+
+          //High-order function review
+          //High-order functions are functions which either take in functions as arguments or returns them
+          function outerFunction(num, someFunction){
+            return someFunction(num);
+          }
+
+          function sum(nums){
+            let total = 0;
+            for(current of nums){
+              total += current;
+            }
+            return total;
+          }
+          console.log(`total: ${outerFunction([1,2,3,4], sum)}`);
+        </code>
+      </pre>
+
+    </section>
+
+    <section id="closure">
+      <h2>Closure</h2>
+      <p>Closure in JavaScript exists in part through JavaScript's use of lexical scoping. Lexicial scoping states in part that given an inner scope and and outer scope, the inner scope will have access to outer scope, but not vice versa. For example, if a function defines a <i>let</i> variable, and then another function inside itself, the inner function will be able to access that <i>let</i>. The same goes for a global variable that is defined in a script outside of a function, prior to the function defintion; this variable will be available to that function.</p>
+      <p>One of the interesting parts of closure is that, as a result in part of this lexical scoping, when an outer function is passed a variable, that inner function also has reference to that variable, even if not passed into the inner function. What's more, if the outer returns the, that inner function will still hold reference to that value, even after the outer function has finished running and returned. Here is a simple example to demonstrate this:</p>
+      <pre class="js" id="closure-description">
+        <code>
+          function returnFunction(x){
+            return function returnSum(y){
+              return x+y;
+            }
+          }
+
+          let innerInstanceA = returnFunction(2);
+          let innerInstanceB = returnFunction(3);
+
+          console.log(`completing function A: ${innerInstanceA(2)}`);    //prints 4
+          console.log(`completing function B: ${innerInstanceB(4)}`);    //prints 7
+
+        </code>
+      </pre>
+
+    </section>
+
+    <section id="deconstruct-wrapper">
+      <h2>One To Multiple Arg Wrapper</h2>
+      <p>Lets say you function which calls another function and passes in a single argument to it. What do you do if you want to use that function to call a function that takes in multiple arguments, through passing in an array, object, etc? How do you convert that single argument to multiple arguments?</p>
+      <p>One solution would be to wrap the single argument function inside of another function, which takes in a single argument, such as an array, and spreads it into multiple arguments. Then, the wrapped single argument function will have access to multiple arguments, via spreading, instead of just the array, etc. Below is an example where I use this concept to pass in a single array of two numbers to a function that requires two arguments, by wrapping the <i>add</i> function in a function that spreads the array passed into it.</p>
+      <pre class="js" id="closure-description">
+        <code>
+          //function that prints sum of two nums
+          const add = (x, y) => console.log(x + y);
+
+          //takes in function and calls function via arg of array with two nums
+          const singleArg = theFunction => theFunction([3, 9]);
+
+          //takes in a someFunction as an arg, then returns a function that takes in a single arg,
+          //then spreads that arg in the param list for someFunction
+          const spreadArgs = someFunction =>
+            args => someFunction(...args);
+
+          //Single arg passes an array to spreadArgs, which returns a call to add with the array spreaded, which returns the sum via its log call
+          singleArg(spreadArgs(add));
+
+        </code>
+      </pre>
+
+    </section>
+    <script src="js/week12-practice.js"></script>
+  </main>
+
+</body>
+
+</html>

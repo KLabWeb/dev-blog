@@ -32,7 +32,6 @@ footer{
     font-weight: normal;
     font-style: normal;
 }
-
 #head-flex h1{
     font-family: "exo_2bold";
     font-size: 4rem;
@@ -42,6 +41,7 @@ footer{
   text-align: left;
   margin: 0 1rem 1.5rem 1rem;
 }
+
 /*study-weeks specific styling*/
 .study-day{
     color: #32DD72;
@@ -159,7 +159,7 @@ footer{
     margin-right: 40px;
     padding: 0 10% 0 10%;
 }
-li{
+.index main li{
   margin: 2px;
 }
 @media (max-width: 1744px){
