@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="KMiskell">
+  <meta name="description" content="Week 13 General Practice">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../root-assets/favicon/javascript-original.svg" type="image/x-icon">
+  <link rel="stylesheet" href="css/practice-stylesheet.css">
+  <link rel="stylesheet" href="css/stylesheet-w12-practice.css">
+  <link rel="stylesheet" href="../root-css/header.css">
+  <link rel="stylesheet" href="../root-css/nav-buttons.css">
+  <!--code formatting-->
+  <link rel="stylesheet" href="../Higlightjs/styles/tomorrow-night-bright.css">
+  <script src="../Higlightjs/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <title>Week 13 Sandbox</title>
+</head>
+
+<body>
+  <div>
+    <header class="header-v2">
+      <h1>Week 13 Sandbox</h1>
+    </header>
+
+    <nav class="nav-v2">
+      <ul>
+        <li><a href="../index.html" title="Home">Home</a></li>
+        <li><a href="../practice-weeks/week12-practice.html" title="Previous Work">Previous Work</a></li>
+        <li><a href="../study-weeks/week13.html" title="Week Log">Week Log</a></li>
+        <!--<li><a href="../practice-weeks/week14-practice.html" title="Next Work">Next Work</a></li>-->
+        <li><a href="../roadmap.html" title="Roadmap">Roadmap</a></li>
+        <li><a href="../notes/HTML-I.pdf" title="HTML Notes">HTML Notes</a></li>
+        <li><a href="../notes/CSS3-I.pdf" title="CSS Notes">CSS Notes</a></li>
+        <li><a href="../notes/JS-I.pdf" title="JS Notes">JS Notes</a></li>
+        <li><a href="../notes/React-I.pdf" title="React Notes">React Notes</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Learn" title="MDN Docs" target="_blank">MDN Docs</a>
+        <li><a href="https://eloquentjavascript.net/" title="Eloquent JavaScript" target="_blank">Eloquent JavaScript</a></li>
+        <li><a href="../notes/React-Quickly-2017.pdf" title="React Quickly pdf" target="_blank">React Quickly</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main>
+    <section>
+      <h2>Functional Fat-Arrrow Function with Type Checking Using Ternary Operator</h2>
+      <pre class="js">
+        <code>
+          //Takes in two variables, then calls two math functions on them
+          const doubleOutcome = (x, y, firstMath, secondMath) => {
+              return ((typeof firstMath != "function" || typeof secondMath != "function")
+              ?
+                "Type error"
+              :
+                secondMath(firstMath(x, y)));
+          }
+
+          const add = (x, y) => x + y;
+          const double = z => z * 2;
+          console.log(`Result after addition and multiplication: ${doubleOutcome(2, 3, add, double)}`);
+        </code>
+      </pre>
+    </section>
+
+    <section>
+      <h2>Referential Transparency &amp; Equational Reasoning</h2>
+      <p>Pure functions have "referential transparency." This means a pure function can be substituted for it's evaluated value without changing the behavior of the program. As a result if a program has a firstFunction that produces firstData and secondFunction that takes in firstData, the code could be switched to have firstFunction defined inline inside of secondFunction, without causing any side effect on the program. This property of substition of equals for equals is called "equational reasoning."</p>
+      <pre class="js">
+        <code>
+          //immutable is an NPM package. Any output on from Map() becomes an immutable object.
+          const { Map } = require("immutable");
+
+          const chris = Map({name: 'Chris', age: 20, sign: 'Leo'});
+          const isLeo = someGuy => someGuy.get('sign') == 'Leo' ? `is` : `is not`;
+          const nameSign = someGuy => `${chris.get('name')} ${isLeo(chris)} a Leo`;
+          console.log(nameSign(chris));              //Chris is a Leo
+        </code>
+      </pre>
+      <p>The above script calls <i>isLeo</i> on a person, Chris. If Chris is a leo, it returns 'is'. If not, it returns 'is not'. It then prints the name of the Chris, combined with a call to 'isLeo', to state if Chris is a Leo or not. Since <i>isLeo</i> is a pure function, it can be defined inline inside of the <i>nameSign<i> function without resulting in any side effects or change in output given the same inputs. This is an example of equational reasoning and a benefit of functional programming and pure functions.</p>
+      <pre class="js">
+        <code>
+          const { Map } = require("immutable");
+
+          const chris = Map({name: 'Chris', age: 20, sign: 'Leo'});
+          const nameSign = someGuy => `${chris.get('name')} ${chris.get('sign') == 'Leo' ? `is` : `is not`} a Leo`;
+          console.log(nameSign(chris));              //Chris is a Leo
+        </code>
+      </pre>
+    </section>
+
+    <script src="js/week13-practice.js"></script>
+  </main>
+
+</body>
+
+</html>
