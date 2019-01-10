@@ -45,7 +45,7 @@
 
   <main>
     <section>
-      <h2>Functional Fat-Arrrow Function with Type Checking Using Ternary Operator</h2>
+      <h2>Functional Fat-Arrow Function with Type Checking Using Ternary Operator</h2>
       <pre class="js">
         <code>
           //Takes in two variables, then calls two math functions on them
@@ -66,7 +66,7 @@
 
     <section>
       <h2>Referential Transparency &amp; Equational Reasoning</h2>
-      <p>Pure functions have "referential transparency." This means a pure function can be substituted for it's evaluated value without changing the behavior of the program. As a result if a program has a firstFunction that produces firstData and secondFunction that takes in firstData, the code could be switched to have firstFunction defined inline inside of secondFunction, without causing any side effect on the program. This property of substition of equals for equals is called "equational reasoning."</p>
+      <p>Pure functions have "referential transparency." This means a pure function can be substituted for it's evaluated value without changing the behavior of the program. As a result if a program has a firstFunction that produces firstData and secondFunction that takes in firstData, the code could be switched to have firstFunction defined inline inside of secondFunction, without causing any side effect on the program. This property of substitution of equals for equals is called "equational reasoning."</p>
       <pre class="js">
         <code>
           //immutable is an NPM package. Any output on from Map() becomes an immutable object.
@@ -78,7 +78,7 @@
           console.log(nameSign(chris));              //Chris is a Leo
         </code>
       </pre>
-      <p>The above script calls <i>isLeo</i> on a person, Chris. If Chris is a leo, it returns 'is'. If not, it returns 'is not'. It then prints the name of the Chris, combined with a call to 'isLeo', to state if Chris is a Leo or not. Since <i>isLeo</i> is a pure function, it can be defined inline inside of the <i>nameSign<i> function without resulting in any side effects or change in output given the same inputs. This is an example of equational reasoning and a benefit of functional programming and pure functions.</p>
+      <p>The above script calls <i>isLeo</i> on a person, Chris. If Chris is a leo, it returns 'is'. If not, it returns 'is not'. It then prints the name of the Chris, combined with a call to 'isLeo', to state if Chris is a Leo or not. Since <i>isLeo</i> is a pure function, it can be defined inline inside of the <i>nameSign</i> function without resulting in any side effects or change in output given the same inputs. This is an example of equational reasoning and a benefit of functional programming and pure functions.</p>
       <pre class="js">
         <code>
           const { Map } = require("immutable");
@@ -89,6 +89,80 @@
         </code>
       </pre>
     </section>
+
+    <section>
+      <h2>Review of bind</h2>
+      <pre class="js">
+        <code>
+          let person = {
+              word: 'hello',
+              speak: function&#40;&#41; {
+                  console.log&#40;this.word&#41;;	//this reaches down to person scope
+              }
+          }
+
+          person.speak&#40;&#41;;	            	    //'hello', since speak&#40;&#41; has access to word as is within person scope
+
+          let speakFunction = person.speak;        //'undefined', since current scope &#40;window&#41; does not have access to speak
+          speakFunction&#40;&#41;;
+
+          speakFunction = speakFunction.bind&#40;person&#41;;  //binds speakFunction to person scope
+          speakFunction&#40;&#41;;                             //'hello', since speakFunction now bound to person scope
+        </code>
+      </pre>
+    </section>
+
+    <section>
+      <h2>Composition</h2>
+      <p>Composition is a programming pattern in which a function takes in functions as arguments and returns another function composed of the functions passed into it. You can then call this composed function and it will handle the execution chain of the functions it is composed of. You can also compose functions out of composed functions. Here is a simple example:</p>
+      <pre class="js">
+        <code>
+          composedFunction = &#40;functA, functB&#41; =>
+            x => functA&#40;functB&#40;x&#41;&#41;;
+
+          const triple = x => x * 3;
+          const square = x => x * x;
+          const tripleSquare = composedFunction&#40;triple, square&#41;;
+          console.log&#40;tripleSquare&#40;6&#41;&#41;;      //108
+
+          const uppercase = string => string.toUpperCase&#40;&#41;;
+          const intense = string => `${string}!!!!`;
+          const loud = composedFunction&#40;uppercase, intense&#41;;
+          console.log&#40;loud&#40;'This sentence is loud'&#41;&#41;;    //THIS SENTENCE IS LOUD!!!!
+        </code>
+      </pre>
+
+      <p>The alternative would be to call the functions as seen below, passing function calls in as arguments. While this might make for shorter code, it also makes it much less flexible. What would happen if the name of the square function changed? Not only would you have to change the name of the function during its definition, but also the below calls to it as well. Now what would happen if you were importing a module that contained the square function in multiple other modules? You'd have to find every instance of the call to square and change all of those calls. By using a composed function, you could avoid such issues and build much easier to maintain code.</p>
+      <pre class="js">
+        <code>
+          console.log(triple(square(6)));
+          console.log(uppercase(intense('This sentence is loud')));
+        </code>
+      </pre>
+
+      <p>Here is an example of composing a function with an existing composed function. In this case, I want to take add an additional step to formatting the sentence, prior to running the previous composedFunction on it. To implement this, I create another composed function, where composedFunction wraps a new function. For the new function, I create a function that uses replace&#40;&#41; to replace a specified word with a new word. I then create the new composed function by passing in the existing composed function and the new replaceWord function to my new composed function, composedFunction2.</p>
+      <pre class="js">
+        <code>
+          const composedFunction2 = &#40;composedFunction, functC&#41; =&#62;
+            &#40;sentence, original, newWord&#41; =&#62; composedFunction&#40;functC&#40;sentence, original, newWord&#41;&#41;;
+
+          const replaceWord = &#40;string, original, newWord&#41; =&#62; string.replace&#40;original, newWord&#41;;
+          const loudReplace = composedFunction2&#40;loud, replaceWord&#41;;
+          console.log&#40;loudReplace&#40;'This sentence is loud, so very very loud', 'loud', 'noisy'&#41;&#41;;    //THIS SENTENCE IS NOISY, SO VERY VERY NOISY!!!!
+        </code>
+      </pre>
+
+      <p>The above composed of composed function could also be written in a single statement as seen below:</p>
+      <pre class="js">
+        <code>
+          const composedFunction = &#40;functA, functB, functC&#41; =&#62;
+            &#40;...args&#41; =&#62; functC&#40;functB&#40;functA&#40;...args&#41;&#41;&#41;;
+
+          const upperIntenseReplace = composedFunction&#40;replaceWord, uppercase, intense&#41;;
+          console.log&#40;upperIntenseReplace&#40;'This sentence is not quiet, not quiet at all', /quiet/g, 'silent'&#41;&#41;;
+          //THIS SENTENCE IS NOT SILENT, NOT SILENT AT ALL!!!!
+      </code>
+    </pre>
 
     <script src="js/week13-practice.js"></script>
   </main>

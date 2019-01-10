@@ -101,7 +101,7 @@
       <h2>JS Source Code</h2>
       <pre class="js">
         <code>
-          //worspacebox for text insertion area
+          //workspace box for text insertion area
           let keyDiv = document.querySelector("#keyClick");
 
           //add text to text area
@@ -296,100 +296,102 @@
 
       <section>
         <h2><a href="https://wojack-stock.herokuapp.com/" title="Hello React">React Trading Component</a></h2>
-        <h3>Box.js, for building an image with a dynamically shifting picture from an array of images</h3>
-        <pre class="js">
+        <h3>Box.js, for housing the a single image as part of a series of dynamically generated images, in stateless functional JS</h3>
+        <pre class="jsx">
           <code>
-            import React, {Component} from 'react';
-            import './App.css';
+            import React from 'react';
 
-            class App extends Component {
-              constructor(props){
-                super(props);
-                this.state = {urlList: ['/images/stocks/1.jpg',
-                                    '/images/stocks/2.png',
-                                    '/images/stocks/3.jpg',
-                                    '/images/stocks/4.jpg',
-                                    '/images/stocks/5.png',
-                                    '/images/stocks/6.jpg',
-                                    '/images/stocks/7.jpg',
-                                    '/images/stocks/8.png',
-                                    '/images/stocks/9.jpg',
-                                    '/images/stocks/10.png'
-                                    ],
-                               currentIndex: this.props.index,
-                               alt: "wojack"
-                              };
-                this.switchImage();   //starts time when class created
-              }
-
-              //incriments this.CurrentIndex by +1 until going to breach array range, then resets to 0
-              nextImage(){
-                this.state.currentIndex &#62;= this.state.urlList.length-1 ?
-                  (this.setState({currentIndex: 0})) : this.setState({currentIndex: this.state.currentIndex+1});
-              }
-
-              //updates image every second
-              switchImage(){
-                setInterval(()=&#62; this.nextImage(), 3000);
-              }
-
-              //returns image with different size based on viewport size
-              render() {
-                return document.documentElement.clientWidth &#62; 900 ? (
-                    &#60;img src={this.state.urlList[this.state.currentIndex]} alt="wojack"
-                      style={{margin: "30px", width:"20vw", height: "20vw"}}&#62;&#60;/img&#62;
-                    ) : (
-                    &#60;img src={this.state.urlList[this.state.currentIndex]} alt="wojack"
-                      style={{margin: "30px", width:"90vw", height: "90vw"}}&#62;&#60;/img&#62;
-                    );
-              }
+            const Box = &#40;url&#41; =&#62; {
+              return  &#60;img src={url} alt="box image" style={{margin: "3vh", width:"41vh", height: "41vh"}}&#62;&#60;/img&#62;
             }
 
-            export default App;
+            export default Box;
           </code>
         </pre>
 
-      <h3>BoxGroup.js, for building a group of images</h3>
+      <h3>BoxGroup.js, for building a group of boxes, in stateless functional JS</h3>
         <pre class="js">
           <code>
-            import React, {Component} from 'react';
+            import React from 'react';
             import Box from './Box';
 
-            class AppGroup extends Component {
+            //take in a list of images and dynamically the box group, one box per url
+            const BoxGroup = &#40;urlList&#41; =&#62; {
+              return &#40;&#60;div id="container" style={{ display: "flex", flexFlow: "row wrap", justifyContent: "center"}}&#62;
+                        {urlList.map&#40;url =&#62; Box&#40;url&#41;&#41;}
+                      &#60;/div&#62;
+                     &#41;;
+            };
 
-              getImageGroup(){
-                let images = [];
-                 //note using 10 is bad form and too static, but only way without using JSON, etc.
-                for(let i = 0; i &#60; 10; i++){
-                  images[i] = &#60;Box index={i}/&#62;
-                }
-                return images;
-              }
-
-              render() {
-                return (
-                  &#60;div id="container" style={{display: "flex", flexWrap: "wrap"}}&#62;
-                     {this.getImageGroup().map(oneImage =&#62; &#60;div style={{margin: "auto"}}&#62;{oneImage}&#60;/div&#62;)}
-                  &#60;/div&#62;
-                );
-              }
-            }
-
-            export default AppGroup;
+            export default BoxGroup;
           </code>
         </pre>
 
+        <h3>IntervalBoxGroup.js, for building a stateful box group, where a box group with new images is rendered every 3 seconds</h3>
+          <pre class="js">
+            <code>
+              import React, {Component} from 'react';
+              import BoxGroup from './BoxGroup';
 
-        <h3>index.js, for rendering</h3>
+              class IntervalBoxGroup extends Component {
+                constructor&#40;props&#41; {
+                  super&#40;props&#41;;
+
+                  this.state = {
+                    urlList: ['/images/stocks/1.jpg',
+                      '/images/stocks/2.png',
+                      '/images/stocks/3.jpg',
+                      '/images/stocks/4.jpg',
+                      '/images/stocks/5.png',
+                      '/images/stocks/6.jpg',
+                      '/images/stocks/7.jpg',
+                      '/images/stocks/8.png'
+                    ]
+                  };
+                }
+
+                componentDidMount&#40;&#41; {
+                  this.switchImage&#40;&#41;;
+                }
+
+                componentWillUnmount&#40;&#41;{
+                  this.switchImage&#40;&#41;;
+                }
+
+                //creates temp urlList based on current state, moves rear index to front, then sets new state with temp urlList
+                nextImages&#40;&#41; {
+                  let tempUrl = new Array&#40;...this.state.urlList&#41;;
+                  tempUrl.unshift&#40;tempUrl.pop&#40;&#41;&#41;;
+
+                  this.setState&#40;lastState =&#62; &#40;{
+                    urlList: tempUrl
+                  }&#41;&#41;;
+                }
+
+                //Updates images every 3 seconds
+                switchImage&#40;&#41; {
+                  setInterval&#40;&#40;&#41; =&#62; this.nextImages&#40;&#41;, 3000&#41;;
+                }
+
+                //renders BoxGroup, which re-renders with new images each setInterval interation
+                render&#40;&#41; {
+                  return BoxGroup&#40;this.state.urlList&#41;;
+                };
+              }
+
+              export default IntervalBoxGroup;
+            </code>
+          </pre>
+
+        <h3>index.js, for rendering the IntervalBoxGroup onto index.html</h3>
         <pre class="js">
           <code>
             import React from 'react';
             import ReactDOM from 'react-dom';
+            import IntervalBoxGroup from './IntervalBoxGroup';
             import './index.css';
-            import BoxGroup from './BoxGroup';
 
-            ReactDOM.render(&#60;BoxGroup /&#62;, document.getElementById('root'));
-
+            ReactDOM.render&#40;&#60;IntervalBoxGroup/&#62;, document.getElementById&#40;'root'&#41;&#41;;
           </code>
         </pre>
       </section>

@@ -102,9 +102,9 @@
     </section>
 
     <section id="closure">
-      <h2>Closure</h2>
-      <p>Closure in JavaScript exists in part through JavaScript's use of lexical scoping. Lexicial scoping states in part that given an inner scope and and outer scope, the inner scope will have access to outer scope, but not vice versa. For example, if a function defines a <i>let</i> variable, and then another function inside itself, the inner function will be able to access that <i>let</i>. The same goes for a global variable that is defined in a script outside of a function, prior to the function defintion; this variable will be available to that function.</p>
-      <p>One of the interesting parts of closure is that, as a result in part of this lexical scoping, when an outer function is passed a variable, that inner function also has reference to that variable, even if not passed into the inner function. What's more, if the outer returns the, that inner function will still hold reference to that value, even after the outer function has finished running and returned. Here is a simple example to demonstrate this:</p>
+      <h2>Closure & Currying</h2>
+      <p>Closure in JavaScript exists in part through JavaScript's use of lexical scoping. Lexical scoping states in part that given an inner scope and and outer scope, the inner scope will have access to outer scope, but not vice versa. For example, if a function defines a <i>let</i> variable, and then another function inside itself, the inner function will be able to access that <i>let</i>. The same goes for a global variable that is defined in a script outside of a function, prior to the function definition; this variable will be available to that function.</p>
+      <p>One of the interesting parts of closure is that, as a result in part of this lexical scoping, when an outer function is passed a variable, that inner function also has reference to that variable, even if not passed into the inner function. What's more, if the outer returns the, that inner function will still hold reference to that value, even after the outer function has finished running and returned. Here is a simple example to demonstrate this, using currying:</p>
       <pre class="js" id="closure-description">
         <code>
           function returnFunction(x){
@@ -113,8 +113,8 @@
             }
           }
 
-          let innerInstanceA = returnFunction(2);
-          let innerInstanceB = returnFunction(3);
+          const innerInstanceA = returnFunction(2);
+          const innerInstanceB = returnFunction(3);
 
           console.log(`completing function A: ${innerInstanceA(2)}`);    //prints 4
           console.log(`completing function B: ${innerInstanceB(4)}`);    //prints 7
