@@ -72,3 +72,7 @@ const composedFunctionBig = (functA, functB, functC) =>
 
 const upperIntenseReplace = composedFunctionBig(replaceWord, uppercase, intense);
 console.log(upperIntenseReplace('This sentence is not quiet, not quiet at all', /quiet/g, 'silent'));
+
+let arrayB = [10, 11, 12];
+let arrayA = [1, 2, ...arrayB, 3];
+console.log(arrayA);
