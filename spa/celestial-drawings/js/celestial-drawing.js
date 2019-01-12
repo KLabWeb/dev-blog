@@ -1,5 +1,7 @@
 document.body.addEventListener("click", firstClick);
 document.body.addEventListener("click", drawcelestial);
+document.body.addEventListener("touchstart", firstClick);
+document.body.addEventListener("touchstart", drawcelestial)
 
 function firstClick(event) {
   //create and start audio
