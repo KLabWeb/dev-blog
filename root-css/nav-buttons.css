@@ -5,15 +5,17 @@
 }
 .nav-v2 ul{
     display: flex;
+    flex-flow: row wrap;
     align-items: stretch;
     padding: 0;
     margin-top: 0;
     list-style: none;
 }
-.nav-v2 ul li{
+.nav-v2 ul li, select{
     flex: 1;
     text-align: center;
     background-color: #32DD72;
+    border-top: 2px solid  #1e1e1e;
 }
 .nav-v2 ul li:not(:first-child), #nav-v2 ul li:not(:last-child){
     border-left: 1px solid #1e1e1e;
@@ -27,13 +29,21 @@
     border-left: 1px solid #1e1e1e;
     border-right: 2px solid #1e1e1e
 }
-.nav-v2 ul li a{
+.nav-v2 ul li a, select{
     color: #1e1e1e;
     font-weight: bold;
     text-decoration: none;
+    width: 98%;
 }
 .nav-v2 ul li a:hover, a:focus{
     text-decoration: underline;
+}
+select{
+  border: 0;
+}
+select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
 }
 /*Sticky Nav
 .nav-v2{
