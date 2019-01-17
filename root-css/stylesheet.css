@@ -178,8 +178,9 @@ footer{
         align-items: center;
         justify-content: space-between;
     }
-    #love{
-        max-height: 30rem;
+    #love, #love img{
+        height: 300px;
+        width: 80vw;
     }
     .index body header{
         width: 100%;
