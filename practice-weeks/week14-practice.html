@@ -55,8 +55,183 @@
 
   <main>
     <section>
-      <h2></h2>
+      <h2>Functional JS: Declarative vs Imperative Using Array Prototype Functions</h2>
+      <h3>Matching Via RegExp Imperatively</h3>
+      <pre class="js">
+        <code>
+          let names = ["John Williams", "Michael Pollan", "Carl Smith", "Shannon Wheeler", "Kiyohiko Azuma", "Al Burian", "John Smith"];
+
+          function imperativeNameCheck(names, regexp){
+            let passedNames = [];
+
+            for(let i = 0; i < names.length; i++)
+              if(names[i].match(regexp))
+                passedNames.push(names[i]);
+
+            return passedNames;
+          }
+
+          let johns = imperativeNameCheck(names, /(Smith)/)
+          console.log(johns);      //[ 'Carl Smith', 'John Smith' ]
+        </code>
+      </pre>
+
+      <h3>Matching Via RegExp Declaratively Using filter&#40;&#41</h3>
+      <pre class="js">
+        <code>
+          const names = ["John Williams", "Michael Pollan", "Carl Smith", "Shannon Wheeler", "Kiyohiko Azuma", "Al Burian", "John Smith"];
+
+          const decJohns= names.filter(someName => someName.match(/(Smith)/));
+
+          console.log((decJohns));    //[ 'Carl Smith', 'John Smith' ]
+        </code>
+      </pre>
+
+      <h3>Creating a Full Relative Filepath from a Group of Images Imperatively</h3>
+      <pre class="js">
+        <code>
+          let partialPath = ["dog.jpg", "house.png", "motorcyle.gif", "ant.jpg", "river.jpeg"];
+
+          function fullRelative(startPath, endArray){
+            let fullPath = [];
+
+            for(let i = 0; i < endArray.length; i++)
+              fullPath.push(startPath + endArray[i]);
+
+            return fullPath;
+          }
+
+          console.log(fullRelative("/home/cryptolain/images/", partialPath));    //[ '/home/cryptolain/images/dog.jpg', etc.
+        </code>
+      </pre>
+
+      <h3>Creating a Full Relative Filepath from a Group of Images Declaratively Using map&#40;&#41;</h3>
+      <pre class="js">
+        <code>
+          const partialPath = ["dog.jpg", "house.png", "motorcyle.gif", "ant.jpg", "river.jpeg"];
+
+          const decFullPath = partialPath.map(end => `/home/cryptolain/images/${end}`);
+
+          console.log(decFullPath);    //[ '/home/cryptolain/images/dog.jpg', etc.
+        </code>
+      </pre>
+
+      <h3>Telling if all Numbers in an Array Are Integers Imperatively</h3>
+      <pre class="js">
+        <code>
+          let numbers = [1, 73.42, 7, 182.1244, 6, 29.12, 9];
+
+          function isInteger(numArray){
+
+            for(let i = 0; i < numArray.length; i++)
+              if(numArray[i] % 1 != 0)
+                return false;
+
+            return true;
+          }
+
+          console.log(isInteger(numbers));    //false
+        </code>
+      </pre>
+
+      <h3>Telling if a Number is an Intger Declaratively Using every&#40;&#41;</h3>
+      <pre class="js">
+        <code>
+          const numbers = [1, 73.42, 7, 182.1244, 6, 29.12, 9];
+
+          const decIsInts = numbers.every(num => num % 1 == 0);
+
+          console.log(decIsInts);    //false
+        </code>
+      </pre>
+
+
+      <h3>Telling if Anyone in a Group of People is Under Age 21 Imperatively</h3>
+      <pre class="js">
+        <code>
+          //Imperative
+          let people = [{ name: "John Smith",
+                          age: 21,
+                          city: "Portland"
+                        },
+                        { name: "Marcus Williams",
+                          age: 16,
+                          city: "Portland"
+                        },
+                        { name: "Yuassa Masaki",
+                          age: 43,
+                          city: "Portland"
+                        }
+                       ];
+
+          function under21(personArray){
+            for(let i = 0; i < personArray.length; i++)
+              if(personArray[i].age < 21)
+                return true;
+
+            return false;
+          }
+
+          console.log(under21(people));  //true
+        </code>
+      </pre>
+
+      <h3>Telling if Anyone in a Group of People is Under Age 21 Declaratively Using some&#40;&#41;</h3>
+      <pre class="js">
+        <code>
+          const people = [{ name: "John Smith",
+                          age: 21,
+                          city: "Portland"
+                        },
+                        { name: "Marcus Williams",
+                          age: 16,
+                          city: "Portland"
+                        },
+                        { name: "Yuassa Masaki",
+                          age: 43,
+                          city: "Portland"
+                        }
+                       ];
+
+            const decOver21 = people.some((person => person.age < 21));
+
+            console.log(under21(people));    //true
+        </code>
+      </pre>
+
+      <h3>Reversing an Array Imperatively</h3>
+      <pre class="js">
+        <code>
+          let someNums = [0, 1, 2, 3, 4, 5, 6, 7];
+
+          function reverseArray(array){
+            let reversed = [];
+
+            for(let i = array.length-1; i >= 0; i--)
+              reversed.push(array[i]);
+
+            return reversed;
+          }
+
+          console.log(reverseArray(someNums));    //[ 7, 6, 5, 4, 3, 2, 1, 0 ]
+        </code>
+      </pre>
+
+      <h3>Reversing an Array Declaratively Using reverse&#40;&#41;</h3>
+      <pre class="js">
+        <code>
+          const someNums = [0, 1, 2, 3, 4, 5, 6, 7];
+
+          const reversedArray = someNums.reverse();
+
+          console.log(reversedArray);    //[ 7, 6, 5, 4, 3, 2, 1, 0 ]
+        </code>
+      </pre>
+
     </section>
+
+
+
 
     <script src="js/week13-practice.js"></script>
   </main>
