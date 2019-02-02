@@ -1,0 +1,129 @@
+/*index.html specific styling*/
+@font-face {
+  font-family: 'exo_2bold';
+  src: url('../root-assets/fonts/exo2-bold-webfont.woff2') format('woff2'),
+    url('../root-assets/fonts/exo2-bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#head-flex h1 {
+  font-family: "exo_2bold";
+  font-size: 4rem;
+}
+
+#intent-sec p {
+  font-size: 1.9rem;
+  text-align: left;
+  margin: 0 1rem 1.5rem 1rem;
+}
+
+/*index-2*/
+.index ul, .index ol {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.index body {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-areas:
+    "header"
+    "nav"
+    "main"
+    "main"
+    "foot";
+}
+
+.index main {
+  grid-area: main;
+  padding: 0 40px 0 40px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-areas:
+    "sec sec sec sec love love study study study practice practice practice"
+    "sec sec sec sec love love roadmap roadmap roadmap notes notes notes";
+  grid-column-gap: 40px;
+  text-align: center;
+}
+
+.index header {
+  grid-area: header;
+}
+
+.index nav {
+  grid-area: nav;
+}
+
+.index footer {
+  grid-area: foot;
+}
+
+.index section {
+  margin-bottom: 40px;
+  background-color: black;
+}
+
+.index section:not(#love) {
+  padding: 0 40px 0 40px;
+}
+
+#intent-sec {
+  grid-area: sec;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#love {
+  grid-area: love;
+}
+
+#love img {
+  width: 100%;
+  height: 100%;
+}
+
+#study-log {
+  grid-area: study;
+}
+
+#practice-work {
+  grid-area: practice;
+}
+
+#roadmap-sec {
+  grid-area: roadmap;
+}
+
+#notes {
+  grid-area: notes;
+}
+
+.index main li {
+  margin: 2px;
+}
+
+@media (max-width: 1744px) {
+  #love{
+    display: none;
+  }
+  .index main {
+    grid-template-areas:
+      "sec sec sec sec sec sec sec sec practice practice practice practice"
+      "roadmap roadmap roadmap roadmap study study study study notes notes notes notes"
+  }
+}
+
+@media (max-width: 900px) {
+  .index main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #love, #love img {
+    height: 300px;
+    width: 80vw;
+  }
+}
