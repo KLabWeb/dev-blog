@@ -27,7 +27,7 @@
 
 .index body {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(auto-fill, 1fr);
   grid-template-areas:
     "header"
     "nav"
@@ -40,7 +40,7 @@
   grid-area: main;
   padding: 0 40px 0 40px;
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(auto-fill, 1fr);
   grid-template-areas:
     "sec sec sec sec love love study study study practice practice practice"
     "sec sec sec sec love love roadmap roadmap roadmap notes notes notes";
