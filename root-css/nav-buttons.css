@@ -15,6 +15,7 @@
     text-align: center;
     background-color: #32DD72;
     border-top: 2px solid #1e1e1e;
+    font-size: inherit;
 }
 .nav-v2 ul li{
   border-left: 1px solid #1e1e1e;
