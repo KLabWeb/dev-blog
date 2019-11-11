@@ -21,7 +21,7 @@ h2 {
 a {
     color: #CCCCCC
 }
-pre{
+pre:not(.code_description){
   width: 80%;
   margin: auto;
 }

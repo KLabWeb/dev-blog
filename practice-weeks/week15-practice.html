@@ -57,17 +57,76 @@
   <main>
     <section>
       <h2>JavaScript Functions Review</h2>
-      <h3>Arrow Functions</h3>
-      <pre class="js">
-        <code>
-          -Provide a shorter, more concise way to write functions.
-          -Do not have their own <i>this<i>, and instead has <i>this<i> of scope that contains it.
 
-            -ex.   let someNums = [2, 3, 4];
-                   someNums.map(num => num * 2);  //returns [4, 6, 8];
+      <h3>Arrow Functions</h3>
+      <pre class="code_description">
+        -Provides a shorter, more concise way to write functions.
+        -Do not have their own <i>this</i>, and instead has <i>this</i> of scope that contains it.
+      </pre>
+      <pre class="js"><code>
+        const someNum = 2;
+        const doubleNum = num => num * 2;  //doubleNum === 4
         </code>
       </pre>
-    </section>
+
+      <h3>map</h3>
+      <pre class="code_description">
+        -Takes in callback function, which has access to index of current iteration as arg and calls function on each index, then returns new array containing callback results
+      </pre>
+      <pre class="js"><code>
+        const someNums = [2, 3, 4];
+        const doubleNums = someNums.map(num => num * 2);	 //[4, 6, 8]
+        </code>
+      </pre>
+
+      <h3>filter</h3>
+      <pre class="code_description">
+        -Takes in callback function, which has access to index of current iteration as arg
+        -Callback should run a boolean test
+        -If index passes test, is included in new array returned by <i>filter</i>
+      </pre>
+      <pre class="js"><code>
+        const someNums = [2, 3, 4, 5, 6];
+        const evens = someNums.filter(num => num % 2 == 0);	 //[2, 4, 6]
+        </code>
+      </pre>
+
+
+      <h3>reduce</h3>
+      <pre class="code_description">
+        -Takes in callback function, which has access to index of current iteration as arg
+        -Callback function first two args are accumulator, and item, where accumulator is a value that persists across all callbacks in the reduce iteration and item is the current index value
+        -First arg to filter is callback function. Second optional arg is initial value for accumulator.
+      </pre>
+      <pre class="js"><code>
+        const someNums = [2, 3, 4];
+        const sum = someNums.reduce((sum, num) => sum + value, 5);	//sum === 14 (5 + 2 + 3 + 4)
+        </code>
+      </pre>
+
+      <h3>find</h3>
+      <pre class="code_description">
+        -Takes in callback function, which has access to index of current iteration as arg
+        -Callback function first arg is current index
+        -Callback statement should return boolean. First Index to return true is returned by find.
+      </pre>
+      <pre class="js"><code>
+        const someNums = [1, 2, 4, 6, 9, 10, 12];
+        const divisible = someNums.find(num => num % 3 === 0);  //6
+        </code>
+      </pre>
+
+      <h3>includes</h3>
+      <pre class="code_description">
+        -Returns boolean, based on whether arg passed in is included in array called on
+        -First arg is it item to search for. Second optional arg is index to start at.
+      </pre>
+      <pre class="js"><code>
+        const someNums = [1, 2, 4, 6, 9, 10];
+        let includesFour = someNums.includes(4);  //true
+        includesFour = someNums.includes(4, 5);  //false, as starts on index 5
+        </code>
+      </pre>
 
     <script src="js/week13-practice.js"></script>
   </main>
