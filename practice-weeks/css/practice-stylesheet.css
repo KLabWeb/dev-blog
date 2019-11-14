@@ -14,7 +14,7 @@ body {
     line-height: 1.5;
 }
 
-h2 {
+h2, h2 > a {
      color: #32DD72;
 }
 
