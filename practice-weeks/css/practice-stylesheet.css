@@ -25,3 +25,7 @@ pre:not(.code_description){
   width: 80%;
   margin: auto;
 }
+
+.subdomain-preview{
+  height: 50vh;
+}
