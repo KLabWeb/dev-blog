@@ -40,10 +40,10 @@
         <article id="resources">
             <h2>General Primary Learning Resources</h2>
             <ul>
-                <li>Official docs &amp; the Mozilla Developer Network web guides</li>
+                <li>Books w/ strong focus on foundations (avoiding "cookbook" focused books during initial learning)</li>
+                <li>Official docs &amp; <a href="https://developer.mozilla.org/en-US/docs/Web/Tutorials" title="MDN Dev Guides">Mozilla Developer Network web guides</a></li>
                 <li>Personal projects. Smaller daily work as I study, then larger projects with the completion of major topics</li>
-                <li>Open source projects I contribute to and/or contract work from gig sites</li>
-                <li>Books</li>
+                <li>Open source projects to, jobs, and contract work from gig sites</li>
                 <li>Web courses &amp; code challenge sites: &#40;Udemy, Odin Project, Code Wars, etc.&#41;</li>
                 <li>Networking and meeting people via local tech events, local hackerspace, user groups, etc.</li>
 
@@ -52,26 +52,21 @@
         </article>
 
         <article id="set-up">
-            <h2>I. OS &amp; Tools</h2>
+            <h2>I. Basic Dev Environment</h2>
 
             <ul>
-                <li>OS: Manjaro Linux, Win7</li>
+                <li>OS: Linux</li>
 
-                <li>Text Editors: Atom, Vim, emacs:
+                <li>Text Editors: Atom, emacs:
                   <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/index.html" title="emacs official doc" target="_blank">emacs official doc</a>,
                   <a href="http://spacemacs.org/doc/DOCUMENTATION.html" title="Spacemacs official doc" target="_blank">Spacemacs official doc</a>. Vim cheatsheets. Use of Atom & extensions for familiarity with.
                 </li>
 
-                <li>Browser: Firefox</li>
+                <li>Browser: Firefox + Reac Developer Tools</li>
                 <li>Image Editing: Gimp, Photoshop</li>
-                <li>Deployment Tools: ftp client, ssh &#40;Linux CLI for both&#41;</li>
-
-                <li>Version Control: Git, Github: Git official docs: <em> Pro Git </em>
-                  <a href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control" title="Getting Started About Version Control" target="_blank"><em>Getting Started w/ Version Control</em></a> &#40;8 chapters&#41; &amp;
-                  <a href="https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository" title="Git Basics" target="_blank"><em>Git Basics</em></a> &#40;8 chapters&#41;
-                </li>
-
-                <li>Cloud Storage: Nextcloud</li>
+                <li>Deployment Tools: Github w/ SSH & webhooks, Docker, FTP</li>
+                <li>Version Control: Git, Github via <a href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control" title="Getting Started About Version Control" target="_blank">official docs</a></li>
+                <li>VPS: Digital Ocean w/ Nginx</li>
             </ul>
             <hr>
         </article>
@@ -81,237 +76,256 @@
 
             <h4 id="HTML-I">HTML5</h4>
             <ul>
-                <li>The basics of the DOM &amp; how to write semantic HTML via MDN web docs:
-                  <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML" title="MDN web docs" target="_blank"><em>HTML - Structuring the Web</em></a> &#40;3 sections, 21 chapters&#41;
-                </li>
-
-                <li>Multimedia &amp; Embedding</li>
+                <li>Primary learning resource: <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML" tile="MDN Web Docs: HTML">MDN Web Docs: HTML</a></li>
+                <br>
+                <li>The basics of the DOM &amp; how to write basic semantic HTML</li>
+                <li>Dividing pages into sections/components and how to structure the DOM properly</li>
+                <li>Multimedia &amp; Embedding: images, video, iframes, vector graphics, etc.</li>
                 <li>Tables</li>
-                <li>Dividing pages into sections and how to structure the DOM properly</li>
-
-                <li>If needed, re-enforce learning by completing HTML portions of Odin Project:
-                  <a href="https://www.theodinproject.com/courses/web-development-101/lessons/html-and-css-basics" title="Odin Project: HTML &amp; CSS Basic" target="_blank"><em>HTML &amp; CSS Basics</em></a> &amp; Udemy Course:
-                  <a href="https://www.udemy.com/design-and-develop-a-killer-website-with-html5-and-css3/" title="Build Responsive Real World Websites with HTML5 and CSS3" target="_blank"><em>Build Responsive Real World Websites with HTML5 and CSS3</em></a>
-                </li>
+                <li>Forms: structure, sending form data, validation, styling, etc.</li>
 
                 <li>Make at least 5 HTML pages - focus on structure, not making them pretty</li>
-                <li>Books:</li>
-                <li class="embedded-list">
-                    <ul>
-                    <li><i>HTML5 Pocket Reference</i> &#40;O'Reilly&#41; &#40;2013, 5th&#41;</li>
-                    <li><i>HTML and CSS: Design and Build Websites</i> &#40;2011, 1st&#41;</li>
-                    </ul>
-                </li>
             </ul>
-
-            <p><b>Project I: </b>This website</p>
 
             <h4 id="CSS-I">CSS3</h4>
             <ul>
-                <li>The basics of CSS & The Box Model via MDN web docs:
-                  <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS" title="MDN web docs: CSS" target="_blank"><em>CSS: Styling the Web</em></a> &#40;4 sections, 38 chapters&#41;
-                </li>
 
-                <li>Styling Text</li>
-                <li>The box model &amp; styling boxes</li>
-                <li>CSS basic layout</li>
-                <li>Flex and Grid layouts to align elements properly without a framework</li>
+                <li>Primary learning resource: <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS">MDN Web Docs: CSS</a></li>
+                <br>
+                <li>The basics of CSS & The Box Model: selectors, cascade, sizing, units, etc.</li>
+                <li>Styling Text: lists, links, fonts, etc.</li>
+                <li>CSS basic layout: normal, absolute, relative, sticky, float, etc.</li>
+                <li>Flex and Grid layouts + media queries</li>
                 <li>Responsive web design to ensure proper styling for smartphones, tablets, etc.</li>
-                <li>Make at least 5 HTML pages - focus on structure, not making them pretty</li>
-
-                <li>Re-enforce learning as needed by completing CSS portions of Odin Project:
-                  <a href="https://www.theodinproject.com/courses/web-development-101/lessons/html-and-css-basics" title="Odin Project: HTML & CSS Basic" target="_blank"><em>HTML &amp; CSS Basics</em></a> &amp; Udemy Course:
-                  <a href="https://www.udemy.com/design-and-develop-a-killer-website-with-html5-and-css3/" title="Build Responsive Real World Websites with HTML5 and CSS3" target="_blank"><em>Build Responsive Real World Websites with HTML5 and CSS3</em></a></li>
-
-                <li>Books:</li>
-                <li class="embedded-list">
-                  <ul>
-                      <li><i>HTML and CSS: Design and Build Websites</i> &#40;2011, 1st&#41;</li>
-                      <li><i>CSS Pocket Reference</i> &#40;O'Reilly&#41; &#40;2018, 5th&#41;</li>
-                  </ul>
-                </li>
-
+                <li>Make at least 5 pages - focus on structure, not making them pretty</li>
             </ul>
 
-            <p><b>Project II: </b> Mock landing page</p>
-
-            <h4 id="JS-I">JavaScript ES6</h4>
-            <ul>
-                <li>The basics of JS: data types, objects, functions, conditionals, loops, etc.</li>
-                <li>DOM manipulation and events</li>
-                <li>Functional programming basics</li>
-                <li>Object oriented paradigm &#40;both classes and prototypes&#41;
-                <li>ES2015+: template literals, fat arrow functions, let, const, etc.</li>
-                <li>Basics of JSON and interaction with HTTP requests</li>
-                <li>Client-side web APIs</li>
-            </ul>
+            <h4 id="JS-I">JavaScript</h4>
             <ul>
                 <li>Learning Resources:</li>
                 <li class="embedded-list">
                   <ul>
-
-                      <li><i>Eloquent JavaScript: A Modern Introduction to Programming</i> &#40;2018, 3rd ed&#41;</li>
-                      <li><i><a href="https://javascript.info/" target="_blank" title="The Modern JS Tutorial">The Modern JavaScript Tutorial</a></i>
-                      <li><i>You Don't Know Javascript</i> series &#40;2014, 1st ed&#41;</li>
-                  </ul>
-                  <p></p>
-                </li>
-                <li>Daily Coding Practice:</li>
-                <li class="embedded-list">
-                  <ul>
-                    <li>Book exercises</li>
-                    <li>Personal projects</li>
-                    <li><a href="https://www.codewars.com" title="Code Wars" target="_blank">Code Wars</a></li>
-                    <li><a href="https://www.coderbyte.com/" title="Coder Byte" target="_blank">Coder Byte</a></li>
-                    <li><a href="https://www.hackerrank.com/" title="Hacker Rank" target="_blank">Hacker Rank</a></li>
+                    <li>Primary: <a href="https://eloquentjavascript.net/" title="Eloquent Javascript">Eloquent JavaScript: A Modern Introduction to Programming</a> &#40;2018, 3rd ed&#41;</li>
+                    <li><a href="https://javascript.info/" target="_blank" title="The Modern JS Tutorial">The Modern JavaScript Tutorial</a></li>
                   </ul>
                 </li>
-              </ul>
+              <br>
+              <li>The basics of JS: data types, objects, functions, conditionals, loops, etc.</li>
+              <li>DOM manipulation and events</li>
+              <li>Object oriented paradigm &#40;both classes and prototypes&#41;</li>
+              <li>ES2015+: template literals, arrow functions, fetch, let, const, map, filter, reduce, etc.</li>
+              <li>Basics of JSON and interaction with HTTP requests</li>
+              <li>Functional programming w/ component based design</li>
+              <li>Asynch JS: promises, event queue, call stack, etc.</li>
+              <li>Scope: this, bind, hoisting, etc.</li>
+              <li>Client-side web APIs</li>
+            </ul>
 
-
-
-            <p><b>Project II: </b>tbd</p>
-
-            <h4>Additional</h4>
+            <h4>Aditional</h4>
             <ul>
-                <li>Pick a shared hosting site (InMotion, Hostgator, etc.) for this site</li>
-                <li>Basics of cPanel (most popular hosting control panel) – creating email accts, creating FTP accts</li>
-                <li>How to upload a site with FTP</li>
-                <li>Register a domain name, learn on DNS & name servers. Get domain name for site.</li>
+                <li>Set up webserver for hosting site and projects: Digitial Ocean, Nginx, SSH, DNS, SSL, firewall, etc.</li>
+                <li>Github in detail + SSH</li>
             </ul>
             <hr>
         </article>
 
-        <article id="checkpoint">
-            <h2>Checkpoint</h2>
-            <p>At this point the basics of front-end are covered. I should be able to now take a PSD or PDF design of a site and create the HTML/CSS working product for that design, with some dynamic UI client side JS (button clicks, slideshow, etc.).</p>
+        <article id="job-first">
+            <h2>III. First Dev Job - Full Stack Developer II - March 2010 to Current</h2>
+            <ul>
+              <li>HTML</li>
+              <li class="embedded-list">
+                <ul>
+                  <li>HTML included in PHP files</li>
+                  <li>Lots of inline PHP in HTML, including inline logic</li>
+                  <li>Built using Bootstrap 3 layout for skeleton</li>
+                </ul>
+              </li>
+
+              <li>CSS</li>
+              <li class="embedded-list">
+                <ul>
+                  <li>No frameworks allowed</li>
+                  <li>Bootstrap 3 for layout</li>
+                  <li>Required to use templates made in 2013</li>
+                  <li>Tables styled by datatables</li>
+                  <li>Little to no use of flex, grid, media queries</li>
+                </ul>
+              </li>
+
+              <li>JS</li>
+              <li class="embedded-list">
+                <ul>
+                  <li>No frameworks allowed</li>
+                  <li>Mostly used to populate front-end via AJAX calls to PHP files that query DBs and return JSON, or that take in json and update DB</li>
+                  <li>Some handling functions to re-render after state change, but site UI mostly used for AJAX tasks</li>
+                </ul>
+              </li>
+
+              <li>PHP</li>
+              <li class="embedded-list">
+                <ul>
+                  <li>No frameworks allowed</li>
+                  <li>Mostly procedural scripts, sometimes classes.</li>
+                  <li>Mostly MySQL interaction. Lots of interaction with different tables, building arrays of each result, then creating relationships between them, as well as doing calculations on combine results to make summaries, etc.</li>
+                  <li>Lots of $_REQUEST use to take in params for queries.</li>
+                </ul>
+              </li>
+
+              <li>MySQL</li>
+              <li class="embedded-list">
+                <ul>
+                  <li>Mostly pulling from about 10 tables, but with strange relationships updated to fix old model with different relationships, but with resulting strange relational model</li>
+                  <li>Queries revolve around calls to <i>class.db</i>, which uses dated PHP calls <i>mysql_query(), mysql_fetch_array(), mysql_free_results(),</i> etc.</li>
+                </ul>
+              </li>
+
+              <li>JQuery - for shorthand, especially using AJAX</li>
+              <li>Bootstrap 3 - used in most existing layouts. Prefered using Grid and Flex myself, as Bootstrap 3 had many issues.</li>
+              <li>AJAX + JSON - JSON as primary result returned from AJAX requests, mostly from DBs, somtimes APIs.</li>
+              <li>Nginx - didn't work with it at all on the job, but did a lot on my own VPS webserver, setting up SSH, SSL, firewall, program environment, etc..</li>
+              <li>Crontab - for managing PHP cron jobs</li>
+              <li>Dev environment: OSX, PHPStorm, Atom, MySQLWorkbench, Github</li>
+            </ul>
             <hr>
+
         </article>
 
         <article id="front-end-intermediate">
-            <h2>III. Front End II</h2>
-            <ul>
-              <li>AJAX, Fetch, & JSON</li>
-              <li>CSS Preprocessor - Sass</li>
-            </ul>
+            <h2>IV. Front End II</h2>
 
-            <h4 id="react-i">JS Library - React</h4>
+            <h4 id="react-i">React</h4>
             <ul>
-              <li>Make a couple different projects &#40;or one large project routed via react-router&#41;. Aim for functional react with lodash, consts, components as expressions, etc.</li>
-              <li><a href="https://github.com/ReactTraining/react-router" target="_blank" title="React Router Github">react-router-dom</a> for front end declarative routing</li>
-              <li><a href="https://lodash.com/" target="_blank" title="Lodash">lodash</a> library to better enable concise code &amp; facilitate functional JS</li>
-              <li>REST APIs</li>
               <li>Learning Resources:</li>
               <ul>
-                <li><a href="https://www.amazon.com/React-Quickly-Painless-Redux-GraphQL/dp/1617293342/" target="_blank" title="React Quickly"><i>React Quickly: Painless web apps with React, JSX, Redux, and GraphQL</i></a>, &#40;Mardan, 2017&#41;</li>
-                <li><a href="https://reactjs.org/" target="_blank" title="React Official Docs">React Official Docs</a></li>
+                <li>Primary: <a href="https://reactjs.org/" target="_blank" title="React Official Docs">React Official Docs</a></li>
+                <li><a title="Complete React Developer" href="https://www.udemy.com/course/complete-react-developer-zero-to-mastery/">Complete React Developer 2020 &#40;w/ Redux, Hooks, GraphQL&#41;</a> Udemy course</li>
+                <li><a href="https://www.udemy.com/course/react-hooks/" title="React Hooks Course">React Hooks</a> Udemy course</li>
               </ul>
+              <br>
+              <li>NPM</li>
+              <li>JSX</li>
+              <li>Rendering</li>
+              <li>Components</li>
+              <li>State & Props</li>
+              <li>Event handling</li>
+              <li>Conditional rendering</li>
+              <li>Lists & keys</li>
+              <li>Forms</li>
+              <li>Stateful vs stateless components</li>
+              <li>Hooks: useState, useEffect, useRoutes, hook rules, building hooks, hooks API</li>
+              <br>
+              <li>Redux - aditional state management, as some companies may not be using Hooks yet</li>
+              <li>React Router - aditional routing, as some companies may not be using Hooks useRoutes yet</li>
+
             </ul>
 
             <h4 id="functional-js-i">Functional JavaScript</h4>
-              <ul>
-                <li><a href="https://www.amazon.com/Functional-Light-JavaScript-Pragmatic-Balanced-FP-ebook/dp/B0787DBFKH" target="_blank" title="Functional JavaScript">Functional-Light JavaScript</a>, &#40;Simpson 2017&#41;</li>
-                <li><i><a href="https://github.com/MostlyAdequate/mostly-adequate-guide" target="_blank" title="Professor Frisby's Functional JS">Professor Frisby's Mostly Adequate Guide to Functional Programming</a></i>, &#40;2015, 1st ed&#41;</li>
-                <li>Do some React projects in pure functional JS</li>
-              </ul>
+
+            <ul>
+              <li>Learning Resources:</li>
+              <li class="embedded-list">
+                <ul>
+                  <li>Primary: <a href="https://github.com/MostlyAdequate/mostly-adequate-guide" target="_blank" title="Professor Frisby's Functional JS">Professor Frisby's Mostly Adequate Guide to Functional Programming</a></li>
+                  <li><a title="Functional JS Course" href="https://www.udemy.com/course/functional-programming-for-beginners-with-javascript/">Functional Programming With JavaScript</a> Udemy course</li>
+                </ul>
+              </li>
+            </ul>
+            <br>
+            <ul>
+              <li>Declarative programming</li>
+              <li>Immutable data structures</li>
+              <li>First class functions</li>
+              <li>Pure functions</li>
+              <li>Partial application</li>
+              <li>Currying</li>
+              <li>Composition</li>
+              <li>Hindley-Milner</li>
+              <li>Monads</li>
+              <li>Functors</li>
+              <li>Natural transformations</li>
+              <li>Traversals</li>
+            </ul>
+
+            <h4>Aditional</h4>
+            <ul>
+                <li>Bootstrap 4 - significant changes from Bootstrap 3</li>
+                <li>Sass - CSS Pre-processor</li>
+                <li>Lodash.js - utility library usesful for functional programming for iteration, chaining, immutability, composite function creation, etc.</li>
+                <li>Ramda.js - another functional library, but w/ all functions auto-curried, no side effects allow, point-free code favored, and some aditional useful utilities</li>
+                <li>Moment.js - a lightweight date library for parsing, validating, manipulating, and formatting dates</li>
+                <li>Chart.js - "simple, clean and engaging HTML5 based JavaScript charts"</li>
+            </ul>
 
             <hr>
+
         </article>
 
+        <article id="back-end">
+            <h2>VII. Back End</h2>
 
-
-        <article id="back-end-basics">
-            <h2>IV. Back End I</h2>
-
-            <h4 id="py-I">Node.js</h4>
+            <h4 id="py-I">Python + Django</h4>
             <ul>
-                <li>The basics: The V8 engine, global object, function expressions, modules, fs, streams & buffers, serving pages & json, routing, etc.</li>
-                <li>Exercises from books & MDN</li>
-                <li>Brush-up on advanced data structures, design patterns, and sorting algorithms using JS in Node.</li>
-                <li>Some basics projects: CLI driven, browser event driven, automation, web scraping, etc.</li>
-                <li>Dev Methodology - Scrum, Agile</li>
-
                 <li>Learning Resources:</li>
                 <li class="embedded-list">
                   <ul>
-                    <li><a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9gcy9lrvMJ75z9maRw4byYp" target="_blank" title="Node Video Tutorials">The Net Ninja Node JS Video Tutorials</a></li>
-                    <li><i><a href="https://www.amazon.com/Node-js-Design-Patterns-server-side-applications/dp/1785885588/" target="_blank" title="Node.js Design Patterns">Node.js Design Patterns</a></i>, &#40;2017, Cascario&#41;</li>
-                    <li><a href="https://nodejs.org/en/docs/guides/" target="_blank" title="Node.js Official Docs">Node.js Official Docs</a></li>
+                      <li>Primary: <a href="https://docs.python.org/3/tutorial/index.html" title="Python Docs">Python Official Docs</a></li>
+                      <li><a href="https://ehmatthes.github.io/pcc/" title="Python Crash Course">Python Crash Course: A Hands-On, Project-Based Introduction to Programming</a> &#40;2015, 1st&#41;</li>
+                      <li><a href="https://automatetheboringstuff.com/" title="Automate the Boring Stuff">Automate the Boring Stuff with Python</a> &#40;2015, 1st&#41;</li>
                   </ul>
                 </li>
-            </ul>
-
-            <h4>Express</h4>
-            <ul>
-              <li>Learning Resources:</li>
-              <ul>
-                <li><a href="https://www.amazon.com/Express-Action-Writing-building-applications/dp/1617292427" target="_blank" title="Express in Action"><i>Express in Action</i></a>, &#40;Hahn, 2016&#41;</li>
-                <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs" target="_blank" title="MDN Express Guide">MDN Express Guide</a></li>
-                <li><a href="https://expressjs.com/" target="blank" title="Express.js Official Docs">Express.js Official Docs</a></li>
-              </ul>
-              </li>
-            </ul>
-
-            <h4 id="py-intro">Python Intro</h4>
-            <p style="margin-top:0">Very basic Python. Quick review of Python docs, enough to have a rough understanding of the language &#40;variables, basic function semantics, loops, conditional statements, arrays, etc.&#41;, but not very deep in the language at this point as I want to give greater attention to Node, Express, &amp; functional JS. Detailed Python will be done later in my studies.</p>
-            <hr>
-        </article>
-
-        <article id="db-sql">
-          <h2>V. Databases &amp; SQL</h2>
-          <ul>
-            <li>MySQL brush-up</li>
-            <li>RDB modeling, normalization, administration, etc. brush-up</li>
-            <li>Build a full stack app using &#40;MySQL&#41; MERN and host on home server or Heroku.</li>
-            <li>Learning Resources:</li>
-            <ul>
-              <li><i><a href="https://www.amazon.com/Database-Systems-Introduction-Databases-Warehouses/dp/1943153191/" target="blank" title="DB System: Intro to DB &amp; Data Warehouses">Database Systems: Introduction to Databases and Data Warehouse</i></a>, &#40;Jukic 2017&#41; - refresher on RBD modeling, normalization, etc..</li>
-              <li><a href="http://www.mysqltutorial.org/basic-mysql-tutorial.aspx" target="_blank" title="MySQLTutorial">MySQLTutorial.org</a> - refresher on SQL syntax.</li>
-            </ul>
-          </ul>
-          <hr>
-        </article>
-
-        <article id="back-end-basics">
-            <h2>VI. Back End II</h2>
-
-            <h4 id="py-I">Python</h4>
-            <ul>
-                <li>The basics &#40;with greater detail on material already covered&#41;: variables, data types, lists, conditionals, dictionaries, functions, classes, file handling, exceptions, etc.</li>
+                <br>
+                <li>The basics: variables, data types &amp; structures, operators, conditionals, dictionaries, functions & methods, etc.</li>
+                <li>Testing</li>
+                <li>Concurrency</li>
+                <li>Database interaction</li>
+                <li>Commandline tools</li>
+                <li>UI int</li>
+                <li>Scope</li>
+                <li>Modules and packages</li>
+                <li>Error handling and exceptions</li>
+                <li>Classes and functional programming</li>
                 <li>Exercises from Code Wars and books</li>
-                <li>Data structures, design patterns, and sorting algorithms with Python</li>
-                <li>Some basics projects: CLI driven, automation, web scraping, machine learning, etc.</li>
-                <li>Full stack project with Python added on back end</li>
+                <li>File handling</li>
+                <li>Rest API interaction</li>
+                <li>CRUD with Python</li>
+                <li>OWASP guidelines</li>
+                <li>Package distribution</li>
+                <li>Basics of use in automation, machine learning, web scraping</li>
+                <br>
+                <li>Django</li>
+            </ul>
 
-                <li>Books:</li>
-                <li class="embedded-list">
-                  <ul>
-                      <li><i>Python Crash Course: A Hands-On, Project-Based Introduction to Programming</i> &#40;2015, 1st&#41;</li>
-                      <li><i>Automate the Boring Stuff with Python: Practical Programming for Total Beginners</i> &#40;2015, 1st&#41;</li>
-                      <li><i>Learn Python 3 the Hard Way</i> &#40;2018, 1st&#41;</li>
-                  </ul>
-                </li>
+            <h4>Aditional</h4>
+            <ul>
+              <li>DevOps & automated deployment basics</li>
+              <li>Docker - separates app from underlying system via containers, for local dev environments, rapid deployment, sandboxing, simplified testing</li>
+              <li>NPM Script - task runner</li>
+            </ul>
+
+            <hr>
+
+            <h2>VI. Databases</h2>
+            <ul>
+              <li>Postgres - SQL DB</li>
+              <li>MongoDB - noSQL DB</li>
+              <li>GraphQL - JSON API alternative</li>
             </ul>
             <hr>
         </article>
 
-        <article id="back-end-intermediate">
-            <h2>VII. Back End III</h2>
-            <h4>Python Advanced - CRUD project, OWASP guidelines, testing, package distribution, etc.</h4>
-            <h4>Server Side Frameworks - Django, Flask</h4>
-            <h4>Coffeescript - borrows syntax from Ruby and Python to fix dated mapping, provide stronger types, and set explicit variable management of variables in loops in JS</h4>
-            <h4>Docker - Deploy an app with HTML, CSS, JS, React front end &amp; Python, Express, MySQL backend using Docker.</h4>
-            <hr>
-        </article>
 
         <article id="extra">
-            <h2>VIII. Extra</h2>
-            <h4>Dev Ops & App Deployment Basics</h4>
-            <h4>Mobile Apps - React Native</h4>
-            <h4>Content Management Systems - Wordpress</h4>
-            <h4>Advanced Unix Shell & BASH</h4>
-            <h4>SSL</h4>
-            <br>
+            <h2>XI. Extra</h2>
+            <ul>
+              <li>Redis - caching</li>
+              <li>Auth - OAth, Basic Auth, Token Auth, JWT, OpenIDRabbitMQ (messae broker)</li>
+              <li>RabbitMQ - messae broker</li>
+              <li>Elastisearch - search engine</li>
+              <li>Kubernetes - automates deployment, scaling, and management of containerized applications</li>
+              <li>Web sockets - Define an API establishing "socket" connections between a web browser and a server; a persistent connection between the client and the server for data transfer</li>
+              <li>Mobile Apps - React Native</li>
+              <li>Advanced Unix Shell & BASH</li>
+            </ul>
             <hr>
         </article>
 
