@@ -1,0 +1,9 @@
+main ul{
+  margin-left: 70px;
+}
+
+/* take priority over geral practice-stylesheet.css */
+pre:not(.code_description){
+  width: 40%;
+  margin-left: 140px;
+}

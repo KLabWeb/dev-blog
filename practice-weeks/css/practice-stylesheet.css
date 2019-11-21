@@ -29,3 +29,11 @@ pre:not(.code_description){
 .subdomain-preview{
   height: 50vh;
 }
+
+.no-style-li{
+  list-style-type: none;
+}
+
+li ul li{
+  margin-left: -70px;
+}

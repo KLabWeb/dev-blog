@@ -10,6 +10,7 @@
   <link rel="shortcut icon" href="../root-assets/favicon/javascript-original.svg" type="image/x-icon">
   <link rel="stylesheet" href="css/practice-stylesheet.css">
   <link rel="stylesheet" href="css/stylesheet-w12-practice.css">
+  <link rel="stylesheet" href="css/stylesheet-w16-practice.css">
   <link rel="stylesheet" href="../root-css/header.css">
   <link rel="stylesheet" href="../root-css/nav-buttons.css">
   <!--code formatting-->
@@ -63,6 +64,114 @@
             <img class='subdomain-preview' src='assets/images/trader-cards.png' alt='trader cards' href=''></img>
           </a>
       </section>
+
+    <section>
+      <h2>An Intro to Python Benefits</h2>
+      <ul>
+        <li>High level language, with a variety of complex data types built in</li>
+        <li>Short syntax, readability focused</li>
+        <li>Allows programs to be split into re-usable modules</li>
+        <li>Is an interpreted language (not needing compilation and executed on the fly by the interpreter)</li>
+        <li>Extensible: easy to add new modules, etc.</li>
+        <li>Named after Monty Python</li>
+      </ul>
+
+      <h2>Numbers Intro</h2>
+      <ul>
+        <li>Most common types: int, float</li>
+        <li>Whole nums typed to ints</li>
+        <li>Fractions typed to floats, includes results of int division ending in fractions</li>
+        <li>Division, even when resulting in a whole num types to a float</li>
+        <li>Any math operations on a float, int combo will return float</li>
+      </ul>
+
+      <h2>Numbers Intro</h2>
+      <ul>
+        <li>Standard math operators: <i>/, +, *,</i> etc.</li>
+        <li>Floor division: </i></i>//</i></li>
+        <li>Assign to variable: varName = </i>value</i></li>
+        <li class='no-style-li'><br></li>
+        <li>Power: </i>**</i></li>
+      </ul>
+      <pre class="python"><code>
+          >>> 10 ** 2
+              100
+        </code>
+      </pre>
+
+      <ul>
+        <li>Can reference last output in Python interpreter terminal via  <i>_</i></li>
+      </ul>
+      <pre class="python"><code>
+        >>> tax = 10
+        >>> 10 + tax
+            20
+        >>> 20 + _
+            40
+        </code>
+      </pre>
+
+      <h2>Strings</h2>
+      <ul>
+        <li>Store in str objects</li>
+        <li>Enclosed in either single or double quotes, using backslash to escape a “ or ‘</li>
+        <li>Use single quotes for string literals</li>
+        <li>Can wrap a pair of single quotes in double quotes, or double in single, but if wrapping same types, use backslash to escape inner pair. Same if quotes not in opening/closing pair.</li>
+        <li class='no-style-li'><br></li>
+        <li>Concatenate: <i>+</i></li>
+        <li>If want to interpret string with \[reserved] as not reserved, preface string quotes with <i>r</i> </li>
+      </ul>
+      <pre class="python"><code>
+        >>> print('C:\some\name')  		#here \n means newline!
+            C:\some
+            ame
+        >>> print(r'C:\some\name')  	#note the r before the quote
+            C:\some\name
+        </code>
+      </pre>
+
+      <ul>
+        <li>String literals (strings enclosed in quotes) next to each other (including across lines) auto-concat</li>
+      </ul>
+      <pre class="python"><code>
+        ‘string’ ‘string’    auto concats to	‘stringstring’
+        </code>
+      </pre>
+
+      <ul>
+        <li>Can repeat a string with: <i>number * ‘stringHere’</i></li>
+      </ul>
+      <pre class="python"><code>
+        ‘string’ ‘string’    auto concats to	‘stringstring’
+        </code>
+      </pre>
+
+      <ul>
+        <li>Can pull out individual chars from string with stringName[num]. First letter is 0.</li>
+        <li>To pull starting from end of string, use negative nums</li>
+        <li>Python strings are immutable</li>
+      </ul>
+
+      <h2>String Methods of Interest</h2>
+      <ul>
+        <li>String length:  <i>len(myString)</i></li>
+        <li>Slice: 	<i>myString[num:num]		#inclusive 1st num, exclusive 2nd</i></li>
+        <li class='no-style-li'>
+          <ul>
+            <li>If omit num, will slice using start or/and end instead</li>
+            <li>Can also slice starting from end with negative nums</li>
+          </ul>
+        </li>
+        <li><i>myString.capitalize()</i> – uppercases first <i>lettermyString.find(‘search’)</i> – returns char index for first occurrence of myString or -1 if not found</li>
+        <li><i>myString.find(‘search’)</i> – returns char index for first occurrence of myString or -1 if not found</li>
+        <li><i>myString.lower()</i></li>
+        <li><i>myString.upper()</i></li>
+        <li><i>myString.replace(‘old’, ‘new’)</i></li>
+        <li><i>myString.split(‘deliminator’)</i> - returns a list split by deliminator</li>
+      </ul>
+
+
+  </section>
   </main>
 
 </body>
