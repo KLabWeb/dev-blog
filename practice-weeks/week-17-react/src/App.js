@@ -12,11 +12,17 @@ const styles = {
   },
 }
 
-function App() {
+const App = () => {
   return (
     <div className="App" style={styles.App}>
       <ConditionalRender />
       <CodeGenerator codeId={'conditional17'} />
+      <h2>Highlighted Code Component</h2>
+      <CodeGenerator codeId={'markedCode17'} />
+      <h2>Highlighted Code Generator Component</h2>
+      <CodeGenerator codeId={'codeGenerator17'} />
+      <h2>Example of Highlighted Code Use</h2>
+      <CodeGenerator codeId={'generatorUse17'} />
     </div>
 
   );
