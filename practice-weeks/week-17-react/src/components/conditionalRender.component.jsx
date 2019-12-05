@@ -8,10 +8,12 @@ class ConditionalRender extends React.Component{
     this.state = { loggedIn: false };
 
     this.styles = {buttonContainer:{
-      margin: '0 auto',
-      width: '400px',
-      background: 'red'
-    }}
+                      margin: '0 auto',
+                      width: '500px',
+                      background: '#e05915',
+                      padding: '5px 10px',
+                      textAlign: 'center'
+                    }}
   }
 
   logout() { this.setState({loggedIn: false}) };
@@ -27,7 +29,8 @@ class ConditionalRender extends React.Component{
 
     return (
       <div className="buttonContainer" style={this.styles.buttonContainer}>
-        <p>Conditionally renders either LoginButton or LogoutButton depending on its current state.</p>
+        <h2>Login/out Button Component</h2>
+        <p>Conditionally renders either login or<br/> logout button depending on its current state.</p>
         {button}
       </div>
     );
