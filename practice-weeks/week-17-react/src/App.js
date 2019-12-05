@@ -24,7 +24,6 @@ const App = () => {
       <h2>Example of Highlighted Code Use</h2>
       <CodeGenerator codeId={'generatorUse17'} />
     </div>
-
   );
 }
 
