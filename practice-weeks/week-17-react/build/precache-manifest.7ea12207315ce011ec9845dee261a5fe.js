@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "553147499b4e02cc3108e5411b970ad5",
+    "revision": "deabdcb4d0cfb42b5567920b120baeaa",
     "url": "/practice-weeks/week-17-react/index.html"
   },
   {
-    "revision": "a84fd8860feba50855e9",
+    "revision": "20f8fb5120a68e474441",
     "url": "/practice-weeks/week-17-react/static/css/main.df9b7062.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/practice-weeks/week-17-react/static/js/2.0dc54e37.chunk.js"
   },
   {
-    "revision": "a84fd8860feba50855e9",
-    "url": "/practice-weeks/week-17-react/static/js/main.531a8f08.chunk.js"
+    "revision": "20f8fb5120a68e474441",
+    "url": "/practice-weeks/week-17-react/static/js/main.06251f9d.chunk.js"
   },
   {
     "revision": "9fef5dfa5939e2426751",
