@@ -4,8 +4,8 @@ class generalPractice17 extends React.Component{
   constructor(){
     super();
 
-    this.state = {imageUrl: '../images/lainlines.gif',
-                  switchImageUrl: '../images/bluescreen.gif',
+    this.state = {imageUrl: './images/lainlines.gif',
+                  switchImageUrl: './images/bluescreen.gif',
                   showClicked: 0,
                   switchClicked: 0};
   }
@@ -34,9 +34,7 @@ class generalPractice17 extends React.Component{
 
         {this.state.showClicked === 3 &&
           <div>
-           <button onClick={this.switchImgHandler} style={this.styles.buttons}>
-             Counter at increments of 3 show lain: {this.state.switchClicked}
-           </button>
+           <button onClick={this.switchImgHandler} style={this.styles.buttons}>Counter at increments of 3 show lain: {this.state.switchClicked}</button>
            {this.state.switchClicked % 3 === 0 & this.state.switchClicked !== 0 ?
              (<img src={this.state.imageUrl} style={this.styles.lainlines}/>) :
              (<img src={this.state.switchImageUrl} style={this.styles.lainlines}/>)
