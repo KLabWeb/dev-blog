@@ -32,6 +32,9 @@ class ConditionalRender extends React.Component{
                     }}
   }
 
+  //if not coded for example purpose, this could be done more efficiently
+  //by defining a single onClick handler that flips current login state with '!' operator
+  //then renders a single button to call the single handler 
   logout() { this.setState({loggedIn: false}) };
   login() { this.setState({loggedIn: true}) };
 
