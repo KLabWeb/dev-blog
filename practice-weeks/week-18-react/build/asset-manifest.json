@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/practice-weeks/week-18-react/static/css/main.0d84065e.chunk.css",
-    "main.js": "/practice-weeks/week-18-react/static/js/main.c27090c8.chunk.js",
-    "main.js.map": "/practice-weeks/week-18-react/static/js/main.c27090c8.chunk.js.map",
+    "main.js": "/practice-weeks/week-18-react/static/js/main.1cda9a9b.chunk.js",
+    "main.js.map": "/practice-weeks/week-18-react/static/js/main.1cda9a9b.chunk.js.map",
     "runtime-main.js": "/practice-weeks/week-18-react/static/js/runtime-main.ca4defe4.js",
     "runtime-main.js.map": "/practice-weeks/week-18-react/static/js/runtime-main.ca4defe4.js.map",
     "static/js/2.a0f7fcaa.chunk.js": "/practice-weeks/week-18-react/static/js/2.a0f7fcaa.chunk.js",
     "static/js/2.a0f7fcaa.chunk.js.map": "/practice-weeks/week-18-react/static/js/2.a0f7fcaa.chunk.js.map",
     "index.html": "/practice-weeks/week-18-react/index.html",
-    "precache-manifest.f7a4dc4ebf6b43bddb6fa8a1808183d2.js": "/practice-weeks/week-18-react/precache-manifest.f7a4dc4ebf6b43bddb6fa8a1808183d2.js",
+    "precache-manifest.a9a0dc4e0f3b5640bc03de75e8475554.js": "/practice-weeks/week-18-react/precache-manifest.a9a0dc4e0f3b5640bc03de75e8475554.js",
     "service-worker.js": "/practice-weeks/week-18-react/service-worker.js",
     "static/css/main.0d84065e.chunk.css.map": "/practice-weeks/week-18-react/static/css/main.0d84065e.chunk.css.map",
     "static/js/2.a0f7fcaa.chunk.js.LICENSE": "/practice-weeks/week-18-react/static/js/2.a0f7fcaa.chunk.js.LICENSE",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.ca4defe4.js",
     "static/js/2.a0f7fcaa.chunk.js",
     "static/css/main.0d84065e.chunk.css",
-    "static/js/main.c27090c8.chunk.js"
+    "static/js/main.1cda9a9b.chunk.js"
   ]
 }
