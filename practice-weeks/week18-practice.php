@@ -1,3 +1,11 @@
+<?php
+    require_once 'week-18-php/db.php';
+    require_once 'week-18-php/TableBuilder.php';
+
+    $fetch_head = array_keys($result->fetch_assoc());
+    $fetch_rows = $result->fetch_all();
+ ?>
+
 <!DOCTYPE html>
 
 <html lang="en-US">
@@ -11,8 +19,11 @@
   <link rel="stylesheet" href="css/practice-stylesheet.css">
   <link rel="stylesheet" href="css/stylesheet-w12-practice.css">
   <link rel="stylesheet" href="css/stylesheet-w16-practice.css">
+  <link rel="stylesheet" href="css/stylesheet-w18-practice.css">
+  <!-- <link rel="stylesheet" href="css/datatables-dark.css"> -->
   <link rel="stylesheet" href="../root-css/header.css">
   <link rel="stylesheet" href="../root-css/nav-buttons.css">
+  <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"/> -->
   <!--code formatting-->
   <title>Week 18 Sandbox</title>
 </head>
@@ -57,8 +68,33 @@
       <h2>General React Practice &#40;click image to load React&#41;</h2>
       <a href="https://kylemiskell.com/practice-weeks/week-18-react"><img src='./assets/images/week-18-react.png' alt='Week 17 React'></img><a>
     </section>
+
+    <section>
+      <h2>Basic PHP Back-end with MYSQLi table Pull</h2>
+      <div class="table-container">
+        <table id="practice_table" class="display">
+            <thead style="font-weight: bold;">
+                <?php add_head_row($fetch_head); ?>
+            </thead>
+            <tbody>
+                <?php build_rows($fetch_rows); ?>
+            </tbody>
+        </table>
+      </div>
+    </section>
+
   </main>
 
 </body>
 
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
 </html>
+
+
+<script>
+$(document).ready( function () {
+  $('#practice_table').DataTable();
+} );
+</script>
