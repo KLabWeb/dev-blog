@@ -2,6 +2,9 @@
     require_once 'week-18-php/db.php';
     require_once 'week-18-php/TableBuilder.php';
 
+    $result = $conn->query('SELECT * FROM classics');
+    !result && die("Query failed.");
+
     $fetch_head = array_keys($result->fetch_assoc());
     $fetch_rows = $result->fetch_all();
  ?>
@@ -18,11 +21,13 @@
   <link rel="shortcut icon" href="../root-assets/favicon/javascript-original.svg" type="image/x-icon">
   <link rel="stylesheet" href="css/practice-stylesheet.css">
   <link rel="stylesheet" href="css/stylesheet-w12-practice.css">
-  <link rel="stylesheet" href="css/stylesheet-w16-practice.css">
+  <!-- <link rel="stylesheet" href="css/stylesheet-w16-practice.css"> -->
   <link rel="stylesheet" href="css/stylesheet-w18-practice.css">
-  <!-- <link rel="stylesheet" href="css/datatables-dark.css"> -->
   <link rel="stylesheet" href="../root-css/header.css">
   <link rel="stylesheet" href="../root-css/nav-buttons.css">
+  <link rel="stylesheet" href="../Higlightjs/styles/tomorrow-night-bright.css">
+  <script src="../Higlightjs/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
   <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"/> -->
   <!--code formatting-->
   <title>Week 18 Sandbox</title>
@@ -66,7 +71,7 @@
   <main>
     <section>
       <h2>General React Practice &#40;click image to load React&#41;</h2>
-      <a href="https://kylemiskell.com/practice-weeks/week-18-react"><img src='./assets/images/week-18-react.png' alt='Week 17 React'></img><a>
+      <a href="https://kylemiskell.com/practice-weeks/week-18-react"><img src='./assets/images/week-18-react.png' alt='Week 17 React'></img></a>
     </section>
 
     <section>
@@ -81,6 +86,71 @@
             </tbody>
         </table>
       </div>
+    </section>
+
+    <section>
+      <pre class="php"><code>
+        //db.php
+        require_once 'login.php';
+
+        //args passed in from login.php
+        $conn = new mysqli($host, $user, $pass, $db);
+        $conn->connect_error && die('Fatal DB connection error');
+        </code>
+      </pre>
+
+      <pre class="php"><code>
+        //php main section of week18-practice.php
+        require_once 'week-18-php/db.php';
+        require_once 'week-18-php/TableBuilder.php';
+
+        $result = $conn->query('SELECT * FROM classics');
+        !result && die("Query failed.");
+
+        $fetch_head = array_keys($result->fetch_assoc());
+        $fetch_rows = $result->fetch_all();
+        </code>
+      </pre>
+
+      <pre class="php"><code>
+        //html + php section of week18-practice.PHP
+        &lt;table id="practice_table" class="display"&gt;
+             &lt;thead style="font-weight: bold;"&gt;
+                 &lt;*php add_head_row($fetch_head); *&gt;
+             &lt;/thead>
+             &lt;tbody>
+                 &lt;*php build_rows($fetch_rows); *&gt;
+             &lt;/tbody&gt;
+        &lt;/table&gt;
+        </code>
+      </pre>
+
+      <pre class="php"><code>
+        //TableBuilder.php
+
+        //takes in a 2D array of rows
+        function build_rows($rows){
+          echo array_reduce($rows, function($persist, $index){
+            return $persist.add_row($index);
+          }, '');
+        }
+
+        //takes in a single 1D row array
+        function add_row($row, $type = 'tbody'){
+          echo "&lt;tr&gt;" .
+           array_reduce($row, function($persist, $index){
+              $t = $type == 'thead' ? ['&lt;th&gt;', '&lt;/th&gt;'] : ['&lt;&gt;', '&lt;/td&gt;'];
+              return $persist.$t[0].$index.$t[1];
+          }, '') .
+          "&lt;/tr&gt;";
+        }
+
+        //wrapper for add_row, for ease of user
+        function add_head_row($row){
+          echo add_row($row, 'thead');
+        }
+        </code>
+      </pre>
     </section>
 
   </main>
