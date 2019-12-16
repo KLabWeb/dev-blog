@@ -1,12 +1,7 @@
 <?php
   require_once 'login.php';
 
-  //returns mysqli object with various access, etc. methods
+  //args passed in from login.php
   $conn = new mysqli($host, $user, $pass, $db);
-
   $conn->connect_error && die('Fatal DB connection error');
-
-  $result = $conn->query('SELECT * FROM classics');
-
-  !result && die("Query failed.");
 ?>
