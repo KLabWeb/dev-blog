@@ -90,8 +90,12 @@ body{
   border-radius: 2px;
 }
 
-pre:nth-of-type(1){
+pre:first-of-type.php{
   margin-top: 100px;
+}
+
+code.html{
+  width: 1100px;
 }
 
 pre:not(.code_description){
@@ -101,4 +105,9 @@ pre:not(.code_description){
 
 section{
   margin-top: 70px;
+}
+
+#collection-img{
+  width: 1200px;
+  padding: 0 80px 30px 60px;
 }

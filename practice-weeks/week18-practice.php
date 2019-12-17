@@ -75,7 +75,7 @@
     </section>
 
     <section>
-      <h2>Basic PHP Back-end with MYSQLi table Pull</h2>
+      <h2>Basic PHP Back-End with MYSQLi</h2>
       <div class="table-container">
         <table id="practice_table" class="display">
             <thead style="font-weight: bold;">
@@ -89,8 +89,9 @@
     </section>
 
     <section>
-      <pre class="php"><code>
+      <pre><code class="php">
         //db.php
+
         require_once 'login.php';
 
         //args passed in from login.php
@@ -99,8 +100,9 @@
         </code>
       </pre>
 
-      <pre class="php"><code>
+      <pre><code class="php">
         //php main section of week18-practice.php
+
         require_once 'week-18-php/db.php';
         require_once 'week-18-php/TableBuilder.php';
 
@@ -112,8 +114,9 @@
         </code>
       </pre>
 
-      <pre class="php"><code>
-        //html + php section of week18-practice.PHP
+      <pre><code class="php">
+        //html + php section of week18-practice.php
+
         &lt;table id="practice_table" class="display"&gt;
              &lt;thead style="font-weight: bold;"&gt;
                  &lt;*php add_head_row($fetch_head); *&gt;
@@ -125,7 +128,7 @@
         </code>
       </pre>
 
-      <pre class="php"><code>
+      <pre><code class="php">
         //TableBuilder.php
 
         //takes in a 2D array of rows
@@ -153,6 +156,62 @@
       </pre>
     </section>
 
+    <section>
+      <h2>Animation Collection Browser Initial Specs</h2>
+      <img id="collection-img" src='assets/images/collection-design.png' alt="collection UI">
+      <pre><code class="html">
+        Essentially taking my current collection, which is a mixed of well organized titles, each
+        with a 'qaulity info - title.txt' file, which holds A/V, series, summary, download source,
+        and fansub group notes, and a hand selected preview image, and turning it into a searchable,
+        sortable, filterable, etc. app. Above image is basis for UI &#40;image only, no
+        code template, etc.&#41;.
+
+        -Back end:
+           -Existing Debian + Nginx + MariadbO
+           -Python + Django or Flask REST API for MySQL queries, file hosting...set up to run well
+            w/ existing php servers
+        -Front end:
+           -functional React w/ hooks for routing, state, etc., create-react-app
+           -underscore.js ---optional
+           -See image for layout React
+           -some tables libary for "detailed view" (react-tables, ag-tables, etc.) ---optional
+           -fancybox.js lib for lower image thumbs and upper browser viewer ---optional
+        -Front end v2:
+           -chart.js (genres compare, most common directors, studios, etc.)
+
+
+        v1 - Basic Release - browser only
+        --------------------------------
+        *SEE ATTACHED DESIGN IMAGE
+        -Upper portion shows details on title. Can change view to show different details/formats.
+        -Lower portion is browser.
+           -L menu changes view for browser.
+           -R menu changes model shown in view (ex. titles, genres, etc.).
+           -Clicking on genre takes to list of titles in genre, etc..
+        -Search bar in between top and bottoms. Searched based on whatever is selected on R menu
+
+
+        Back-End Popuplation
+        --------------------------
+        1) summary, series info details can be pulled from some web api
+        2) for media details, see if can automate some media-info pull, which can display in json
+           inside the app
+        3) release notes and will have to come from existing .txt files
+        4) as ALL titles have a 'quality info - tile.txt' file, I could could automate a lot of the
+           DB population, API queries, etc. for population by using the 'title' string from those
+          text files for the root model basis.
+
+
+        v2 - User addition
+        ---------------------------------
+        -Add users. Users can log in. Create request lists. I send them a USB full of files.
+        -Users can also create: watch, watched, etc lists
+
+        -Can keep same SPA layout, by adding list views for user specific lists in lower portion, and
+         adding 'add' 'remove' functions to titles.
+        </code>
+      <pre class="php">
+    </section>
   </main>
 
 </body>
