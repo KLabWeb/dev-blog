@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="KMiskell">
+  <meta name="description" content="Week 19 General Practice">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../root-assets/favicon/javascript-original.svg" type="image/x-icon">
+  <link rel="stylesheet" href="css/practice-stylesheet.css">
+  <link rel="stylesheet" href="css/stylesheet-w19-practice.css">
+  <link rel="stylesheet" href="../root-css/header.css">
+  <link rel="stylesheet" href="../root-css/nav-buttons.css">
+  <link rel="stylesheet" href="../Higlightjs/styles/tomorrow-night-bright.css">
+  <script src="../Higlightjs/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <title>Week 19 Sandbox</title>
+</head>
+
+<body>
+  <div>
+    <header class="header-v2">
+      <h1>Week 19 Sandbox</h1>
+    </header>
+
+    <nav class="nav-v2">
+      <ul>
+        <li><a href="../index.html" title="Home">Home</a></li>
+        <li><a href="../practice-weeks/week19-practice.php" title="Previous Work">Previous Work</a></li>
+        <li><a href="../study-weeks/week19.html" title="Week Log">Week Log</a></li>
+        <!--<li><a href="../practice-weeks/week20-practice.html" title="Next Work">Next Work</a></li>-->
+        <li><a href="../roadmap.html" title="Roadmap">Roadmap</a></li>
+        <li><select onchange="location = this.value;" target="_blank" onclick"hideFirst">
+              <option value="">Notes</option>
+              <option value="../notes/Python.pdf" title="Python Studies in PDF">Python</option>
+              <option value="../notes/React-II.pdf" title="React Studies in PDF">REACT II</option>
+              <option value="../notes/MySQL.pdf" title="React Studies in PDF">MySQL & DB Design</option>
+              <option value="../notes/PHP7.pdf" title="PHP Studies in PDF">PHP</option>
+              <option value="../notes/Functional-JS-I.pdf">Functional JS</option>
+              <option value="../notes/React-I.pdf">React</option>
+              <option value="../notes/Git.pdf">Git</option>
+              <option value="../notes/JS-I.pdf">JS</option>
+              <option value="../notes/CSS3-I.pdf">CSS</option>
+              <option value="../notes/HTML-I.pdf">HTML</option>
+            </select>
+        </li>
+        <li><select onchange="location = this.value;" onclick"hideFirst">
+              <option value="">Learning Resources</option>
+              <option value="https://www.udemy.com/course/complete-react-developer-zero-to-mastery/">Complete React Developer 2020</option>
+              <option value="../notes/Prof-Frisby-Funct-JS.pdf">Prof Frsiby's Functional JS</option>
+              <option value="../notes/React-Quickly-2017.pdf">React Quickly</option>
+              <option value="https://eloquentjavascript.net/">Eloquent JavaScript</option>
+              <option value="https://developer.mozilla.org/en-US/docs/Learn">MDN Docs</option>
+            </select>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <main>
+    <section>
+      <pre><code class="python">
+        #var has no declared type, no ending ;
+        message = "Hello world!"
+        print(message)
+
+        #multiple assignment
+        mul, ti, assign = 1, 2, 3
+        print(mul)      #1
+        print(assign)   #3
+
+        #division and multi-operand type always returns float
+        math = 9 / 9
+        print(math)     #1.0
+        math = 9 + 3.0
+        print(math)     #12.0
+
+        #can force return int with dropped remainder using //
+        math = 9 // 9
+        print(math)     #1
+
+        #string literal with multi-lines and space preservation via """
+        #/ prevents newline
+        print("""/
+        "There was no reason for me to stay in the real world any
+        longer. In the real world, it didn’t matter if I was there or not.
+        When I realized that, I was no longer afraid of losing my body."
+        """)
+
+        #repeat string
+        print(3 * "ee" + 2 * 'aa')  #eeeeeeaaaa
+
+        #string auto-contanation when strings adjacent
+        long_string = ('this is a very long string '
+                        'it is all one string')
+        print(long_string)      #this is a very long string it is all one string
+
+        #string char access, negative num to start from right (read only access)
+        print(long_string[-1]) #g
+
+        slice = 'having slice time'
+        print(slice[:2])      #no start slices from [0]. Exlusive end char num. prints ha
+        print(slice[0: 120])  #out of bounds num slices to end/start automatically. prints having slice time
+
+        #uppercase each word
+        person = 'gerald thomas'.title()
+        print(person) #Gerald Thomas
+
+        #template strings have f before, then calls and vars wrapped in {} inside string
+        print(f'{person} {slice} {"today".upper()}') #Gerald Thomas having slice time TODAY
+
+        print(' test  '.strip() + 'test') #testtest
+        </code>
+      </pre>
+    </section>
+  </main>
+
+</body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+</html>

@@ -15,7 +15,14 @@
 #intent-sec p {
   font-size: 1.9rem;
   text-align: left;
-  margin: 0 1rem 1.5rem 1rem;
+  margin: 0 1rem 3rem 1rem;
+}
+
+#intent-heads h1{
+  margin: 0;
+}
+#intent-heads{
+  margin: 20px 1rem 3rem 1rem;
 }
 
 /*index-2*/

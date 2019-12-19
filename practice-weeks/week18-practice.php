@@ -44,15 +44,20 @@
         <li><a href="../index.html" title="Home">Home</a></li>
         <li><a href="../practice-weeks/week17-practice.html" title="Previous Work">Previous Work</a></li>
         <li><a href="../study-weeks/week18.html" title="Week Log">Week Log</a></li>
-        <!--<li><a href="../practice-weeks/week19-practice.html" title="Next Work">Next Work</a></li>-->
+        <li><a href="../practice-weeks/week19-practice.html" title="Next Work">Next Work</a></li>
         <li><a href="../roadmap.html" title="Roadmap">Roadmap</a></li>
         <li><select onchange="location = this.value;">
               <option value="">Notes</option>
-              <option value="../notes/Functional-JS-I.pdf">Functional JS</a></li>
-              <option value="../notes/React-I.pdf">React</a></li>
-              <option value="../notes/JS-I.pdf">JS</a></li>
-              <option value="../notes/CSS3-I.pdf">CSS</a></li>
-              <option value="../notes/HTML-I.pdf">HTML</a></li>
+              <option value="../notes/Python.pdf" title="Python Studies in PDF">Python</option>
+              <option value="../notes/React-II.pdf" title="React Studies in PDF">REACT II</option>
+              <option value="../notes/MySQL.pdf" title="React Studies in PDF">MySQL & DB Design</option>
+              <option value="../notes/PHP7.pdf" title="PHP Studies in PDF">PHP</option>
+              <option value="../notes/Functional-JS-I.pdf">Functional JS</option>
+              <option value="../notes/React-I.pdf">React</option>
+              <option value="../notes/Git.pdf">Git</option>
+              <option value="../notes/JS-I.pdf">JS</option>
+              <option value="../notes/CSS3-I.pdf">CSS</option>
+              <option value="../notes/HTML-I.pdf">HTML</option>
             </select>
         </li>
         <li><select onchange="location = this.value;">
@@ -210,7 +215,7 @@
         -Can keep same SPA layout, by adding list views for user specific lists in lower portion, and
          adding 'add' 'remove' functions to titles.
         </code>
-      <pre class="php">
+      </pre>
     </section>
   </main>
 
@@ -227,3 +232,8 @@ $(document).ready( function () {
   $('#practice_table').DataTable();
 } );
 </script>
+
+<?php
+  $conn->close;
+  $result->close;
+ ?>

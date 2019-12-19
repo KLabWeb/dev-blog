@@ -1,0 +1,28 @@
+body{
+  margin-bottom: 200px;
+}
+
+main ul{
+  margin-left: 70px;
+}
+
+code.python{
+  width: 1100px;
+}
+
+pre:not(.code_description){
+  margin-left: 115px;
+  width: 800px;
+}
+
+section{
+  margin-top: 70px;
+}
+
+h2, p{
+  margin-left: 3vw;
+  margin-right: 3vw;
+}
+h3, img{
+  margin: 0 3vw 0 3vw;
+}
