@@ -1,13 +1,16 @@
 <?php
 
-  //takes in a 2D array of rows
-  function build_rows($rows){
-    echo array_reduce($rows, function($persist, $index){
-      return $persist.add_row($index);
-    }, '');
+  //wrapper for add_row, for easy user interface
+  function add_head_row($row){
+    echo add_row($row, 'thead');
   }
 
-  //takes in a single 1D row array
+  //wrapper for add_row, for easy user interface
+  function add_body_row($row){
+    echo add_row($row, 'tbody');
+  }
+
+  //takes in a single 1D row array, optional row type, body by default
   function add_row($row, $type = 'tbody'){
     echo "<tr>" .
      array_reduce($row, function($persist, $index){
@@ -17,9 +20,11 @@
     "</tr>";
   }
 
-  //wrapper for add_row, for ease of user
-  function add_head_row($row){
-    echo add_row($row, 'thead');
+  //takes in a 2D array of rows, optional row type, body by default
+  function get_row_group($rows, $type='tbody'){
+    echo array_reduce($rows, function($persist, $index){
+      return $persist.add_row($index, $type);
+    }, '');
   }
 
 ?>
