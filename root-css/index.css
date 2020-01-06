@@ -80,7 +80,7 @@
   grid-area: sec;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: right;
 }
 
 #love {
@@ -118,8 +118,8 @@
   }
   .index main {
     grid-template-areas:
-      "sec sec sec sec sec sec sec sec practice practice practice practice"
-      "roadmap roadmap roadmap roadmap study study study study notes notes notes notes"
+      "practice practice practice practice study study study study notes notes notes notes"
+      "sec sec sec sec sec sec sec sec roadmap roadmap roadmap roadmap"
   }
 }
 
@@ -132,5 +132,8 @@
   #love, #love img {
     height: 300px;
     width: 80vw;
+  }
+  #intent-sec{
+    display: none;
   }
 }
