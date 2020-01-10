@@ -7,11 +7,10 @@
   $conn = dbConn::getInstance();
   $orders_facade = new ordersFacade($conn);
 
-  $test_conn = $conn->testConnection();
-
   $customers = $conn->query('SELECT * FROM customers');
   if(!$customers){
     echo "Error: no customers";
+    die();
   }
 
   $cust_head = array_keys($customers->fetch_assoc());
@@ -20,6 +19,7 @@
   $orders = $conn->query('SELECT * FROM orders');
   if(!$orders){
     echo "Error: no orders";
+    die();
   }
 
   $orders_head = array_keys($orders->fetch_assoc());
@@ -145,8 +145,59 @@
 
     <section>
       <h2>Basic PHP Back-End with MYSQLi</h2>
+      <pre><code class="php">
+        //Singleton class
+        class dbConn extends mysqli {
+          private $user = 'demo';
+          private $host = 'localhost';
+          private $pass = '[omitted]';
+          private $db = 'demo';
+          private static $instance;
+
+          private function __construct(){
+            parent::__construct($this->host, $this->user, $this->pass, $this->db);
+          }
+
+          public static function getInstance(){
+            if(is_null(self::$instance)){
+              self::$instance = new self();
+            }
+            return self::$instance;
+          }
+
+          public function testConnection(){
+            return is_null(self::$instance) ? "Connection failed" : "Connection sucessful to DB $this->db via user $this->user";
+          }
+        }
+        </code>
+      </pre>
+      <pre><code class="php">
+        //week19-practice.php
+
+        $conn = dbConn::getInstance();
+
+        $customers = $conn->query('SELECT * FROM customers');
+        if(!$customers){
+          echo "Error: no customers";
+          die();
+        }
+        $cust_head = array_keys($customers->fetch_assoc());
+        $cust_rows = $customers->fetch_all();
+
+        $orders = $conn->query('SELECT * FROM orders');
+        if(!$orders){
+          echo "Error: no orders";
+          die();
+        }
+        $orders_head = array_keys($orders->fetch_assoc());
+        $orders_rows = $orders->fetch_all();
+
+        $orders_facade = new ordersFacade($conn);
+        </code>
+      </pre>
+
       <div class="table-container">
-        <h5>DB connection status: <?= $test_conn ?></h5>
+        <h5>DB connection status: <?= $conn->testConnection() ?></h5>
         <h4>Customers</h4>
         <table class="practice_table" id="practice_tableA" class="display" style="width: 100%">
             <thead style="font-weight: bold;">
@@ -175,9 +226,9 @@
 
     <section>
       <h2>Single Responsibility Principle</h2>
-      <p>Problem: Owner wants to calculate number of all orders shipped &#40;actor 1&#41;. Shipping wants to have an alert message if greater than 30% orders not shipped &#40;actor 2&#41;. Order support wants list of all orders from current day &#40;actor 3&#41;.</p>
-      <p>Bad design: Put all responsibilities in same <i>orderDetails</i> class.</p>
-      <p>Better Design: break each actor into a seperate module and create an single point off access through a single interface class &#40;facade pattern&#41;</p>
+      <p>Problem: Three actors seeking info on shipments. Owner wants to calculate number of all orders shipped &#40;actor 1&#41;. Shipping wants to have an alert message if greater than 30% orders not shipped &#40;actor 2&#41;. Order support wants list of all orders from current day &#40;actor 3&#41;. Client wants a single interface for all three parties. How to implement without coupling actors together?</p>
+      <p>Bad design: Handle all responsibilities for all three actors in a single <i>orderDetails</i> class.</p>
+      <p>Better Design: seperate each actor and responsibility into a seperate module and create an single point off access through one interface class &#40;facade pattern&#41;, thus providing the desired single access point for all three actors, while also adhearing to single responsibility principle</p>
       <h3>Responsibility 1: Owner</h2>
       <pre><code class="php">
           class shippedCounter{
