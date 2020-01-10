@@ -103,10 +103,10 @@ function fullRelative(startPath, endArray){
   return fullPath;
 }
 
-console.log(fullRelative("/home/cryptolain/images/", partialPath));
+console.log(fullRelative("~/images/", partialPath));
 
 
 //Declarative
-const decFullPath = partialPath.map(end => `/home/cryptolain/images/${end}`);
+const decFullPath = partialPath.map(end => `~/images/${end}`);
 
 console.log(decFullPath);
