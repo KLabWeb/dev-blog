@@ -1,0 +1,16 @@
+html{
+    font-family: helvetica, arial, sans-serif;
+    font-size: 10px;
+}
+
+body {
+    background-color: #1e1e1e;
+    color: black;
+    font-size: 1.7rem;
+    line-height: 1.5;
+}
+
+h2, h2 > a {
+     color: #32DD72;
+     margin: '20px 0 0 0';
+}
