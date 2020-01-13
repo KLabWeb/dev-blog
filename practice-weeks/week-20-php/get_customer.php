@@ -7,9 +7,8 @@
   if(!$conn){
     echo 'connection failed';
   }
-  
-  $custID = $_GET['custID'];
 
+  $custID = $_GET['custID'];
   if(!isset($custID)){
     echo 'Cannot query without pkey custID';
   }
