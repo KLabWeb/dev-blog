@@ -1,5 +1,5 @@
 body{
-  margin-bottom: 200px;
+  padding-bottom: 200px;
 }
 
 main ul{
@@ -31,7 +31,7 @@ h5{
 p{
   font-size: 1.8rem;
 }
-p, .table-container, pre:not(.code_description){
+p, .table-container, pre:not(.code_description), .formSection{
   margin-left: 115px;
 }
 
@@ -125,9 +125,15 @@ p, .table-container, pre:not(.code_description){
   border-radius: 2px;
 }
 
-
 /*forms*/
 .flex-form{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  width: 800px;
+}
+.submit, label{
+  margin-top: 10px;
+}
+.formSection{
+  margin-top: 0;
 }
