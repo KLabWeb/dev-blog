@@ -88,62 +88,6 @@
 
   <main>
     <section>
-      <h2>Python Begins</h2>
-      <pre><code class="python">
-        #var has no declared type, no ending ;
-        message = "Hello world!"
-        print(message)
-
-        #multiple assignment
-        mul, ti, assign = 1, 2, 3
-        print(mul)      #1
-        print(assign)   #3
-
-        #division and multi-operand type always returns float
-        math = 9 / 9
-        print(math)     #1.0
-        math = 9 + 3.0
-        print(math)     #12.0
-
-        #can force return int with dropped remainder using //
-        math = 9 // 9
-        print(math)     #1
-
-        #string literal with multi-lines and space preservation via """
-        #/ prevents newline
-        print("""/
-        "There was no reason for me to stay in the real world any
-        longer. In the real world, it didn’t matter if I was there or not.
-        When I realized that, I was no longer afraid of losing my body."
-        """)
-
-        #repeat string
-        print(3 * "ee" + 2 * 'aa')  #eeeeeeaaaa
-
-        #string auto-contanation when strings adjacent
-        long_string = ('this is a very long string '
-                        'it is all one string')
-        print(long_string)      #this is a very long string it is all one string
-
-        #string char access, negative num to start from right (read only access)
-        print(long_string[-1]) #g
-
-        slice = 'having slice time'
-        print(slice[:2])      #no start slices from [0]. Exlusive end char num. prints ha
-        print(slice[0: 120])  #out of bounds num slices to end/start automatically. prints having slice time
-
-        #uppercase each word
-        person = 'gerald thomas'.title()
-        print(person) #Gerald Thomas
-
-        #template strings have f before, then calls and vars wrapped in {} inside string
-        print(f'{person} {slice} {"today".upper()}') #Gerald Thomas having slice time TODAY
-        print(' test  '.strip() + 'test') #testtest
-        </code>
-      </pre>
-    </section>
-
-    <section>
       <h2>Basic PHP Back-End with MYSQLi</h2>
       <pre><code class="php">
         //Singleton class
@@ -329,6 +273,193 @@
           <?php echo $orders_facade->checkUnshippedWarning();?>
           <br>
           <?php echo $orders_facade->getShippedToday();?>
+        </code>
+      </pre>
+    </section>
+
+    <section>
+      <h2>Python Begins</h2>
+      <pre><code class="python">
+>>> message = "hello python variable"
+
+#print using print():
+print("printing variable: " + message)
+printing variable: hello python variable
+
+#Division returns float 10 / 1 =
+10.0
+
+#Drop decimal in division with \\. 5 \ 2 =
+2
+
+#Powers with **. 2**3 =
+8
+
+#Mixed operands result in float: 2.5 * 2 =
+5.0
+
+#Rounding 126.18273 to second decimal with round():
+>>> print(round(126.18273, 2)
+126.18
+</code></pre><br>
+<h2>Python Strings</h2>
+<pre><code class="python">
+Unpaired qoute prints as part of string:
+Tom's books
+
+"Quote pairs wrapped in opposite type quote pairs (single vs double) will print"
+
+#Strings wrapped in triple quotes (''', etc.)
+can span multiple lines
+    and preserve indentation
+
+#String concatenation with +
+>>> print('The' + ' ' + 'String')
+The String
+
+#Using * on string will print multi times.
+>>> print(3 * 'string' == )
+stringstringstring
+
+#String literals next to each other auto concat: >>> print('the' ' string'
+>>>                                            ' is auto concated')
+the string is auto concated
+
+#Can concat string to vars, expression result strings, etc. with + :
+>>> fruit = 'apple'
+>>> print('   the ' + fruit)
+   the apple
+
+#Can read (only) chars in string by referencing index as if array of chars
+>>> print(fruit[0])
+a
+
+#Access from end index back via negative nums
+>>> print(fruit[-1]):
+e
+
+#Can copy out substring (exclusive end char) as if pulling range from char array:
+>>> print(fruit[2:4]):
+pl
+
+#If leave end off of slice (still using :), will count missing side as start or end automatically
+>>> print(fruit[:4]):)
+appl
+
+#Can also slice using negative index:
+>>> print(fruit[-4:0])):
+pple
+
+#Index end out of bound uses default start/end instead of error:
+>>> print(fruit[0:100]):)
+apple
+
+#String length via len(my_string):
+>>> print(len(fruit)):
+5
+
+#Uppercase words with title():
+>>> my_string = '   this is my string   '
+>>> print(my_string.title())
+   This Is My String
+
+#Upper or lower case whole string with upper() and lower():
+>>> print(my_string.upper())
+>>> print(my_string.lower()):
+   THIS IS MY STRING
+   this is my string
+
+#f-strings are python ver of template literals in JS:
+>>> print(f"The fruit is: {fruit}")
+The fruit is: apple
+
+#f-string holding function output:
+>>> print(f'The fruit is {fruit.upper()}')
+The fruit is APPLE
+
+#If using Python under v3.6, use format() instead of f-strings
+>>> print("My name is {}. This {} tale.".format("Ishmael", "is my"))
+My name is Ishmael. This is my tale.
+
+#Add tabs to string with \t special char:
+>>> Nested
+>>> \tlist
+>>> \t\twith tabs
+Nested
+	list
+		with tabs
+
+#Can remove whitespace on right, left, or both sides of string with rstrip(), lstrip(), and strip():
+>>> print(f'{'   whitespace   '.rstrip()}
+>>> {'   whitespace   '.lstrip()}
+>>> {'   whitespace   '.strip()}')
+   whitespace
+whitespace
+whitespace
+
+#Multiple assignment with syntax: a, b, c = 1, 2, 3:
+>>> x, y, z = 'dog', 123, 1.8
+>>> print(f'x: {x}, y: {y}, z: {z}')
+x: dog, y: 123, z: 1.8
+
+#Indexing and slicing works the same as strings:
+>>> my_list = [1, 2, 'string', 'word'.upper()]
+</code></pre>
+<h2>Python Lists</h2>
+<pre><code class="python">
+>>> print(my_list)
+[1, 2, 'string', 'WORD', 'fish', 1234]
+
+>>> print(my_list[-1])
+1234
+
+>>> print(my_list[1:100])
+[2, 'string', 'WORD', 'fish', 1234]
+
+>>> my_list[2:4] = []
+>>> print(my_list)
+[1, 2, 'fish', 1234]
+
+#Nested list:
+>>> my_nested = [[1, 8, 12], [ ‘a’, ‘b’, ‘c’]]
+>>> print(my_nested[1][2])
+c
+
+#Remove from list using del keyword:
+>>> del my_list[2]
+>>> print(my_list)
+[1, 2, 1234]
+
+#Can pop off end with my_list.pop():
+>>> my_list = [0, 1, 2, 3, 4, 5]
+>>> my_list.pop()
+>>> my_list.pop()
+>>> print(my_list)
+>>> print(popped)
+[0, 1, 2, 3]
+4
+
+#remove() an index, append() to end, insert() in index
+>>> my_list = [0, 1, 2, 4, 2, 1, 9, 2, 4, 2, 8]
+>>> my_list.remove(2)
+>>> my_list.append('B')
+>>> my_list.insert(2, 'A')
+>>> print(my_list)
+[0, 1, 'A', 4, 2, 1, 9, 2, 4, 2, 8, 'B']
+
+#if uses 'if ... :', 'elif ... :', 'else:' with no ( ).
+#Python indentation (equal spaces or tabbed) based blocks instead of {} based
+x < y
+
+#loop using 'for index in iterable:'
+#index is current index, and loop ends when iterable ends
+>>> ints = [1, 2, 5, 9]
+>>> for int in ints:
+>>>     print(int)
+1
+2
+5
+9
         </code>
       </pre>
     </section>
