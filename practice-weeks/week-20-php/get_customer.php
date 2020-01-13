@@ -4,6 +4,10 @@
   require_once 'dbConn.class.php';
 
   $conn = dbConn::getInstance();
+  if(!$conn){
+    echo 'connection failed';
+  }
+  
   $custID = $_GET['custID'];
 
   if(!isset($custID)){
