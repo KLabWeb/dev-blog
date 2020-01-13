@@ -11,11 +11,11 @@
   }
 
   $result = $conn->query("SELECT * FROM customers WHERE custID = '$custID'");
-  $customer = $result->fetch_assoc();
-
   if(!$result){
     echo 'No customer exists with specified ID.';
   }
+
+  $customer = $result->fetch_assoc();
 
   echo json_encode($customer);
 ?>
