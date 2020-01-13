@@ -281,6 +281,6 @@ $('#cust_pop').submit(function(event){
 </html>
 
 <?php
-  $conn->close;
-  $customers->close;
+  $conn->close();
+  $customers->close();
 ?>
