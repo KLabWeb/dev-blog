@@ -6,7 +6,7 @@
     !result && die("Query failed.");
 
     $fetch_head = array_keys($result->fetch_assoc());
-    $fetch_rows = $result->fetch_all();
+    $fetch_rows = $result->fetch_all
  ?>
 
 <!DOCTYPE html>

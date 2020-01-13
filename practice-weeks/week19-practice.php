@@ -57,7 +57,7 @@
         <li><a href="../index.html" title="Home">Home</a></li>
         <li><a href="../practice-weeks/week18-practice.php" title="Previous Work">Previous Work</a></li>
         <li><a href="../study-weeks/week19.html" title="Week Log">Week Log</a></li>
-        <!--<li><a href="../practice-weeks/week20-practice.html" title="Next Work">Next Work</a></li>-->
+        <li><a href="../practice-weeks/week20-practice.php" title="Next Work">Next Work</a></li>
         <li><a href="../roadmap.html" title="Roadmap">Roadmap</a></li>
         <li><select onchange="location = this.value;" target="_blank" onclick"hideFirst">
               <option value="">Notes</option>

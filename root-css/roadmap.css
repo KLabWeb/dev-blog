@@ -4,15 +4,15 @@ h2 {
 h2, hr{
   margin: 1.3rem 0 1.3rem 0;
 }
-h4{
+h4, .here{
   margin-bottom: 0;
   color: #32DD72;
 }
 p, h4{
   margin-left: 3.1rem;
 }
-ul{
-  margin: 0;
+ul:not(.nav-list), p:not(.email){
+  margin: 0 3vw 0 3vw;
 }
 #roadmap-main ul {
     padding-left: 2rem;
@@ -29,4 +29,7 @@ ul{
     background-size: 1.2rem 1.2rem;
     background-repeat: no-repeat;
     background-position: left;
+}
+u{
+  color: #CCCCCC;
 }
