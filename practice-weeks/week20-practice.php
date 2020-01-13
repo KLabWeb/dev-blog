@@ -125,17 +125,23 @@
           require_once 'dbConn.class.php';
 
           $conn = dbConn::getInstance();
-          $custID = $_GET['custID'];
+          if(!$conn){
+            echo 'connection failed';
+          }
 
+          $custID = $_GET['custID'];
           if(!isset($custID)){
             echo 'Cannot query without pkey custID';
           }
 
           $result = $conn->query("SELECT * FROM customers WHERE custID = '$custID'");
-          $customer = $result->fetch_assoc();
-
           if(!$result){
             echo 'No customer exists with specified ID.';
+          }
+
+          $customer = $result->fetch_assoc();
+          if(!$customer){
+            echo 'No result';
           }
 
           echo json_encode($customer);
