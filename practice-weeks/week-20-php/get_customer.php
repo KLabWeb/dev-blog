@@ -16,6 +16,9 @@
   }
 
   $customer = $result->fetch_assoc();
+  if(!$customer){
+    echo 'No result';
+  }
 
   echo json_encode($customer);
 ?>
