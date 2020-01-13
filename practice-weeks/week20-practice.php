@@ -63,14 +63,12 @@
   </div>
 
   <main>
-    <section>
-
-    <section>
-      <h2>Single Responsibility Principle</h2>
+    <!-- <section>
+      <h2></h2>
         <pre><code class='php'>
         </code>
       </pre>
-    </section>
+    </section> -->
   </main>
 
 </body>
