@@ -188,47 +188,47 @@
       <h4>Update Customer Info</h4>
       <form class='flex-form' action="update" method="post">
         <label>
-          Title:
+          Title:<br>
           <input type='text' name='title'>
         </label>
         <label>
-          Last Name:
+          Last Name:<br>
           <input type='text' name='last'>
         </label>
         <label>
-          First Name:
+          First Name:<br>
           <input type='text' name='first'>
         </label>
         <label>
-          Phone:
+          Phone:<br>
           <input type='text' name='phone'>
         </label>
         <label>
-          Unit:
+          Unit:<br>
           <input type='text' name='unit'>
         </label>
         <label>
-          City:
+          City:<br>
           <input type='text' name='city'>
         </label>
         <label>
-          State:
+          State:<br>
           <input type='text' name='state'>
         </label>
         <label>
-          Zip:
+          Zip:<br>
           <input type='text' name='zip'>
         </label>
         <label>
-          Country:
+          Country:<br>
           <input type='text' name='country'>
         </label>
         <label>
-          Employee Num:
+          Employee Num:<br>
           <input type='text' name='employee num'>
         </label>
         <label>
-          Credit Limit:
+          Credit Limit:<br>
           <input type='text' name='credit limit'>
         </label>
         <br>
