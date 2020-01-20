@@ -14,6 +14,12 @@
 
   $cust_head = array_keys($customers->fetch_assoc());
   $cust_rows = $customers->fetch_all();
+
+  //set user cookie...domain set false for localhostx
+  if(!isset($_COOKIE['userInfo'])){
+    $user_ip = $_SERVER['REMOTE_ADDR'];
+    setcookie('userInfo', json_encode(['userID' => 'demo', 'lastLogin' => date("m-d-Y H:i:s"), 'visits' => 1, 'ip' => $user_ip]), time() + 60 * 60 * 24 * 365);
+  }
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +53,7 @@
         <li><a href="../index.html" title="Home">Home</a></li>
         <li><a href="../practice-weeks/week19-practice.php" title="Previous Work">Previous Work</a></li>
         <li><a href="../study-weeks/week20.html" title="Week Log">Week Log</a></li>
-        <!--<li><a href="../practice-weeks/week21-practice.html" title="Next Work">Next Work</a></li>-->
+        <!-- <li><a href="../practice-weeks/week21-practice.php" title="Next Work">Next Work</a></li> -->
         <li><a href="../roadmap.html" title="Roadmap">Roadmap</a></li>
         <li><select onchange="location = this.value;" target="_blank" onclick"hideFirst">
               <option value="">Notes</option>
@@ -77,6 +83,16 @@
   </div>
 
   <main>
+    <?php if(isset($_COOKIE['userInfo'])){
+        $user_cookie = json_decode($_COOKIE['userInfo'], true);
+        $user_cookie['visits']++;
+        setcookie('userInfo', json_encode($user_cookie), time() + 60 * 60 * 24 * 365);
+    ?>
+        <section>
+          <h2>Hello user <?= $user_cookie['ip'] ?>. Your first login was <?= $user_cookie['lastLogin']?>. You have visited <?= $user_cookie['visits'] ?> times.</h2>
+        </section>
+    <?php } ?>
+
     <section>
       <h2>PHP Form Sanitzation</h2>
         <pre><code class='php'>
@@ -234,6 +250,29 @@
         <br>
         <input class='submit' type="submit" value="Update Customer">
       </form>
+    </section>
+
+    <section>
+      <h2>PHP Cookies</h2>
+        <pre><code class='php'>
+          //set user cookie...domain set false for localhostx
+          if(!isset($_COOKIE['userInfo'])){
+            $user_ip = $_SERVER['REMOTE_ADDR'];
+            setcookie('userInfo', json_encode(['ip' => $user_ip, 'lastLogin' => date("m-d-Y H:i:s"), 'visits' => 1]), time() + 60 * 60 * 24 * 365, '/', false);
+          }
+
+          //if cookie is set, show message
+          &lt;?php if(isset($_COOKIE['userInfo'])){
+              $user_cookie = json_decode($_COOKIE['userInfo'], true);
+              $user_cookie['visits']++;
+              setcookie('userInfo', json_encode($user_cookie), time() + 60 * 60 * 24 * 365, '/', false);
+          ?&gt;
+            &lt;section&gt;
+              &lt;h2&gt;Hello user &lt;?= $user_cookie['ip'] ?>. Your first login was &lt;?= $user_cookie['lastLogin']?>. You have visited &lt;?= $user_cookie['visits'] ?&gt; times.&lt;/h2&gt;
+            &lt;/section&gt;
+          &lt;?php } ?&gt;
+        </code>
+      </pre>
     </section>
     <br><br>
 
