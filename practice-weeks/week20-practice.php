@@ -89,7 +89,7 @@
         setcookie('userInfo', json_encode($user_cookie), time() + 60 * 60 * 24 * 365);
     ?>
         <section>
-          <h2>Hello ip <?= $user_cookie['ip'] ?>. Your first login was <?= $user_cookie['lastLogin']?>. You have visited this page <?= $user_cookie['visits'] ?> times.</h2>
+          <h2>Hello ip <?= $user_cookie['ip'] ?>. Your first visit here was <?= $user_cookie['lastLogin']?>. You have visited this page <?= $user_cookie['visits'] ?> times.</h2>
         </section>
     <?php } ?>
 
