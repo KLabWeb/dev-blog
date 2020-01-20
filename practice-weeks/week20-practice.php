@@ -28,7 +28,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="author" content="KMiskell">
-  <meta name="description" content="Week 20 General Practice">
+  <meta name="description" content="Weeks 20 & 21 General Practice">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="../root-assets/favicon/javascript-original.svg" type="image/x-icon">
   <link rel="stylesheet" href="css/practice-stylesheet.css">
@@ -45,7 +45,7 @@
 <body>
   <div>
     <header class="header-v2">
-      <h1>Week 20 Sandbox</h1>
+      <h1>Weeks 20 & 21 Sandbox</h1>
     </header>
 
     <nav class="nav-v2">
@@ -89,7 +89,7 @@
         setcookie('userInfo', json_encode($user_cookie), time() + 60 * 60 * 24 * 365);
     ?>
         <section>
-          <h2>Hello user <?= $user_cookie['ip'] ?>. Your first login was <?= $user_cookie['lastLogin']?>. You have visited <?= $user_cookie['visits'] ?> times.</h2>
+          <h2>Hello ip <?= $user_cookie['ip'] ?>. Your first login was <?= $user_cookie['lastLogin']?>. You have visited this page <?= $user_cookie['visits'] ?> times.</h2>
         </section>
     <?php } ?>
 
@@ -268,7 +268,7 @@
               setcookie('userInfo', json_encode($user_cookie), time() + 60 * 60 * 24 * 365, '/', false);
           ?&gt;
             &lt;section&gt;
-              &lt;h2&gt;Hello user &lt;?= $user_cookie['ip'] ?>. Your first login was &lt;?= $user_cookie['lastLogin']?>. You have visited &lt;?= $user_cookie['visits'] ?&gt; times.&lt;/h2&gt;
+              &lt;h2&gt;Hello ip &lt;?= $user_cookie['ip'] ?>. Your first login was &lt;?= $user_cookie['lastLogin']?>. You have visited this page &lt;?= $user_cookie['visits'] ?&gt; times.&lt;/h2&gt;
             &lt;/section&gt;
           &lt;?php } ?&gt;
         </code>
