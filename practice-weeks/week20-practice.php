@@ -4,7 +4,7 @@
   require_once('week-21-php/check_pass.php');
 
   function request_login(){
-    header('WWW-Authenticate: Basic realm="Restricted Area. If not registered, register at link.');
+    header('WWW-Authenticate: Basic realm="Must login to access. If not registered, register at https://unfoldkyle.com/practice-weeks/week-21-php/register.php');
     header('HTTP/1.0 401 Unauthorized');
   }
 
@@ -30,7 +30,7 @@
   }
   else{
     request_login();
-    die("Must login to view page. If not registered, register at link");
+    die("Must login to access. If not registered, register at https://unfoldkyle.com/practice-weeks/week-21-php/register.php");
   }
 
   require_once('week-19-php/tableBuilder.php');
@@ -121,7 +121,7 @@
         setcookie('userInfo', json_encode($user_cookie), time() + 60 * 60 * 24 * 365);
     ?>
         <section>
-          <h2>Hello ip <?= $user_cookie['ip'] ?>. Your first visit here was <?= $user_cookie['lastLogin']?>. You have visited this page <?= $user_cookie['visits'] ?> times.</h2>
+          <h2>Hello ip <?= $user_cookie['ip'] ?>. Your first visit here was <?= $user_cookie['lastLogin']?>. You have visited this page <?= $user_cookie['visits'] ?> times. <br>To help avoid tracking, install a cookie auto-delete extension.</h2>
         </section>
     <?php } ?>
 
@@ -300,7 +300,7 @@
               setcookie('userInfo', json_encode($user_cookie), time() + 60 * 60 * 24 * 365, '/', false);
           ?&gt;
             &lt;section&gt;
-              &lt;h2&gt;Hello ip &lt;?= $user_cookie['ip'] ?>. Your first login was &lt;?= $user_cookie['lastLogin']?>. You have visited this page &lt;?= $user_cookie['visits'] ?&gt; times.&lt;/h2&gt;
+              &lt;h2&gt;Hello ip &lt;?= $user_cookie['ip'] ?>. Your first login was &lt;?= $user_cookie['lastLogin']?>. You have visited this page &lt;?= $user_cookie['visits'] ?&gt; times. To help avoid tracking, install a cookie auto-delete extension.&lt;/h2&gt;
             &lt;/section&gt;
           &lt;?php } ?&gt;
         </code>
