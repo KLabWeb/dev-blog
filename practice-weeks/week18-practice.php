@@ -1,6 +1,6 @@
 <?php
-    require_once 'week-18-php/db.php';
-    require_once 'week-18-php/TableBuilder.php';
+    require_once('week-18-php/db.php');
+    require_once('week-18-php/TableBuilder.php');
 
     $result = $conn->query('SELECT * FROM classics');
     !result && die("Query failed.");

@@ -1,7 +1,7 @@
 <?php
   error_reporting(E_ALL);
   header('Content-type: application/json');
-  require_once 'dbConn.class.php';
+  require_once '../week-19-php/dbConn.class.php';
 
   $conn = dbConn::getInstance();
   if(!$conn){

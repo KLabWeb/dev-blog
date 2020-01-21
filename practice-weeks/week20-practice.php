@@ -1,8 +1,40 @@
 <?php
   error_reporting(E_ALL);
 
-  require_once 'week-19-php/tableBuilder.php';
-  require_once 'week-19-php/dbConn.class.php';
+  require_once('week-21-php/check_pass.php');
+
+  function request_login(){
+    header('WWW-Authenticate: Basic realm="Restricted Area. If not registered, register at link.');
+    header('HTTP/1.0 401 Unauthorized');
+  }
+
+  //if login cookie set, check cookie for auth confirmation and request login if bad
+  if(isset($_COOKIE['login'])){
+    $cookie = json_decode($_COOKIE['login'], true);
+
+    if(!check_pass($cookie['user'], $cookie['pass'])){
+      //bad cookie...destroy it
+      setcookie('login', '', time() - 10000000, '/');
+
+      request_login();
+      die("Bad login info. Please reload page and try again.");
+    }
+  }
+  else if(check_pass($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])){
+    if(check_pass($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])){
+      setcookie('login',
+                json_encode(['user' => $_SERVER['PHP_AUTH_USER'], 'pass' => $_SERVER['PHP_AUTH_PW']]),
+                time() * 12 * 60 * 60,
+                '/');
+    }
+  }
+  else{
+    request_login();
+    die("Must login to view page. If not registered, register at link");
+  }
+
+  require_once('week-19-php/tableBuilder.php');
+  require_once('week-19-php/dbConn.class.php');
 
   $conn = dbConn::getInstance();
 

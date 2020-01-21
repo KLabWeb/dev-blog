@@ -1,0 +1,9 @@
+#regform label input {
+  float: right;
+  margin-bottom: 10px;
+}
+
+input[type='submit'], button{
+  width: 100px;
+  margin-bottom: 10px;
+}
