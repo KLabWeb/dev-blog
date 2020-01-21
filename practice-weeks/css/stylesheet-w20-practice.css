@@ -6,7 +6,7 @@ main ul{
   margin-left: 70px;
 }
 
-code.python, code.php, .table-container, p{
+code.python, code.php, .table-container, p, code.jsx{
   width: 1290px;
 }
 

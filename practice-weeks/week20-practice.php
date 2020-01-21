@@ -2,36 +2,9 @@
   error_reporting(E_ALL);
 
   require_once('week-21-php/check_pass.php');
+  require_once('week-21-php/auth.php');
 
-  function request_login(){
-    header('WWW-Authenticate: Basic realm="Must login to access. If not registered, register at https://unfoldkyle.com/practice-weeks/week-21-php/register.php');
-    header('HTTP/1.0 401 Unauthorized');
-  }
-
-  //if login cookie set, check cookie for auth confirmation and request login if bad
-  if(isset($_COOKIE['login'])){
-    $cookie = json_decode($_COOKIE['login'], true);
-
-    if(!check_pass($cookie['user'], $cookie['pass'])){
-      //bad cookie...destroy it
-      setcookie('login', '', time() - 10000000, '/');
-
-      request_login();
-      die("Bad login info. Please reload page and try again.");
-    }
-  }
-  else if(check_pass($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])){
-    if(check_pass($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])){
-      setcookie('login',
-                json_encode(['user' => $_SERVER['PHP_AUTH_USER'], 'pass' => $_SERVER['PHP_AUTH_PW']]),
-                time() * 12 * 60 * 60,
-                '/');
-    }
-  }
-  else{
-    request_login();
-    die("Must login to access. If not registered, register at https://unfoldkyle.com/practice-weeks/week-21-php/register.php");
-  }
+  auth();
 
   require_once('week-19-php/tableBuilder.php');
   require_once('week-19-php/dbConn.class.php');
@@ -286,28 +259,178 @@
 
     <section>
       <h2>PHP Cookies</h2>
-        <pre><code class='php'>
-          //set user cookie...domain set false for localhostx
-          if(!isset($_COOKIE['userInfo'])){
-            $user_ip = $_SERVER['REMOTE_ADDR'];
-            setcookie('userInfo', json_encode(['ip' => $user_ip, 'lastLogin' => date("m-d-Y H:i:s"), 'visits' => 1]), time() + 60 * 60 * 24 * 365, '/', false);
-          }
+          <pre><code class='php'>
+            //set user cookie...domain set false for localhostx
+            if(!isset($_COOKIE['userInfo'])){
+              $user_ip = $_SERVER['REMOTE_ADDR'];
+              setcookie('userInfo', json_encode(['ip' => $user_ip, 'lastLogin' => date("m-d-Y H:i:s"), 'visits' => 1]), time() + 60 * 60 * 24 * 365, '/', false);
+            }
 
-          //if cookie is set, show message
-          &lt;?php if(isset($_COOKIE['userInfo'])){
-              $user_cookie = json_decode($_COOKIE['userInfo'], true);
-              $user_cookie['visits']++;
-              setcookie('userInfo', json_encode($user_cookie), time() + 60 * 60 * 24 * 365, '/', false);
-          ?&gt;
-            &lt;section&gt;
-              &lt;h2&gt;Hello ip &lt;?= $user_cookie['ip'] ?>. Your first login was &lt;?= $user_cookie['lastLogin']?>. You have visited this page &lt;?= $user_cookie['visits'] ?&gt; times. To help avoid tracking, install a cookie auto-delete extension.&lt;/h2&gt;
-            &lt;/section&gt;
-          &lt;?php } ?&gt;
+            //if cookie is set, show message
+            &lt;?php if(isset($_COOKIE['userInfo'])){
+                $user_cookie = json_decode($_COOKIE['userInfo'], true);
+                $user_cookie['visits']++;
+                setcookie('userInfo', json_encode($user_cookie), time() + 60 * 60 * 24 * 365, '/', false);
+            ?&gt;
+              &lt;section&gt;
+                &lt;h2&gt;Hello ip &lt;?= $user_cookie['ip'] ?>. Your first login was &lt;?= $user_cookie['lastLogin']?>. You have visited this page &lt;?= $user_cookie['visits'] ?&gt; times. To help avoid tracking, install a cookie auto-delete extension.&lt;/h2&gt;
+              &lt;/section&gt;
+            &lt;?php } ?&gt;
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>User Creation and Login Auth for Page Access w/ Login Cookies for 12H</h2>
+          <pre><code class='jsx'>
+            //register.php
+            //Registration page w/ form to input reg info, then fetch call to createuser.php
+            //Upon successful registration, creates user login info cookie
+            //Includes 'Continue' option to continue to latest work page for already registered users.
+
+            &lt;main&gt;
+              &lt;div class=""&gt;
+                &lt;h4 style="display: none;" id="error"&gt;Database error. Could not register&lt;/h4&gt;
+                &lt;h4&gt;Please Register before accessing this page. If already registered, click 'Continue' to log in.&lt;/h4&gt;
+                &lt;form id="regform" style="display: flex; flex-flow: column; width: 300px"&gt;
+                  &lt;label&gt;
+                    Username:
+                    &lt;input type="text" name="username" required&gt;
+                  &lt;/label&gt;
+                  &lt;label&gt;
+                    Password:
+                    &lt;input type="password" minlength="8" maxlength="50" name="pass" required&gt;
+                  &lt;/label&gt;
+                  &lt;label&gt;
+                    Email:
+                    &lt;input type="email" maxlength="100" name="email"&gt;
+                  &lt;/label&gt;
+                  &lt;input type="submit" value="Register"&gt;
+                &lt;/form&gt;
+                &lt;button id="continue"&gt;Continue&lt;/button&gt;
+              &lt;/div&gt;
+            &lt;/main&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+
+            &lt;script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"&gt;&lt;/script&gt;
+
+            &lt;script&gt;
+            $('#regform').submit(event =&gt; {
+              event.preventDefault();
+              let formData = new FormData(event.target);
+
+              fetch('createuser.php',
+                    {
+                     method: 'POST',
+                     body: formData,
+                     credentials: 'same-origin'
+                    }
+                  ).then(response =&gt; response.text())
+                  .then(result =&gt;
+                  {
+                      if(result === "success"){
+                        window.location = "../week20-practice.php";
+
+                        let date = new Date();
+                        date = date.setTime(date.getTime() + 12 * 60 * 60 * 1000);
+
+                        let user = $('input[name="username"]').val();
+                        let pass = $('input[name="pass"]').val();
+
+                        let cookieJson = JSON.stringify({
+                          'user': `${user}`,
+                          'pass': `${pass}`
+                        });
+
+                        document.cookie = `login=${cookieJson}; expires=${date}; path=/;`;
+                      }
+                      else{
+                        // console.log(result.headers.get('set-cookie'));
+                        // console.log(document.cookie);
+                        $("#error").show();
+                      }
+                  });
+            });
+
+            $("#continue").click(() =&gt; window.location = '../week20-practice.php');
+
+            &lt;/script&gt;
+          </code>
+        </pre>
+
+        <pre><code class='jsx'>
+          //createuser.php
+          //Reads in user and pass, hashes pass, then submits to DB in user table
+
+          &lt;?php
+
+          error_reporting(E_ALL);
+          header('Content-type: application/json');
+          require_once '../week-19-php/dbConn.class.php';
+
+          $conn = dbConn::getInstance();
+          $name = $_POST['username'];
+          $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+
+          $email = isset($_POST['email']) ? $_POST['email'] : NULL;
+
+          $query = "INSERT INTO users (user_name, pass_hash, email) VALUES ('$name', '$pass', '$email')";
+
+          $result = $conn-&gt;query($query);
+
+          echo !$result ? "fail" : "success";
         </code>
       </pre>
-    </section>
-    <br><br>
 
+      <pre><code class='jsx'>
+        //auth.php
+        //Request users auth details via HTTP auth, and redirects if auth fails
+        //Creates user login cookie on successful auth
+        //Can be included in any page requiring auth
+
+        &lt;?php
+
+        function request_login(){
+          header('WWW-Authenticate: Basic realm="Must login to access. If not registered, register at https://unfoldkyle.com/practice-weeks/week-21-php/register.php');
+          header('HTTP/1.0 401 Unauthorized');
+        }
+
+        function auth(){
+          //if login cookie set, check cookie for auth confirmation and request login if bad
+          if(isset($_COOKIE['login'])){
+            $cookie = json_decode($_COOKIE['login'], true);
+
+            if(!check_pass($cookie['user'], $cookie['pass'])){
+              //bad cookie...destroy it
+              setcookie('login', '', time() - 10000000, '/');
+
+              request_login();
+              die("Bad login info. Please reload page and try again.");
+            }
+          }
+          //checks auth details correct after HTTP auth login
+          else if(check_pass($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])){
+            if(check_pass($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])){
+              setcookie('login',
+                        json_encode(['user' =&gt; $_SERVER['PHP_AUTH_USER'], 'pass' =&gt; $_SERVER['PHP_AUTH_PW']]),
+                        time() * 12 * 60 * 60,
+                        '/');
+            }
+          }
+          //if no cookie or auth login
+          else{
+            request_login();
+            die("Must login to access. If not registered, register at https://unfoldkyle.com/practice-weeks/week-21-php/register.php");
+          }
+        }
+
+        ?&gt;
+      </code>
+    </pre>
+  </section>
+
+  <br><br>
   </main>
 
 </body>
