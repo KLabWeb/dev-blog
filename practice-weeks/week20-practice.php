@@ -1,8 +1,8 @@
 <?php
   error_reporting(E_ALL);
 
-  require_once('week-21-php/check_pass.php');
-  require_once('week-21-php/auth.php');
+  require_once('week-20-php/check_pass.php');
+  require_once('week-20-php/auth.php');
 
   auth();
 
@@ -33,7 +33,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="author" content="KMiskell">
-  <meta name="description" content="Weeks 20 & 21 General Practice">
+  <meta name="description" content="Week 20 General Practice">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="../root-assets/favicon/javascript-original.svg" type="image/x-icon">
   <link rel="stylesheet" href="css/practice-stylesheet.css">
@@ -50,7 +50,7 @@
 <body>
   <div>
     <header class="header-v2">
-      <h1>Weeks 20 & 21 Sandbox</h1>
+      <h1>Week 20 Sandbox</h1>
     </header>
 
     <nav class="nav-v2">
@@ -392,7 +392,7 @@
         &lt;?php
 
         function request_login(){
-          header('WWW-Authenticate: Basic realm="Must login to access. If not registered, register at https://unfoldkyle.com/practice-weeks/week-21-php/register.php');
+          header('WWW-Authenticate: Basic realm="Must login to access. If not registered, register at https://unfoldkyle.com/practice-weeks/week-20-php/register.php');
           header('HTTP/1.0 401 Unauthorized');
         }
 
@@ -421,12 +421,192 @@
           //if no cookie or auth login
           else{
             request_login();
-            die("Must login to access. If not registered, register at https://unfoldkyle.com/practice-weeks/week-21-php/register.php");
+            die("Must login to access. If not registered, register at https://unfoldkyle.com/practice-weeks/week-20-php/register.php");
           }
         }
 
         ?&gt;
       </code>
+    </pre>
+  </section>
+
+  <section>
+    <h2>Python - Lists Continued</h2>
+    <pre><code class="python">
+      #Sort methods called on list called on and change their state:
+      &gt;&gt;&gt; countries = ['France', 'Germany', 'Poland', 'Peru', 'Sweden']
+      &gt;&gt;&gt; print(countries)
+      &gt;&gt;&gt; print(sorted(countries))
+      &gt;&gt;&gt; print(countries)
+      ['France', 'Germany', 'Poland', 'Peru', 'Sweden']
+      ['France', 'Germany', 'Peru', 'Poland', 'Sweden']
+      ['France', 'Germany', 'Poland', 'Peru', 'Sweden']
+
+      #Methods where the list is passed in as an arg generally sort and return a copy of the list
+      #Such methods do not change the state of the original list:
+      &gt;&gt;&gt; countries.sort()
+      &gt;&gt;&gt; print(countries)
+      ['France', 'Germany', 'Peru', 'Poland', 'Sweden']
+
+      #Reverse list by calling reverse() on it:
+      &gt;&gt;&gt; countries.reverse()
+      &gt;&gt;&gt; print(countries)
+
+      #pass in arg/val reverse=True to .sort() to sort in reverse alpha:
+      &gt;&gt;&gt; countries.sort(reverse=True)
+      &gt;&gt;&gt; print(countries)
+      ['Sweden', 'Poland', 'Peru', 'Germany', 'France']
+
+      #List comprehension allows you to make a list with a for loop
+      #logic is similar for a map function with left hand acting as expression to set value for each item in iterable:
+      &gt;&gt;&gt; num_list = [num + num for num in range(1,11)]
+      &gt;&gt;&gt; print(num_list)
+      [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+
+      #list of nums divisible by 3 via list comprehension:
+      &gt;&gt;&gt; num_list = [num for num in range(3, 31, 3)]
+      &gt;&gt;&gt; print(num_list)
+      [3, 6, 9, 12, 15, 18, 21, 24, 27, 30]
+
+      #can loop through slice, as slicing just returns a list:
+      &gt;&gt;&gt; for num in num_list[4:8]:
+      &gt;&gt;&gt;     print(num)
+      15
+      18
+      21
+      24
+
+      #some list functions useful for numerical lists:
+      &gt;&gt;&gt; print(min(num_list))
+      &gt;&gt;&gt; print(max(num_list))
+      &gt;&gt;&gt; print(sum(num_list))
+      3
+      30
+      165
+
+      #A tuple is a list, but immutable. Note the () instead of []
+      #Trying to change the value of a tuple index/value will throw an error:
+      &gt;&gt;&gt; tuple = (1, 2, 3, 4, 5)
+
+      #since no constant vars in python, can change val of var referencing tuple:
+      &gt;&gt;&gt; tuple = (5, 4, 3, 2, 1)
+      &gt;&gt;&gt; print(tuple)
+      (5, 4, 3, 2, 1)
+    </code>
+    </pre>
+
+  <section>
+    <h2>Python - if, elif, else & Comparison/Inclusion Operators</h2>
+    <pre><code class="python">
+      #if uses 'if ... :', 'elif ... :', 'else:' with no ( ).
+      #Python indentation (equal spaces or tabbed) based blocks instead of {} based:
+      &gt;&gt;&gt; x, y = 0, 1
+      &gt;&gt;&gt; if x &gt; y:
+      &gt;&gt;&gt;    print('x &gt; y')
+      &gt;&gt;&gt;    print('check the indentation')
+      &gt;&gt;&gt; elif x &lt; y:
+      &gt;&gt;&gt;    print('x &lt; y')
+      &gt;&gt;&gt; else:
+      &gt;&gt;&gt;    print('x == y')
+      x &lt; y
+
+      #for && and || operators, Python uses and, or:
+      &gt;&gt;&gt; if(3 &gt;= 2 and 'test' != 'Test'):
+      &gt;&gt;&gt;     print('and conditions satisfied')
+      and conditions satisfied
+
+      &gt;&gt;&gt; if(3 &gt;= 4 or 'test' == 'test'):
+      &gt;&gt;&gt;     print('one or both or conditions satisfied')
+      one or both or conditions satisfied
+
+      #in operator checks for inclusion in collection with a boolean return:
+      &gt;&gt;&gt; print(3 in num_list)
+      True
+
+      #calling 'if' on a list will return False if empty list, True if not empty:
+      &gt;&gt;&gt; empty_list = []
+      &gt;&gt;&gt; if empty_list:
+      &gt;&gt;&gt;     print('List is not empty')
+      &gt;&gt;&gt; else:
+      &gt;&gt;&gt;     print('List is empty')
+      List is empty
+
+      &gt;&gt;&gt; if tuple:
+      &gt;&gt;&gt;     print('Tuple is not empty')
+      &gt;&gt;&gt; else:
+      &gt;&gt;&gt;     print('Tuple is empty')
+      Tuple is not empty
+    </code>
+    </pre>
+
+    <h2>Python - for Loop &amp; range() + continue, break, pass</h2>
+    <pre><code class="python">
+      #loop using 'for index in iterable:'
+      #index is current index, and loop ends when iterable ends:
+      &gt;&gt;&gt; ints = [1, 2, 5, 9]
+      &gt;&gt;&gt; for int in ints:
+      &gt;&gt;&gt;     print(int)
+      1
+      2
+      5
+      9
+
+      #can loop n times with range(n) and for:
+      &gt;&gt;&gt; for i in range(4):
+      &gt;&gt;&gt;   print(i)
+      0
+      1
+      2
+      3
+      0
+      1
+      2
+      3
+
+      #range() also takes end and step params to produce x to y range, via z steps
+      #note that end in range is exclusive by 1 step from specified end (zero oriented):
+      &gt;&gt;&gt; for i in range(-20, 40, 10):
+      &gt;&gt;&gt;    print(i)
+      -20
+      -10
+      0
+      10
+      20
+      30
+
+      #for loops can run with an else clauses that executes on loop completion
+      #if loop executes due to break, then else will not run...loop just breaks and exits:
+      &gt;&gt;&gt; for i in range(3):
+      &gt;&gt;&gt;     print("feels")
+      &gt;&gt;&gt;     if(i == 2):
+      &gt;&gt;&gt;         break
+      &gt;&gt;&gt; else:
+      &gt;&gt;&gt;     print("badman")
+      feels
+      feels
+      feels       //break hit, loop exits
+
+      &gt;&gt;&gt; for i in range(3):
+      &gt;&gt;&gt;     print("feels")
+      &gt;&gt;&gt;     if(i == 100):
+      &gt;&gt;&gt;         break
+      &gt;&gt;&gt; else:
+      &gt;&gt;&gt;     print("badman")
+      feels
+      feels
+      feels       //loop completes
+      badman      //else runs
+
+
+      #standard use for continue...if hit, jump to next iteration:
+      &gt;&gt;&gt; for i in range(4):
+      &gt;&gt;&gt;     if(i == 2):
+      &gt;&gt;&gt;         continue
+      &gt;&gt;&gt;     print(i)
+      0
+      1
+      3
+    </code>
     </pre>
   </section>
 

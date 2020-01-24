@@ -446,20 +446,6 @@ c
 >>> my_list.insert(2, 'A')
 >>> print(my_list)
 [0, 1, 'A', 4, 2, 1, 9, 2, 4, 2, 8, 'B']
-
-#if uses 'if ... :', 'elif ... :', 'else:' with no ( ).
-#Python indentation (equal spaces or tabbed) based blocks instead of {} based
-x < y
-
-#loop using 'for index in iterable:'
-#index is current index, and loop ends when iterable ends
->>> ints = [1, 2, 5, 9]
->>> for int in ints:
->>>     print(int)
-1
-2
-5
-9
         </code>
       </pre>
     </section>

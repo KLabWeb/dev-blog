@@ -1,7 +1,7 @@
 <?php
 
 function request_login(){
-  header('WWW-Authenticate: Basic realm="Must login to access. If not registered, register at https://unfoldkyle.com/practice-weeks/week-21-php/register.php');
+  header('WWW-Authenticate: Basic realm="Must login to access. If not registered, register at https://unfoldkyle.com/practice-weeks/week-20-php/register.php');
   header('HTTP/1.0 401 Unauthorized');
 }
 
@@ -30,7 +30,7 @@ function auth(){
   //if no cookie or auth login
   else{
     request_login();
-    die("Must login to access. If not registered, register at https://unfoldkyle.com/practice-weeks/week-21-php/register.php");
+    die("Must login to access. If not registered, register at https://unfoldkyle.com/practice-weeks/week-20-php/register.php");
   }
 }
 
