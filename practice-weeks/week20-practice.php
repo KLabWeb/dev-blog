@@ -263,7 +263,8 @@
             //set user cookie...domain set false for localhostx
             if(!isset($_COOKIE['userInfo'])){
               $user_ip = $_SERVER['REMOTE_ADDR'];
-              setcookie('userInfo', json_encode(['ip' => $user_ip, 'lastLogin' => date("m-d-Y H:i:s"), 'visits' => 1]), time() + 60 * 60 * 24 * 365, '/', false);
+              setcookie('userInfo', json_encode(['ip' => $user_ip, 'lastLogin' => date("m-d-Y H:i:s"),
+               'visits' => 1]), time() + 60 * 60 * 24 * 365, '/', false);
             }
 
             //if cookie is set, show message
@@ -273,7 +274,9 @@
                 setcookie('userInfo', json_encode($user_cookie), time() + 60 * 60 * 24 * 365, '/', false);
             ?&gt;
               &lt;section&gt;
-                &lt;h2&gt;Hello ip &lt;?= $user_cookie['ip'] ?>. Your first login was &lt;?= $user_cookie['lastLogin']?>. You have visited this page &lt;?= $user_cookie['visits'] ?&gt; times. To help avoid tracking, install a cookie auto-delete extension.&lt;/h2&gt;
+                &lt;h2&gt;Hello ip &lt;?= $user_cookie['ip'] ?>. Your first login was &lt;?= $user_cookie['lastLogin']?>.
+                You have visited this page &lt;?= $user_cookie['visits'] ?&gt; times.
+                To help avoid tracking, install a cookie auto-delete extension.&lt;/h2&gt;
               &lt;/section&gt;
             &lt;?php } ?&gt;
           </code>
@@ -392,7 +395,8 @@
         &lt;?php
 
         function request_login(){
-          header('WWW-Authenticate: Basic realm="Must login to access. If not registered, register at https://unfoldkyle.com/practice-weeks/week-20-php/register.php');
+          header('WWW-Authenticate: Basic realm="Must login to access. If not registered, register at
+            https://unfoldkyle.com/practice-weeks/week-20-php/register.php');
           header('HTTP/1.0 401 Unauthorized');
         }
 
@@ -495,7 +499,6 @@
     </code>
     </pre>
 
-  <section>
     <h2>Python - if, elif, else & Comparison/Inclusion Operators</h2>
     <pre><code class="python">
       #if uses 'if ... :', 'elif ... :', 'else:' with no ( ).
@@ -510,7 +513,7 @@
       &gt;&gt;&gt;    print('x == y')
       x &lt; y
 
-      #for && and || operators, Python uses and, or:
+      #for AND and OR operators, Python uses and, or:
       &gt;&gt;&gt; if(3 &gt;= 2 and 'test' != 'Test'):
       &gt;&gt;&gt;     print('and conditions satisfied')
       and conditions satisfied
@@ -536,7 +539,7 @@
       &gt;&gt;&gt; else:
       &gt;&gt;&gt;     print('Tuple is empty')
       Tuple is not empty
-    </code>
+      </code>
     </pre>
 
     <h2>Python - for Loop &amp; range() + continue, break, pass</h2>
@@ -606,6 +609,180 @@
       0
       1
       3
+
+      #pass allows for a placeholder where any required logic is needed
+      &gt;&gt;&gt; for index in my_list:
+      &gt;&gt;&gt;     if index == 4 or index == 'A':
+      &gt;&gt;&gt;         print(index)
+      &gt;&gt;&gt;     else:
+      &gt;&gt;&gt;         pass    #placeholder for further logic
+      A
+      8
+    </code>
+    </pre>
+
+    <h2>Python - Functions & Arg Types</h2>
+    <pre><code class="python">
+      #Function def with doc string
+      #docstring should be quick explanation of function purpose:
+      &gt;&gt;&gt; def print_word(word):
+      &gt;&gt;&gt;     '''Prints a word'''
+      &gt;&gt;&gt;     print("Printing word: " + word)
+
+      &gt;&gt;&gt; print_word("test")
+      Printing word: test
+
+      #Can get doc string via:
+      &gt;&gt;&gt; print(print_word.__doc__)
+      Prints a word
+
+      #Error throw if no value for positional arg
+      &gt;&gt;&gt; def positional_add(one, two):
+      &gt;&gt;&gt;     print(one + two)
+
+      &gt;&gt;&gt; positional_add(1)   //throws error as missing arg
+
+      #Positional args are standard order based args
+      #keyword args are defined and passed in with key='value' pairs, allowing any pass in order
+      #default values can also be set
+
+      &gt;&gt;&gt; def multi_args(postionalA, positionalB, default='default', keyA='keyA', keyB='keyB'):
+      &gt;&gt;&gt;     print(f'''postionalA: {postionalA}
+      &gt;&gt;&gt;     positionalB: {positionalB}
+      &gt;&gt;&gt;     default: {default}
+      &gt;&gt;&gt;     keyA: {keyA}
+      &gt;&gt;&gt;     keyB: {keyB}''')
+
+      &gt;&gt;&gt; multi_args("first", "second", keyB='B', keyA='A')
+
+          positionalA: first
+          positionalB: second
+          default: default
+          keyA: A
+          keyB: B
+
+      #Arbitrary args allow to pass in any num of args similar to rest param in JS
+      #if define positional args, following args should be keyword, to allow proper reference
+      &gt;&gt;&gt; def arb_arg_print(*args, positional_num=0 ):
+      &gt;&gt;&gt;     print(f'''
+      &gt;&gt;&gt;     positional num arg is {positional_num}
+      &gt;&gt;&gt;     arbitrary args are {args}''')
+
+      &gt;&gt;&gt; arb_arg_print(15, 'arg_a', 2, 'another_arg')
+
+          positional num arg is 15
+          arbitrary args are in tuple ('arg_a', 2, 'another_arg')
+          first arbitrary arg is arg_a
+
+      #lambda functions allow to define a simple expression, which can be returned, stored in a variable, etc.
+      #as Python has closure, useful for partial application, currying, etc.
+      &gt;&gt;&gt; def lambda_funct(x):
+      &gt;&gt;&gt;     return lambda y : x * y
+
+      &gt;&gt;&gt; partial = lambda_funct(10)      #returns lamba function a : a * 2
+      &gt;&gt;&gt; print(partial(2))               #calls 10: 10 * 2
+      20
+    </code>
+    </pre>
+
+    <h2>Python - Dictionaries</h2>
+    <pre><code class="python">
+      #Dictionaries are Pythons key=value data structure
+      &gt;&gt;&gt; my_dict = {'name': 'Kyle', 'place': 'The Moon', 'days': '365'}
+      &gt;&gt;&gt;
+      &gt;&gt;&gt; def print_dict(my_dict):
+      &gt;&gt;&gt;     print(f"My name is {my_dict['name']}. I live on {my_dict['place']} {my_dict['days']} days a year.")
+
+      &gt;&gt;&gt; print_dict(my_dict)
+      My name is Kyle. I live on The Moon 365 days a year.
+
+      #Change of dictionary value
+      &gt;&gt;&gt; my_dict['name'] = 'Major Tom'
+      &gt;&gt;&gt; print_dict(my_dict)
+      My name is Kyle. I live on The Moon 365 days a year.
+
+      #Can also access key via get() which takes in optional 2nd arg to be return if first arg key !exist
+      &gt;&gt;&gt; print(f"value is {my_dict.get('bad_key', '--error: key does not exist--')}")
+      value is --error: key does not exist--
+
+      #Dictionaries of both key/value not iterable, but can call .items() on dict to return a list of (key, value) indexes for looping
+      &gt;&gt;&gt; for key, value in my_dict.items():
+      &gt;&gt;&gt;     print(f'''key: {key} \nvalue: {value}''')
+
+      key: name
+      value: Kyle
+
+      key: place
+      value: The Moon
+
+      key: days
+      value: 365
+
+      #Can loop through keys only by looping through call of .keys() on dictionary which returns list of keys
+      &gt;&gt;&gt; for key in my_dict.keys():
+      &gt;&gt;&gt;     print(f'''key: {key}''')
+      key: name
+      key: place
+      key: days
+
+      #Can also loop through keys by just looping through dict w/ just key arg for 'for' loop)
+      &gt;&gt;&gt; for key in my_dict:
+      &gt;&gt;&gt;     print(f'''key: {key}''')
+      key: name
+      key: place
+      key: days
+
+      #As keys() returns list, can pass into use for list methods as sorted() arg, call .reverse() on, etc.
+      &gt;&gt;&gt; for key in sorted(my_dict.keys()):
+      &gt;&gt;&gt;     print(key)
+      days
+      name
+      place
+
+      #Python sets are iterable, ordered data collections allowing only unique values
+      #Sets can be created from iterables, such as lists, from calls such as keys() or values() on dictionaries
+      &gt;&gt;&gt; my_dict['home'] = 'The Moon'     #duplicate value that also exists in 'place' key
+      &gt;&gt;&gt; print(set(my_dict.values()))
+      {'The Moon', 'Kyle', '365'}
+
+      #Lists inside dictionaries useful for when want a key to have multi values, but single key reference
+      &gt;&gt;&gt; order = {'name': 'rei ayanami', 'order': 'pizza', 'size': 'large', 'toppings': ['sardines', 'eggplant', 'pineapple']}
+      &gt;&gt;&gt; print(f'''
+      {order["name"].title()} has ordered a {order["size"]} {order["order"]} with toppings:''')
+      &gt;&gt;&gt; for topping in order["toppings"]:
+              print(topping)
+
+      Rei Ayanami has ordered a large pizza with toppings:
+      sardines
+      eggplant
+      pineapple
+
+      #Dictionaries inside lists useful for collection of key-value models
+      &gt;&gt;&gt; my_users = [{'username': 'ANBU', 'age': 32, 'location': 'Denver'},
+      &gt;&gt;&gt;             {'username': 'saizen', 'age': 23, 'location': 'Chicago'},
+      &gt;&gt;&gt;             {'username': 'soldats', 'age': 47, 'location': 'Portland'}]
+      &gt;&gt;&gt; for user in my_users:
+      &gt;&gt;&gt;     if(user['location'].lower().strip() == 'chicago'):
+      &gt;&gt;&gt;         print(f"{user['username']} is {user['age']} years old and lives in Chicago")
+      &gt;&gt;&gt;     else:
+      &gt;&gt;&gt;         print(f"{user['username']} is {user['age']} years old and does not live in Chicago")
+
+      ANBU is 32 years old and does not live in Chicago
+      saizen is 23 years old and lives in Chicago
+      soldats is 47 years old and does not live in Chicago
+
+      #Dictionaries inside dictionaries are useful for when want a collection of key-value models accessible by unique key
+      &gt;&gt;&gt; my_users_dict = {'admin': {'username': 'ANBU', 'age': 32, 'location': 'Denver'},
+      &gt;&gt;&gt;                  'mod': {'username': 'saizen', 'age': 23, 'location': 'Chicago'},
+      &gt;&gt;&gt;                  'user': {'username': 'soldats', 'age': 47, 'location': 'Portland'}}
+      &gt;&gt;&gt; print('Admin details are:')
+      &gt;&gt;&gt; for key, value in my_users_dict['admin'].items():
+      &gt;&gt;&gt;     print(f"   {key}: {value}")
+
+      Admin details are:
+         username: ANBU
+         age: 32
+         location: Denver
     </code>
     </pre>
   </section>
