@@ -27,8 +27,8 @@
             <li><a href="../practice-weeks/week17-practice.html" title="Week Work">Week Work</a></li>
             <li><a href="../study-weeks/week18.html" title="Next Log">Next Log</a>
             <li><a href="../roadmap.html" title="Roadmap">Roadmap</a></li>
-            <li><select onchange="location = this.value;">
-                  <option value="">Notes</option>
+            <li><select class="hide-select" onchange="location = this.value;">
+                  <option class="hide-option" value="">Notes</option>
                   <option value="../notes/Functional-JS-I.pdf">Functional JS</a></li>
                   <option value="../notes/React-I.pdf">React</a></li>
                   <option value="../notes/JS-I.pdf">JS</a></li>
@@ -36,12 +36,13 @@
                   <option value="../notes/HTML-I.pdf">HTML</a></li>
                 </select>
             </li>
-            <li><select onchange="location = this.value;">
-                  <option value="">Learning Resources</option>
-                  <option value="https://www.udemy.com/course/complete-react-developer-zero-to-mastery/">Complete React Developer 2020</option>
+            <li><select class="hide-select" onchange="location = this.value;">
+                  <option class="hide-option" value="">Learning Resources</option>
+                  <option value="https://reactjs.org/docs/getting-started.html">React Official Docs</option>
+                  <option value="https://www.udemy.com/course/complete-react-developer-zero-to-mastery/">Complete React 2020 Course</option>
+                  <option value="../notes/php-mysql-js-jquery.pdf">Learning PHP, MySQL & JS</option>
                   <option value="../notes/Prof-Frisby-Funct-JS.pdf">Prof Frsiby's Functional JS</option>
-                  <option value="../notes/React-Quickly-2017.pdf">React Quickly</option>
-                  <option value="https://eloquentjavascript.net/">Eloquent JavaScript</option>
+                  <option value="../notes/eloquent-javascript.pdf">Eloquent JavaScript</option>
                   <option value="https://developer.mozilla.org/en-US/docs/Learn">MDN Docs</option>
                 </select>
         </ul>
@@ -119,5 +120,7 @@
     </footer>
 
 </body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/hide-option.js"></script>    <!---requires jQuery-->
 
 </html>

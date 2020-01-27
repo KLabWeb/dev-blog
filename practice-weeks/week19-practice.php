@@ -59,8 +59,8 @@
         <li><a href="../study-weeks/week19.html" title="Week Log">Week Log</a></li>
         <li><a href="../practice-weeks/week20-practice.php" title="Next Work">Next Work</a></li>
         <li><a href="../roadmap.html" title="Roadmap">Roadmap</a></li>
-        <li><select onchange="location = this.value;" target="_blank" onclick"hideFirst">
-              <option value="">Notes</option>
+        <li><select class="hide-select" onchange="location = this.value;" target="_blank" onclick"hideFirst">
+              <option class="hide-option" value="">Notes</option>
               <option value="../notes/Python.pdf" title="Python Studies in PDF">Python</option>
               <option value="../notes/React-II.pdf" title="React Studies in PDF">REACT II</option>
               <option value="../notes/MySQL.pdf" title="React Studies in PDF">MySQL & DB Design</option>
@@ -73,12 +73,15 @@
               <option value="../notes/HTML-I.pdf">HTML</option>
             </select>
         </li>
-        <li><select onchange="location = this.value;" onclick"hideFirst">
-              <option value="">Learning Resources</option>
-              <option value="https://www.udemy.com/course/complete-react-developer-zero-to-mastery/">Complete React Developer 2020</option>
+        <li><select class="hide-select" onchange="location = this.value;" onclick"hideFirst">
+              <option class="hide-option" value="">Learning Resources</option>
+              <option value="../notes/python-crash-course.pdf">Python Crash Course</option>
+              <option value="https://docs.python.org/3/tutorial/index.html">Python Official Docs</option>
+              <option value="https://reactjs.org/docs/getting-started.html">React Official Docs</option>
+              <option value="https://www.udemy.com/course/complete-react-developer-zero-to-mastery/">Complete React 2020 Course</option>
+              <option value="../notes/php-mysql-js-jquery.pdf">Learning PHP, MySQL & JS</option>
               <option value="../notes/Prof-Frisby-Funct-JS.pdf">Prof Frsiby's Functional JS</option>
-              <option value="../notes/React-Quickly-2017.pdf">React Quickly</option>
-              <option value="https://eloquentjavascript.net/">Eloquent JavaScript</option>
+              <option value="../notes/eloquent-javascript.pdf">Eloquent JavaScript</option>
               <option value="https://developer.mozilla.org/en-US/docs/Learn">MDN Docs</option>
             </select>
         </li>
@@ -454,6 +457,7 @@ c
 </body>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/hide-option.js"></script>    <!---requires jQuery-->
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 

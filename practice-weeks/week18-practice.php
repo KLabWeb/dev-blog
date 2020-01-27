@@ -46,8 +46,8 @@
         <li><a href="../study-weeks/week18.html" title="Week Log">Week Log</a></li>
         <li><a href="../practice-weeks/week19-practice.php" title="Next Work">Next Work</a></li>
         <li><a href="../roadmap.html" title="Roadmap">Roadmap</a></li>
-        <li><select onchange="location = this.value;">
-              <option value="">Notes</option>
+        <li><select class="hide-select" onchange="location = this.value;">
+              <option class="hide-option" value="">Notes</option>
               <option value="../notes/Python.pdf" title="Python Studies in PDF">Python</option>
               <option value="../notes/React-II.pdf" title="React Studies in PDF">REACT II</option>
               <option value="../notes/MySQL.pdf" title="React Studies in PDF">MySQL & DB Design</option>
@@ -60,12 +60,13 @@
               <option value="../notes/HTML-I.pdf">HTML</option>
             </select>
         </li>
-        <li><select onchange="location = this.value;">
-              <option value="">Learning Resources</option>
-              <option value="https://www.udemy.com/course/complete-react-developer-zero-to-mastery/">Complete React Developer 2020</option>
+        <li><select class="hide-select" onchange="location = this.value;">
+              <option class="hide-option" value="">Learning Resources</option>
+              <option value="https://reactjs.org/docs/getting-started.html">React Official Docs</option>
+              <option value="https://www.udemy.com/course/complete-react-developer-zero-to-mastery/">Complete React 2020 Course</option>
+              <option value="../notes/php-mysql-js-jquery.pdf">Learning PHP, MySQL & JS</option>
               <option value="../notes/Prof-Frisby-Funct-JS.pdf">Prof Frsiby's Functional JS</option>
-              <option value="../notes/React-Quickly-2017.pdf">React Quickly</option>
-              <option value="https://eloquentjavascript.net/">Eloquent JavaScript</option>
+              <option value="../notes/eloquent-javascript.pdf">Eloquent JavaScript</option>
               <option value="https://developer.mozilla.org/en-US/docs/Learn">MDN Docs</option>
             </select>
         </li>
@@ -227,6 +228,7 @@
 </body>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/hide-option.js"></script>    <!---requires jQuery-->
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
 </html>
