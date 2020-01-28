@@ -1,6 +1,23 @@
 <?php
   error_reporting(E_ALL);
 
+  session_start();
+
+  if(!isset($_SESSION['start_time'])){
+    $_SESSION['start_time'] = time();
+    $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
+    $_SESSION['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
+  }
+
+  if($_SESSION['ip'] != $_SERVER['REMOTE_ADDR'] || $_SESSION['user_agent'] != $_SERVER['HTTP_USER_AGENT']){
+    die("Access data does not match session data. Page load cancelled");
+    session_destroy();
+  }
+
+  $cur_mins = round((time() - $_SESSION['start_time']) / 60);
+  $cur_hours = floor($cur_mins / 60);
+  $cur_mins = $cur_mins % 60;
+
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +68,7 @@
             </select>
         </li>
         <li><select class="hide-select" onchange="location = this.value;">
-              <option class="hide-option" value="">Learning Resources</option>
+    ``          <option class="hide-option" value="">Learning Resources</option>
               <option value="../notes/python-crash-course.pdf">Python Crash Course</option>
               <option value="https://docs.python.org/3/tutorial/index.html">Python Official Docs</option>
               <option value="https://reactjs.org/docs/getting-started.html">React Official Docs</option>
@@ -68,8 +85,168 @@
 
   <main>
 
+  <section>
+    <h3>Hello ip <?= $_SESSION['ip'] ?>. Your current session has lasted for <?= $cur_hours ?> hours, <?= $cur_mins ?> mins.
+      User Agent info allows webservers to see more data on you. Here is some data on your OS and browser:
+      <br><br> <?= $_SESSION['user_agent'] ?><br><br> To prevent this, use an user agent switcher extension.</h3>
+    <br><br>
+  </section>
+
+
+  <section>
+    <h2>jQuery View Sandbox - Before</h2>
+
+    <div id="box-container">
+      <?php for($i = 0; $i < 12; $i++){ ?>
+        <div class="color-box hvr-bounce-in">
+          <div class="inner-color-box"></div>
+          <div class="inner-color-box inner-color-box-bottom"></div>
+        </div>
+      <?php } ?>
+    </div>
+
+    <p class="p">Text is here</p>
+
+    <div class="form-container">
+      <form class="" id="jquery-form" action="">
+        <label>
+          Username:
+          <input type="text" name="user">
+        </label>
+        <label>
+          Pass:
+          <input type="password" name="pass" value="">
+        </label>
+        <label>
+          Date Ordered:
+          <input type="date" name="date">
+        </label>
+        <label>
+          Notes:
+          <input type="textarea" name="notes">
+        </label>
+        <label>
+          Order Details:
+          <input type="text" name="details">
+        </label>
+      </form>
+    </div>
+
+    <p class="insert">Insert Text Here</p>
+
+    <p class="replace">Replace Me</p>
+
+  </section>
+
+  <section>
+    <h2>jQuery Memorization Practice</h2>
+    <p>jQuery is used at my current job, with <i>ajax()</i> being used frequently, as well as jQuery selectors, attribute manipulation, etc.. Much of jQuery's functionality is now available in core JavaScript, ES6 and onwards, but since already been using it at job for awhile now, taking some time to fully read through docs and memorize more of it.</p>
+    <pre><code class='jquery'>
+      &lt;script type="text/javascript"&gt;
+        $(document).ready(() =&gt; {
+          //BASIC SELECTORS AND ATTRIBUTES
+          $('.p-after').text('Text Changed');
+
+          $('#second-form input[name="notes"]').val("Default notes added");
+
+          $('#second-form :text').val('&lt;p&gt; text: ' + $('.p-after').text());
+
+          $('.inner-color-box-bottom-after:odd').attr('hidden', 'true');
+
+          $('.inner-color-box-bottom-after:even').html('&lt;img src="assets/images/lainlines.gif" alt="jquery image" style="width: 100%;
+              height: 100%; margin: auto"&gt;');
+
+
+          //DOM TRAVERSAL & CSS
+          $('.inner-color-box-after').css({'text-align':'center', 'color':'black'});
+
+          $('#box-container-after').children().css('border', '5px solid #e05915');
+
+          $('.color-box-after').parent().css('background-color', 'white');
+
+          $('.color-box-after:last').siblings().css('background-color', '#cdd422');
+
+          $('.color-box-after').eq(2).css('background-color', '#c2dde6');
+
+          //FILTERING
+          $('.color-box-after').slice(2, 4).text("TEXT ADDED HERE");
+          $('.color-box-after').slice(2, 4).css({"color":"black", "text-align": "center"});
+
+          $('#second-form input[name="date"]').focus(()=&gt; {
+            if(!$(this).is('h4')){
+              $('#jquery-form-after').css({'border':'5px solid #cdd422', 'padding':'5px'});
+              console.log('text');
+            }
+          });
+
+          $('#second-form').find('input:text').css('transform', 'rotate(180deg)');
+
+          $('#second-form input').not(":first, input:text").css('transform', 'rotate(20deg)');
+
+          $('#second-form input').filter((node_index) =&gt; {
+            return node_index == 3;
+          }).css('opacity', '.5');
+
+          $('#after .insert').text(`This paragraph is ${$('#after .insert').width()} px long. It's BG
+             is ${$('#after .insert').css('background-color')}.`);
+
+          //DOM MANIPULATION
+          $('#after .replace').replaceWith("&lt;div&gt;&lt;img src='assets/images/john.gif' alt='Titor jQuery img'&gt;This &lt;div&gt;
+            and &lt;img&gt; have replaced a paragraph&lt;/div&gt;");
+
+        });
+      &lt;/script&gt;
+      </code>
+    </pre>
+  </section>
+
+  <section id="after">
+    <h2>jQuery View Sandbox - After</h2>
+
+    <div id="box-container-after">
+      <?php for($i = 0; $i < 12; $i++){ ?>
+        <div class="color-box-after hvr-bounce-in">
+          <div class="inner-color-box-after"></div>
+          <div class="inner-color-box-after inner-color-box-bottom-after"></div>
+        </div>
+      <?php } ?>
+    </div>
+
+    <p class="p-after">Text is here</p>
+
+    <div class="form-container-after" id="second-form">
+      <form class="" id="jquery-form-after" action="">
+        <label>
+          Username:
+          <input type="text" name="user">
+        </label>
+        <label>
+          Pass:
+          <input type="password" name="pass" value="">
+        </label>
+        <label>
+          Date Ordered:
+          <input type="date" name="date">
+        </label>
+        <label>
+          Notes:
+          <input type="textarea" name="notes">
+        </label>
+        <label>
+          Order Details:
+          <input type="text" name="details">
+        </label>
+      </form>
+    </div>
+
+    <p class="insert">Insert Text Here</p>
+
+    <p class="replace">Replace Me</p>
+
+  </section>
 
   <br><br>
+
   </main>
 
 </body>
@@ -78,5 +255,56 @@
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 
+<script type="text/javascript">
+  $(document).ready(() => {
+    //BASIC SELECTORS AND ATTRIBUTES
+    $('.p-after').text('Text Changed');
+
+    $('#second-form input[name="notes"]').val("Default notes added");
+
+    $('#second-form :text').val('<p> text: ' + $('.p-after').text());
+
+    $('.inner-color-box-bottom-after:odd').attr('hidden', 'true');
+
+    $('.inner-color-box-bottom-after:even').html('<img src="assets/images/lainlines.gif" alt="jquery image" style="width: 100%; height: 100%; margin: auto">');
+
+
+    //DOM TRAVERSAL & CSS
+    $('.inner-color-box-after').css({'text-align':'center', 'color':'black'});
+
+    $('#box-container-after').children().css('border', '5px solid #e05915');
+
+    $('.color-box-after').parent().css('background-color', 'white');
+
+    $('.color-box-after:last').siblings().css('background-color', '#cdd422');
+
+    $('.color-box-after').eq(2).css('background-color', '#c2dde6');
+
+    //FILTERING
+    $('.color-box-after').slice(2, 4).text("TEXT ADDED HERE");
+    $('.color-box-after').slice(2, 4).css({"color":"black", "text-align": "center"});
+
+    $('#second-form input[name="date"]').focus(()=> {
+      if(!$(this).is('h4')){
+        $('#jquery-form-after').css({'border':'5px solid #cdd422', 'padding':'5px'});
+        console.log('text');
+      }
+    });
+
+    $('#second-form').find('input:text').css('transform', 'rotate(180deg)');
+
+    $('#second-form input').not(":first, input:text").css('transform', 'rotate(20deg)');
+
+    $('#second-form input').filter((node_index) => {
+      return node_index == 3;
+    }).css('opacity', '.5');
+
+    $('#after .insert').text(`This paragraph is ${$('#after .insert').width()} px long. It's BG is ${$('#after .insert').css('background-color')}.`);
+
+    //DOM MANIPULATION
+    $('#after .replace').replaceWith("<div><img src='assets/images/john.gif' alt='Titor jQuery img'>This &lt;div&gt; and &lt;img&gt; have replaced a paragraph</div>");
+
+  });
+</script>
 
 </html>
