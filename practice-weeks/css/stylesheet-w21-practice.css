@@ -6,7 +6,7 @@ main ul{
   margin-left: 70px;
 }
 
-code.python, code.php, .table-container, p, code.jsx{
+code.python, code.php, .table-container, p, code.jsx, code.jquery{
   width: 1400px;
 }
 
@@ -31,7 +31,7 @@ h5{
 p{
   font-size: 1.8rem;
 }
-p, .table-container, pre:not(.code_description), .formSection{
+.table-container, pre:not(.code_description), #jquery-form, #jquery-form-after{
   margin-left: 115px;
 }
 
@@ -136,4 +136,58 @@ p, .table-container, pre:not(.code_description), .formSection{
 }
 .formSection{
   margin-top: 0;
+}
+
+.color-box, .color-box-after{
+  background: #431c5d;
+}
+.inner-color-box, .inner-color-box-after{
+  background: #e05915;
+  width: 33%;
+  height: 50%;
+  margin: auto;
+}
+.inner-color-box-bottom, .inner-color-box-bottom-after{
+  background: #cdd422;
+  float: bottom;
+}
+
+#box-container, #box-container-after{
+  width: 60vw;
+  height: 50vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+  margin-left: 115px;
+}
+
+.hvr-bounce-in {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+.hvr-bounce-in:hover, .hvr-bounce-in:focus, .hvr-bounce-in:active {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+}
+
+.form-container, .form-container-after{
+  width: 420px;
+  margin-top: 20px;
+}
+
+#jquery-form, #jquery-form-after{
+  display: flex;
+  flex-direction: column;
+}
+
+#jquery-form input, #jquery-form-after input{
+  margin: 5px 0;
+  float: right;
 }
