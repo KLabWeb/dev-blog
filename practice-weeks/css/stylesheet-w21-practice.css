@@ -1,7 +1,9 @@
 body{
   padding-bottom: 200px;
 }
-
+main{
+  padding-left: 20px
+}
 main ul{
   margin-left: 70px;
 }
