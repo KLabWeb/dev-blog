@@ -55,6 +55,7 @@
         <li><a href="../roadmap.html" title="Roadmap">Roadmap</a></li>
         <li><select class="hide-select" onchange="location = this.value;" target="_blank">
               <option value="" class='hide-option'>Notes</option>
+              <option value="../notes/jQuery.pdf" title="jQuery Studies in PDF">jQuery</option>
               <option value="../notes/Python.pdf" title="Python Studies in PDF">Python</option>
               <option value="../notes/React-II.pdf" title="React Studies in PDF">REACT II</option>
               <option value="../notes/MySQL.pdf" title="React Studies in PDF">MySQL & DB Design</option>
@@ -94,7 +95,7 @@
 
 
   <section>
-    <h2>jQuery View Sandbox - Before</h2>
+    <h2>jQuery View Sandbox - Before jQuery</h2>
 
     <div id="box-container">
       <?php for($i = 0; $i < 12; $i++){ ?>
@@ -135,6 +136,18 @@
     <p class="insert">Insert Text Here</p>
 
     <p class="replace">Replace Me</p>
+
+    <div class="event-div" style="display: grid; grid-template-columns: 150px; grid-gap: 5px;">
+      <button class="click-me">Click Me</button>
+      <button class="focus-me">Click & Click Off</button>
+      <input type="text" placeholder='Type text here' class="input-me"></input>
+      <p class="result"></p>
+    </div>
+
+    <div class="event-div-mouse">
+      <div class='wrap-click' style='background: black; width: 350px; height: 350px; text-align: center; display: inline-block; margin-right: 10px;'>Click me to wrap container via wrap()</div>
+      <div class='cord-click' style='background: black; width: 350px; height: 350px; text-align: center; display: inline-block;'>Click me to show mouse coordinates</div>
+    </div>
 
   </section>
 
@@ -191,9 +204,35 @@
              is ${$('#after .insert').css('background-color')}.`);
 
           //DOM MANIPULATION
-          $('#after .replace').replaceWith("&lt;div&gt;&lt;img src='assets/images/john.gif' alt='Titor jQuery img'&gt;This &lt;div&gt;
+          $('#after .replace').replaceWith("&lt;div&gt;&lt;img src='assets/images/john.gif' alt='Titor jQuery img'&gt;Above &lt;div&gt;
             and &lt;img&gt; have replaced a paragraph&lt;/div&gt;");
 
+          $('#after .replace').before('&lt;p&gt;This node inserted as html content passed in via before()&lt;/p&gt;');
+          $('#after .replace').after('&lt;p&gt;This node inserted as html content passed in via after()&lt;/p&gt;');
+
+          $('#after .replace').wrap('&lt;div style="background: black; width: 100%;"&gt;This div added to wrap image with wrap()&lt;/div&gt;');
+
+          $('#after .replace').append('&lt;p&gt;This paragraph appended as a child to &lt;div&gt; via append(). Second image added
+             via clone() on existing &lt;img&gt;. Made italic via wrapping text with wrapInner().&lt;/p&gt;');
+
+          $('#after .replace img').clone().insertAfter($('#after .replace img'));
+
+          $('#after .replace p:last').wrapInner('&lt;i&gt;&lt;/i&gt;');
+
+          $('#after .wrap-click').click(() =&gt; $('#after .event-div-mouse')
+            .wrap('&lt;div style="border: 5px solid #cdd422; margin: 3px;"&gt;&lt;/div&gt;'));
+
+          //EVENT HANDLING
+          $('#after .click-me').bind('click', ()=&gt; $('#after .event-div .result')
+            .text("Text filled via bind() 'click' event type handling function."));
+
+          $('#after .focus-me').focus(() =&gt; $('#after .event-div .result').text("Focused on focus button"));
+          $('#after .focus-me').blur(() =&gt; $('#after .event-div .result').text("Focus removed from focus button"));
+
+          $('#after .input-me').keypress(() =&gt; $('#after .event-div .result').text($('#after .input-me').val()));
+
+          $('#after .cord-click').click(event =&gt; $('#after .cord-click').text(`Mouse at screen
+             location x: ${event.screenX}px, y: ${event.screenY}px`));
         });
       &lt;/script&gt;
       </code>
@@ -201,7 +240,7 @@
   </section>
 
   <section id="after">
-    <h2>jQuery View Sandbox - After</h2>
+    <h2>jQuery View Sandbox - After jQuery</h2>
 
     <div id="box-container-after">
       <?php for($i = 0; $i < 12; $i++){ ?>
@@ -243,6 +282,18 @@
 
     <p class="replace">Replace Me</p>
 
+    <div class="event-div" style="display: grid; grid-template-columns: 150px; grid-gap: 5px;">
+      <button class="click-me">Click Me</button>
+      <button class="focus-me">Click & Click Off</button>
+      <input type="text" placeholder='Type text here' class="input-me"></input>
+      <p class="result"></p>
+    </div>
+
+    <div class="event-div-mouse">
+      <div class='wrap-click' style='background: black; width: 350px; height: 350px; text-align: center; display: inline-block; margin-right: 10px;'>Click me to wrap container via wrap()</div>
+      <div class='cord-click' style='background: black; width: 350px; height: 350px; text-align: center; display: inline-block;'>Click me to show mouse coordinates</div>
+    </div>
+
   </section>
 
   <br><br>
@@ -252,8 +303,8 @@
 </body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="js/hide-option.js"></script>    <!---requires jQuery-->
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+<!-- <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script> -->
 
 <script type="text/javascript">
   $(document).ready(() => {
@@ -302,7 +353,27 @@
     $('#after .insert').text(`This paragraph is ${$('#after .insert').width()} px long. It's BG is ${$('#after .insert').css('background-color')}.`);
 
     //DOM MANIPULATION
-    $('#after .replace').replaceWith("<div><img src='assets/images/john.gif' alt='Titor jQuery img'>This &lt;div&gt; and &lt;img&gt; have replaced a paragraph</div>");
+    $('#after .replace').replaceWith("<div class='replace'><img src='assets/images/john.gif' alt='Titor jQuery img'><p>This &lt;div&gt;, &lt;p&gt;, and &lt;img&gt; have replaced a paragraph</p></div>");
+
+    $('#after .replace').before('<p>This node inserted as html content passed in via before()</p>');
+    $('#after .replace').after('<p>This node inserted as html content passed in via after()</p>');
+
+    $('#after .replace').wrap('<div style="background: black; width: 100%;">This div added to wrap image with wrap()</div>');
+
+    $('#after .replace').append('<p>This paragraph appended as a child to &lt;div&gt; via append(). Second image added via clone() on existing &lt;img&gt;. Made italic via wrapping text with wrapInner().</p>');
+
+    $('#after .replace img').clone().insertAfter($('#after .replace img'));
+
+    $('#after .replace p:last').wrapInner('<i></i>');
+
+    $('#after .wrap-click').click(() => $('#after .event-div-mouse').wrap('<div style="border: 5px solid #cdd422; margin: 3px;"></div>'));
+
+    //EVENT HANDLING
+    $('#after .click-me').bind('click', ()=> $('#after .event-div .result').text("Text filled via bind() 'click' event type handling function."));
+    $('#after .focus-me').focus(() => $('#after .event-div .result').text("Focused on focus button"));
+    $('#after .focus-me').blur(() => $('#after .event-div .result').text("Focus removed from focus button"));
+    $('#after .input-me').keypress(() => $('#after .event-div .result').text($('#after .input-me').val()));
+    $('#after .cord-click').click(event => $('#after .cord-click').text(`Mouse at screen location x: ${event.screenX}px, y: ${event.screenY}px`));
 
   });
 </script>
