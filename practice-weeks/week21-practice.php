@@ -140,7 +140,10 @@
     <div class="event-div" style="display: grid; grid-template-columns: 150px; grid-gap: 5px;">
       <button class="click-me">Click Me</button>
       <button class="focus-me">Click & Click Off</button>
-      <input type="text" placeholder='Type text here' class="input-me"></input>
+      <button class="show" style="position: relative;">Toggle Last Img</button>
+      <button class="fade" style="position: relative;">Fade First Img</button>
+      <button class="slide" style="position: relative;">Slide Container</button>
+      <button class="animate" style="position: relative;">Arrange Buttons</button>
       <p class="result"></p>
     </div>
 
@@ -233,6 +236,39 @@
 
           $('#after .cord-click').click(event =&gt; $('#after .cord-click').text(`Mouse at screen
              location x: ${event.screenX}px, y: ${event.screenY}px`));
+
+           //ANIMATIONS
+           $('#after .show').click(() =&gt; $('.replace img:last').toggle(1000));
+
+           $('#after .fade').click(() =&gt; {
+                                             const img = $('.replace img:first');
+                                             Number(img.css('opacity')) === 1 ? img.fadeTo(1000, .3) : img.fadeTo(1000, 1);
+                                            });
+
+           $('#after .slide').click(() =&gt; $('.replace').slideToggle(1000));
+
+           $('#after .animate').click(event =&gt; {
+             let offset = $('#after .event-div button:first').offset().left;
+             let opac = $('#after .event-div button:first').css('opacity');
+
+             if(offset &gt;= $(document).width()-275){
+               right_hit = true;
+               left_hit = false;
+             }
+             else if(offset &lt;= 20){
+               right_hit = false;
+               left_hit = true;
+             }
+
+             if(right_hit){
+               offset = {left: `${offset - 200}px`, opacity: opac + .1};
+             }
+             else if(left_hit){
+               offset = {left: `${offset + 200}px`, opacity: opac - .1};
+             }
+
+             $('#after .event-div button, #after .event-div input').animate(offset)
+           });             
         });
       &lt;/script&gt;
       </code>
@@ -280,12 +316,18 @@
 
     <p class="insert">Insert Text Here</p>
 
+
     <p class="replace">Replace Me</p>
 
+
     <div class="event-div" style="display: grid; grid-template-columns: 150px; grid-gap: 5px;">
-      <button class="click-me">Click Me</button>
-      <button class="focus-me">Click & Click Off</button>
-      <input type="text" placeholder='Type text here' class="input-me"></input>
+      <button class="click-me" style="position: relative;">Show Text</button>
+      <button class="focus-me" style="position: relative;">Click & Click Off</button>
+      <input type="text" placeholder='Type text here' class="input-me" style="position: relative;"></input>
+      <button class="show" style="position: relative;">Toggle Last Img</button>
+      <button class="fade" style="position: relative;">Fade First Img</button>
+      <button class="slide" style="position: relative;">Slide Container</button>
+      <button class="animate" style="position: relative;">Arrange Buttons</button>
       <p class="result"></p>
     </div>
 
@@ -375,6 +417,38 @@
     $('#after .input-me').keypress(() => $('#after .event-div .result').text($('#after .input-me').val()));
     $('#after .cord-click').click(event => $('#after .cord-click').text(`Mouse at screen location x: ${event.screenX}px, y: ${event.screenY}px`));
 
+    //ANIMATIONS
+    $('#after .show').click(() => $('.replace img:last').toggle(1000));
+
+    $('#after .fade').click(() => {
+                                    const img = $('.replace img:first');
+                                    Number(img.css('opacity')) === 1 ? img.fadeTo(1000, .3) : img.fadeTo(1000, 1);
+                                  });
+
+    $('#after .slide').click(() => $('.replace').slideToggle(1000));
+
+    $('#after .animate').click(event => {
+      let offset = $('#after .event-div button:first').offset().left;
+      let opac = $('#after .event-div button:first').css('opacity');
+
+      if(offset >= $(document).width()-275){
+          right_hit = true;
+          left_hit = false;
+      }
+      else if(offset <= 20){
+          right_hit = false;
+          left_hit = true;
+      }
+
+      if(right_hit){
+        offset = {left: `${offset - 200}px`, opacity: opac + .1};
+      }
+      else if(left_hit){
+        offset = {left: `${offset + 200}px`, opacity: opac - .1};
+      }
+
+      $('#after .event-div button, #after .event-div input').animate(offset)
+      });
   });
 </script>
 
