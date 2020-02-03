@@ -69,13 +69,93 @@
 
   <main>
 
-    <section>
+    <!-- <section>
       <h2></h2>
+    </section> -->
+
+    <section>
+      <h2>Python - Sequences (cont.)</h2>
+      <pre><code class='python'>
+        #As comprehensions are expressions, nested iterables can be created by having the expression
+        #for a comprehsion also be a comprehsion.
+        #This code says, 'for 5 iterations (i in range(5)), create an inner array using comprehension through array [1,2,3,4]).'
+        &gt;&gt;&gt; nested_comp = [[x for x in [1,2,3,4]] for i in range(5)]
+        &gt;&gt;&gt; print(nested_comp)
+        [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]
+
+        #Single item tuples MUST be declared with a trailing common following the item
+        ('only one',)
+
+        #Can loop through dictonary as if was ordered by passing into enumerate
+        #enumerate() takes in an iterable and returns a tuple with a counter, where counter acts as index value
+        &gt;&gt;&gt; my_dict = {'person': 'Tom', 'age': 32, 'city': 'NYC'}
+        &gt;&gt;&gt; for index, value in enumerate(my_dict):
+        &gt;&gt;&gt;     print(f"{index}: {value}")
+        0: person
+        1: age
+        2: city
+
+        #Can loop through multiple itetables by passing iterables into zip() during loop
+        &gt;&gt;&gt; questions = ["Name", "How old", "Resident city"]
+        &gt;&gt;&gt; answers = ["Tom", 32, "NYC"]
+
+        &gt;&gt;&gt; for q, a in zip(questions, answers):
+        &gt;&gt;&gt;     print(f'{q}? {a}')
+        Name? Tom
+        How old? 32
+        Resident city? NYC
+
+        #reversed() returns a reversed sequence copy of the sequence passed into it
+        &gt;&gt;&gt; for i in reversed(questions):
+        &gt;&gt;&gt;     print(i)
+        NYC
+        32
+        Tom
+
+        #'in' and 'not in' can be used on all sequences to boolean check existence of value in sequence
+        &gt;&gt;&gt; print(f'"Tom" is in "answers" list? {"Tom" in answers}')
+        "Tom" is in "answers" list? True
+
+        #Can use comparison operators on sequences, such as lists and dictionaries
+        #in such comparisons done lexicographical, comparing 1st index to 1st index, etc. and returing final result
+        #for if all ==, all &gt;, etc.
+
+        &gt;&gt;&gt; names = ['Yang Wen-li', 'Reinhard von Lohengramm', 'Siegfried Kircheis']
+        &gt;&gt;&gt; dupe__names = ['Yang Wen-li', 'Reinhard von Lohengramm', 'Siegfried Kircheis']
+        &gt;&gt;&gt; bad_names = ['Yang Wen-li', 'Reinhard', 'Siegfried Kircheis']
+        &gt;&gt;&gt; print(f'{names == dupe__names} {names == bad_names}')
+        names == dupe__names? True. names == bad_names? False.
+
+        &gt;&gt;&gt; num_list = [1, 2, 3]
+        &gt;&gt;&gt; another_num = [1, 2, 4]
+        &gt;&gt;&gt; print(f'''num_list &gt; another_num? {num_list &gt; another_num}
+        &gt;&gt;&gt;           num_list &lt; another_num? {num_list &lt; another_num}''')
+        num_list &gt; another_num? False
+        num_list &lt; another_num? True
+        </code>
+      </pre>
     </section>
 
     <section>
-      <h2></h2>
-      <pre><code class='jquery'>
+      <h2>Python - Modules</h2>
+      <pre><code class='python'>
+        #Python modules are simply scripts that can be imported into other scripts, then had their methods called,
+        #vars accessed, etc. from the including script
+
+        #module.py
+        &gt;&gt;&gt; def hello_module():
+        &gt;&gt;&gt;     print("This function exists in module.py")
+
+        &gt;&gt;&gt; module_var = "I am a module variable."
+
+        #week22.py
+        &gt;&gt;&gt; import module
+        &gt;&gt;&gt; module.hello_module()
+        &gt;&gt;&gt; print(module.module_var)
+
+        This function exists in module.py
+        I am a module variable.
+
         </code>
       </pre>
     </section>
