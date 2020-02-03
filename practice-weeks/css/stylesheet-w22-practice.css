@@ -1,0 +1,38 @@
+body{
+  padding-bottom: 200px;
+}
+main{
+  padding-left: 20px
+}
+main ul{
+  margin-left: 70px;
+}
+
+code.python, code.php, .table-container, p, code.jsx, code.jquery{
+  width: 1400px;
+}
+
+pre:not(.code_description){
+  width: 800px;
+}
+
+section{
+  margin-top: 70px;
+}
+
+h2, p{
+  margin-left: 3vw;
+  margin-right: 3vw;
+}
+h3, img{
+  margin: 0 3vw 0 3vw;
+}
+h5{
+  margin-top: 0;
+}
+p{
+  font-size: 1.8rem;
+}
+pre:not(.code_description){
+  margin-left: 115px;
+}

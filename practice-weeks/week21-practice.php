@@ -34,7 +34,6 @@
   <link rel="stylesheet" href="../root-css/header.css">
   <link rel="stylesheet" href="../root-css/nav-buttons.css">
   <link rel="stylesheet" href="../Higlightjs/styles/tomorrow-night-bright.css">
-  <link rel="stylesheet" href='https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css'>
   <script src="../Higlightjs/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
   <title>Week 21 Sandbox</title>
@@ -51,12 +50,13 @@
         <li><a href="../index.html" title="Home">Home</a></li>
         <li><a href="../practice-weeks/week20-practice.php" title="Previous Work">Previous Work</a></li>
         <li><a href="../study-weeks/week21.html" title="Week Log">Week Log</a></li>
-        <!-- <li><a href="../practice-weeks/week22-practice.php" title="Next Work">Next Work</a></li> -->
+        <li><a href="../practice-weeks/week22-practice.php" title="Next Work">Next Work</a></li>
         <li><a href="../roadmap.html" title="Roadmap">Roadmap</a></li>
         <li><select class="hide-select" onchange="location = this.value;" target="_blank">
               <option value="" class='hide-option'>Notes</option>
               <option value="../notes/jQuery.pdf" title="jQuery Studies in PDF">jQuery</option>
               <option value="../notes/Python.pdf" title="Python Studies in PDF">Python</option>
+              <option value="../notes/Architecture-I.pdf" title="Design Studies in PDF">Software Design</option>
               <option value="../notes/React-II.pdf" title="React Studies in PDF">REACT II</option>
               <option value="../notes/MySQL.pdf" title="React Studies in PDF">MySQL & DB Design</option>
               <option value="../notes/PHP7.pdf" title="PHP Studies in PDF">PHP</option>
@@ -69,7 +69,7 @@
             </select>
         </li>
         <li><select class="hide-select" onchange="location = this.value;">
-    ``          <option class="hide-option" value="">Learning Resources</option>
+              <option class="hide-option" value="">Learning Resources</option>
               <option value="../notes/python-crash-course.pdf">Python Crash Course</option>
               <option value="https://docs.python.org/3/tutorial/index.html">Python Official Docs</option>
               <option value="https://reactjs.org/docs/getting-started.html">React Official Docs</option>
@@ -268,7 +268,7 @@
              }
 
              $('#after .event-div button, #after .event-div input').animate(offset)
-           });             
+           });
         });
       &lt;/script&gt;
       </code>
@@ -345,8 +345,7 @@
 </body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="js/hide-option.js"></script>    <!---requires jQuery-->
-<!-- <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script> -->
+
 
 <script type="text/javascript">
   $(document).ready(() => {

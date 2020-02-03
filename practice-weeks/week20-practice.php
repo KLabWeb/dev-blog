@@ -63,6 +63,7 @@
         <li><select class="hide-select" onchange="location = this.value;" target="_blank">
               <option class="hide-option" value="">Notes</option>
               <option value="../notes/Python.pdf" title="Python Studies in PDF">Python</option>
+              <option value="../notes/Architecture-I.pdf" title="Design Studies in PDF">Software Design</option>
               <option value="../notes/React-II.pdf" title="React Studies in PDF">REACT II</option>
               <option value="../notes/MySQL.pdf" title="React Studies in PDF">MySQL & DB Design</option>
               <option value="../notes/PHP7.pdf" title="PHP Studies in PDF">PHP</option>
