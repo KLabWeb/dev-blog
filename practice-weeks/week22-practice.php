@@ -137,7 +137,7 @@
     </section>
 
     <section>
-      <h2>Python - Modules</h2>
+      <h2>Python - Modules & Packages</h2>
       <pre><code class='python'>
         #Python modules are simply scripts that can be imported into other scripts, then had their methods called,
         #vars accessed, etc. from the including script
@@ -155,6 +155,93 @@
 
         This function exists in module.py
         I am a module variable.
+
+        #Can get all names (in array of strings) in module by calling dir(my_module) on imported module)
+
+        #week22.py
+        &gt;&gt;&gt; print(dir(module))
+
+        ['__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__',
+         '__spec__', 'hello_module', 'i', 'module_var']
+
+        #Packages are collections of modules where can import all modules in package in a single export
+        my_package/
+            __init__.py
+            base_module.py
+            ...
+            inner_pack/
+                _init__.py
+                inner_module.py
+
+        #Package imports (what to include in package) defined in __init__.py files contained within package/sub-package folders
+        #importing via 'from .my_module import *' style imports all modules name into same package level namespace
+
+        #base_module.py
+        &gt;&gt;&gt; def print_me():
+        &gt;&gt;&gt;     print("I am a module in the base my_package package")
+
+        &gt;&gt;&gt; def _hidden_function():
+        &gt;&gt;&gt;     print("I am not available")
+
+        #my_package/__init__.py
+        &gt;&gt;&gt; from .base_module import *
+        &gt;&gt;&gt; from .inner_pack import *
+
+        #inner_module.py
+        &gt;&gt;&gt; def print_me():
+        &gt;&gt;&gt;     print("I am a module in the nested package inner_pack")
+
+        #inner_pack/__init__.py
+        &gt;&gt;&gt; from .inner_module import *
+
+        #week22.py
+        &gt;&gt;&gt; import my_package
+        &gt;&gt;&gt; my_package.inner_print_me()
+
+        #Modules can also be imported into private namespaces within a package
+        #This prevents nameclashes and huge namespaces, but requires more verbose reference
+
+        #my_package/__init__.py
+        &gt;&gt;&gt; import my_package.base_module
+        &gt;&gt;&gt; import my_package.inner_pack.inner_module
+
+        #inner_pack/__init__.py
+        &gt;&gt;&gt; import my_package.inner_pack.inner_module
+
+        #week22.py
+        &gt;&gt;&gt; import my_package
+        &gt;&gt;&gt; my_package.base_module.base_print_me()
+        &gt;&gt;&gt; my_package.inner_pack.inner_module.inner_print_me()
+
+        #Importing modules into import script using 'from' with module/sub-package specific
+        #imports gives each module/sub-package its own namespace in importing file, thus removing need to
+        #reference imports via package name
+
+        #week22.py
+        &gt;&gt;&gt; from my_package import inner_pack, base_module
+        &gt;&gt;&gt; base_module.base_print_me()
+        &gt;&gt;&gt; inner_pack.inner_module.inner_print_me()
+
+        #Can also import just specific parts of module
+
+        #base_module.py
+        &gt;&gt;&gt; def base_print_me():
+        &gt;&gt;&gt;     print("I am a module in the base my_package package")
+
+        &gt;&gt;&gt; def base_hidden_function():
+        &gt;&gt;&gt;     print("I am not available")
+
+        #week22.py
+        &gt;&gt;&gt; from my_package.base_module import base_print_me
+        &gt;&gt;&gt; base_print_me()
+        &gt;&gt;&gt; base_hidden_function()
+
+        I am a module in the base my_package package
+
+        Traceback (most recent call last):
+          File "week22.py", line 216, in &lt;module&gt;
+            base_hidden_function()
+        NameError: name 'base_hidden_function' is not defined
 
         </code>
       </pre>
