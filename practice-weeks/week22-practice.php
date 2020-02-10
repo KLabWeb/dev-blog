@@ -247,6 +247,162 @@
       </pre>
     </section>
 
+    <section>
+      <h2>Python - String Formatting II</h2>
+      <pre><code class='python'>
+        #format() allows for formating by passing in arguments into "formate fields," either by index or key
+        #As f-strings are a Python 3.6 addition, this will be used for formatting strings in older code
+        &gt;&gt;&gt; print('Hello. My name is {1}. I am {0} years old. I live in {city}'.format('32', 'Mark', city='Denver'))
+        Hello. My name is Mark. I am 32 years old. I live in Denver
+
+        #Manual string formatting allows another to format strings, and is often used with repr()
+        #repr() takes and object and returns a string representation of it
+        &gt;&gt;&gt; cities = ['Chicago', 'Portland', 'Denver', 'Seattle']
+        &gt;&gt;&gt; print('\nThe cities are: ' + repr(cities) + f'. There are {4} cities in ' + repr(10) + ' states.')
+
+        The cities are: ['Chicago', 'Portland', 'Denver', 'Seattle']. There are 4 cities in 10 states.
+
+        &gt;&gt;&gt; def double(n):
+        &gt;&gt;&gt;     return n * 2
+
+        &gt;&gt;&gt; print('\nThree doubled is ' + repr(double(3)) + '\n')
+
+        Three doubled is 6
+
+        &gt;&gt;&gt; for x in range(1, 10):
+        &gt;&gt;&gt;     print(repr(x), repr(x*x).rjust(2), repr(x**3).rjust(4))
+
+        1  1    1
+        2  4    8
+        3  9   27
+        4 16   64
+        5 25  125
+        6 36  216
+        7 49  343
+        8 64  512
+        9 81  729
+
+        </code>
+      </pre>
+    </section>
+
+    <section>
+      <h2>Python - File & <i>input()</i> I/O</h2>
+      <pre><code class='python'>
+        #Python's open() method opens a file in a specific read/write mode and assigns the file to a file object
+        #Various methods, such as read(), write(), readline(), etc. can then be called on that object for interaction with the file
+        &gt;&gt;&gt; file = open('read_me.txt', 'r+')
+
+        #Can read whole file (or up to a max num chars/bytes, if pass in 'size' arg) by calling read() on file object
+        &gt;&gt;&gt; print(file.read(150))
+        This is the first line
+
+        The second line is a blank line. This is the third line.
+        This is the fourth line. It is a long line. Whenever I find myself g
+
+        #Python uses pointer for file interaction. A read(50) reads to the 50th char. A following read() would start at the 51st char.
+        #To set the pointer position, use seek(offset, position) where 'position' specifies where to start,
+        #and offset moves pointer by n from that char/byte.
+        #Note that seeking is limited to only end of file last char and start of file offsets for text file objects
+        &gt;&gt;&gt; file.seek(0)
+        &gt;&gt;&gt; print(file.readline())
+
+        This is the first line
+
+        &gt;&gt;&gt; file.seek(400, 0)
+        &gt;&gt;&gt; print(file.readline())
+
+        er hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street,
+        and methodically knocking hats off - then, I account it high time to get to sea as soon as I can.
+
+        #Get current pointer position with .tell()
+        &gt;&gt;&gt; print(file.tell())
+        621
+
+        #list(file_var) and file_var.readlines() will both return a list of a file, one line per index for text files
+        &gt;&gt;&gt; file.seek(0)
+        &gt;&gt;&gt; print(repr(list(file)))
+
+        ['This is the first line\n', '\n', 'The second line is a blank line. This is the third line.\n', "This is the fourth line. It is
+         a long line. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever
+         I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially
+         whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately
+         stepping into the street, and methodically knocking people's hats off - then, I account it high time to get to sea as soon
+         as I can.\n"]
+
+        #Write fo file via write() method which takes in a string for text files or byte object for binary
+        #write(), like read, writes from current pointer, so be careful of accidental overwriting
+        &gt;&gt;&gt; file.seek(0, 2)
+        &gt;&gt;&gt; for line in range(4):
+        &gt;&gt;&gt;     file.write(f"I am new line {line}
+        &gt;&gt;&gt; ")
+        &gt;&gt;&gt; file.seek(0)
+        &gt;&gt;&gt; print(file.read())
+
+        This is the first line
+
+        The second line is a blank line. This is the third line.
+        This is the fourth line. It is a long line. Whenever I find myself growing grim about the mouth; whenever it is a damp,
+        drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the
+        rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong
+        moral principle to prevent me from deliberately stepping into the street, and methodically knocking hats off -
+        then, I account it high time to get to sea as soon as I can.
+        I am new line 0
+        I am new line 1
+        I am new line 2
+        I am new line 3
+
+        #Can read user input through use of input(), which pauses script, asks for input, then returns input in string and continues
+        &gt;&gt;&gt; age = input("Hello. How old are you?:")
+        &gt;&gt;&gt; print(f"Your age is {age}. You will be 100 in {100 - int(age)} years.")
+        Hello. How old are you?:
+        32
+        Your age is 32. You will be 100 in 68 years.
+        </code>
+      </pre>
+    </section>
+
+    <section>
+      <h2>Python - While Loops</h2>
+      <pre><code class='python'>
+        #While loop is in standard for of 'while condition:'
+        &gt;&gt;&gt; message = ''
+        &gt;&gt;&gt; while message != 'quit':
+        &gt;&gt;&gt;     message = input("Enter a message to be repeated or type quit to exit: ")
+        &gt;&gt;&gt;     print(message)
+
+        Enter a message to be repeated or type quit to exit: First message
+        First message
+        Enter a message to be repeated or type quit to exit: Hey look, another input
+        Hey look, another input
+        Enter a message to be repeated or type quit to exit: quit
+        quit
+
+        #While loops can be used to iterate through a collection, like for loops
+        &gt;&gt;&gt; full_list = ["One", "Red", 3, ["Inner", "List"]]
+        &gt;&gt;&gt; empty_list = []
+
+        &gt;&gt;&gt; while full_list:
+        &gt;&gt;&gt;     empty_list.append(full_list.pop(0))
+
+        &gt;&gt;&gt; print(repr(empty_list))
+
+        ['One', 'Red', 3, ['Inner', 'List']]
+
+        #'while' combined with 'in' and 'remove()' makes a nice way to remove all X from list
+        &gt;&gt;&gt; colors = ["red", "blue", "red", "yellow", "black", "red"]
+
+        &gt;&gt;&gt; while "red" in colors:
+        &gt;&gt;&gt;     colors.remove("red")
+
+        &gt;&gt;&gt; print(repr(colors))
+
+        ['blue', 'yellow', 'black']
+
+        </code>
+      </pre>
+    </section>
+
     <br><br>
 
   </main>
