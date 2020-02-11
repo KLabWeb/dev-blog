@@ -36,13 +36,14 @@
         <!-- <li><a href="../practice-weeks/week23-practice.php" title="Next Work">Next Work</a></li> -->
         <li><a href="../roadmap.html" title="Roadmap">Roadmap</a></li>
         <li><select class="hide-select" onchange="location = this.value;" target="_blank">
-              <option value="" class='hide-option'>Notes</option>
-              <option value="../notes/jQuery.pdf" title="jQuery Studies in PDF">jQuery</option>
+              <option class="hide-option" value="">Notes</option>
+              <option value="../notes/Laravel6.pdf" title="Laravel Studies in PDF">Laravel</option>
               <option value="../notes/Python.pdf" title="Python Studies in PDF">Python</option>
+              <option value="../notes/PHP7.pdf" title="PHP Studies in PDF">PHP</option>
               <option value="../notes/Architecture-I.pdf" title="Design Studies in PDF">Software Design</option>
+              <option value="../notes/jQuery.pdf" title="jQuery Studies in PDF">jQuery</option>
               <option value="../notes/React-II.pdf" title="React Studies in PDF">REACT II</option>
               <option value="../notes/MySQL.pdf" title="React Studies in PDF">MySQL & DB Design</option>
-              <option value="../notes/PHP7.pdf" title="PHP Studies in PDF">PHP</option>
               <option value="../notes/Functional-JS-I.pdf">Functional JS</option>
               <option value="../notes/React-I.pdf">React</option>
               <option value="../notes/Git.pdf">Git</option>
@@ -53,10 +54,10 @@
         </li>
         <li><select class="hide-select" onchange="location = this.value;">
               <option class="hide-option" value="">Learning Resources</option>
+              <option value="https://laravel.com/docs/6.x">Laravel Official Docs</option>
               <option value="../notes/python-crash-course.pdf">Python Crash Course</option>
               <option value="https://docs.python.org/3/tutorial/index.html">Python Official Docs</option>
               <option value="https://reactjs.org/docs/getting-started.html">React Official Docs</option>
-              <option value="https://www.udemy.com/course/complete-react-developer-zero-to-mastery/">Complete React 2020 Course</option>
               <option value="../notes/php-mysql-js-jquery.pdf">Learning PHP, MySQL & JS</option>
               <option value="../notes/Prof-Frisby-Funct-JS.pdf">Prof Frsiby's Functional JS</option>
               <option value="../notes/eloquent-javascript.pdf">Eloquent JavaScript</option>
@@ -403,6 +404,75 @@
       </pre>
     </section>
 
+    <section>
+      <h2>PHP - Namespaces</h2>
+      <pre><code class='php'>
+        //Namespaces allow you to segregate functions, consts, and classes similar to how you would in a directory structure
+        //This prevents nameclashes when using classes, etc. across multiple packages
+        //Below is an example of two classes with the same name, both being used in the same requiring class, through seperate Namespaces
+
+        //---dog.php---
+        &lt;?php
+
+        //create namespace
+        namespace canine\dog;
+
+        class dog{
+          private $name;
+
+          function __construct($name){
+            $this->name = $name;
+          }
+
+          function get_name(){
+            echo "dog.php name is: $this->name";
+          }
+        }
+        ?&gt;
+
+
+        //---canine.php---
+        &lt;?php
+
+        //create another namespace
+        namespace dog\big;
+
+        //same class name as dog.php
+        class dog{
+          private $name;
+
+          function __construct($name){
+            $this->name = $name;
+          }
+
+          function get_name(){
+            echo "canine.php name is: $this->name";
+          }
+        }
+        ?&gt;
+
+
+        //---week22-practice.php---
+        require_once('dog.php');
+        require_once('canine.php');
+
+        //shorten with alias
+        use \canine\dog\dog as dogA;
+        use \dog\big\dog as dogB;
+
+        $testDog = new dogA("Spot");
+        $anotherDog = new dogB("Yang Wen-li");
+
+        echo $testDog->get_name();      //Spot
+        echo $anotherDog->get_name();   //Yang Wen-li
+
+        //reference via full namespace
+        $longPathDog = new \canine\dog\dog("Killer");
+        echo $longPathDog->get_name();  //killler
+
+        </code>
+      </pre>
+    </section>
     <br><br>
 
   </main>
