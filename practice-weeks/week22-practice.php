@@ -531,6 +531,16 @@
       </div>
     </section>
 
+<<<<<<< HEAD
+=======
+    <section>
+      <h2>Object Oriented Foundations (Review)</h2>
+      <div class='plaintext notes-block'>
+          <a href="../notes/OO_Thought_Process-Notes.pdf">READ NOTES HERE</a>
+      </div>
+    </section>
+
+>>>>>>> master
     <br><br>
 
   </main>

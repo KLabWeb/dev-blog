@@ -52,3 +52,13 @@ pre:not(.code_description), .plaintext{
 .margin-li{
   margin-top: 10px;
 }
+<<<<<<< HEAD
+=======
+
+.notes-block{
+  text-align: center;
+  box-sizing: border-box;
+  padding: 50px;
+  width: 1420px;
+}
+>>>>>>> master
