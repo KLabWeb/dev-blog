@@ -516,7 +516,7 @@
             <ol type="I">
               <li>Undetermined learning resource(s)</li>
             </ol>
-          </li>
+          </li> 
           <li class="margin-li"><b>Python</b> - in concurrence with above</li>
           <li>
             <ol type="I">
@@ -531,8 +531,6 @@
       </div>
     </section>
 
-<<<<<<< HEAD
-=======
     <section>
       <h2>Object Oriented Foundations (Review)</h2>
       <div class='plaintext notes-block'>
@@ -540,7 +538,6 @@
       </div>
     </section>
 
->>>>>>> master
     <br><br>
 
   </main>
