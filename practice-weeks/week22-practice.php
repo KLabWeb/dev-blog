@@ -37,6 +37,7 @@
         <li><a href="../roadmap.html" title="Roadmap">Roadmap</a></li>
         <li><select class="hide-select" onchange="location = this.value;" target="_blank">
               <option class="hide-option" value="">Notes</option>
+              <option value="../notes/OO_Thought_Process-Notes.pdf" title="OOP Studies in PDF">OO Thought Process</option>
               <option value="../notes/Laravel6.pdf" title="Laravel Studies in PDF">Laravel</option>
               <option value="../notes/Python.pdf" title="Python Studies in PDF">Python</option>
               <option value="../notes/PHP7.pdf" title="PHP Studies in PDF">PHP</option>
@@ -54,6 +55,7 @@
         </li>
         <li><select class="hide-select" onchange="location = this.value;">
               <option class="hide-option" value="">Learning Resources</option>
+              <option value="../notes/OO-Thought-Process.pdf">Object Oriented Thought Process</option>
               <option value="https://laravel.com/docs/6.x">Laravel Official Docs</option>
               <option value="../notes/python-crash-course.pdf">Python Crash Course</option>
               <option value="https://docs.python.org/3/tutorial/index.html">Python Official Docs</option>
@@ -473,6 +475,69 @@
         </code>
       </pre>
     </section>
+
+    <section>
+      <h2>Checkpoint</h2>
+      <div class='plaintext' class='p-span'>
+        <p>
+          At my current job, the bulk of my work is procedural and the bulk the codebase here was built very direct dependency heavy, in an unnavigable relational web. The code was simply built, "to work," with zero thought for design or long term implications of this towards extensibility, scalability, etc.. I feel this a deep folly and a poor way of implementing things.
+        </p>
+        <p>
+          Last month, I was put in charge of a long term project of re-designing and re-building our existing primary customer and internal API, which is currently a hodge podge of procedural code written by many people over the years. In order to due this effectively, though, I need to have a strong understanding of design principles and the foundational thought process behind object oriented design. While it is easy to understand the basics of encapsulation, inheritance, etc., getting a true understanding on topics like dependency injection is not as fast.
+        </p>
+        <p>
+          Thus, I started reading, "Clean Architecture," by Robert C. Martin. A third of the way into it, while I found it to be a nice quick overview of many design concepts and theory principles, it was too terse and quick moving for what I was looking for. Then, looking more at PHP frameworks used in API design and implementation, I realized a lot of OO and other principles are covered by frameworks from the get go (ex. Laravel as an MVC framework, handling dependency injection, autoloading, etc. largely automatically by design).
+        </p>
+        <p>
+          So, I started studying Laravel. But as I got further into it, and the docs started talking about how service workers in part handle dependency injection, again I found myself lacking foundational knowledge. Being someone who only knows how to use an implementation of knowledge instead of also holding that knowledge is not something I want to be as a dev. I will not be the guy who just knows a bunch of frameworks, while totally lacking in the core theory and design concepts those frameworks are built on and implement.
+        </p>
+        <p>
+          So thus, I go back to the requirements of core design and architecture understanding as desired before using frameworks which implement them. Given this current path, here is what I'm planning for coming studies:
+        </p>
+
+        <ol class="no-margin" type="none">
+          <li class="margin-li"><b>OOP & OOD</b> - foundations first</li>
+          <li>
+            <ol type="I">
+              <li>"The Object-Oriented Thought Process" --> review of base OOP, why OOP?</li>
+              <li>"Head First Design Patterns" --> more details and further into OOD</li>
+            </ol>
+          </li>
+          <li class="margin-li"><b>Laravel & PHP</b> - implementation of foundations</li>
+          <li>
+            <ol type="I">
+              <li>Laravel official docs</li>
+              <li>Laracasts</li>
+              <li>"Modern PHP: New Features and Good Practices"</li>
+            </ol>
+          </li>
+          <li class="margin-li"><b>API Design</b> - the API itself</li>
+          <li>
+            <ol type="I">
+              <li>Undetermined learning resource(s)</li>
+            </ol>
+          </li>
+          <li class="margin-li"><b>Python</b> - in concurrence with above</li>
+          <li>
+            <ol type="I">
+              <li>Python official docs</li>
+              <li>"Python Crash Course"</li>
+            </ol>
+          </li>
+          <p>
+            That of course also means that Laravel goes on hold until I have a better understanding of the foundations the build the framework and align how it works, which removes actual practical application of this common framework; not ideal for while also hunting a new dev job. Still I'd rather go down the right path for foundational learning, than the rushed path for partial understanding and something I can slap on my resume or use as an interview talking piece.
+          </p>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Object Oriented Foundations (Review)</h2>
+      <div class='plaintext notes-block'>
+          <a href="../notes/OO_Thought_Process-Notes.pdf">READ NOTES HERE</a>
+      </div>
+    </section>
+
     <br><br>
 
   </main>
