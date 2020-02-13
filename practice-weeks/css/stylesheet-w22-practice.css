@@ -4,11 +4,11 @@ body{
 main{
   padding-left: 20px
 }
-main ul{
+main ul:not(.no-margin){
   margin-left: 70px;
 }
 
-code.python, code.php, .table-container, p, code.jsx, code.jquery{
+code.python, code.php, .table-container, code.jsx, code.jquery, .plaintext{
   width: 1400px;
 }
 
@@ -20,7 +20,7 @@ section{
   margin-top: 70px;
 }
 
-h2, p{
+h2{
   margin-left: 3vw;
   margin-right: 3vw;
 }
@@ -30,9 +30,25 @@ h3, img{
 h5{
   margin-top: 0;
 }
-p{
+p, .p-span{
   font-size: 1.8rem;
 }
-pre:not(.code_description){
+pre:not(.code_description), .plaintext{
   margin-left: 115px;
+}
+
+.plaintext{
+  display: block;
+  overflow-x: auto;
+  background: black;
+  color: #eaeaea;
+  padding: 0.5em;
+}
+
+.plaintext > * {
+  padding: 0 75px;
+}
+
+.margin-li{
+  margin-top: 10px;
 }
