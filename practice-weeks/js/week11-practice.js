@@ -54,7 +54,7 @@ document.getElementById('book-form').addEventListener("submit", event => {
       section.removeChild(document.getElementById("the-book"));
 
     //fetch book from google api based on input from form "book-section"
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=${document.getElementById('book-input').value}`, {headers: {"Access-Control-Allow-Origin": '*'}})
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=${document.getElementById('book-input').value}`)
     .then(resp => resp.json())
     .then(json => {
       //create book with unique id to allow removal for next book
