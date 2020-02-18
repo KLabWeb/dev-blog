@@ -33,7 +33,7 @@
         <li><a href="../index.html" title="Home">Home</a></li>
         <li><a href="../practice-weeks/week21-practice.php" title="Previous Work">Previous Work</a></li>
         <li><a href="../study-weeks/week22.html" title="Week Log">Week Log</a></li>
-        <!-- <li><a href="../practice-weeks/week23-practice.php" title="Next Work">Next Work</a></li> -->
+        <li><a href="../practice-weeks/week23-practice.php" title="Next Work">Next Work</a></li>
         <li><a href="../roadmap.html" title="Roadmap">Roadmap</a></li>
         <li><select class="hide-select" onchange="location = this.value;" target="_blank">
               <option class="hide-option" value="">Notes</option>
@@ -71,10 +71,6 @@
   </div>
 
   <main>
-
-    <!-- <section>
-      <h2></h2>
-    </section> -->
 
     <section>
       <h2>Python - Sequences (cont.)</h2>
@@ -545,7 +541,5 @@
 </body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="js/hide-option.js"></script>    <!---requires jQuery-->
-<!-- <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script> -->
 
-</html
+</html>
