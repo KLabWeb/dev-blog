@@ -46,38 +46,32 @@
         <article id="resources">
             <h2>General Primary Learning Resources</h2>
             <ul>
-                <li>Books w/ strong focus on foundations (avoiding "cookbook" focused books during initial learning, which tend to gloss over theory too heavily)</li>
-                <li>Official docs &amp; <a href="https://developer.mozilla.org/en-US/docs/Web/Tutorials" title="MDN Dev Guides">Mozilla Developer Network web guides</a></li>
+                <li>Books with strong focus on foundations, principles, and theory (avoiding "cookbook" style books, which tend to gloss over theory and depth too heavily)</li>
+                <li>Official documentation</li>
                 <li>Personal projects. Smaller daily work as I study, then larger projects with the completion of major topics</li>
-                <li>Open source projects to, jobs, and contract work from gig sites</li>
-                <li>Web courses &amp; code challenge sites: &#40;Udemy, Odin Project, Code Wars, etc.&#41;</li>
-                <li>Networking and meeting people via local tech events, local hackerspace, user groups, etc.</li>
+                <li>Experience from employment and working with other developers</li>
+                <li>Web courses &amp; coding challenges for more practical work</li>
             </ul>
             <hr>
         </article>
 
         <article id="set-up">
-            <h2>I. Basic Dev Environment</h2>
+            <h2>I. Basic Dev Environment<span class='here'> &lt;-- Completed</span></h2>
 
             <ul>
-                <li>OS: Linux</li>
-
-                <li>Text Editors: Atom, emacs:
-                  <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/index.html" title="emacs official doc" target="_blank">emacs official doc</a>,
-                  <a href="http://spacemacs.org/doc/DOCUMENTATION.html" title="Spacemacs official doc" target="_blank">Spacemacs official doc</a>. Vim cheatsheets. Use of Atom & extensions for familiarity with.
-                </li>
-
-                <li>Browser: Firefox + Reac Developer Tools</li>
+                <li>OS: Debian, OS X</li>
+                <li>Text Editors & IDE: Atom, PHPStorm</li>
+                <li>Database Visualization: MySQL Workbench, DBeaver</li>
                 <li>Image Editing: Gimp, Photoshop</li>
-                <li>Deployment Tools: Github w/ SSH & webhooks, Docker, FTP</li>
-                <li>Version Control: Git, Github via <a href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control" title="Getting Started About Version Control" target="_blank">official docs</a></li>
+                <li>Deployment Tools: Github w/ webhooks, Docker, SSH</li>
+                <li>Version Control: Git, Github</li>
                 <li>VPS: Digital Ocean w/ Nginx</li>
             </ul>
             <hr>
         </article>
 
         <article id="front-end-basics">
-            <h2>II. Front End I</h2>
+            <h2>II. Front End I<span class='here'> &lt;-- Completed</span></h2>
 
             <h4 id="HTML-I">HTML5</h4>
             <ul>
@@ -102,7 +96,7 @@
                 <li>CSS basic layout: normal, absolute, relative, sticky, float, etc.</li>
                 <li>Flex and Grid layouts + media queries</li>
                 <li>Responsive web design to ensure proper styling for smartphones, tablets, etc.</li>
-                <li>Make at least 5 pages - focus on structure, not making them pretty</li>
+                <li>Make at least 5 pages - focus on structure and making them pretty</li>
             </ul>
 
             <h4 id="JS-I">JavaScript</h4>
@@ -128,99 +122,52 @@
 
             <h4>Additional</h4>
             <ul>
-                <li>Set up webserver for hosting site and projects: Digital Ocean, Nginx, SSH, DNS, SSL, firewall, etc.</li>
+                <li>Set up web server for hosting site and projects: Digital Ocean, Nginx, SSH, DNS, SSL, firewall, etc.</li>
                 <li>Github in detail + SSH</li>
             </ul>
             <hr>
         </article>
 
         <article id="job-first">
-            <h2>III. First Dev Job - Full Stack Developer II - March 2010 to Current <span class='here'> &lt;-- I am here</span></h2>
+            <h2>III. First Dev Job - Full Stack Developer II - March 2010 to Current <span class='here'> &lt;-- In Progress</span></h2>
             <ul>
-              <li>HTML</li>
-              <!-- <li class="embedded-list">
-                <ul>
-                  <li>HTML included in PHP files</li>
-                  <li>Lots of inline PHP in HTML, including inline logic</li>
-                  <li>Built using Bootstrap 3 layout for skeleton</li>
-                </ul>
-              </li> -->
-
-              <li>CSS</li>
-              <!-- <li class="embedded-list">
-                <ul>
-                  <li>No frameworks allowed</li>
-                  <li>Bootstrap 3 for layout</li>
-                  <li>Required to use templates made in 2013</li>
-                  <li>Tables styled by Datatables</li>
-                  <li>Little to no use of flex, grid, media queries</li>
-                </ul>
-              </li> -->
-
-              <li>JS</li>
-              <!-- <li class="embedded-list">
-                <ul>
-                  <li>No frameworks allowed</li>
-                  <li>Mostly used to populate front-end via AJAX calls to PHP files that query DBs and return JSON, or that take in JSON and update DB</li>
-                  <li>Some handling functions to re-render after state change, but site UI mostly used for AJAX tasks</li>
-                </ul>
-              </li> -->
-
-              <li>PHP</li>
-              <!-- <li class="embedded-list">
-                <ul>
-                  <li>No frameworks allowed</li>
-                  <li>Mostly procedural scripts, sometimes classes.</li>
-                  <li>Mostly MySQL interaction. Lots of interaction with different tables, building arrays of each result, then creating relationships between them, as well as doing calculations on combine results to make summaries, etc.</li>
-                  <li>Lots of $_REQUEST use to take in params for queries.</li>
-                </ul>
-              </li> -->
-
-              <li>MySQL</li>
-              <!-- <li class="embedded-list">
-                <ul>
-                  <li>Mostly pulling from about 10 tables, but with strange relationships updated to fix old model with different relationships, but with resulting strange relational model</li>
-                  <li>Queries revolve around calls to <i>class.db</i>, which uses dated PHP calls <i>mysql_query(), mysql_fetch_array(), mysql_free_results(),</i> etc.</li>
-                </ul>
-              </li> -->
-
-              <li>JQuery - for shorthand, especially using AJAX</li>
-              <li>Bootstrap 3 - used in most existing layouts. Preferred using Grid and Flex myself, as Bootstrap 3 had many issues.</li>
-              <li>AJAX + JSON - JSON as primary result returned from AJAX requests, mostly from DBs, sometimes APIs.</li>
-              <li>Nginx - didn't work with it at all on the job, but did a lot on my own VPS webserver, setting up SSH, SSL, firewall, program environment, etc..</li>
-              <li>Crontab - for managing PHP cron jobs</li>
-              <li>Dev environment: OSX, PHPStorm, Atom, MySQLWorkbench, Github</li>
+              <li>Stack: HTML, CSS, JS, Bootstrap, jQuery, DataTables, PHP, MySQL</li>
+              <li>Web Server: Nginx
+              <li>Automation: Crontab</li>
+              <li>Dev environment: OS X, Debian, PHPStorm, Atom, MySQLWorkbench, Github</li>
             </ul>
             <hr>
 
         </article>
 
         <article id="soft-arch">
-            <h2>IV. Software Architechture - OOP <span class='here'> &lt;-- I am here</span></h2>
+            <h2>IV. Software Architecture - OOP <span class='here'> &lt;-- In Progress</span></h2>
 
-            <p>A bulk of this will be review of already learned design patterns and principles, as learned from college and personal studies after school, but since first dev job has largely been procedural PHP, with only scant OOP mixed in, will be useful to do some large reviews and expansion of software design and architechture knowledge. Can then do personal project work back end in object-oriented and front in in functional for a bit, to get more architechture/design practice in both paradigms.</p>
+            <p>A bulk of this will be review of already learned design patterns and principles, as learned from college and personal studies after school, but since first dev job has largely been procedural PHP, with only scant OOP mixed in, will be useful to do some large reviews and expansion on software design and architecture knowledge. Will then do personal project work, back-end in object-oriented and front-end in functional for a bit, to get more architecture/design practice in both paradigms.</p>
             <br>
-            <p>Also re-doing the existing API for one of our main softwares at work. Old API is a hodge podge of largely procedural code, pieced together by a variety of devs over time, with little design and resulting slew of problems, like conflicting data being returned. New API will be in OO design, focusing on DRY, SOLID, etc. code, with proper single responsibility classes, seperation of interace and logic, strong exensibility, hig readability, etc.</p>
+            <p>Also re-doing the existing API for one of our main software at work. Old API is a hodge podge of largely procedural code, pieced together by a variety of devs over time, with little design considerations, resulting slew of problems, like conflicting data being returned, and very high coupling. New API will be in OO design, focusing on DRY and SOLID principles, with proper single responsibility classes, separation of interface and implementation, strong extensibility, high readability, greater flexibility and re-usability etc.</p>
             <br>
             <ul>
               <li>Learning Resources:</li>
               <ul>
-                <li><i>Clean Architecture: A Craftsman's Guide to Software Structure and Design</i>, Robert Martin &#40;2017&#41; - paradigms, design principles & patterns, component principles & patterns, layered architecture design, testing, etc.<span class='here'> &lt;-- I am here</span></li>
-                <li><i>Design Patterns: Elements of Reusable Object-Oriented Software</i>, Gang of Four &#40;1994&#41; - design patterns overview, creational patterns, structural patterns, behavioral patterns, foundation classes, etc.</li>
+                <li><i>The Object Oriented Thought Process </i>, Matt Weisfeld &#40;2019, 5th ed.&#41; - Review of OOP concepts and foundations, such as interfaces, abstract classes, polymorphism, inheritance, encapsulation, composition, aggregation, proper decoupling, SOLID principles, etc.<span class='here'> &lt;-- completed</span></li>
+                <li><i>Clean Architecture: A Craftsman's Guide to Software Structure and Design</i>, Robert Martin &#40;2017&#41; - paradigms, design principles & patterns, component principles & patterns, layered architecture design, testing, etc.<span class='here'> &lt;-- 1/3rd complete</span></li>
+                <li><i>Head First Design Patterns</i>, multiple authors &#40;2004&#41; - creational patterns, structural patterns, behavioral patterns, foundation classes, SOLID, DRY, etc.<span class='here'> &lt;-- just started reading</span></li>
                 <li><i>Refactoring: Improving the Design of Existing Code</i>, Martin Fowler &#40;1999&#41; - principles of refactoring, bad code, building tests, composing methods, re-organizing features, organizing data, simplification, de-generalizing, re-usability, etc.</li>
                 <li><i>Agile Software Development, Principles, Patterns, and Practices</i>, Robert Martin &#40;2002&#41; - foundations of Agile, Agile design & SOLID, case studies, UML notation, etc.</li>
-                <li><i>Applying UML and Patterns: An Intro to Object-Oriented Analysis and Design and Iterative Development</i>, Craig Larman &#40;2004, 3rd ed.&#41; - OO analysis &amp; design, iterative &amp; evolutionary desigm, inception, elaborate iteration, case studies, etc.</li>
-                <li><i>Clean Code: A Handbook of Agile Software Craftsmanship</i>, Robert Martin &#40;2008&#41; - bad code, clean functions, formatting, data structures &amp; abstraction, error handling, testing, class organiztion, system organization, concurrency, etc.</li>
+                <li><i>Applying UML and Patterns: An Intro to Object-Oriented Analysis and Design and Iterative Development</i>, Craig Larman &#40;2004, 3rd ed.&#41; - OO analysis &amp; design, iterative &amp; evolutionary design, inception, elaborate iteration, case studies, etc.</li>
+                <li><i>Clean Code: A Handbook of Agile Software Craftsmanship</i>, Robert Martin &#40;2008&#41; - bad code, clean functions, formatting, data structures &amp; abstraction, error handling, testing, class organization, system organization, concurrency, etc.</li>
                 <li><i>PHP Objects, Patterns, Practice</i>, Matt Zandstra &#40;2016, 5th ed.&#41; - objects, object design, design patterns, enterprise patterns, database patterns, PHP standards, Vagrant, PHPUnit testing</li>
+
               </ul>
              </ul>
              <hr>
         </article>
 
         <article id="front-end-intermediate">
-            <h2>V. Front End II</h2>
+            <h2>V. Front End II<span class='here'> &lt;-- In Progress</span></h2>
 
-            <h4 id="react-i">React    <span class='here'>    &lt;-- I am here</span></h4>
+            <h4 id="react-i">React</h4>
             <ul>
               <li>Learning Resources:</li>
               <ul>
@@ -251,7 +198,7 @@
               <li>Learning Resources:</li>
               <li class="embedded-list">
                 <ul>
-                  <li>Primary: <a href="https://github.com/MostlyAdequate/mostly-adequate-guide" target="_blank" title="Professor Frisby's Functional JS">Professor Frisby's Mostly Adequate Guide to Functional Programming</a></li>
+                  <li>Primary: <a href="https://github.com/MostlyAdequate/mostly-adequate-guide" target="_blank" title="Professor Frisby's Functional JS">Professor Frisby's Mostly Adequate Guide to Functional Programming</a><span class='here'> &lt;-- about 1/2 read</span></li>
                   <li><a title="Functional JS Course" href="https://www.udemy.com/course/functional-programming-for-beginners-with-javascript/">Functional Programming With JavaScript</a> Udemy course</li>
                 </ul>
               </li>
@@ -264,7 +211,7 @@
               <li>Pure functions</li>
               <li>Partial application</li>
               <li>Currying</li>
-              <li>Composition</li>
+              <li>Composition<span class='here'> &lt;-- I am here<span></li>
               <li>Hindley-Milner</li>
               <li>Monads</li>
               <li>Functors</li>
@@ -282,54 +229,53 @@
         </article>
 
         <article id="back-end">
-            <h2>VI. Back End II</h2>
+            <h2>VI. Back End II<span class='here'> &lt;-- In Progress<span></h2>
 
-            <h4 id="python">Python + Django <span class='here'> &lt;-- I am here</span></h4>
+            <h4 id="python">Python + Django</h4>
             <ul>
                 <li>Learning Resources:</li>
                 <li class="embedded-list">
                   <ul>
-                      <li>Primary: <a href="https://docs.python.org/3/tutorial/index.html" title="Python Docs">Python Official Docs</a></li>
-                      <li><a href="https://ehmatthes.github.io/pcc/" title="Python Crash Course">Python Crash Course</a> &#40;2019, 2nd&#41;</li>
+                      <li>Primary: <a href="https://docs.python.org/3/tutorial/index.html" title="Python Docs">Python Official Docs</a><span class='here'> &lt;-- about 3/4 read<span></li>
+                      <li><a href="https://ehmatthes.github.io/pcc/" title="Python Crash Course">Python Crash Course</a> &#40;2019, 2nd&#41;<span class='here'> &lt;-- about 1/2 read<span></li>
                       <li><a href="https://automatetheboringstuff.com/" title="Automate the Boring Stuff">Automate the Boring Stuff with Python</a> &#40;2015, 1st&#41;</li>
                   </ul>
                 </li>
                 <br>
-                <li>The basics: variables, data types &amp; structures, operators, conditionals, dictionaries, functions & methods, etc. <span class='here'> &lt;-- I am here</span></li>
+                <li>The basics: variables, data types &amp; structures, operators, conditionals, dictionaries, functions & methods, etc.</li>
+                <li>Scope</li>
+                <li>Command line tools</li>
+                <li>Error handling and exceptions</li>
+                <li>Modules and packages</li>
+                <li>Package distribution</li>
+                <li>File handling <span class='here'> &lt;-- I am here</span></li>
+                <li>OOP in Python</li>
                 <li>Testing</li>
                 <li>Concurrency</li>
                 <li>Database interaction</li>
-                <li>Commandline tools</li>
-                <li>UI int</li>
-                <li>Scope</li>
-                <li>Modules and packages</li>
-                <li>Error handling and exceptions</li>
-                <li>Classes and functional programming</li>
-                <li>Exercises from Code Wars and books</li>
-                <li>File handling</li>
                 <li>Rest API interaction</li>
                 <li>CRUD with Python</li>
                 <li>OWASP guidelines</li>
-                <li>Package distribution</li>
+
                 <li>Basics of use in automation, machine learning, web scraping</li>
                 <br>
                 <li>Django</li>
             </ul>
 
-            <h4 id="laravel">Laravel <span class='here'> &lt;-- I am here</span></h4>
+            <h4 id="laravel">Laravel</h4>
             <ul>
                 <li>Learning Resources:</li>
                 <li class="embedded-list">
                   <ul>
-                      <li>Primary: <a href="https://laravel.com/docs/6.x" title="Laravel Docs">Laravel Official Docs</a></li>
+                      <li>Primary: <a href="https://laravel.com/docs/6.x" title="Laravel Docs">Laravel Official Docs</a> <span class='here'> &lt;-- Still early on in</span></li>
                       <li><a href="https://laracasts.com" title="Laracasts">Laracasts</a></li>
                   </ul>
                 </li>
                 <br>
                 <li>Basic installation, config, homestead, deployment, etc.</li>
-                <li>Architecture Concepts</li>
-                <li>Basics of framework: routing, controllers, requests/responses, views, etc.</li>
-                <li>Front End: Blade templates, localization, scaffolding, etc.</li>
+                <li>Architecture concepts</li>
+                <li>Basics of framework: routing, controllers, requests/responses, views, etc. <span class='here'> &lt;-- I am here</span></li>
+                <li>Front-end: Blade templates, localization, scaffolding, etc.</li>
                 <li>Security: auth, API auth, encryption, hashing, etc.</li>
                 <li>DB: query builder, pagination, migrations, etc.</li>
                 <li>Eloquent ORM: relationships, collections, mutators, etc.</li>
@@ -348,7 +294,7 @@
 
 
         <article id="devops-add">
-            <h2>VIII. Extra</h2>
+            <h2>VII. Extra</h2>
             <ul>
               <li>Auth - OAth, Basic Auth, Token Auth, JWT, OpenIDRabbitMQ</li>
               <li>Elastisearch - search engine</li>
@@ -361,7 +307,7 @@
               <li>Advanced Unix Shell & BASH</li>
               <li>NPM Script - task runner</li>
               <li>underscore.js - utility library useful for functional programming for iteration, chaining, immutability, composite function creation, etc.</li>
-              <li>Ramda.js - another functional library, but w/ all functions auto-curried, no side effects allow, point-free code favored, and some additional useful utilities</li>
+              <li>Ramda.js - another functional library, but w/ all functions auto-curried, no side effects allowed, point-free code favored, and some additional useful utilities</li>
               <li>Chart.js - "simple, clean and engaging HTML5 based JavaScript charts"</li>
             </ul>
             <hr>
