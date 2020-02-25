@@ -476,19 +476,19 @@
       <h2>Checkpoint</h2>
       <div class='plaintext' class='p-span'>
         <p>
-          At my current job, the bulk of my work is procedural and the bulk the codebase here was built very direct dependency heavy, in an unnavigable relational web. The code was simply built, "to work," with zero thought for design or long term implications of this towards extensibility, scalability, etc.. I feel this a deep folly and a poor way of implementing things.
+          At my current job, the bulk of my work is adding procedural code to existing procedural code. Unfortunately, the codebase is very old, was built with very little design prior, and has very tight coupling and poor encapsulation, single responsibility, etc.. Also, the manager here is very resistant to re-factoring. While new code I write is more organized, with distinct seperation between front-end views and back end implementation, since this is not an OOP shop, my OO is a bit rusty, having not worked much with it since Java in 2014, and some with React and JavaScript last year &#40;before switching to functional programming for front-end shortly after&#41;.
         </p>
         <p>
-          Last month, I was put in charge of a long term project of re-designing and re-building our existing primary customer and internal API, which is currently a hodge podge of procedural code written by many people over the years. In order to due this effectively, though, I need to have a strong understanding of design principles and the foundational thought process behind object oriented design. While it is easy to understand the basics of encapsulation, inheritance, etc., getting a true understanding on topics like dependency injection is not as fast.
+          Last month, I was put in charge of the long term project of re-designing and re-building our existing primary customer and internal facing API, which is currently a hodge podge of procedural code written by many people over the years. Since I will be doing this OO, I want to brush up on my OO foundations and review design patterns, as well as SOLID principles, like dependency inversion and injection, first.</p>
         </p>
         <p>
-          Thus, I started reading, "Clean Architecture," by Robert C. Martin. A third of the way into it, while I found it to be a nice quick overview of many design concepts and theory principles, it was too terse and quick moving for what I was looking for. Then, looking more at PHP frameworks used in API design and implementation, I realized a lot of OO and other principles are covered by frameworks from the get go (ex. Laravel as an MVC framework, handling dependency injection, autoloading, etc. largely automatically by design).
+          Thus, I started reading, "Clean Architecture," by Robert C. Martin. A third of the way into it, though, while I found the book to be an excellent quick overview of many design concepts and principles, it was too terse and quick moving for what I was looking for. Then, taking a break from reading this and looking more at PHP frameworks used in API design and implementation, I realized a lot of OO design patterns and principles are covered by frameworks from the get-go (ex. Laravel as an MVC framework, handling dependency injection, autoloading, etc. largely automatically by design).
         </p>
         <p>
-          So, I started studying Laravel. But as I got further into it, and the docs started talking about how service workers in part handle dependency injection, again I found myself lacking foundational knowledge. Being someone who only knows how to use an implementation of knowledge instead of also holding that knowledge is not something I want to be as a dev. I will not be the guy who just knows a bunch of frameworks, while totally lacking in the core theory and design concepts those frameworks are built on and implement.
+          So, I started studying Laravel. But as I got further into it, again I found myself still wanting more brush-up and knowledge expansion on core OOP, OO design, and design patterns before continuing studying Laravel. Being someone who only knows how to use an implementation of knowledge instead of also holding that knowledge is not something I want to be as a dev, as I believe frameworks and libraries should never act as a substitute for core language and theory knowledge.
         </p>
         <p>
-          So thus, I go back to the requirements of core design and architecture understanding as desired before using frameworks which implement them. Given this current path, here is what I'm planning for coming studies:
+          Thus, finally, I ended up back at more core OO design and architecture studies as desired before using frameworks which implement them. Given this current path, here is what I'm planning for coming studies:
         </p>
 
         <ol class="no-margin" type="none">
@@ -521,7 +521,7 @@
             </ol>
           </li>
           <p>
-            That of course also means that Laravel goes on hold until I have a better understanding of the foundations the build the framework and align how it works, which removes actual practical application of this common framework; not ideal for while also hunting a new dev job. Still I'd rather go down the right path for foundational learning, than the rushed path for partial understanding and something I can slap on my resume or use as an interview talking piece.
+            That of course also means that Laravel goes on hold until I have an expanded understanding of the foundations that build the framework's patterns. This is not ideal for while also hunting a new dev job, as I'd like to learn more frameworks, languagues, and libraries immediatly, but I'd still rather go down the right path for full foundational learning, than the rushed path with only partial understanding.
           </p>
         </ul>
       </div>
