@@ -1,5 +1,29 @@
 <?php
+  namespace SmilingStallman\DevBlog\Week24;
   error_reporting(E_ALL);
+
+  // include 'week-24-php/NamespaceA.php';
+  // include 'week-24-php/NamespaceB.php';
+  //
+  // function printNamespace(){
+  //   echo "I am Namespace Week24";
+  // }
+  //
+  // //unqualified name access - similar to relative filename reference
+  // printNameSpace();   //"I am Namespace Week24"
+  //
+  // //qualified name access - similar to relative filepath reference
+  // $a = new ASpace\Namespacer();
+  // $a->printNameSpace();   //"I am NamespaceA"
+  //
+  // //fully qualified name access - similar to absolute filepath reference
+  // $b = new \SmilingStallman\DevBlog\Week24\BSpace\Namespacer();
+  // $b->printNameSpace();   //"I am NamespaceB"
+  //
+  // //'use' combined with aliasing allows importing while also preventing name clashes and provides shorter reference names
+  // use \SmilingStallman\DevBlog\Week24\Aspace\Namespacer as AspaceClass;
+  // $a_alias = new AspaceClass();
+  // $a_alias->printNameSpace();
 ?>
 
 <!DOCTYPE html>
@@ -36,6 +60,7 @@
         <li><a href="../roadmap.html" title="Roadmap">Roadmap</a></li>
         <li><select class="hide-select" onchange="location = this.value;" target="_blank">
               <option class="hide-option" value="">Notes</option>
+              <option value="../notes/HeadFirst.pdf" title="Design Studies in PDF">Design Patterns</option>
               <option value="../notes/ModernPHP.pdf" title="Modern PHP Studies in PDF">Modern PHP</option>
               <option value="../notes/Python.pdf" title="Python Studies in PDF">Python</option>
               <option value="../notes/OO_Thought_Process-Notes.pdf" title="OOP Studies in PDF">OO Thought Process</option>
@@ -55,6 +80,7 @@
         </li>
         <li><select class="hide-select" onchange="location = this.value;">
               <option class="hide-option" value="">Learning Resources</option>
+              <option value="../notes/Head-First-2004.pdf">Head First Design Patterns</option>
               <option value="../notes/Modern-PHP-2015.pdf">Modern PHP</option>
               <option value="../notes/python-crash-course.pdf">Python Crash Course</option>
               <option value="https://docs.python.org/3/tutorial/index.html">Python Official Docs</option>
@@ -73,7 +99,7 @@
 
   <main>
 
-    <section>
+    <section id="arb-keywords">
       <h2>Python - Arbitrary Keyword Args</h2>
       <pre><code class='python'>
         #In addition to positional arbitrary args, Python also provides keyword arbitary args
@@ -94,7 +120,7 @@
       </pre>
     </section>
 
-    <section>
+    <section id="exceptions">
       <h2>Python - Exceptions</h2>
       <pre><code class='python'>
         #Python try-catch is a bit different than in other languages, and instead uses try-except
@@ -126,6 +152,208 @@
         &gt;&gt;&gt; catch_me(12, 3)
         Divsion 12 / 3 = 4.0
         catch_me() call finished
+        </code>
+      </pre>
+    </section>
+
+    <section id="namespaces">
+      <h2>PHP - Namespaces</h2>
+      <pre><code class='php'>
+        //Namespaces provide a way to prevent name clashes across files through encapsulation
+        //They allow files to be grouped and together, then imported into a file, but each in their own namespace
+        //For example, two packages, both with User classes, could exist fine in the same including file without name clash errors occuring
+        //Even code without a user assigned namespace still has a namespace in PHP: the global namespaces
+
+        //Here is an example of namespaces. Assume each namespace is also part of a large package based namespace.
+
+        //NamespaceA.php
+        &lt;?php
+        namespace SmilingStallman\DevBlog\Week24\ASpace;
+
+        class Namespacer{
+          public function printNamespace(){
+            echo "I am NamespaceA";
+          }
+        }
+        ?&gt;
+
+        //NamespaceB.php
+        &lt;?php
+        namespace SmilingStallman\DevBlog\Week24\BSpace;
+
+        //same classname as class in NamespaceA.php
+        class Namespacer{
+          public function printNamespace(){
+            echo "I am NamespaceB";
+          }
+        }
+        ?&gt;
+
+        //week24-practice.php
+        &lt;?php
+        namespace SmilingStallman\DevBlog\Week24;
+        include 'week-24-php/NamespaceA.php';
+        include 'week-24-php/NamespaceB.php';
+
+        function printNamespace(){
+          echo "I am Namespace Week24";
+        }
+
+        //unqualified name access - similar to relative filename reference
+        printNameSpace();   //"I am Namespace Week24"
+
+        //qualified name access - similar to relative filepath reference
+        $a = new ASpace\Namespacer();
+        $a->printNameSpace();   //"I am NamespaceA"
+
+        //fully qualified name access - similar to absolute filepath reference
+        $b = new \SmilingStallman\DevBlog\Week24\BSpace\Namespacer();
+        $b->printNameSpace();   //"I am NamespaceB"
+
+        //'use' combined with aliasing allows namespace importing while also preventing name clashes and provides shorter reference names
+        use \SmilingStallman\DevBlog\Week24\Aspace\Namespacer as AspaceClass;
+        $a_alias = new AspaceClass();
+        $a_alias->printNameSpace();   //"I am NamespaceA"
+        //Functions and consts can also be imported into a namespace using the 'function' and 'const' keywords combined with 'use'
+
+        ?&gt;
+
+        </code>
+      </pre>
+    </section>
+
+    <section id="oop-separation">
+      <h2>PHP - OOP General Practice</h2>
+      <pre><code class='php'>
+        //Lets say you want to design a base Animal class that separates common behaviors from shared behaviors. How could you do this?
+        //One way would be to create an interface for each behavior, then implement different implementations of that behavior
+        //By adding these behaviors via interface composition, the interface can then be set to any behavior at construction
+        //Different Animal subclasses can then also set these behavior objects
+        //The result is unique behaviors decoupled from both parent class, and child classes, with a uniform interface
+
+        //Animal.php - the base parent class
+        &lt;?php
+        abstract class Animal{
+
+          //unique behaviors...note no instantiation here
+          protected $moveBehavior;
+          protected $noiseBehavior;
+
+          protected function set_move($moveObject){
+            $this->moveBehavior = $moveObject;
+          }
+
+          protected function set_noise($noiseObject){
+            $this->noiseBehavior = $noiseObject;
+          }
+
+          //concrete function shared across all classes
+          public function eat(){
+            echo "Animal is eating";
+          }
+
+          //wrappers, separating interface of class from behavior interfaces
+          public function makeNoise(){
+            $this->noiseBehavior->makeNoise();
+          }
+
+          public function move(){
+            $this->moveBehavior->move();
+          }
+
+        }
+        ?&gt;
+
+        //AnimalMove.php - Animal behavior interface
+        &lt;?php
+        interface AnimalMove{
+          public function move();
+        }
+        ?&gt;
+
+        //AnimalNoise.php - Animal noise interface
+        &lt;?php
+        interface AnimalNoise{
+          public function makeNoise();
+        }
+        ?&gt;
+
+        //MoveWalk.php - An implementation of move behavior interface
+        &lt;?php
+        require_once 'AnimalMove.php';
+
+        class MoveWalk implements AnimalMove{
+          public function move(){
+            echo "I am walking";
+          }
+        }
+        ?&gt;
+
+        //MoveWalk.php - Another implementation of move behavior interface
+        &lt;?php
+        require_once 'AnimalMove.php';
+
+        class MoveFly implements AnimalMove{
+          public function move(){
+            echo "I am Flying";
+          }
+        }
+        ?&gt;
+
+
+        //Bark.php - An implementation of noise behavior interface
+        &lt;?php
+        require_once 'AnimalNoise.php';
+
+        class Bark implements AnimalNoise{
+          public function makeNoise(){
+            echo "I am barking";
+          }
+        }
+        ?&gt;
+
+        //Dog.php - An extension of Animal
+        &lt;?php
+        require_once 'Animal.php';
+
+        //For greater decoupling, could remove default behaviors and set by arg only
+        require_once 'Bark.php';
+        require_once 'MoveWalk.php';
+
+        class Dog extends Animal{
+          public function __construct($noise=null, $move=null){
+            $this->set_move($noise == null ? new MoveWalk() : $move);
+            $this->set_noise($move == null ? new Bark() : $noise);
+          }
+
+        }
+        ?&gt;
+
+        //test.php - testing the above
+        &lt?php
+
+        require_once 'Dog.php';
+        require_once 'Bark.php';
+        require_once 'MoveFly.php';
+
+        //create a standard dog with default behaviors
+        $animal = new Dog();
+
+        $animal->makeNoise();   //I am barking
+        $animal->move();        //I am walking
+
+        //create a magical flying doge through injecting behaviors
+        $bark = new Bark();
+        $fly = new MoveFly();
+        $another_animal = new Dog($bark, $fly);
+
+        $another_animal->makeNoise();   //I am barking
+        $another_animal->move();        //I am flying
+
+        $animal->eat();                 //I am eating
+        $another_animal->eat();         //I am eating
+        ?&gt;
+
         </code>
       </pre>
     </section>
