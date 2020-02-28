@@ -184,6 +184,7 @@
 
           $('.color-box-after').eq(2).css('background-color', '#c2dde6');
 
+
           //FILTERING
           $('.color-box-after').slice(2, 4).text("TEXT ADDED HERE");
           $('.color-box-after').slice(2, 4).css({"color":"black", "text-align": "center"});
@@ -206,6 +207,7 @@
           $('#after .insert').text(`This paragraph is ${$('#after .insert').width()} px long. It's BG
              is ${$('#after .insert').css('background-color')}.`);
 
+
           //DOM MANIPULATION
           $('#after .replace').replaceWith("&lt;div&gt;&lt;img src='assets/images/john.gif' alt='Titor jQuery img'&gt;Above &lt;div&gt;
             and &lt;img&gt; have replaced a paragraph&lt;/div&gt;");
@@ -225,6 +227,7 @@
           $('#after .wrap-click').click(() =&gt; $('#after .event-div-mouse')
             .wrap('&lt;div style="border: 5px solid #cdd422; margin: 3px;"&gt;&lt;/div&gt;'));
 
+
           //EVENT HANDLING
           $('#after .click-me').bind('click', ()=&gt; $('#after .event-div .result')
             .text("Text filled via bind() 'click' event type handling function."));
@@ -236,6 +239,7 @@
 
           $('#after .cord-click').click(event =&gt; $('#after .cord-click').text(`Mouse at screen
              location x: ${event.screenX}px, y: ${event.screenY}px`));
+
 
            //ANIMATIONS
            $('#after .show').click(() =&gt; $('.replace img:last').toggle(1000));
