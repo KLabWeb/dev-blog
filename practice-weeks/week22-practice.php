@@ -82,8 +82,10 @@
         &gt;&gt;&gt; print(nested_comp)
         [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]
 
+
         #Single item tuples MUST be declared with a trailing common following the item
         ('only one',)
+
 
         #Can loop through dictonary as if was ordered by passing into enumerate
         #enumerate() takes in an iterable and returns a tuple with a counter, where counter acts as index value
@@ -93,6 +95,7 @@
         0: person
         1: age
         2: city
+
 
         #Can loop through multiple itetables by passing iterables into zip() during loop
         &gt;&gt;&gt; questions = ["Name", "How old", "Resident city"]
@@ -104,6 +107,7 @@
         How old? 32
         Resident city? NYC
 
+
         #reversed() returns a reversed sequence copy of the sequence passed into it
         &gt;&gt;&gt; for i in reversed(questions):
         &gt;&gt;&gt;     print(i)
@@ -111,9 +115,11 @@
         32
         Tom
 
+
         #'in' and 'not in' can be used on all sequences to boolean check existence of value in sequence
         &gt;&gt;&gt; print(f'"Tom" is in "answers" list? {"Tom" in answers}')
         "Tom" is in "answers" list? True
+
 
         #Can use comparison operators on sequences, such as lists and dictionaries
         #in such comparisons done lexicographical, comparing 1st index to 1st index, etc. and returing final result
@@ -147,6 +153,7 @@
 
         &gt;&gt;&gt; module_var = "I am a module variable."
 
+
         #week22.py
         &gt;&gt;&gt; import module
         &gt;&gt;&gt; module.hello_module()
@@ -157,11 +164,13 @@
 
         #Can get all names (in array of strings) in module by calling dir(my_module) on imported module)
 
+
         #week22.py
         &gt;&gt;&gt; print(dir(module))
 
         ['__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__',
          '__spec__', 'hello_module', 'i', 'module_var']
+
 
         #Packages are collections of modules where can import all modules in package in a single export
         my_package/
@@ -171,6 +180,7 @@
             inner_pack/
                 _init__.py
                 inner_module.py
+
 
         #Package imports (what to include in package) defined in __init__.py files contained within package/sub-package folders
         #importing via 'from .my_module import *' style imports all modules name into same package level namespace
@@ -182,20 +192,25 @@
         &gt;&gt;&gt; def _hidden_function():
         &gt;&gt;&gt;     print("I am not available")
 
+
         #my_package/__init__.py
         &gt;&gt;&gt; from .base_module import *
         &gt;&gt;&gt; from .inner_pack import *
+
 
         #inner_module.py
         &gt;&gt;&gt; def print_me():
         &gt;&gt;&gt;     print("I am a module in the nested package inner_pack")
 
+
         #inner_pack/__init__.py
         &gt;&gt;&gt; from .inner_module import *
+
 
         #week22.py
         &gt;&gt;&gt; import my_package
         &gt;&gt;&gt; my_package.inner_print_me()
+
 
         #Modules can also be imported into private namespaces within a package
         #This prevents nameclashes and huge namespaces, but requires more verbose reference
@@ -204,13 +219,16 @@
         &gt;&gt;&gt; import my_package.base_module
         &gt;&gt;&gt; import my_package.inner_pack.inner_module
 
+
         #inner_pack/__init__.py
         &gt;&gt;&gt; import my_package.inner_pack.inner_module
+
 
         #week22.py
         &gt;&gt;&gt; import my_package
         &gt;&gt;&gt; my_package.base_module.base_print_me()
         &gt;&gt;&gt; my_package.inner_pack.inner_module.inner_print_me()
+
 
         #Importing modules into import script using 'from' with module/sub-package specific
         #imports gives each module/sub-package its own namespace in importing file, thus removing need to
@@ -221,6 +239,7 @@
         &gt;&gt;&gt; base_module.base_print_me()
         &gt;&gt;&gt; inner_pack.inner_module.inner_print_me()
 
+
         #Can also import just specific parts of module
 
         #base_module.py
@@ -229,6 +248,7 @@
 
         &gt;&gt;&gt; def base_hidden_function():
         &gt;&gt;&gt;     print("I am not available")
+
 
         #week22.py
         &gt;&gt;&gt; from my_package.base_module import base_print_me
@@ -253,6 +273,7 @@
         #As f-strings are a Python 3.6 addition, this will be used for formatting strings in older code
         &gt;&gt;&gt; print('Hello. My name is {1}. I am {0} years old. I live in {city}'.format('32', 'Mark', city='Denver'))
         Hello. My name is Mark. I am 32 years old. I live in Denver
+
 
         #Manual string formatting allows another to format strings, and is often used with repr()
         #repr() takes and object and returns a string representation of it
@@ -292,12 +313,14 @@
         #Various methods, such as read(), write(), readline(), etc. can then be called on that object for interaction with the file
         &gt;&gt;&gt; file = open('read_me.txt', 'r+')
 
+
         #Can read whole file (or up to a max num chars/bytes, if pass in 'size' arg) by calling read() on file object
         &gt;&gt;&gt; print(file.read(150))
         This is the first line
 
         The second line is a blank line. This is the third line.
         This is the fourth line. It is a long line. Whenever I find myself g
+
 
         #Python uses pointer for file interaction. A read(50) reads to the 50th char. A following read() would start at the 51st char.
         #To set the pointer position, use seek(offset, position) where 'position' specifies where to start,
@@ -314,9 +337,11 @@
         er hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street,
         and methodically knocking hats off - then, I account it high time to get to sea as soon as I can.
 
+
         #Get current pointer position with .tell()
         &gt;&gt;&gt; print(file.tell())
         621
+
 
         #list(file_var) and file_var.readlines() will both return a list of a file, one line per index for text files
         &gt;&gt;&gt; file.seek(0)
@@ -328,6 +353,7 @@
          whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately
          stepping into the street, and methodically knocking people's hats off - then, I account it high time to get to sea as soon
          as I can.\n"]
+
 
         #Write fo file via write() method which takes in a string for text files or byte object for binary
         #write(), like read, writes from current pointer, so be careful of accidental overwriting
@@ -350,6 +376,7 @@
         I am new line 1
         I am new line 2
         I am new line 3
+
 
         #Can read user input through use of input(), which pauses script, asks for input, then returns input in string and continues
         &gt;&gt;&gt; age = input("Hello. How old are you?:")
@@ -377,6 +404,7 @@
         Enter a message to be repeated or type quit to exit: quit
         quit
 
+
         #While loops can be used to iterate through a collection, like for loops
         &gt;&gt;&gt; full_list = ["One", "Red", 3, ["Inner", "List"]]
         &gt;&gt;&gt; empty_list = []
@@ -387,6 +415,7 @@
         &gt;&gt;&gt; print(repr(empty_list))
 
         ['One', 'Red', 3, ['Inner', 'List']]
+
 
         #'while' combined with 'in' and 'remove()' makes a nice way to remove all X from list
         &gt;&gt;&gt; colors = ["red", "blue", "red", "yellow", "black", "red"]

@@ -152,6 +152,36 @@
         &gt;&gt;&gt; catch_me(12, 3)
         Divsion 12 / 3 = 4.0
         catch_me() call finished
+
+
+        #Can assign alias to exception to access various properties of exception
+        &gt;&gt;&gt; def zero_catch(numer, denom):
+        &gt;&gt;&gt;     try:
+        &gt;&gt;&gt;         int(numer)/int(denom)
+        &gt;&gt;&gt;     except ZeroDivisionError as zero_error:
+        &gt;&gt;&gt;         print("Error: ", zero_error)
+        &gt;&gt;&gt;         print("Exception Type: ", type(zero_error))
+        &gt;&gt;&gt;         print("Exception args: ", zero_error.args)
+
+        &gt;&gt;&gt; zero_catch(12, 0)
+
+        Error:  division by zero
+        Exception Type:  &lt;class 'ZeroDivisionError'&gt;
+        Exception args:  ('division by zero',)
+
+
+        #Can manually throw specified exception with 'raise'
+        &gt;&gt;&gt; def check_curse(name):
+        &gt;&gt;&gt;     if(name == 'Damien'):
+        &gt;&gt;&gt;         raise NameError('Cursed Name')
+
+        &gt;&gt;&gt; try:
+        &gt;&gt;&gt;     check_curse('Damien')
+        &gt;&gt;&gt; except Exception as exp:
+        &gt;&gt;&gt;     print(f'Warning: exception type {type(exp)} thrown. Exception message: {exp}.')
+
+        Warning: exception type &lt;class 'NameError'&gt; thrown. Exception message: Cursed Name.
+
         </code>
       </pre>
     </section>
@@ -177,6 +207,7 @@
         }
         ?&gt;
 
+
         //NamespaceB.php
         &lt;?php
         namespace SmilingStallman\DevBlog\Week24\BSpace;
@@ -188,6 +219,7 @@
           }
         }
         ?&gt;
+
 
         //week24-practice.php
         &lt;?php
@@ -215,7 +247,6 @@
         $a_alias = new AspaceClass();
         $a_alias->printNameSpace();   //"I am NamespaceA"
         //Functions and consts can also be imported into a namespace using the 'function' and 'const' keywords combined with 'use'
-
         ?&gt;
 
         </code>
@@ -264,6 +295,7 @@
         }
         ?&gt;
 
+
         //AnimalMove.php - Animal behavior interface
         &lt;?php
         interface AnimalMove{
@@ -271,12 +303,14 @@
         }
         ?&gt;
 
+
         //AnimalNoise.php - Animal noise interface
         &lt;?php
         interface AnimalNoise{
           public function makeNoise();
         }
         ?&gt;
+
 
         //MoveWalk.php - An implementation of move behavior interface
         &lt;?php
@@ -288,6 +322,7 @@
           }
         }
         ?&gt;
+
 
         //MoveWalk.php - Another implementation of move behavior interface
         &lt;?php
@@ -312,6 +347,7 @@
         }
         ?&gt;
 
+
         //Dog.php - An extension of Animal
         &lt;?php
         require_once 'Animal.php';
@@ -328,6 +364,7 @@
 
         }
         ?&gt;
+
 
         //test.php - testing the above
         &lt?php
@@ -353,7 +390,93 @@
         $animal->eat();                 //I am eating
         $another_animal->eat();         //I am eating
         ?&gt;
+        </code>
+      </pre>
+    </section>
 
+    <section id="scope-namespaces">
+      <h2>Python - Scope & Namespaces</h2>
+      <pre><code class='python'>
+        #Python has local, enclosing, global, and built-in (LEGB) level scope
+        #local is the innermost function scope, enclosing is the scope of all functions wrapping the function
+        #global is module level Scope, built-in holds Python core names
+        &gt;&gt;&gt; scope = "I am global scope"
+
+        &gt;&gt;&gt; def scope_func():
+        &gt;&gt;&gt;     scope = "I am enclosing scope for nested"
+
+        &gt;&gt;&gt;     def nested():
+        &gt;&gt;&gt;         scope = 'I am local scope for nested'
+        &gt;&gt;&gt;         print(scope)                                #I am local scope for nested
+
+        &gt;&gt;&gt;     nested()
+        &gt;&gt;&gt;     print(scope)                                    #I am enclosing scope for nested
+
+        &gt;&gt;&gt; scope_func()
+        &gt;&gt;&gt; print(scope)                                        #I am global scope
+
+
+        #Python does not have an equivalent of block level scope,
+        #so names defined in 'for', 'while', etc. exist in same scope as statement defined in
+        &gt;&gt;&gt; for one in range(1):
+        &gt;&gt;&gt;     temp = 'I still exist after this loop'
+
+        &gt;&gt;&gt; print(temp)
+
+        I still exist after this loop. I am a global var.
+
+
+        #Python name resolution is cascading, checking the innermost scope first, then move up from local-&gt;enclosing-&gt;global-&gt;built-in
+        #Note that only resolution is cascading and creating a same name var in an inner scope does not change the outer scope var value
+        &gt;&gt;&gt; global_var = 'global'
+
+        &gt;&gt;&gt; def many_scopes():
+        &gt;&gt;&gt;     def inner_scope():
+        &gt;&gt;&gt;         global_var = "different namespace"
+        &gt;&gt;&gt;         def another_scope():
+        &gt;&gt;&gt;             print(global_var)
+
+        &gt;&gt;&gt;         another_scope()
+        &gt;&gt;&gt;     inner_scope()
+        &gt;&gt;&gt;     global_var = "new value"
+
+        &gt;&gt;&gt; many_scopes()
+        &gt;&gt;&gt; print(global_var)
+
+        different namespace
+        global                  #resolution cascading but assignment not
+
+
+        #Python allows changing of namespace for variables in global and enclosing/local scope via 'global' and 'nonlocal' keywords
+        #'global' switches a local/enclosing variable to global namespace
+        &gt;&gt;&gt; x = 'global'
+
+        &gt;&gt;&gt; def global_func():
+        &gt;&gt;&gt;     global x
+        &gt;&gt;&gt;     x = 'I am in global namespace'
+
+        &gt;&gt;&gt; global_func()
+        &gt;&gt;&gt; print(x)
+
+        I am in global namespace
+
+
+        #Likewise, Python also has nonlocal variables, in which declaring a var nonlocal
+        #sets it's namespace to namespace of nearest enclosing function
+        &gt;&gt;&gt; def non_local():
+        &gt;&gt;&gt;     x = "outermost"
+        &gt;&gt;&gt;     def middle():
+        &gt;&gt;&gt;         x = "middle"
+        &gt;&gt;&gt;         def inner():
+        &gt;&gt;&gt;             nonlocal x
+        &gt;&gt;&gt;             x = "inner"
+        &gt;&gt;&gt;             print(x)    #"inner"
+
+        &gt;&gt;&gt;         inner()
+        &gt;&gt;&gt;         print(x)        #"inner" as x inside inner() is in same namespace as middle() due to 'nonlocal'
+
+        &gt;&gt;&gt;     middle()
+        &gt;&gt;&gt;     print(x)            #"outermost"
         </code>
       </pre>
     </section>

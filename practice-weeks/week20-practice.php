@@ -450,20 +450,24 @@
       ['France', 'Germany', 'Peru', 'Poland', 'Sweden']
       ['France', 'Germany', 'Poland', 'Peru', 'Sweden']
 
+
       #Methods where the list is passed in as an arg generally sort and return a copy of the list
       #Such methods do not change the state of the original list:
       &gt;&gt;&gt; countries.sort()
       &gt;&gt;&gt; print(countries)
       ['France', 'Germany', 'Peru', 'Poland', 'Sweden']
 
+
       #Reverse list by calling reverse() on it:
       &gt;&gt;&gt; countries.reverse()
       &gt;&gt;&gt; print(countries)
+
 
       #pass in arg/val reverse=True to .sort() to sort in reverse alpha:
       &gt;&gt;&gt; countries.sort(reverse=True)
       &gt;&gt;&gt; print(countries)
       ['Sweden', 'Poland', 'Peru', 'Germany', 'France']
+
 
       #List comprehension allows you to make a list with a for loop
       #logic is similar for a map function with left hand acting as expression to set value for each item in iterable:
@@ -471,10 +475,12 @@
       &gt;&gt;&gt; print(num_list)
       [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
 
+
       #list of nums divisible by 3 via list comprehension:
       &gt;&gt;&gt; num_list = [num for num in range(3, 31, 3)]
       &gt;&gt;&gt; print(num_list)
       [3, 6, 9, 12, 15, 18, 21, 24, 27, 30]
+
 
       #can loop through slice, as slicing just returns a list:
       &gt;&gt;&gt; for num in num_list[4:8]:
@@ -484,6 +490,7 @@
       21
       24
 
+
       #some list functions useful for numerical lists:
       &gt;&gt;&gt; print(min(num_list))
       &gt;&gt;&gt; print(max(num_list))
@@ -492,9 +499,11 @@
       30
       165
 
+
       #A tuple is a list, but immutable. Note the () instead of []
       #Trying to change the value of a tuple index/value will throw an error:
       &gt;&gt;&gt; tuple = (1, 2, 3, 4, 5)
+
 
       #since no constant vars in python, can change val of var referencing tuple:
       &gt;&gt;&gt; tuple = (5, 4, 3, 2, 1)
@@ -517,6 +526,7 @@
       &gt;&gt;&gt;    print('x == y')
       x &lt; y
 
+
       #for AND and OR operators, Python uses and, or:
       &gt;&gt;&gt; if(3 &gt;= 2 and 'test' != 'Test'):
       &gt;&gt;&gt;     print('and conditions satisfied')
@@ -526,9 +536,11 @@
       &gt;&gt;&gt;     print('one or both or conditions satisfied')
       one or both or conditions satisfied
 
+
       #in operator checks for inclusion in collection with a boolean return:
       &gt;&gt;&gt; print(3 in num_list)
       True
+
 
       #calling 'if' on a list will return False if empty list, True if not empty:
       &gt;&gt;&gt; empty_list = []
@@ -558,6 +570,7 @@
       5
       9
 
+
       #can loop n times with range(n) and for:
       &gt;&gt;&gt; for i in range(4):
       &gt;&gt;&gt;   print(i)
@@ -570,6 +583,7 @@
       2
       3
 
+
       #range() also takes end and step params to produce x to y range, via z steps
       #note that end in range is exclusive by 1 step from specified end (zero oriented):
       &gt;&gt;&gt; for i in range(-20, 40, 10):
@@ -580,6 +594,7 @@
       10
       20
       30
+
 
       #for loops can run with an else clauses that executes on loop completion
       #if loop executes due to break, then else will not run...loop just breaks and exits:
@@ -614,6 +629,7 @@
       1
       3
 
+
       #pass allows for a placeholder where any required logic is needed
       &gt;&gt;&gt; for index in my_list:
       &gt;&gt;&gt;     if index == 4 or index == 'A':
@@ -636,15 +652,18 @@
       &gt;&gt;&gt; print_word("test")
       Printing word: test
 
+
       #Can get doc string via:
       &gt;&gt;&gt; print(print_word.__doc__)
       Prints a word
 
-      #Error throw if no value for positional arg
+
+      #Error thrown if no value for positional arg
       &gt;&gt;&gt; def positional_add(one, two):
       &gt;&gt;&gt;     print(one + two)
 
       &gt;&gt;&gt; positional_add(1)   //throws error as missing arg
+
 
       #Positional args are standard order based args
       #keyword args are defined and passed in with key='value' pairs, allowing any pass in order
@@ -665,6 +684,7 @@
           keyA: A
           keyB: B
 
+
       #Arbitrary args allow to pass in any num of args similar to rest param in JS
       #if define positional args, following args should be keyword, to allow proper reference
       &gt;&gt;&gt; def arb_arg_print(*args, positional_num=0 ):
@@ -677,6 +697,7 @@
           positional num arg is 15
           arbitrary args are in tuple ('arg_a', 2, 'another_arg')
           first arbitrary arg is arg_a
+
 
       #lambda functions allow to define a simple expression, which can be returned, stored in a variable, etc.
       #as Python has closure, useful for partial application, currying, etc.
@@ -700,14 +721,17 @@
       &gt;&gt;&gt; print_dict(my_dict)
       My name is Kyle. I live on The Moon 365 days a year.
 
+
       #Change of dictionary value
       &gt;&gt;&gt; my_dict['name'] = 'Major Tom'
       &gt;&gt;&gt; print_dict(my_dict)
       My name is Kyle. I live on The Moon 365 days a year.
 
+
       #Can also access key via get() which takes in optional 2nd arg to be return if first arg key !exist
       &gt;&gt;&gt; print(f"value is {my_dict.get('bad_key', '--error: key does not exist--')}")
       value is --error: key does not exist--
+
 
       #Dictionaries of both key/value not iterable, but can call .items() on dict to return a list of (key, value) indexes for looping
       &gt;&gt;&gt; for key, value in my_dict.items():
@@ -722,12 +746,14 @@
       key: days
       value: 365
 
+
       #Can loop through keys only by looping through call of .keys() on dictionary which returns list of keys
       &gt;&gt;&gt; for key in my_dict.keys():
       &gt;&gt;&gt;     print(f'''key: {key}''')
       key: name
       key: place
       key: days
+
 
       #Can also loop through keys by just looping through dict w/ just key arg for 'for' loop)
       &gt;&gt;&gt; for key in my_dict:
@@ -736,6 +762,7 @@
       key: place
       key: days
 
+
       #As keys() returns list, can pass into use for list methods as sorted() arg, call .reverse() on, etc.
       &gt;&gt;&gt; for key in sorted(my_dict.keys()):
       &gt;&gt;&gt;     print(key)
@@ -743,11 +770,13 @@
       name
       place
 
+
       #Python sets are iterable, ordered data collections allowing only unique values
       #Sets can be created from iterables, such as lists, from calls such as keys() or values() on dictionaries
       &gt;&gt;&gt; my_dict['home'] = 'The Moon'     #duplicate value that also exists in 'place' key
       &gt;&gt;&gt; print(set(my_dict.values()))
       {'The Moon', 'Kyle', '365'}
+
 
       #Lists inside dictionaries useful for when want a key to have multi values, but single key reference
       &gt;&gt;&gt; order = {'name': 'rei ayanami', 'order': 'pizza', 'size': 'large', 'toppings': ['sardines', 'eggplant', 'pineapple']}
@@ -760,6 +789,7 @@
       sardines
       eggplant
       pineapple
+
 
       #Dictionaries inside lists useful for collection of key-value models
       &gt;&gt;&gt; my_users = [{'username': 'ANBU', 'age': 32, 'location': 'Denver'},
