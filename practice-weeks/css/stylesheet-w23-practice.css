@@ -17,7 +17,7 @@ pre:not(.code_description){
 }
 
 section{
-  margin-top: 70px;
+  margin-top: 30px;
 }
 
 h2{
@@ -58,4 +58,10 @@ pre:not(.code_description), .plaintext{
   box-sizing: border-box;
   padding: 50px;
   width: 1420px;
+}
+
+.pdf{
+  width: 90%;
+  height: 800px;
+  border: 0;
 }

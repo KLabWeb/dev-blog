@@ -34,7 +34,7 @@
   <meta name="author" content="KMiskell">
   <meta name="description" content="Week 24 General Practice">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="../root-assets/favicon/javascript-original.svg" type="image/x-icon">
+  <link rel="shortcut icon" href="../root-assets/favicon/python.svg" type="image/x-icon">
   <link rel="stylesheet" href="css/practice-stylesheet.css">
   <link rel="stylesheet" href="css/stylesheet-w24-practice.css">
   <link rel="stylesheet" href="../root-css/header.css">
@@ -479,6 +479,14 @@
         &gt;&gt;&gt;     print(x)            #"outermost"
         </code>
       </pre>
+    </section>
+
+    <section>
+      <h2>Python &amp; PHP Notes</h2>
+      <div class="pdf-container">
+        <iframe src="../notes/Python.pdf" class="pdf"></iframe>
+        <iframe src="../notes/ModernPHP.pdf" class="pdf"></iframe>
+      </div>
     </section>
 
     <br><br>

@@ -76,14 +76,172 @@
   <main>
 
     <section>
-      <h2>Object Oriented Design Patterns</h2>
+      <h2>Object Oriented Design Patterns Book Switch</h2>
       <div class='plaintext notes-block'>
           <p>This past week I've been reading <i>Head First Design Patterns</i> as my primary learning resource and refresher for OO design patterns. I've found I don't click well at all with it's teaching style, though. I prefer a teaching method that first details foundation, rules, and theory, then gives brief practical example, preferably also with a following challenge problem for practice.</p>
-          <p><i>Head First</i>, however, teaches largely by example, breaking up the foundations over long, drawn out, slowly built examples, sometimes starting with, "done the wrong way," examples. This style is too drawn out for me and too similiar to how online courses generally teach, in which I feel I lose too much foundational knowledge in exchange for time that could be better spent than on fifty page or four hour video examples. Thus, dropping this book for now, and moving to replacement, <a href="../notes/DiveInto.pdf"><i>Dive Into Design Patterns</i></a> instead.
-          <p>Notes for <i>Head First Design Patterns can be read <a href="../notes/HeadFirst.pdf"></i>here</a>.</p>
+          <p><i>Head First</i>, however, teaches largely by example, breaking up the foundations over long, drawn out, slowly built examples, sometimes starting with, "done the wrong way," examples. This style is too drawn out for me and too similiar to how online courses generally teach, in which I feel I lose too much foundational knowledge in exchange for time that could be better spent than on fifty page or four hour video examples. Thus, dropping this book for now, and moving to replacement, <a href="../notes/DiveInto.pdf"><i>Dive Into Design Patterns</i></a> instead.</p>
       </div>
     </section>
 
+    <section>
+      <h2>Object Oriented Design Patterns Notes</h2>
+      <div class="pdf-container">
+        <iframe src="../notes/head_first_notes.pdf" class="pdf"></iframe>
+        <iframe src="../notes/dive_into_notes.pdf" class="pdf"></iframe>
+      </div>
+    </section>
+
+    <section id="exceptions">
+      <h2>Program to Interface, Not Implementation</h2>
+      <div class="grid-code-container">
+      <pre class="grid-code"><code>
+        &lt;?php
+
+        require_once 'Cat.php';
+        require_once 'Dog.php';
+        require_once 'Panda.php';
+
+        class AnimalFeeder{
+          private $dog;
+          private $cat;
+          private $panda;
+
+          public function __construct(){
+            $this->dog = new Dog();
+            $this->cat = new Cat();
+            $this->panda = new Panda();
+          }
+
+          public function feedAnimals(){
+            $this->dog->eatKibble();
+            $this->cat->eatFish();
+            $this->panda->eatBamboo();
+          }
+
+        }
+
+        ?&gt;
+        </code>
+      </pre>
+      <pre class="grid-code"><code>
+        &lt;?php
+
+        require_once 'Cat.php';
+        require_once 'Dog.php';
+        require_once 'Panda.php';
+
+        class AnimalFeeder{
+          private $dog;
+          private $cat;
+          private $panda;
+
+          public function __construct(){
+            $this->dog = new Dog();
+            $this->cat = new Cat();
+            $this->panda = new Panda();
+          }
+
+          public function feedAnimals(){
+            $this->dog->eatKibble();
+            $this->cat->eatFish();
+            $this->panda->eatBamboo();
+          }
+
+        }
+
+        ?&gt;
+        </code>
+      </pre>
+      <pre class="grid-code"><code>
+        &lt;?php
+
+        require_once 'Cat.php';
+        require_once 'Dog.php';
+        require_once 'Panda.php';
+
+        class AnimalFeeder{
+          private $dog;
+          private $cat;
+          private $panda;
+
+          public function __construct(){
+            $this->dog = new Dog();
+            $this->cat = new Cat();
+            $this->panda = new Panda();
+          }
+
+          public function feedAnimals(){
+            $this->dog->eatKibble();
+            $this->cat->eatFish();
+            $this->panda->eatBamboo();
+          }
+
+        }
+
+        ?&gt;
+        </code>
+      </pre>
+      <pre class="grid-code"><code>
+        &lt;?php
+
+        require_once 'Cat.php';
+        require_once 'Dog.php';
+        require_once 'Panda.php';
+
+        class AnimalFeeder{
+          private $dog;
+          private $cat;
+          private $panda;
+
+          public function __construct(){
+            $this->dog = new Dog();
+            $this->cat = new Cat();
+            $this->panda = new Panda();
+          }
+
+          public function feedAnimals(){
+            $this->dog->eatKibble();
+            $this->cat->eatFish();
+            $this->panda->eatBamboo();
+          }
+
+        }
+
+        ?&gt;
+        </code>
+      </pre>
+      <pre class="grid-code"><code>
+        &lt;?php
+
+        require_once 'Cat.php';
+        require_once 'Dog.php';
+        require_once 'Panda.php';
+
+        class AnimalFeeder{
+          private $dog;
+          private $cat;
+          private $panda;
+
+          public function __construct(){
+            $this->dog = new Dog();
+            $this->cat = new Cat();
+            $this->panda = new Panda();
+          }
+
+          public function feedAnimals(){
+            $this->dog->eatKibble();
+            $this->cat->eatFish();
+            $this->panda->eatBamboo();
+          }
+
+        }
+
+        ?&gt;
+        </code>
+      </pre>
+
+      </div>
+    </section>
     <br><br>
 
   </main>

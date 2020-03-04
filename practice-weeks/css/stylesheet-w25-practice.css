@@ -8,16 +8,16 @@ main ul:not(.no-margin){
   margin-left: 70px;
 }
 
-code.python, code.php, .table-container, code.jsx, code.jquery, .plaintext{
+code.python, code.php, .table-container, code.jsx, code.jquery, .plaintext, .grid-code-container{
   width: 1400px;
 }
 
-pre:not(.code_description){
+pre:not(.code_description):not(.grid-code){
   width: 800px;
 }
 
 section{
-  margin-top: 70px;
+  margin-top: 40px;
 }
 
 h2{
@@ -33,7 +33,7 @@ h5{
 p, .p-span{
   font-size: 1.8rem;
 }
-pre:not(.code_description), .plaintext{
+pre:not(.code_description):not(.grid-code), .plaintext{
   margin-left: 115px;
 }
 
@@ -57,4 +57,27 @@ pre:not(.code_description), .plaintext{
   box-sizing: border-box;
   padding: 50px;
   width: 1420px;
+  box-sizing: border-box;
+}
+
+.pdf{
+  width: 50%;
+  height: 800px;
+  border: 0;
+  margin: 10px;
+}
+
+.pdf-container{
+  width: 97%;
+  margin-left: 15px;
+  display: flex;
+  flex-direction: row;
+  background: black;
+}
+
+.grid-code-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background: black;
+  width: 1400px
 }

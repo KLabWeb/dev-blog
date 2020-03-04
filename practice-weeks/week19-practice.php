@@ -34,7 +34,7 @@
   <meta name="author" content="KMiskell">
   <meta name="description" content="Week 19 General Practice">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="../root-assets/favicon/javascript-original.svg" type="image/x-icon">
+  <link rel="shortcut icon" href="../root-assets/favicon/php.svg" type="image/x-icon">
   <link rel="stylesheet" href="css/practice-stylesheet.css">
   <link rel="stylesheet" href="css/stylesheet-w19-practice.css">
   <link rel="stylesheet" href="../root-css/header.css">

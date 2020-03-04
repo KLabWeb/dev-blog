@@ -17,7 +17,7 @@ pre:not(.code_description){
 }
 
 section{
-  margin-top: 70px;
+  margin-top: 30px;
 }
 
 h2, p{
@@ -89,4 +89,15 @@ pre:not(.code_description), #jquery-form, #jquery-form-after{
 #jquery-form input, #jquery-form-after input{
   margin: 5px 0;
   float: right;
+}
+
+.pdf-container{
+  width: 97vw;
+  margin-left: 5px;
+}
+
+.pdf{
+  width: 97%;
+  height: 800px;
+  border: 0;
 }

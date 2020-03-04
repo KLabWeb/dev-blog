@@ -11,7 +11,7 @@
   <meta name="author" content="KMiskell">
   <meta name="description" content="Week 23 General Practice">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="../root-assets/favicon/javascript-original.svg" type="image/x-icon">
+  <link rel="shortcut icon" href="../root-assets/favicon/lain.ico" type="image/x-icon">
   <link rel="stylesheet" href="css/practice-stylesheet.css">
   <link rel="stylesheet" href="css/stylesheet-w23-practice.css">
   <link rel="stylesheet" href="../root-css/header.css">
@@ -75,7 +75,7 @@
     <section>
       <h2>Object Oriented Foundations (Review)</h2>
       <div class='plaintext notes-block'>
-          <a href="../notes/OO_Thought_Process-Notes.pdf">READ NOTES HERE</a>
+        <iframe src="../notes/OO_Thought_Process-Notes.pdf" class="pdf"></iframe>
       </div>
     </section>
 

@@ -28,7 +28,7 @@
   <meta name="author" content="KMiskell">
   <meta name="description" content="Week 21 General Practice">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="../root-assets/favicon/javascript-original.svg" type="image/x-icon">
+  <link rel="shortcut icon" href="../root-assets/favicon/jquery.svg" type="image/x-icon">
   <link rel="stylesheet" href="css/practice-stylesheet.css">
   <link rel="stylesheet" href="css/stylesheet-w21-practice.css">
   <link rel="stylesheet" href="../root-css/header.css">
@@ -340,6 +340,11 @@
       <div class='cord-click' style='background: black; width: 350px; height: 350px; text-align: center; display: inline-block;'>Click me to show mouse coordinates</div>
     </div>
 
+  </section>
+
+  <section class='pdf-container'>
+    <h2>jQuery Notes</h2>
+    <iframe src="../notes/jQuery.pdf" class="pdf"></iframe>
   </section>
 
   <br><br>
