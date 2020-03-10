@@ -1,0 +1,15 @@
+DO
+--
+-Spell/grammar check all pages
+-Spell/grammar check all notes
+-Clean up CSS
+-Re-build with React
+-Run all pages through CSS, HTML, PHP, Python validations
+
+
+COMPLETED
+---------
+-All Links and site functionality checked, all pages
+-Spell/grammar: Roadmap, index, practice weeks 1-8
+-Modified .php practice pages (and refs to) not using php to .html
+-CSS modified to more DRY, uniform, practice weeks 19-25
