@@ -100,7 +100,7 @@
       <br>
       <div class="grid-code-container">
 
-        <pre class="grid-code php"><code class="php">
+        <pre><code class="php grid-code">
 //CampaignSetup.php
 
 require_once 'OwnerBuilder.php';
@@ -131,7 +131,7 @@ abstract class CampaignSetup{
   }
 }       </code></pre>
 
-        <pre class="grid-code php"><code class="php">
+        <pre><code class="php grid-code">
 //AdvancedCampaignSetup.php
 
 require_once 'CampaignSetup.php';
@@ -147,7 +147,7 @@ class AdvancedCampaignSetup extends CampaignSetup{
   }
 }       </code></pre>
 
-        <pre class="grid-code php"><code class="php">
+        <pre><code class="php grid-code">
 //LimitedCampaignSetup.php
 
 require_once 'CampaignSetup.php';
@@ -163,7 +163,7 @@ class LimitedCampaignSetup extends CampaignSetup{
   }
 }       </code></pre>
 
-        <pre class="grid-code php"><code class="php">
+        <pre><code class="php grid-code">
 //OwnerBuilder.php
 
 abstract class OwnerBuilder{
@@ -177,7 +177,7 @@ abstract class OwnerBuilder{
   public abstract function register();
 }       </code></pre>
 
-        <pre class="grid-code php"><code class="php">
+        <pre><code class="php grid-code">
 //AdminOwnerBuilder.php
 
 require_once 'OwnerBuilder.php';
@@ -198,7 +198,7 @@ class AdminOwnerBuilder extends OwnerBuilder{
   }
 
 }       </code></pre>
-        <pre class="grid-code php"><code class="php">
+        <pre><code class="php grid-code">
           //StandardOwnerBuilder.php
 
 require_once 'OwnerBuilder.php';
@@ -215,7 +215,7 @@ class StandardOwnerBuilder extends OwnerBuilder{
       throw new Exception("Bad password for standard campaign setup")
   }
 }         </code></pre>
-        <pre class="grid-code php"><code class="php">
+        <pre><code class="php grid-code">
 //test.php
 
 require_once 'AdvancedCampaignSetup.php';

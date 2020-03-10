@@ -22,6 +22,7 @@ pre:not(.grid-code), .grid-code-container, code{
   border: 1px solid white;
   border-radius: 25px;
   margin: 20px;
+  padding: 20px !important;
 }
 
 .grid-code:hover{
