@@ -93,7 +93,7 @@
     <section>
       <h2>Object Oriented Design Patterns Notes</h2>
       <div class="pdf-container">
-        <iframe src="../notes/head_first_notes.pdf" class="pdf-double"></iframe>
+        <iframe src="../notes/HeadFirst.pdf" class="pdf-double"></iframe>
         <iframe src="../notes/dive_into_notes.pdf" class="pdf-double"></iframe>
       </div>
     </section>
@@ -105,7 +105,7 @@
       The following shows the benefit of this principle, first with some "bad" tightly coupled, non-flexible code, followed by loosely coupled code, programmed to an interface.</p>
       <br>
       <div class="grid-code-container">
-        <pre class="grid-code"><code>
+        <pre class="grid-code"><code class="php">
           //AnimalFeeder.php
 
           //heavy coupling, many depedencies
@@ -134,7 +134,7 @@
             }
 
           }</code></pre>
-        <pre class="grid-code"><code>
+        <pre class="grid-code"><code class="php">
           //test.php
 
           require_once 'AnimalFeeder.php';
@@ -143,7 +143,7 @@
 
           $feeder->feedAnimals();
           </code></pre>
-        <pre class="grid-code"><code>
+        <pre class="grid-code"><code class="php">
           //Cat.php
 
           class Cat{
@@ -151,7 +151,7 @@
               echo "Cat is eating fish\n";
             }
           }</code></pre>
-        <pre class="grid-code"><code>
+        <pre class="grid-code"><code class="php">
           //Dog.php
 
           class Dog{
@@ -159,7 +159,7 @@
               echo "Dog is eating kibble\n";
             }
           }</code></pre>
-        <pre class="grid-code"><code>
+        <pre class="grid-code"><code class="php">
           //Panda.php
 
           class Panda{
@@ -172,7 +172,7 @@
       <p class="plaintext">In the second example, now with cleaner code, note how both the high-level and low-level classes are both dependent on the interface. test.php references Animals and does not care what type of Animal they are. Likewise, all implementations of Animal are dependent on the Animal interface. This allows for high flexibility, extensibility, and results in clean, decoupled code</p>
       <br>
       <div class="grid-code-container">
-        <pre class="grid-code"><code>
+        <pre class="grid-code"><code class="php">
           class AnimalFeeder{
             private $animals = [];
 
@@ -195,7 +195,7 @@
             }
 
           }</code></pre>
-          <pre class="grid-code"><code>
+          <pre class="grid-code"><code class="php">
             //test.php
 
             //Depenencies in endpoint instead of low-level
@@ -212,13 +212,13 @@
             $feeder = new AnimalFeeder($dog, $panda, $cat);
 
             $feeder->feedAnimals();</code></pre>
-          <pre class="grid-code"><code>
+          <pre class="grid-code"><code class="php">
             //Animal.php
 
             interface Animal{
               public function eat();
             }</code></pre>
-          <pre class="grid-code"><code>
+          <pre class="grid-code"><code class="php">
             //Cat.php
 
             require_once 'Animal.php';
@@ -228,7 +228,7 @@
                 echo "Cat is eating fish\n";
               }
             }</code></pre>
-          <pre class="grid-code"><code>
+          <pre class="grid-code"><code class="php">
             //Dog.php
 
             require_once 'Animal.php';
@@ -238,7 +238,7 @@
                 echo "Dog is eating kibble\n";
               }
             }</code></pre>
-          <pre class="grid-code"><code>
+          <pre class="grid-code"><code class="php">
             //Dog.php
 
             require_once 'Animal.php';

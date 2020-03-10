@@ -85,11 +85,137 @@
     <!-- <section>
       <h2>Object Oriented Design Patterns Notes</h2>
       <div class="pdf-container">
-        <iframe src="../notes/head_first_notes.pdf" class="pdf-double"></iframe>
+        <iframe src="../notes/HeadFirst.pdf" class="pdf-double"></iframe>
         <iframe src="../notes/dive_into_notes.pdf" class="pdf-double"></iframe>
       </div>
     </section> -->
 
+    <section id="factory">
+      <h2>Factory Method Pattern</h2>
+      <p class="plaintext">The factory method pattern provides a way for creating objects in a subclass, where subclasses decide the types of objects that will be created. Instead of creating objects in the high-level code via 'new' in the high-level constructor, etc., it moves creation to an inherited or abstract factory method instead, which hides the 'new' construction logic, and returns an object of an abstract type. Implementations of the factory method in subclasses can now return any type of concrete object implemented from the abstract object.
+      <br><br>
+      In the below example, note how the high-level CampaignSetup function setupCampaign() does not care what type of OwnerBuilder it is calling register() on. Note also how the desired type of OwnerBuilder class is not determined until runtime in test.php, showing decoupling of the type of OwnerBuilder from CampaignSetup, and allowing great flexibility.</p>
+      <br>
+      <img class="plain-img md-img" src="assets/images/factory.png">
+      <br>
+      <div class="grid-code-container">
+
+        <pre class="grid-code php"><code class="php">
+//CampaignSetup.php
+
+require_once 'OwnerBuilder.php';
+
+abstract class CampaignSetup{
+
+  protected $ownerBuilder;
+
+  protected abstract function createOwnerBuilder();
+
+  protected function initializeCampaign(){
+    echo "initializing campaign\n";
+  }
+
+  protected function addInventory(){
+    echo "adding inventory\n";
+  }
+
+  protected function registerOwner(){
+    $this->ownerBuilder->register();
+  }
+
+  public function setupCampaign(){
+    $this->initializeCampaign();
+    $this->addInventory();
+    $this->ownerBuilder->register();
+    echo "\nCampaign Setup Complete\n\n";
+  }
+}       </code></pre>
+
+        <pre class="grid-code php"><code class="php">
+//AdvancedCampaignSetup.php
+
+require_once 'CampaignSetup.php';
+require_once 'AdminOwnerBuilder.php';
+
+class AdvancedCampaignSetup extends CampaignSetup{
+  public function __construct(){
+    $this->createOwnerBuilder();
+  }
+
+  protected function createOwnerBuilder(){
+    $this->ownerBuilder = new AdminOwnerBuilder();
+  }
+}       </code></pre>
+
+        <pre class="grid-code php"><code class="php">
+//LimitedCampaignSetup.php
+
+require_once 'CampaignSetup.php';
+require_once 'StandardOwnerBuilder.php';
+
+class LimitedCampaignSetup extends CampaignSetup{
+  public function __construct(){
+    $this->createOwnerBuilder();
+  }
+
+  protected function createOwnerBuilder(){
+    $this->ownerBuilder = new StandardOwnerBuilder();
+  }
+}       </code></pre>
+
+        <pre class="grid-code php"><code class="php">
+//OwnerBuilder.php
+
+abstract class OwnerBuilder{
+  protected $id;
+
+  protected function addOwner($id){
+    echo "Adding owner id: $id\n";
+    $this->id = $id;
+  }
+
+  public abstract function register();
+}       </code></pre>
+
+        <pre class="grid-code php"><code class="php">
+//AdminOwnerBuilder.php
+
+require_once 'OwnerBuilder.php';
+
+class AdminOwnerBuilder extends OwnerBuilder{
+
+  private function grantAdmin($id){
+    echo "Giving owner $id admin rights";
+    $this->id = $id;
+  }
+
+  public function register(){
+    $id = readline("Enter owner id to add:  ");
+    $this->addOwner($id);
+
+    if(readline("Grant owner admin rights? Please enter true or false:  ") == 'true')
+      $this->grantAdmin($id);
+  }
+
+}       </code></pre>
+        <pre class="grid-code php"><code class="php">
+          //StandardOwnerBuilder.php
+
+require_once 'OwnerBuilder.php';
+
+class StandardOwnerBuilder extends OwnerBuilder{
+
+  public function register(){
+    $id = readline("Enter owner id to add:  ");
+    $pass = readline("Enter standard campaign creation password:  ");
+
+    if($pass == 'pass182sS29exm')
+      $this->addOwner($id);
+    else
+      throw new Exception("Bad password for standard campaign setup")
+  }
+}         </code></pre>
+    </section>
     <br><br>
 
   </main>
