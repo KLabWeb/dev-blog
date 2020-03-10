@@ -11,14 +11,25 @@
   <meta name="author" content="KMiskell">
   <meta name="description" content="Week 23 General Practice">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="../root-assets/favicon/javascript-original.svg" type="image/x-icon">
-  <link rel="stylesheet" href="css/practice-stylesheet.css">
-  <link rel="stylesheet" href="css/stylesheet-w23-practice.css">
+
+  <link rel="shortcut icon" href="../root-assets/favicon/lain.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="css/html-body-main.css">
+  <link rel="stylesheet" href="css/code.css">
+  <link rel="stylesheet" href="css/headers.css">
+  <link rel="stylesheet" href="css/img-p.css">
+  <link rel="stylesheet" href="css/lists-a.css">
+  <link rel="stylesheet" href="css/pdf.css">
+  <link rel="stylesheet" href="css/plaintext.css">
+  <link rel="stylesheet" href="css/section-span-div-article.css">
+
   <link rel="stylesheet" href="../root-css/header.css">
   <link rel="stylesheet" href="../root-css/nav-buttons.css">
+
   <link rel="stylesheet" href="../Higlightjs/styles/tomorrow-night-bright.css">
   <script src="../Higlightjs/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
+
   <title>Week 23 Sandbox</title>
 </head>
 
@@ -74,8 +85,8 @@
 
     <section>
       <h2>Object Oriented Foundations (Review)</h2>
-      <div class='plaintext notes-block'>
-          <a href="../notes/OO_Thought_Process-Notes.pdf">READ NOTES HERE</a>
+      <div class='pdf-container'>
+        <iframe src="../notes/OO_Thought_Process-Notes.pdf" class="pdf-single"></iframe>
       </div>
     </section>
 
@@ -86,7 +97,5 @@
 </body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="js/hide-option.js"></script>    <!---requires jQuery-->
-<!-- <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script> -->
 
 </html>

@@ -22,17 +22,10 @@ h2, h2 > a {
 a {
     color: #CCCCCC
 }
-pre:not(.code_description){
+
+pre:not(.code_description):not(.grid-code){
   width: 80%;
   margin: auto;
-}
-
-.subdomain-preview{
-  height: 50vh;
-}
-
-.no-style-li{
-  list-style-type: none;
 }
 
 li ul li{

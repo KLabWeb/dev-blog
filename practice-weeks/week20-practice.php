@@ -35,15 +35,29 @@
   <meta name="author" content="KMiskell">
   <meta name="description" content="Week 20 General Practice">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="../root-assets/favicon/javascript-original.svg" type="image/x-icon">
-  <link rel="stylesheet" href="css/practice-stylesheet.css">
-  <link rel="stylesheet" href="css/stylesheet-w20-practice.css">
+
+  <link rel="shortcut icon" href="../root-assets/favicon/python.svg" type="image/x-icon">
+
+  <link rel="stylesheet" href="css/html-body-main.css">
+  <link rel="stylesheet" href="css/code.css">
+  <link rel="stylesheet" href="css/form.css">
+  <link rel="stylesheet" href="css/headers.css">
+  <link rel="stylesheet" href="css/img-p.css">
+  <link rel="stylesheet" href="css/lists-a.css">
+  <link rel="stylesheet" href="css/pdf.css">
+  <link rel="stylesheet" href="css/plaintext.css">
+  <link rel="stylesheet" href="css/section-span-div-article.css">
+  <link rel="stylesheet" href="css/datatable.css">
+
   <link rel="stylesheet" href="../root-css/header.css">
   <link rel="stylesheet" href="../root-css/nav-buttons.css">
-  <link rel="stylesheet" href="../Higlightjs/styles/tomorrow-night-bright.css">
+
   <link rel="stylesheet" href='https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css'>
+
+  <link rel="stylesheet" href="../Higlightjs/styles/tomorrow-night-bright.css">
   <script src="../Higlightjs/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
+
   <title>Week 20 Sandbox</title>
 </head>
 
@@ -130,8 +144,8 @@
     <div class="table-container">
       <h5>DB connection status: <?= $conn->testConnection() ?></h5>
       <h4>Customers</h4>
-      <table class="practice_table" id="practice_tableA" class="display" style="width: 100%">
-          <thead style="font-weight: bold;">
+      <table class="wide-table" id="wide-tableA" class="display">
+          <thead>
               <?php add_head_row($cust_head); ?>
           </thead>
           <tbody>
@@ -211,7 +225,7 @@
 
     <section class='formSection'>
       <h4>Update Customer Info</h4>
-      <form class='flex-form' action="update" method="post">
+      <form class='rows-form' action="update" method="post">
         <label>
           Title:<br>
           <input type='text' name='title'>
@@ -821,6 +835,14 @@
     </pre>
   </section>
 
+  <section>
+    <h2>Python &amp; PHP Notes</h2>
+    <div class="pdf-container">
+      <iframe src="../notes/Python.pdf" class="pdf-double"></iframe>
+      <iframe src="../notes/PHP7.pdf" class="pdf-double"></iframe>
+    </div>
+  </section>
+
   <br><br>
   </main>
 
@@ -830,39 +852,7 @@
 <script type="text/javascript" src="js/hide-option.js"></script>    <!---requires jQuery-->
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-
-<script>
-$(document).ready( function () {
-  $('#practice_tableA').DataTable({
-      'autowidth': false
-  });
-  $('#practice_tableB').DataTable({
-      'autowidth': false
-  });
-});
-
-$('#cust_pop').submit(function(event){
-  event.preventDefault();
-
-  $.ajax({
-    url: 'week-20-php/get_customer.php',
-    type: 'GET',
-    data: $('#cust_pop').serialize(),
-    dataType: 'json',
-    success: function(response){
-      if(response == null){
-        alert("No customer found with this ID");
-      }
-      for(key in response){
-        $(`input[name="${key}"]`).val(response[key]);
-      }
-    },
-    error: function(response){
-      alert('Request failed');
-    }
-  });
-});
-</script>
+<script type="text/javascript" src="js/week20-practice.js"></script>
 
 </html>
 

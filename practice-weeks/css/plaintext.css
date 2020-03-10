@@ -1,0 +1,14 @@
+.plaintext{
+  display: block;
+  box-sizing: border-box;
+  width: 90%;
+  margin: 0 auto;
+  padding: 40px;
+  overflow-x: auto;
+  background: black;
+  color: #eaeaea;
+}
+
+.plaintext > * {
+  padding: 0 75px;
+}

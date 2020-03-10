@@ -6,7 +6,7 @@ main ul{
   margin-left: 70px;
 }
 
-code.python, code.php, .table-container, p, code.jsx{
+code.python, code.php, .table-container, p, code.jsx, .pdf-container{
   width: 1400px;
 }
 
@@ -15,7 +15,7 @@ pre:not(.code_description){
 }
 
 section{
-  margin-top: 70px;
+  margin-top: 30px;
 }
 
 h2, p{
@@ -31,7 +31,7 @@ h5{
 p{
   font-size: 1.8rem;
 }
-p, .table-container, pre:not(.code_description), .formSection{
+p, .table-container, pre:not(.code_description), .formSection, .pdf-container{
   margin-left: 115px;
 }
 
@@ -136,4 +136,19 @@ p, .table-container, pre:not(.code_description), .formSection{
 }
 .formSection{
   margin-top: 0;
+}
+
+.pdf{
+  width: 50%;
+  height: 800px;
+  border: 0;
+  margin: 10px;
+}
+
+.pdf-container{
+  background: black;
+  width: 97%;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: row;
 }

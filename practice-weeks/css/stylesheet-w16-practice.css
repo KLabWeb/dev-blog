@@ -4,6 +4,14 @@ main ul{
 
 /* take priority over geral practice-stylesheet.css */
 pre:not(.code_description){
-  width: 40%;
+  width: 800px;
   margin-left: 140px;
+}
+
+.subdomain-preview{
+  height: 50vh;
+}
+
+.no-style-li{
+  list-style-type: none;
 }

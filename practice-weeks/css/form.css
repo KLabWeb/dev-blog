@@ -1,0 +1,19 @@
+.rows-form{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 800px;
+}
+.submit, label{
+  margin-top: 10px;
+}
+.formSection{
+  margin-top: 0;
+}
+
+.formSection > *{
+  margin-left: 9vw;
+}
+
+label{
+  margin-right: 10px;
+}

@@ -34,15 +34,28 @@
   <meta name="author" content="KMiskell">
   <meta name="description" content="Week 19 General Practice">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="../root-assets/favicon/javascript-original.svg" type="image/x-icon">
-  <link rel="stylesheet" href="css/practice-stylesheet.css">
-  <link rel="stylesheet" href="css/stylesheet-w19-practice.css">
+
+  <link rel="shortcut icon" href="../root-assets/favicon/php.svg" type="image/x-icon">
+
+  <link rel="stylesheet" href="css/datatable.css">
+  <link rel="stylesheet" href="css/code.css">
+  <link rel="stylesheet" href="css/headers.css">
+  <link rel="stylesheet" href="css/html-body-main.css">
+  <link rel="stylesheet" href="css/img-p.css">
+  <link rel="stylesheet" href="css/lists-a.css">
+  <link rel="stylesheet" href="css/pdf.css">
+  <link rel="stylesheet" href="css/plaintext.css">
+  <link rel="stylesheet" href="css/section-span-div-article.css">
+
+  <link rel="stylesheet" href='https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css'>
+
   <link rel="stylesheet" href="../root-css/header.css">
   <link rel="stylesheet" href="../root-css/nav-buttons.css">
+
   <link rel="stylesheet" href="../Higlightjs/styles/tomorrow-night-bright.css">
-  <link rel="stylesheet" href='https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css'>
   <script src="../Higlightjs/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
+
   <title>Week 19 Sandbox</title>
 </head>
 
@@ -147,8 +160,8 @@
       <div class="table-container">
         <h5>DB connection status: <?= $conn->testConnection() ?></h5>
         <h4>Customers</h4>
-        <table class="practice_table" id="practice_tableA" class="display" style="width: 100%">
-            <thead style="font-weight: bold;">
+        <table class="wide-table" id="practice_tableA" class="display">
+            <thead>
                 <?php add_head_row($cust_head); ?>
             </thead>
             <tbody>
@@ -157,12 +170,12 @@
         </table>
       </div>
 
-      <br><br><br>
+      <br>
 
       <div class="table-container">
         <h4>Orders</h4>
-        <table class="practice_table" id="practice_tableB" class="display" style="width: 100%">
-            <thead style="font-weight: bold;">
+        <table class="wide-table" id="practice_tableB" class="display">
+            <thead>
                 <?php add_head_row($orders_head); ?>
             </thead>
             <tbody>
@@ -174,11 +187,15 @@
 
     <section>
       <h2>Single Responsibility Principle</h2>
-      <p>Problem: Three actors seeking info on shipments. Owner wants to calculate number of all orders shipped &#40;actor 1&#41;. Shipping wants to have an alert message if greater than 30% orders not shipped &#40;actor 2&#41;. Order support wants list of all orders from current day &#40;actor 3&#41;. Client wants a single interface for all three parties. How to implement without coupling actors together?</p>
-      <p>Bad design: Handle all responsibilities for all three actors in a single <i>orderDetails</i> class.</p>
-      <p>Better Design: seperate each actor and responsibility into a seperate module and create an single point off access through one interface class &#40;facade pattern&#41;, thus providing the desired single access point for all three actors, while also adhearing to single responsibility principle</p>
-      <h3>Responsibility 1: Owner</h2>
-      <pre><code class="php">
+      <div class="plaintext">
+        <p>Problem: Three actors seeking info on shipments. Owner wants to calculate number of all orders shipped &#40;actor 1&#41;. Shipping wants to have an alert message if greater than 30% orders not shipped &#40;actor 2&#41;. Order support wants list of all orders from current day &#40;actor 3&#41;. Client wants a single interface for all three parties. How to implement without coupling actors together?</p>
+        <p>Bad design: Handle all responsibilities for all three actors in a single <i>orderDetails</i> class.</p>
+        <p>Better Design: seperate each actor and responsibility into a seperate module and create an single point off access through one interface class &#40;facade pattern&#41;, thus providing the desired single access point for all three actors, while also adhearing to single responsibility principle</p>
+      </div>
+      <br>
+      <br>
+
+      <pre><h3>Responsibility 1: Owner</h3><code class="php">
           class shippedCounter{
             private $db;
 
@@ -195,8 +212,8 @@
           }
         </code>
       </pre>
-      <h3>Responsibility 2: Shipping Dept</h2>
-      <pre><code class="php">
+
+      <pre><h3>Responsibility 2: Shipping Dept</h3><code class="php">
           class unshippedAlterter{
             private $db;
 
@@ -215,8 +232,8 @@
           }
         </code>
       </pre>
-      <h3>Responsibility 3: Order Support</h2>
-      <pre><code class="php">
+
+      <pre><h3>Responsibility 3: Order Support</h3><code class="php">
           class dailyShipCheck{
             private $db;
 
@@ -232,8 +249,8 @@
           }
         </code>
       </pre>
-      <h3>Facade Class</h2>
-      <pre><code class="php">
+
+      <pre><h3>Facade Class</h3><code class="php">
           class ordersFacade{
               private $shippedCounter;
               private $unshippedAlterter;
@@ -262,16 +279,16 @@
             }
         </code>
       </pre>
-      <h3>Access of Facade from this page</h2>
-      <pre><code class="php">
+
+      <pre><h3>Access of Facade from this page</h3><code class="php">
           echo $orders_facade->getNumShipped();
           echo $orders_facade->checkUnshippedWarning();
           echo $orders_facade->getShippedToday();
         </code>
       </pre>
 
-      <h3>Output</h3>
-      <pre><code class="php">
+
+      <pre><h3>Output</h3><code class="php">
           <?php echo $orders_facade->getNumShipped(); ?>
           <br>
           <?php echo $orders_facade->checkUnshippedWarning();?>

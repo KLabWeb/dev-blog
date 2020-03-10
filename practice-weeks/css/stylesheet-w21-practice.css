@@ -1,40 +1,5 @@
-body{
-  padding-bottom: 200px;
-}
-main{
-  padding-left: 20px
-}
-main ul{
-  margin-left: 70px;
-}
-
-code.python, code.php, .table-container, p, code.jsx, code.jquery{
-  width: 1400px;
-}
-
-pre:not(.code_description){
-  width: 800px;
-}
-
-section{
-  margin-top: 70px;
-}
-
-h2, p{
-  margin-left: 3vw;
-  margin-right: 3vw;
-}
-h3, img{
-  margin: 0 3vw 0 3vw;
-}
-h5{
-  margin-top: 0;
-}
-p{
-  font-size: 1.8rem;
-}
-pre:not(.code_description), #jquery-form, #jquery-form-after{
-  margin-left: 115px;
+#jquery-form, #jquery-form-after{
+  margin: 0 auto;
 }
 
 .color-box, .color-box-after{
@@ -89,4 +54,27 @@ pre:not(.code_description), #jquery-form, #jquery-form-after{
 #jquery-form input, #jquery-form-after input{
   margin: 5px 0;
   float: right;
+}
+
+.event-div{
+  display: grid;
+  grid-template-columns: 150px;
+  grid-gap: 5px;
+}
+
+.event-div > button{
+  position: relative;
+}
+
+.wrap-click, .cord-click{
+  background: black;
+  width: 350px;
+  height: 350px;
+  text-align: center;
+  display: inline-block;
+
+}
+
+.wrap-click{
+  margin-right: 10px;
 }
