@@ -1,0 +1,105 @@
+.table-container{
+  width: 90%;
+  margin: 0 auto;
+  overflow-x: scroll;
+  padding: 20px;
+  font-size: 2rem;
+}
+
+/* TABLE */
+.wide-table{
+  border-collapse: collapse;
+  color: #999999;
+  transition: all .5s;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+
+.wide-table thead{
+    text-align: center;
+    font-weight: bold;
+}
+
+.wide-table thead, tfoot{
+    background-color: #999999;
+    text-align: left;
+    color: black;
+}
+
+.wide-table caption{
+    caption-side: bottom;
+    text-align: right;
+    font-style: italic;
+}
+
+.wide-table tbody tr.odd{
+    background-color: #3a354a !important;
+}
+
+.wide-table tbody tr.even{
+    background-color: #221c33 !important;
+}
+
+.wide-table td:not(:first-of-type){
+    padding: 20px;
+    text-transform: capitalize;
+}
+
+.wide-table thead td{
+    text-transform: capitalize;
+}
+
+.wide-table tfoot{
+    text-align: right;
+}
+
+/* SHOW ENTRIES */
+.dataTables_length, .dataTables_info{
+  display: inline;
+}
+
+.dataTables_length select{
+  margin: 0 0 3px 5px;
+  width: 65px;
+  /* float: right; */
+  border-radius: 2px;
+  background: #3a354a;
+  color: #999999;
+}
+
+.dataTables_filter{
+  float: right;
+  margin-bottom: 3px;
+  border-radius: 2px;
+  position: relative;
+  left: 50px;
+}
+
+.dataTables_paginate{
+  margin-top: 20px;
+}
+
+.dataTables_filter input{
+  background: #3a354a;
+  color: #999999;
+  border: 0;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.paginate_button{
+  outline: 0;
+}
+
+.paginate_button.current{
+  border: 1px solid #cdd422;
+  box-sizing: border-box;
+  display: inline-block;
+  min-width: 1.5em;
+  text-align: center;
+  text-decoration: none !important;
+  cursor: pointer;
+  margin: 0 5px;
+  border-radius: 2px;
+}

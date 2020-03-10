@@ -1,0 +1,29 @@
+code, pre{
+  width: 90%;
+}
+
+pre:not(.grid-code), .grid-code-container, code{
+  margin: 0 auto;
+}
+
+.grid-code-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: black;
+  overflow: auto;
+  width: 90%;
+  justify-content: center;
+  align-items: center;
+  padding-left: 30px;
+  box-sizing: border-box;
+}
+
+.grid-code{
+  border: 1px solid white;
+  border-radius: 25px;
+  margin: 20px;
+}
+
+.grid-code:hover{
+  transform: scale(1.05); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}

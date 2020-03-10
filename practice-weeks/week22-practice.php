@@ -1,6 +1,5 @@
 <?php
   error_reporting(E_ALL);
-
 ?>
 
 <!DOCTYPE html>
@@ -11,14 +10,27 @@
   <meta name="author" content="KMiskell">
   <meta name="description" content="Week 22 General Practice">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="shortcut icon" href="../root-assets/favicon/python.svg" type="image/x-icon">
-  <link rel="stylesheet" href="css/practice-stylesheet.css">
+
   <link rel="stylesheet" href="css/stylesheet-w22-practice.css">
+
+  <link rel="stylesheet" href="css/html-body-main.css">
+  <link rel="stylesheet" href="css/code.css">
+  <link rel="stylesheet" href="css/headers.css">
+  <link rel="stylesheet" href="css/img-p.css">
+  <link rel="stylesheet" href="css/lists-a.css">
+  <link rel="stylesheet" href="css/pdf.css">
+  <link rel="stylesheet" href="css/plaintext.css">
+  <link rel="stylesheet" href="css/section-span-div-article.css">
+
   <link rel="stylesheet" href="../root-css/header.css">
   <link rel="stylesheet" href="../root-css/nav-buttons.css">
+
   <link rel="stylesheet" href="../Higlightjs/styles/tomorrow-night-bright.css">
   <script src="../Higlightjs/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
+
   <title>Week 22 Sandbox</title>
 </head>
 
@@ -503,7 +515,7 @@
 
     <section>
       <h2>Checkpoint</h2>
-      <div class='plaintext' class='p-span'>
+      <div class='plaintext'>
         <p>
           At my current job, the bulk of my work is adding procedural code to existing procedural code. Unfortunately, the codebase is very old, was built with very little design prior, and has very tight coupling and poor encapsulation, single responsibility, etc.. Also, the manager here is very resistant to re-factoring. While new code I write is more organized, with distinct seperation between front-end views and back end implementation, since this is not an OOP shop, my OO is a bit rusty, having not worked much with it since Java in 2014, and some with React and JavaScript last year &#40;before switching to functional programming for front-end shortly after&#41;.
         </p>
@@ -520,15 +532,15 @@
           Thus, finally, I ended up back at more core OO design and architecture studies as desired before using frameworks which implement them. Given this current path, here is what I'm planning for coming studies:
         </p>
 
-        <ol class="no-margin" type="none">
-          <li class="margin-li"><b>OOP & OOD</b> - foundations first</li>
+        <ol type="none">
+          <li class="sublist"><b>OOP & OOD</b> - foundations first</li>
           <li>
             <ol type="I">
               <li>"The Object-Oriented Thought Process" --> review of base OOP, why OOP?</li>
               <li>"Head First Design Patterns" --> more details and further into OOD</li>
             </ol>
           </li>
-          <li class="margin-li"><b>Laravel & PHP</b> - implementation of foundations</li>
+          <li class="sublist"><b>Laravel & PHP</b> - implementation of foundations</li>
           <li>
             <ol type="I">
               <li>Laravel official docs</li>
@@ -536,13 +548,13 @@
               <li>"Modern PHP: New Features and Good Practices"</li>
             </ol>
           </li>
-          <li class="margin-li"><b>API Design</b> - the API itself</li>
+          <li class="sublist"><b>API Design</b> - the API itself</li>
           <li>
             <ol type="I">
               <li>Undetermined learning resource(s)</li>
             </ol>
           </li>
-          <li class="margin-li"><b>Python</b> - in concurrence with above</li>
+          <li class="sublist"><b>Python</b> - in concurrence with above</li>
           <li>
             <ol type="I">
               <li>Python official docs</li>
@@ -557,18 +569,10 @@
     </section>
 
     <section>
-      <h2>Object Oriented Foundations (Review)</h2>
-      <div class='plaintext notes-block'>
-          <a href="../notes/OO_Thought_Process-Notes.pdf">READ NOTES HERE</a>
-      </div>
-    </section>
-
-
-    <section>
       <h2>Python & Object Oriented Foundations Review Notes</h2>
         <div class="pdf-container">
-          <iframe src="../notes/Python.pdf" class="pdf"></iframe>
-          <iframe src="../notes/OO_Thought_Process-Notes.pdf" class="pdf"></iframe>
+          <iframe src="../notes/Python.pdf" class="pdf-double"></iframe>
+          <iframe src="../notes/OO_Thought_Process-Notes.pdf" class="pdf-double"></iframe>
         </div>
     </section>
 

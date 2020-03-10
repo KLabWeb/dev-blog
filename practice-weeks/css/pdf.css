@@ -1,0 +1,22 @@
+.pdf-single, .pdf-double{
+  height: 800px;
+  border: 0;
+}
+
+.pdf-single{
+  width: 90%;
+  margin: 10px auto;  
+}
+
+.pdf-double{
+  width: 50%;
+  margin: 10px;
+}
+
+.pdf-container{
+  width: 97%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  background: black;
+}

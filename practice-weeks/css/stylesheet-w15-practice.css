@@ -1,0 +1,15 @@
+h2, p{
+  margin-left: 3vw;
+  margin-right: 3vw;
+}
+h3, img{
+  margin: 0 3vw 0 3vw;
+}
+
+.subdomain-preview{
+  height: 50vh;
+}
+
+pre:not(.code_description){
+  width: 800px;
+}

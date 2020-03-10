@@ -1,5 +1,5 @@
 <?php
-Animal{
+interface Animal{
   public function eat();
 }
 ?>

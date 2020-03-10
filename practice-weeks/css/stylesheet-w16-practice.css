@@ -7,3 +7,11 @@ pre:not(.code_description){
   width: 800px;
   margin-left: 140px;
 }
+
+.subdomain-preview{
+  height: 50vh;
+}
+
+.no-style-li{
+  list-style-type: none;
+}

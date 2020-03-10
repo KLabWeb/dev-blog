@@ -28,14 +28,27 @@
   <meta name="author" content="KMiskell">
   <meta name="description" content="Week 21 General Practice">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="shortcut icon" href="../root-assets/favicon/jquery.svg" type="image/x-icon">
-  <link rel="stylesheet" href="css/practice-stylesheet.css">
+
   <link rel="stylesheet" href="css/stylesheet-w21-practice.css">
+
+  <link rel="stylesheet" href="css/html-body-main.css">
+  <link rel="stylesheet" href="css/code.css">
+  <link rel="stylesheet" href="css/headers.css">
+  <link rel="stylesheet" href="css/img-p.css">
+  <link rel="stylesheet" href="css/lists-a.css">
+  <link rel="stylesheet" href="css/pdf.css">
+  <link rel="stylesheet" href="css/plaintext.css">
+  <link rel="stylesheet" href="css/section-span-div-article.css">
+
   <link rel="stylesheet" href="../root-css/header.css">
   <link rel="stylesheet" href="../root-css/nav-buttons.css">
+
   <link rel="stylesheet" href="../Higlightjs/styles/tomorrow-night-bright.css">
   <script src="../Higlightjs/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
+
   <title>Week 21 Sandbox</title>
 </head>
 
@@ -87,10 +100,15 @@
   <main>
 
   <section>
-    <h3>Hello ip <?= $_SESSION['ip'] ?>. Your current session has lasted for <?= $cur_hours ?> hours, <?= $cur_mins ?> mins.
-      User Agent info allows webservers to see more data on you. Here is some data on your OS and browser:
-      <br><br> <?= $_SESSION['user_agent'] ?><br><br> To prevent this, use an user agent switcher extension.</h3>
-    <br><br>
+    <h2>
+      Hello ip <?= $_SESSION['ip'] ?>. Your current session has lasted for <?= $cur_hours ?> hours, <?= $cur_mins ?> mins.
+      User Agent info allows webservers to see more data on you.
+      <br>
+      Here is some data on your OS and browser:
+      <br><br>
+      <?= $_SESSION['user_agent'] ?>
+    </h2>
+    <br>
   </section>
 
 
@@ -137,26 +155,27 @@
 
     <p class="replace">Replace Me</p>
 
-    <div class="event-div" style="display: grid; grid-template-columns: 150px; grid-gap: 5px;">
+    <div class="event-div">
       <button class="click-me">Click Me</button>
       <button class="focus-me">Click & Click Off</button>
-      <button class="show" style="position: relative;">Toggle Last Img</button>
-      <button class="fade" style="position: relative;">Fade First Img</button>
-      <button class="slide" style="position: relative;">Slide Container</button>
-      <button class="animate" style="position: relative;">Arrange Buttons</button>
+      <button class="show">Toggle Last Img</button>
+      <button class="fade">Fade First Img</button>
+      <button class="slide">Slide Container</button>
+      <button class="animate">Arrange Buttons</button>
       <p class="result"></p>
     </div>
 
     <div class="event-div-mouse">
-      <div class='wrap-click' style='background: black; width: 350px; height: 350px; text-align: center; display: inline-block; margin-right: 10px;'>Click me to wrap container via wrap()</div>
-      <div class='cord-click' style='background: black; width: 350px; height: 350px; text-align: center; display: inline-block;'>Click me to show mouse coordinates</div>
+      <div class='wrap-click'>Click me to wrap container via wrap()</div>
+      <div class='cord-click'>Click me to show mouse coordinates</div>
     </div>
 
   </section>
 
   <section>
     <h2>jQuery Memorization Practice</h2>
-    <p>jQuery is used at my current job, with <i>ajax()</i> being used frequently, as well as jQuery selectors, attribute manipulation, etc.. Much of jQuery's functionality is now available in core JavaScript, ES6 and onwards, but since already been using it at job for awhile now, taking some time to fully read through docs and memorize more of it.</p>
+    <p class="plaintext">jQuery is used at my current job, with ajax() being used frequently, as well as jQuery selectors, attribute manipulation, etc.. Much of jQuery's functionality is now available in core JavaScript, ES6 and onwards, but since already been using it at job for awhile now, taking some time to fully read through docs and memorize more of it.</p>
+    <br>
     <pre><code class='jquery'>
       &lt;script type="text/javascript"&gt;
         $(document).ready(() =&gt; {
@@ -324,27 +343,29 @@
     <p class="replace">Replace Me</p>
 
 
-    <div class="event-div" style="display: grid; grid-template-columns: 150px; grid-gap: 5px;">
-      <button class="click-me" style="position: relative;">Show Text</button>
-      <button class="focus-me" style="position: relative;">Click & Click Off</button>
-      <input type="text" placeholder='Type text here' class="input-me" style="position: relative;"></input>
-      <button class="show" style="position: relative;">Toggle Last Img</button>
-      <button class="fade" style="position: relative;">Fade First Img</button>
-      <button class="slide" style="position: relative;">Slide Container</button>
-      <button class="animate" style="position: relative;">Arrange Buttons</button>
+    <div class="event-div">
+      <button class="click-me">Show Text</button>
+      <button class="focus-me">Click & Click Off</button>
+      <input type="text" placeholder='Type text here'></input>
+      <button class="show">Toggle Last Img</button>
+      <button class="fade">Fade First Img</button>
+      <button class="slide">Slide Container</button>
+      <button class="animate">Arrange Buttons</button>
       <p class="result"></p>
     </div>
 
     <div class="event-div-mouse">
-      <div class='wrap-click' style='background: black; width: 350px; height: 350px; text-align: center; display: inline-block; margin-right: 10px;'>Click me to wrap container via wrap()</div>
-      <div class='cord-click' style='background: black; width: 350px; height: 350px; text-align: center; display: inline-block;'>Click me to show mouse coordinates</div>
+      <div class='wrap-click'>Click me to wrap container via wrap()</div>
+      <div class='cord-click'>Click me to show mouse coordinates</div>
     </div>
 
   </section>
 
-  <section class='pdf-container'>
+  <section>
     <h2>jQuery Notes</h2>
-    <iframe src="../notes/jQuery.pdf" class="pdf"></iframe>
+    <div class='pdf-container'>
+      <iframe src="../notes/jQuery.pdf" class="pdf-single"></iframe>
+    </div>
   </section>
 
   <br><br>
@@ -355,109 +376,8 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="js/hide-option.js"></script>    <!---requires jQuery-->
 
+<script type="text/javascript" src="js/week21-practice.js">
 
-<script type="text/javascript">
-  $(document).ready(() => {
-    //BASIC SELECTORS AND ATTRIBUTES
-    $('.p-after').text('Text Changed');
-
-    $('#second-form input[name="notes"]').val("Default notes added");
-
-    $('#second-form :text').val('<p> text: ' + $('.p-after').text());
-
-    $('.inner-color-box-bottom-after:odd').attr('hidden', 'true');
-
-    $('.inner-color-box-bottom-after:even').html('<img src="assets/images/lainlines.gif" alt="jquery image" style="width: 100%; height: 100%; margin: auto">');
-
-
-    //DOM TRAVERSAL & CSS
-    $('.inner-color-box-after').css({'text-align':'center', 'color':'black'});
-
-    $('#box-container-after').children().css('border', '5px solid #e05915');
-
-    $('.color-box-after').parent().css('background-color', 'white');
-
-    $('.color-box-after:last').siblings().css('background-color', '#cdd422');
-
-    $('.color-box-after').eq(2).css('background-color', '#c2dde6');
-
-    //FILTERING
-    $('.color-box-after').slice(2, 4).text("TEXT ADDED HERE");
-    $('.color-box-after').slice(2, 4).css({"color":"black", "text-align": "center"});
-
-    $('#second-form input[name="date"]').focus(()=> {
-      if(!$(this).is('h4')){
-        $('#jquery-form-after').css({'border':'5px solid #cdd422', 'padding':'5px'});
-        console.log('text');
-      }
-    });
-
-    $('#second-form').find('input:text').css('transform', 'rotate(180deg)');
-
-    $('#second-form input').not(":first, input:text").css('transform', 'rotate(20deg)');
-
-    $('#second-form input').filter((node_index) => {
-      return node_index == 3;
-    }).css('opacity', '.5');
-
-    $('#after .insert').text(`This paragraph is ${$('#after .insert').width()} px long. It's BG is ${$('#after .insert').css('background-color')}.`);
-
-    //DOM MANIPULATION
-    $('#after .replace').replaceWith("<div class='replace'><img src='assets/images/john.gif' alt='Titor jQuery img'><p>This &lt;div&gt;, &lt;p&gt;, and &lt;img&gt; have replaced a paragraph</p></div>");
-
-    $('#after .replace').before('<p>This node inserted as html content passed in via before()</p>');
-    $('#after .replace').after('<p>This node inserted as html content passed in via after()</p>');
-
-    $('#after .replace').wrap('<div style="background: black; width: 100%;">This div added to wrap image with wrap()</div>');
-
-    $('#after .replace').append('<p>This paragraph appended as a child to &lt;div&gt; via append(). Second image added via clone() on existing &lt;img&gt;. Made italic via wrapping text with wrapInner().</p>');
-
-    $('#after .replace img').clone().insertAfter($('#after .replace img'));
-
-    $('#after .replace p:last').wrapInner('<i></i>');
-
-    $('#after .wrap-click').click(() => $('#after .event-div-mouse').wrap('<div style="border: 5px solid #cdd422; margin: 3px;"></div>'));
-
-    //EVENT HANDLING
-    $('#after .click-me').bind('click', ()=> $('#after .event-div .result').text("Text filled via bind() 'click' event type handling function."));
-    $('#after .focus-me').focus(() => $('#after .event-div .result').text("Focused on focus button"));
-    $('#after .focus-me').blur(() => $('#after .event-div .result').text("Focus removed from focus button"));
-    $('#after .input-me').keypress(() => $('#after .event-div .result').text($('#after .input-me').val()));
-    $('#after .cord-click').click(event => $('#after .cord-click').text(`Mouse at screen location x: ${event.screenX}px, y: ${event.screenY}px`));
-
-    //ANIMATIONS
-    $('#after .show').click(() => $('.replace img:last').toggle(1000));
-
-    $('#after .fade').click(() => {
-                                    const img = $('.replace img:first');
-                                    Number(img.css('opacity')) === 1 ? img.fadeTo(1000, .3) : img.fadeTo(1000, 1);
-                                  });
-
-    $('#after .slide').click(() => $('.replace').slideToggle(1000));
-
-    $('#after .animate').click(event => {
-      let offset = $('#after .event-div button:first').offset().left;
-      let opac = $('#after .event-div button:first').css('opacity');
-
-      if(offset >= $(document).width()-275){
-          right_hit = true;
-          left_hit = false;
-      }
-      else if(offset <= 20){
-          right_hit = false;
-          left_hit = true;
-      }
-
-      if(right_hit){
-        offset = {left: `${offset - 200}px`, opacity: opac + .1};
-      }
-      else if(left_hit){
-        offset = {left: `${offset + 200}px`, opacity: opac - .1};
-      }
-
-      $('#after .event-div button, #after .event-div input').animate(offset)
-      });
-  });
 </script>
 
 </html>

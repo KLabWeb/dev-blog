@@ -34,14 +34,25 @@
   <meta name="author" content="KMiskell">
   <meta name="description" content="Week 24 General Practice">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="shortcut icon" href="../root-assets/favicon/python.svg" type="image/x-icon">
-  <link rel="stylesheet" href="css/practice-stylesheet.css">
-  <link rel="stylesheet" href="css/stylesheet-w24-practice.css">
+
+  <link rel="stylesheet" href="css/html-body-main.css">
+  <link rel="stylesheet" href="css/code.css">
+  <link rel="stylesheet" href="css/headers.css">
+  <link rel="stylesheet" href="css/img-p.css">
+  <link rel="stylesheet" href="css/lists-a.css">
+  <link rel="stylesheet" href="css/pdf.css">
+  <link rel="stylesheet" href="css/plaintext.css">
+  <link rel="stylesheet" href="css/section-span-div-article.css">
+
   <link rel="stylesheet" href="../root-css/header.css">
   <link rel="stylesheet" href="../root-css/nav-buttons.css">
   <link rel="stylesheet" href="../Higlightjs/styles/tomorrow-night-bright.css">
+
   <script src="../Higlightjs/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
+
   <title>Week 24 Sandbox</title>
 </head>
 
@@ -99,7 +110,7 @@
 
   <main>
 
-    <section id="arb-keywords">
+    <section>
       <h2>Python - Arbitrary Keyword Args</h2>
       <pre><code class='python'>
         #In addition to positional arbitrary args, Python also provides keyword arbitary args
@@ -120,7 +131,7 @@
       </pre>
     </section>
 
-    <section id="exceptions">
+    <section>
       <h2>Python - Exceptions</h2>
       <pre><code class='python'>
         #Python try-catch is a bit different than in other languages, and instead uses try-except
@@ -186,7 +197,7 @@
       </pre>
     </section>
 
-    <section id="namespaces">
+    <section>
       <h2>PHP - Namespaces</h2>
       <pre><code class='php'>
         //Namespaces provide a way to prevent name clashes across files through encapsulation
@@ -253,7 +264,7 @@
       </pre>
     </section>
 
-    <section id="oop-separation">
+    <section>
       <h2>PHP - OOP General Practice</h2>
       <pre><code class='php'>
         //Lets say you want to design a base Animal class that separates common behaviors from shared behaviors. How could you do this?
@@ -394,7 +405,7 @@
       </pre>
     </section>
 
-    <section id="scope-namespaces">
+    <section>
       <h2>Python - Scope & Namespaces</h2>
       <pre><code class='python'>
         #Python has local, enclosing, global, and built-in (LEGB) level scope
@@ -484,8 +495,8 @@
     <section>
       <h2>Python &amp; PHP Notes</h2>
       <div class="pdf-container">
-        <iframe src="../notes/Python.pdf" class="pdf"></iframe>
-        <iframe src="../notes/ModernPHP.pdf" class="pdf"></iframe>
+        <iframe src="../notes/Python.pdf" class="pdf-double"></iframe>
+        <iframe src="../notes/ModernPHP.pdf" class="pdf-double"></iframe>
       </div>
     </section>
 
@@ -496,7 +507,5 @@
 </body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="js/hide-option.js"></script>    <!---requires jQuery-->
-<!-- <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script> -->
 
 </html>
