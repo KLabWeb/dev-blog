@@ -92,7 +92,7 @@
 
     <section id="factory">
       <h2>Factory Method Pattern</h2>
-      <p class="plaintext">The factory method pattern provides a way for creating objects in a subclass, where subclasses decide the types of objects that will be created. Instead of creating objects in the high-level code via 'new' in the high-level constructor, etc., it moves creation to an inherited or abstract factory method instead, which hides the 'new' construction logic, and returns an object of an abstract type. Implementations of the factory method in subclasses can now return any type of concrete object implemented from the abstract object.
+      <p class="plaintext">The factory method pattern provides a way for decoupling object creation, where subclasses determine the types of objects that will be created. Instead of creating objects in the high-level code via 'new,' the pattern delegates creation to subclasses through an inherited interface or abstract factory method instead. This hides the 'new' construction logic from the high-level class. Implementations of the factory method in subclasses can now return any type of concrete object implemented from the abstraction.
       <br><br>
       In the below example, note how the high-level CampaignSetup function setupCampaign() does not care what type of OwnerBuilder it is calling register() on. Note also how the desired type of OwnerBuilder class is not determined until runtime in test.php, showing decoupling of the type of OwnerBuilder from CampaignSetup, and allowing great flexibility.</p>
       <br>
@@ -193,7 +193,8 @@ class AdminOwnerBuilder extends OwnerBuilder{
     $id = readline("Enter owner id to add:  ");
     $this->addOwner($id);
 
-    if(readline("Grant owner admin rights? Please enter true or false:  ") == 'true')
+    if(readline("Grant owner admin rights?
+                 Please enter true or false:  ") == 'true')
       $this->grantAdmin($id);
   }
 
@@ -224,7 +225,8 @@ require_once 'LimitedCampaignSetup.php';
 $campaignSetup;
 
 echo "Starting campaign setup\n";
-$campType = readline("Setup limited or advanced campaign? Please enter standard or advanced:  ");
+$campType = readline("Setup limited or advanced campaign?
+                      Please enter standard or advanced:  ");
 
 switch($campType){
   case 'standard':
