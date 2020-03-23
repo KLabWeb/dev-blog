@@ -1,6 +1,6 @@
 {
   "name": "products_list",
-  "homepage": "https://wwww.unfoldkyle.com/product-list",
+  "homepage": "http://unfoldkyle.com/spa/product_list/public/index.html",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
