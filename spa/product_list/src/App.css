@@ -1,0 +1,33 @@
+.App {
+  text-align: center;
+}
+
+.ProductOrganizer{
+  background: #777;
+  padding: 10px 0;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.ProductOrganizer > * {
+  margin: 0 5px;
+}
+
+
+/* responsive CSS for cell and tablet */
+@media only screen and (max-width: 1200px) {
+  .ProductOrganizer{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+
+  .ProductOrganizer > *:not(:first-child) {
+    flex: 1;
+    max-width: 250px;
+    margin-top: 10px;
+  }
+}
