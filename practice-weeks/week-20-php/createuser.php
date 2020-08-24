@@ -1,6 +1,4 @@
 <?php
-
-error_reporting(E_ALL);
 header('Content-type: application/json');
 require_once '../week-19-php/dbConn.class.php';
 

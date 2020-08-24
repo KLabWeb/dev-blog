@@ -3,10 +3,11 @@
     require_once('week-18-php/TableBuilder.php');
 
     $result = $conn->query('SELECT * FROM classics');
-    !result && die("Query failed.");
+    !$result && die("Query failed.");
 
     $fetch_head = array_keys($result->fetch_assoc());
-    $fetch_rows = $result->fetch_all
+    $fetch_rows = $result->fetch_all();
+
  ?>
 
 <!DOCTYPE html>

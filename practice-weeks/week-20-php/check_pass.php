@@ -1,5 +1,4 @@
 <?php
-  error_reporting(E_ALL);
   require_once 'week-19-php/dbConn.class.php';
 
   function check_pass($user, $pass){

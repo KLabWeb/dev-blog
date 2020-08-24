@@ -1,5 +1,4 @@
 <?php
-  error_reporting(E_ALL);
   require_once('week-19-php/tableBuilder.php');
   require_once('week-19-php/dbConn.class.php');
   require_once('week-19-php/facade/ordersFacade.class.php');

@@ -1,6 +1,4 @@
 <?php
-  error_reporting(E_ALL);
-
   require_once('week-20-php/check_pass.php');
   require_once('week-20-php/auth.php');
 
@@ -159,7 +157,6 @@
         <pre><code class='php'>
           //get_customer.php
 
-          error_reporting(E_ALL);
           header('Content-type: application/json');
           require_once 'dbConn.class.php';
 
@@ -386,7 +383,6 @@
 
           &lt;?php
 
-          error_reporting(E_ALL);
           header('Content-type: application/json');
           require_once '../week-19-php/dbConn.class.php';
 

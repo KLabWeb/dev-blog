@@ -1,6 +1,5 @@
 <?php
   namespace SmilingStallman\DevBlog\Week24;
-  error_reporting(E_ALL);
 
   // include 'week-24-php/NamespaceA.php';
   // include 'week-24-php/NamespaceB.php';
