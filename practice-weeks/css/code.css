@@ -1,17 +1,18 @@
 code, pre{
-  width: 90%;
+  /* width: 90%; */
 }
 
 pre:not(.grid-code), .grid-code-container, code{
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 
 .grid-code-container{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 40vw 40vw;
+  grid-gap: 2.5vw;
   background: black;
   overflow: auto;
-  width: 90%;
+  width: 90vw;
   justify-content: center;
   align-items: center;
   padding-left: 30px;
@@ -21,8 +22,8 @@ pre:not(.grid-code), .grid-code-container, code{
 .grid-code{
   border: 1px solid white;
   border-radius: 25px;
-  margin: 20px;
-  padding: 20px !important;
+  /* margin: 20px; */
+  /* padding: 20px !important; */
 }
 
 .grid-code:hover{
