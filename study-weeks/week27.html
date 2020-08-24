@@ -5,30 +5,31 @@
 <head>
     <meta charset="utf-8">
     <meta name="author" content="KMiskell">
-    <meta name="description" content="Week 26 Study Log">
+    <meta name="description" content="Week 27 Study Log">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../root-assets/favicon/javascript-original.svg" type="image/x-icon">
     <link rel="stylesheet" href="../root-css/stylesheet.css">
     <link rel="stylesheet" href="../root-css/header.css">
     <link rel="stylesheet" href="../root-css/nav-buttons.css">
-    <title>Week 26 Study Log</title>
+    <title>Week 27 Study Log</title>
 </head>
 
 <body class>
 
     <header class="header-v2">
-        <h1>Week 26 Study Log</h1>
+        <h1>Week 27 Study Log</h1>
     </header>
 
     <nav class="nav-v2">
         <ul>
             <li><a href="../index.html" title="Home">Home</a></li>
-            <li><a href="../study-weeks/week25.html" title="Previous Log">Previous Log</a></li>
-            <li><a href="../practice-weeks/week26-practice.html" title="Week Work">Week Work</a></li>
-            <li><a href="../study-weeks/week27.html" title="Next Log">Next Log</a>
+            <li><a href="../study-weeks/week26.html" title="Previous Log">Previous Log</a></li>
+            <li><a href="../practice-weeks/week27-practice.html" title="Week Work">Week Work</a></li>
+            <!-- <li><a href="../study-weeks/week28.html" title="Next Log">Next Log</a> -->
             <li><a href="../roadmap.html" title="Roadmap">Roadmap</a></li>
             <li><select class="hide-select" onchange="location = this.value;">
                   <option class="hide-option" value="">Notes</option>
+                  <option value="../notes/Docker.pdf" title="Docker Studies in PDF">Docker</option>
                   <option value="../notes/dive_into_notes.pdf" title="Design Studies in PDF">Design Patterns</option>
                   <option value="../notes/ModernPHP.pdf" title="Modern PHP Studies in PDF">Modern PHP</option>
                   <option value="../notes/Python.pdf" title="Python Studies in PDF">Python</option>
@@ -49,6 +50,7 @@
             </li>
             <li><select class="hide-select" onchange="location = this.value;">
                   <option class="hide-option" value="">Learning Resources</option>
+                  <option value="https://www.udemy.com/course/docker-mastery/">Docker Mastery</option>
                   <option value="../notes/Head-First-2004.pdf">Head First Design Patterns</option>
                   <option value="../notes/Modern-PHP-2015.pdf">Modern PHP</option>
                   <option value="../notes/python-crash-course.pdf">Python Crash Course</option>
@@ -67,22 +69,66 @@
 
     <main class="study-week">
 
-      <article id="W26D01">
-        <p><b class="study-day">Day 01 - 03-09-20</b> - 2 hrs, 46 mins</p>
+      <article id="W27D01">
+        <p><b class="study-day">Day 01 - 08-17-20</b> - 7 hrs, 15 mins</p>
         <ul>
-          <li>Continued reading <i>Dive into Design Patterns</i>, focusing on factory method pattern. See notes <a href="../notes/dive_into_notes.pdf">here</a>.</li>
+          <li>Started learning Docker, going through different education resources to find the right mix of foundational and practical, ending up on Udemy Course <a href="https://www.udemy.com/course/docker-mastery" title="Docker Mastery" target="blank">Docker Mastery</a>.</li>
+          <li>Intro to Docker, as well as basic image pulling, deletion, etc. and creation, running, pausing, starting, stopping, deleting, etc. of containers.</li>
+          <li>Interaction with containers through starting commands, -it, -ai, bash, and exec, and viewing container stats, inspecting their configs, etc.</li>
+          <li>Basics of Docker port mapping</li>
         </ul>
       </article>
 
-      <article id="W26D02">
-        <p><b class="study-day">Day 02 - 03-10-20</b> - 2 hrs, 27 mins</p>
+      <article id="W27D02">
+        <p><b class="study-day">Day 02 - 08-18-20</b> - 3 hrs, 5 mins</p>
         <ul>
-          <li>Made an <a href="../practice-weeks/week26-practice.html#factory">example</a> demonstrating the use of the factory method pattern. First designed, then coded, the did UML for.</li>
+          <li>Continued learning Docker, focusing on Docker networks, containers communicating across the same virtual network and different virtual networks, dns aliases and round robins, CLI app testing, image layers, image tags, Docker Hub interaction, and Dockerfiles.</li>
         </ul>
       </article>
+
+      <article id="W27D03">
+        <p><b class="study-day">Day 03 - 08-19-20</b> - 3 hrs, 5 mins</p>
+        <ul>
+          <li>Continued with Docker, learning and practicing with volumes and bind mounts.</li>
+          <li>Updated HTML note cards to include more info, for study on various attributes, and lesser used elements, etc.</li>
+        </ul>
+      </article>
+
+      <article id="W27D04">
+        <p><b class="study-day">Day 04 - 08-20-20</b> - 5 hrs, 28 mins</p>
+        <ul>
+          <li>Continued learning docker-compose.</li>
+          <li>Spent forever trying to get local LEMP set up but couldn't get php-fpm to serve files w/ "File Not Found" error for all php pages.</li>
+        </ul>
+      </article>
+
+      <article id="W27D05">
+        <p><b class="study-day">Day 05 - 08-21-20</b> - 8 hrs, 37 mins</p>
+        <ul>
+          <li>Finished <a href="https://github.com/SmilingStallman/docker-lemp-adminer" title="Docker LEMP + Adminer" target="blank">docker-compose lemp + adminder stack</a> setup and got all working for dev blog.</li>
+        </ul>
+      </article>
+
+      <article id="W27D06">
+        <p><b class="study-day">Day 06 - 08-22-20</b> - 7 hrs, 48 mins</p>
+        <ul>
+          <li>Made a modified version of the docker-compose lemp + adminder stack, for use with any LEMP app, then built a basic demo page for it that pulls from it's demo DBs.</li>
+          <li>Finished learning about docker-compose through ongoing Udemy course, then started learning about Docker Swarm.</li>
+          <li>Created a new Debian droplet on Digital Ocean and added three nodes to it, for three docker swarm nodes,then started playing around with basic docker swarm service creation, replicates, cross-node communication via overlay networks, and learning how Swarm handles load balancing and routing through its VIP.</li>
+        </ul>
+      </article>
+
+      <article id="W27D07">
+        <p><b class="study-day">Day 07 - 08-23-20</b> - 4 hrs, 47 mins</p>
+        <ul>
+          <li>Continued learning Docker Swarm, then moved onto Docker Stack.</li>
+          <li>Started making Python note cards, from <a href="../notes/Python.pdf" title="Python Notes" target="blank">existing Python notes</a> (24 pages) from earlier this year, doing refresher, practice programming as I made them, for brush up.</li>
+        </ul>
+      </article>
+
 
       <article id="total-time">
-          <h3 id="time">TOTAL TIME = 5 hrs, 13 mins</h3>
+          <h3 id="time">TOTAL TIME = 40 hrs, 5 mins</h3>
       </article>
 
       <br>
