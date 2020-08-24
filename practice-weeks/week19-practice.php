@@ -105,7 +105,7 @@
   <main>
     <section>
       <h2>Basic PHP Back-End with MYSQLi</h2>
-      <pre><code class="php">
+      <pre class="basic-pre"><code class="php basic-code">
         //Singleton class
         class dbConn extends mysqli {
           private $user = 'demo';
@@ -131,7 +131,7 @@
         }
         </code>
       </pre>
-      <pre><code class="php">
+      <pre class="basic-pre"><code class="php basic-code">
         //week19-practice.php
 
         $conn = dbConn::getInstance();
@@ -194,7 +194,7 @@
       <br>
       <br>
 
-      <pre><h3>Responsibility 1: Owner</h3><code class="php">
+      <pre class="basic-pre"><h3>Responsibility 1: Owner</h3><code class="php basic-code">
           class shippedCounter{
             private $db;
 
@@ -212,7 +212,7 @@
         </code>
       </pre>
 
-      <pre><h3>Responsibility 2: Shipping Dept</h3><code class="php">
+      <pre class="basic-pre"><h3>Responsibility 2: Shipping Dept</h3><code class="php basic-code">
           class unshippedAlterter{
             private $db;
 
@@ -232,7 +232,7 @@
         </code>
       </pre>
 
-      <pre><h3>Responsibility 3: Order Support</h3><code class="php">
+      <pre class="basic-pre"><h3>Responsibility 3: Order Support</h3><code class="php basic-code">
           class dailyShipCheck{
             private $db;
 
@@ -249,7 +249,7 @@
         </code>
       </pre>
 
-      <pre><h3>Facade Class</h3><code class="php">
+      <pre class="basic-pre"><h3>Facade Class</h3><code class="php basic-code">
           class ordersFacade{
               private $shippedCounter;
               private $unshippedAlterter;
@@ -279,7 +279,7 @@
         </code>
       </pre>
 
-      <pre><h3>Access of Facade from this page</h3><code class="php">
+      <pre class="basic-pre"><h3>Access of Facade from this page</h3><code class="php basic-code">
           echo $orders_facade->getNumShipped();
           echo $orders_facade->checkUnshippedWarning();
           echo $orders_facade->getShippedToday();
@@ -287,7 +287,7 @@
       </pre>
 
 
-      <pre><h3>Output</h3><code class="php">
+      <pre class="basic-pre"><h3>Output</h3><code class="php basic-code">
           <?php echo $orders_facade->getNumShipped(); ?>
           <br>
           <?php echo $orders_facade->checkUnshippedWarning();?>
@@ -299,7 +299,7 @@
 
     <section>
       <h2>Python Begins</h2>
-      <pre><code class="python">
+      <pre class="basic-pre"><code class="python basic-code">
 >>> message = "hello python variable"
 
 #print using print():
@@ -323,7 +323,7 @@ printing variable: hello python variable
 126.18
 </code></pre><br>
 <h2>Python Strings</h2>
-<pre><code class="python">
+<pre class="basic-pre"><code class="python basic-code">
 Unpaired qoute prints as part of string:
 Tom's books
 
@@ -426,7 +426,7 @@ x: dog, y: 123, z: 1.8
 >>> my_list = [1, 2, 'string', 'word'.upper()]
 </code></pre>
 <h2>Python Lists</h2>
-<pre><code class="python">
+<pre class="basic-pre"><code class="python basic-code">
 >>> print(my_list)
 [1, 2, 'string', 'WORD', 'fish', 1234]
 

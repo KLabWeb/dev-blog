@@ -111,7 +111,7 @@
 
     <section>
       <h2>Python - Arbitrary Keyword Args</h2>
-      <pre><code class='python'>
+      <pre class='basic-pre'><code class='python basic-code'>
         #In addition to positional arbitrary args, Python also provides keyword arbitary args
         &gt;&gt;&gt; def cities_lived(first_name, last_name, **cities):
         &gt;&gt;&gt;     if cities:
@@ -132,7 +132,7 @@
 
     <section>
       <h2>Python - Exceptions</h2>
-      <pre><code class='python'>
+      <pre class='basic-pre'><code class='python basic-code'>
         #Python try-catch is a bit different than in other languages, and instead uses try-except
         #multiple 'except' with different exception types can be defined, as well as an 'else' to execute only if no exception thrown
         #last, typical 'finally' statement can be added to 'try', to execute regardless of if exception thrown or not
@@ -198,7 +198,7 @@
 
     <section>
       <h2>PHP - Namespaces</h2>
-      <pre><code class='php'>
+      <pre class='basic-pre'><code class='php basic-code'>
         //Namespaces provide a way to prevent name clashes across files through encapsulation
         //They allow files to be grouped and together, then imported into a file, but each in their own namespace
         //For example, two packages, both with User classes, could exist fine in the same including file without name clash errors occuring
@@ -265,7 +265,7 @@
 
     <section>
       <h2>PHP - OOP General Practice</h2>
-      <pre><code class='php'>
+      <pre class='basic-pre'><code class='php basic-code'>
         //Lets say you want to design a base Animal class that separates common behaviors from shared behaviors. How could you do this?
         //One way would be to create an interface for each behavior, then implement different implementations of that behavior
         //By adding these behaviors via interface composition, the interface can then be set to any behavior at construction
@@ -406,7 +406,7 @@
 
     <section>
       <h2>Python - Scope & Namespaces</h2>
-      <pre><code class='python'>
+      <pre class='basic-pre'><code class='python basic-code'>
         #Python has local, enclosing, global, and built-in (LEGB) level scope
         #local is the innermost function scope, enclosing is the scope of all functions wrapping the function
         #global is module level Scope, built-in holds Python core names

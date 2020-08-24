@@ -175,7 +175,7 @@
     <h2>jQuery Memorization Practice</h2>
     <p class="plaintext">jQuery is used at my current job, with ajax() being used frequently, as well as jQuery selectors, attribute manipulation, etc.. Much of jQuery's functionality is now available in core JavaScript, ES6 and onwards, but since already been using it at job for awhile now, taking some time to fully read through docs and memorize more of it.</p>
     <br>
-    <pre><code class='jquery'>
+    <pre class='basic-pre'><code class='jquery basic-code'>
       &lt;script type="text/javascript"&gt;
         $(document).ready(() =&gt; {
           //BASIC SELECTORS AND ATTRIBUTES

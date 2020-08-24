@@ -1,29 +1,26 @@
-code, pre{
-  /* width: 90%; */
-}
-
-pre:not(.grid-code), .grid-code-container, code{
-  /* margin: 0 auto; */
+.basic-code{
+  width: 90vw;
+  margin: 0 auto;
 }
 
 .grid-code-container{
   display: grid;
-  grid-template-columns: 40vw 40vw;
-  grid-gap: 2.5vw;
-  background: black;
-  overflow: auto;
   width: 90vw;
+  padding: 15px 30px;
+  grid-template-columns: 40vw 40vw;
+  grid-gap: 1.5vw;
   justify-content: center;
   align-items: center;
-  padding-left: 30px;
   box-sizing: border-box;
+  background: black;
+  overflow: auto;
 }
 
 .grid-code{
   border: 1px solid white;
   border-radius: 25px;
   /* margin: 20px; */
-  /* padding: 20px !important; */
+  /* padding: 20px; */
 }
 
 .grid-code:hover{

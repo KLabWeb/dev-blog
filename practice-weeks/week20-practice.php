@@ -116,7 +116,7 @@
 
     <section>
       <h2>PHP Form Sanitzation</h2>
-        <pre><code class='php'>
+        <pre class="basic-pre"><code class='php basic-code'>
 
       //Use proper semantic hmtl to limit input first &#40;ex. &lt;input type='number'&gt; instead of &lt;input type='text'&gt;
       //Still need to do proper sanitizing via PHP before submitting, though:
@@ -154,7 +154,7 @@
 
     <section>
       <h2>PHP Form GET w/ Ajax & Response View Update</h2>
-        <pre><code class='php'>
+        <pre class="basic-pre"><code class='php basic-code'>
           //get_customer.php
 
           header('Content-type: application/json');
@@ -184,7 +184,7 @@
           </code>
         </pre>
 
-        <pre><code class='js'>
+        <pre class="basic-pre"><code class='js basic-code'>
           //form submission handling function in this page
 
           $('#cust_pop').submit(function(event){
@@ -274,7 +274,7 @@
 
     <section>
       <h2>PHP Cookies</h2>
-          <pre><code class='php'>
+          <pre class="basic-pre"><code class='php basic-code'>
             //set user cookie...domain set false for localhostx
             if(!isset($_COOKIE['userInfo'])){
               $user_ip = $_SERVER['REMOTE_ADDR'];
@@ -300,7 +300,7 @@
 
       <section>
         <h2>User Creation and Login Auth for Page Access w/ Login Cookies for 12H</h2>
-          <pre><code class='jsx'>
+          <pre class="basic-pre"><code class='jsx basic-code'>
             //register.php
             //Registration page w/ form to input reg info, then fetch call to createuser.php
             //Upon successful registration, creates user login info cookie
@@ -377,7 +377,7 @@
           </code>
         </pre>
 
-        <pre><code class='jsx'>
+        <pre class="basic-pre"><code class='jsx basic-code'>
           //createuser.php
           //Reads in user and pass, hashes pass, then submits to DB in user table
 
@@ -400,7 +400,7 @@
         </code>
       </pre>
 
-      <pre><code class='jsx'>
+      <pre class="basic-pre"><code class='jsx basic-code'>
         //auth.php
         //Request users auth details via HTTP auth, and redirects if auth fails
         //Creates user login cookie on successful auth
@@ -450,7 +450,7 @@
 
   <section>
     <h2>Python - Lists Continued</h2>
-    <pre><code class="python">
+    <pre class="basic-pre"><code class="python basic-code">
       #Sort methods called on list called on and change their state:
       &gt;&gt;&gt; countries = ['France', 'Germany', 'Poland', 'Peru', 'Sweden']
       &gt;&gt;&gt; print(countries)
@@ -523,7 +523,7 @@
     </pre>
 
     <h2>Python - if, elif, else & Comparison/Inclusion Operators</h2>
-    <pre><code class="python">
+    <pre class="basic-pre"><code class="python basic-code">
       #if uses 'if ... :', 'elif ... :', 'else:' with no ( ).
       #Python indentation (equal spaces or tabbed) based blocks instead of {} based:
       &gt;&gt;&gt; x, y = 0, 1
@@ -569,7 +569,7 @@
     </pre>
 
     <h2>Python - for Loop &amp; range() + continue, break, pass</h2>
-    <pre><code class="python">
+    <pre class="basic-pre"><code class="python basic-code">
       #loop using 'for index in iterable:'
       #index is current index, and loop ends when iterable ends:
       &gt;&gt;&gt; ints = [1, 2, 5, 9]
@@ -652,7 +652,7 @@
     </pre>
 
     <h2>Python - Functions & Arg Types</h2>
-    <pre><code class="python">
+    <pre class="basic-pre"><code class="python basic-code">
       #Function def with doc string
       #docstring should be quick explanation of function purpose:
       &gt;&gt;&gt; def print_word(word):
@@ -721,7 +721,7 @@
     </pre>
 
     <h2>Python - Dictionaries</h2>
-    <pre><code class="python">
+    <pre class="basic-pre"><code class="python basic-code">
       #Dictionaries are Pythons key=value data structure
       &gt;&gt;&gt; my_dict = {'name': 'Kyle', 'place': 'The Moon', 'days': '365'}
       &gt;&gt;&gt;
