@@ -116,10 +116,16 @@
   #love{
     display: none;
   }
-  .index main {
+  /* .index main {
     grid-template-areas:
       "practice practice practice practice study study study study notes notes notes notes"
       "sec sec sec sec sec sec sec sec roadmap roadmap roadmap roadmap"
+  } */
+
+  .index main {
+    grid-template-areas:
+    "sec sec sec sec sec sec study study study practice practice practice"
+    "sec sec sec sec sec sec roadmap roadmap roadmap notes notes notes";
   }
 }
 
@@ -128,12 +134,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0 20px 0 20px;
   }
-  #love, #love img {
-    height: 300px;
-    width: 80vw;
-  }
-  #intent-sec{
+  #love{
     display: none;
+  }
+  .index section:not(#love) {
+      padding: 0 10px 0 10px;
   }
 }
