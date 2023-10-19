@@ -78,7 +78,7 @@
   <main>
     <section>
       <h2>General React Practice &#40;click image to load React&#41;</h2>
-      <a href="https://unfoldkyle.com/practice-weeks/week-18-react"><img src='./assets/images/week-18-react.png' alt='Week 17 React'></img></a>
+      <a href="https://lainislove.com/practice-weeks/week-18-react"><img src='./assets/images/week-18-react.png' alt='Week 17 React'></img></a>
     </section>
 
     <section>
