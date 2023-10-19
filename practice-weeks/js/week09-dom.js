@@ -1,3 +1,7 @@
+const video = document.getElementById("clownvideo");
+window.onscroll = () => video.play();
+window.onclick = () => video.play();
+
 //navigate through DOM with recursion. Return array of nodes in order of occurence in html doc
 function domNavigate(element) {
   if (element.nodeType == Node.ELEMENT_NODE)
